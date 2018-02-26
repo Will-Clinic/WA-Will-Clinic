@@ -11,8 +11,13 @@ namespace WillClinic.Models
     public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
+        
         public string LastName { get; set; }
+        
         public string EmailAddress { get; set; }
+
+        // One of "admin", "lawyer", or "veteran".
+        public string UserType { get; set; }
         
     }
 
