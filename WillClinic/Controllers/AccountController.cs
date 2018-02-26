@@ -224,6 +224,19 @@ namespace WillClinic.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    ///
+                    /// todo: We need to split these register actions out into three, one for each user type.
+                    ///
+
+                    ///
+                    /// todo: We need to add identity roles to the user here
+                    ///
+
+                    ///
+                    /// todo: We need to get the ApplicationUser.Id and create a new Admin/Lawyer/Veteran object
+                    /// with that Id in the propery "ApplicationUserId"
+                    ///
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

@@ -8,6 +8,11 @@ namespace WillClinic.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
+
+        ///
+        /// todo: We need to split this RegisterViewModel out into three, one for each user type.
+        ///
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
