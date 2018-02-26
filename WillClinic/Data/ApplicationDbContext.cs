@@ -16,12 +16,13 @@ namespace WillClinic.Data
             
         }
 
+        /*
         public DbSet<AdminModel> Admin;
         public DbSet<LawyerModel> Lawyer;
         public DbSet<VeteranModel> Veterans;
         public DbSet<VeteranChildrenModel> VeteranChildren;
         public DbSet<VeteranIntakeModel> VeteranIntakeForm;
-
+        */
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -30,6 +31,7 @@ namespace WillClinic.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
+            /*
             builder.Entity<VeteranChildrenModel>()
                 .HasOne(child => child.Parent)
                 .WithMany(vet => vet.Children);
@@ -49,9 +51,7 @@ namespace WillClinic.Data
             builder.Entity<AdminModel>()
                 .HasOne(vet => vet.ApplicationUser)
                 .WithOne();
-
-
-
+            */
         }
     }
 }
