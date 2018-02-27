@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
-    public class VeteranModel
+    public class Veteran
     {
         public string ApplicationUserId { get; set; }
 
@@ -30,8 +30,8 @@ namespace WillClinic.Models
         [StringLength(50), Required]
         public string Location { get; set; }
 
-        public ICollection<VeteranChildrenModel> Children { get; set; }
+        public ICollection<VeteranChildren> Children { get; set; }
 
-        public ICollection<VeteranIntakeModel> IntakeForms { get; set; }
+        public ICollection<VeteranIntake> IntakeForms { get; set; }
     }
 }

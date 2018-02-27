@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
-    public class VeteranIntakeModel
+    public class VeteranIntake
     {
         public int ID { get; set; }
 
         public string VeteranModelApplicationUserId { get; set; }
 
-        public VeteranModel Author { get; set; }
+        public Veteran Author { get; set; }
 
         [Required]
         public bool TermsAndConditions { get; set; }

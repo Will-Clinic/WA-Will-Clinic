@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
-    public class LawyerModel 
+    public class Lawyer
     {
         public string ApplicationUserId { get; set; }
 

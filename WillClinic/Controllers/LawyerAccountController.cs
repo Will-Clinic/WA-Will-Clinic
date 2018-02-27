@@ -19,7 +19,7 @@ namespace WillClinic.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
-    public class AccountController : Controller
+    public class LawyerAccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -27,14 +27,16 @@ namespace WillClinic.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
-        public AccountController(
+        public LawyerAccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
+            ApplicationDbContext context,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<LawyerAccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
             _emailSender = emailSender;
             _logger = logger;
         }
@@ -230,7 +232,7 @@ namespace WillClinic.Controllers
 
                     string newUserID = newUser.Id;
 
-                    LawyerModel lawyer = new LawyerModel()
+                    Lawyer lawyer = new Lawyer()
                     {
                         ApplicationUserId = newUserID
                     };
