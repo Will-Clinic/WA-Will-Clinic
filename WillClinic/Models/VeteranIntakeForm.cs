@@ -10,7 +10,7 @@ namespace WillClinic.Models
     {
         public int ID { get; set; }
 
-        public string VeteranModelApplicationUserId { get; set; }
+        public string VeteranApplicationUserId { get; set; }
 
         [Required]
         public bool IsNotarized { get; set; }
@@ -94,26 +94,67 @@ namespace WillClinic.Models
 
         [Required]
         public bool CurrentlyPregnant { get; set; }
-
-        //[StringLength(50), Required]
-        //public string ChildName { get; set; }
-
-        //[StringLength(50), Required]
-        //public DateTime DateOfBirth { get; }
-
-        //[StringLength(50), Required]
-        //public string BiologicalAdoptive { get; }
-
-        //[StringLength(50), Required]
-        //public bool AdditionalChildren { get; }
-
+        
         [Required]
         public bool SpecificBequest { get; set; }
 
-        [StringLength(500), Required]
+        [StringLength(500)]
         public string BequestInfromation { get; set; }
+       
+        public InheritEstate InheritEstate { get; set; }
+
+        [StringLength(1000)]
+        public string InheritEstateSpecific { get; set; }
+        
+        public RemainderBeneficiary RemainderBeneficiary { get; set; }
+
+        [StringLength(1000)]
+        public string RemainderBeneficiarySpecific { get; set; }
+        
+        public bool DisinheritSomeone { get; set; }
+
+        [StringLength(75)]
+        public string DisinherentDescription { get; set; }
+
+        [StringLength(50)]
+        public string PrimaryGuardian { get; set; }
+
+        [StringLength(50)]
+        public string AlternateGuardian { get; set; }
+
+        [StringLength(50)]
+        public string PersonalRepresentative { get; set; }
+
+        [StringLength(50)]
+        public string AlternateRepresentative { get; set; }
+
+        [Required]
+        public bool RequestPowerOfAttorney { get; set; }
+
+        [StringLength(50)]
+        public string PrimaryAttorney { get; set; }
+
+        [StringLength(50)]
+        public string AlternateAttorney { get; set; }
+
+        [Required]
+        public bool HealthCareDirective { get; set; }
+
+        [Required]
+        public bool HydrationDirective { get; set; }
+
+        [Required]
+        public bool NutritionDirective { get; set; }
+
+        [Required]
+        public bool ArtificialVentilation { get; set; }
+
+        [Required]
+        public bool DistressMedication { get; set; }
+
     }
 }
+
 
 
 
