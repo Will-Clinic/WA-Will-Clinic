@@ -1,4 +1,5 @@
-﻿body {
+﻿
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -18,4 +19,16 @@
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
  
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+}
+
+img#map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
