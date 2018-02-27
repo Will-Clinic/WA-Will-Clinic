@@ -1,4 +1,5 @@
-﻿body {
+﻿
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -32,4 +33,16 @@
     .carousel-caption {
         display: none;
     }
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+}
+
+img#map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
