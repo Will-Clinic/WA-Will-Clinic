@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
-    public class VeteranIntake
+    public class VeteranIntakeForm
     {
         public int ID { get; set; }
 
@@ -72,7 +72,7 @@ namespace WillClinic.Models
         public int MonthlyIncome { get; set; }
 
         [StringLength(50), Required]
-        public MaritalStatus MaritalStatus { get; set; }
+        public string MaritalStatus { get; set; }
 
         [StringLength(50), Required]
         public string FullNameSpouse { get; set; }
@@ -107,47 +107,7 @@ namespace WillClinic.Models
         [StringLength(500), Required]
         public string BequestInfromation { get; set; }
 
-        [Required]
-        public InheritEstate InheritEstate { get; set; }
 
-        [StringLength(1000), Required]
-        public string InheritEstateSpecific { get; set; }
-
-        [Required]
-        public RemainderBeneficiary RemainderBeneficiary { get; set; }
-
-        [StringLength(1000), Required]
-        public string RemainderBeneficiarySpecific { get; set; }
-
-        [Required]
-        public bool DisinheritSomeone { get; set; }
-
-        [StringLength(75), Required]
-        public string DisinherentDescription { get; set; }
-
-        [StringLength(50), Required]
-        public string PrimaryGuardian { get; set; }
-
-        [StringLength(50), Required]
-        public string AlternateGuardian { get; set; }
-
-        [StringLength(50), Required]
-        public string PersonalRepresentative { get; set; }
-
-        [StringLength(50), Required]
-        public string AlternateRepresentative { get; set; }
-
-        [Required]
-        public bool PowerOfAttorney { get; set; }
-
-        [StringLength(50), Required]
-        public string PrimaryAttorney { get; set; }
-
-        [StringLength(50), Required]
-        public string AlternateAttorney { get; set; }
-
-        [Required]
-        public bool HealthCareDirective { get; set; }
     }
 }
 

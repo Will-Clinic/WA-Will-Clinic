@@ -19,30 +19,27 @@ namespace WillClinic.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
-    public class LawyerAccountController : Controller
+    public class VeteranController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly ApplicationDbContext _context;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly ApplicationDbContext _context;
 
-        public LawyerAccountController(
+        public VeteranController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            ApplicationDbContext context,
             IEmailSender emailSender,
-            ILogger<LawyerAccountController> logger)
+            ILogger<AccountController> logger,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _context = context;
             _emailSender = emailSender;
             _logger = logger;
+            _context = context;
         }
-
-        [TempData]
-        public string ErrorMessage { get; set; }
 
         [HttpGet]
         [AllowAnonymous]
@@ -55,30 +52,30 @@ namespace WillClinic.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterLawyerViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(RegisterVeteranViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, MiddleInitial = model.MiddleInitial, LastName = model.LastName };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    
-                    // Setting up claims for the Lawyer
+
+                    // Setting up claims for the Veteran
                     string fullname = $"{model.FirstName} {model.MiddleInitial}. {model.LastName}";
                     Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);
                     Claim email = new Claim(ClaimTypes.Email, model.Email, ClaimValueTypes.String);
                     List<Claim> claims = new List<Claim> { name, email };
                     await _userManager.AddClaimsAsync(user, claims);
 
-                    // Adding Role to Lawyer account
-                    await _userManager.AddToRoleAsync(user, ApplicationRoles.Lawyer);
+                    // Adding Role to Veteran account
+                    await _userManager.AddToRoleAsync(user, ApplicationRoles.Veteran);
 
                     // Populate Veteran Table with new account
-                    Lawyer newLaw = new Lawyer { ApplicationUserId = user.Id };
-                    await _context.Lawyers.AddAsync(newLaw);
+                    Veteran newVet = new Veteran { ApplicationUserId = user.Id };
+                    await _context.Veterans.AddAsync(newVet);
                     await _context.SaveChangesAsync();
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -94,15 +91,6 @@ namespace WillClinic.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            _logger.LogInformation("User logged out.");
-            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         #region Helpers

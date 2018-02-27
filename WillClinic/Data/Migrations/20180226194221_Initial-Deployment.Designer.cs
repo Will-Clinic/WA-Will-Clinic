@@ -8,12 +8,13 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 using WillClinic.Data;
 
-namespace WillClinic.Migrations
+namespace WillClinic.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180226194221_Initial-Deployment")]
+    partial class InitialDeployment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,15 +129,6 @@ namespace WillClinic.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WillClinic.Models.Admin", b =>
-                {
-                    b.Property<string>("ApplicationUserId");
-
-                    b.HasKey("ApplicationUserId");
-
-                    b.ToTable("Admin");
-                });
-
             modelBuilder.Entity("WillClinic.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -181,8 +173,6 @@ namespace WillClinic.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
-                    b.Property<string>("UserType");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -194,180 +184,6 @@ namespace WillClinic.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("WillClinic.Models.Lawyer", b =>
-                {
-                    b.Property<string>("ApplicationUserId");
-
-                    b.Property<int>("BarNumber");
-
-                    b.Property<string>("City");
-
-                    b.Property<string>("ConfirmPassword");
-
-                    b.Property<string>("Country");
-
-                    b.Property<DateTime>("DOB");
-
-                    b.Property<bool>("OtherLanguages");
-
-                    b.Property<string>("Password");
-
-                    b.Property<string>("PracticeAreas");
-
-                    b.Property<string>("State");
-
-                    b.Property<int>("ZipCode");
-
-                    b.HasKey("ApplicationUserId");
-
-                    b.ToTable("Lawyer");
-                });
-
-            modelBuilder.Entity("WillClinic.Models.Veteran", b =>
-                {
-                    b.Property<string>("ApplicationUserId");
-
-                    b.Property<string>("ConfirmPassword")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("MiddleInitial")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("ApplicationUserId");
-
-                    b.ToTable("Veterans");
-                });
-
-            modelBuilder.Entity("WillClinic.Models.VeteranChildren", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("DOB");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Lineage")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("MotherOfChildName")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("ParentApplicationUserId");
-
-                    b.Property<string>("VeteranModelApplicationUserId");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ParentApplicationUserId");
-
-                    b.ToTable("VeteranChildren");
-                });
-
-            modelBuilder.Entity("WillClinic.Models.VeteranIntake", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("AuthorApplicationUserId");
-
-                    b.Property<int>("BankAccountAssests");
-
-                    b.Property<string>("BequestInfromation")
-                        .IsRequired()
-                        .HasMaxLength(500);
-
-                    b.Property<int>("BusinessInterest");
-
-                    b.Property<bool>("CurrentlyPregnant");
-
-                    b.Property<string>("FullLegalName")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("FullNameSpouse")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<bool>("HaveChildren");
-
-                    b.Property<int>("HouseHoldSiza");
-
-                    b.Property<int>("LifeInsuranceCashValue");
-
-                    b.Property<string>("MaritalStatus")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("MinorChildrenDifferentSpouse")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<int>("MoneyOwedToYou");
-
-                    b.Property<int>("MonthlyIncome");
-
-                    b.Property<bool>("NetWorth");
-
-                    b.Property<int>("OtherAssestsOrMoney");
-
-                    b.Property<int>("Pension");
-
-                    b.Property<int>("PhoneNumber");
-
-                    b.Property<bool>("ProofOfService");
-
-                    b.Property<int>("RealEstateAssest");
-
-                    b.Property<bool>("ResidentStatus");
-
-                    b.Property<int>("RetirementAccounts");
-
-                    b.Property<bool>("SpecificBequest");
-
-                    b.Property<int>("StockBonds");
-
-                    b.Property<bool>("TermsAndConditions");
-
-                    b.Property<bool>("UnderAgeChildren");
-
-                    b.Property<string>("VeteranModelApplicationUserId");
-
-                    b.Property<bool>("VeteranStatus");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("AuthorApplicationUserId");
-
-                    b.ToTable("VeteranIntakeForm");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -413,44 +229,6 @@ namespace WillClinic.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WillClinic.Models.Admin", b =>
-                {
-                    b.HasOne("WillClinic.Models.ApplicationUser", "ApplicationUser")
-                        .WithOne()
-                        .HasForeignKey("WillClinic.Models.Admin", "ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WillClinic.Models.Lawyer", b =>
-                {
-                    b.HasOne("WillClinic.Models.ApplicationUser", "ApplicationUser")
-                        .WithOne()
-                        .HasForeignKey("WillClinic.Models.Lawyer", "ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WillClinic.Models.Veteran", b =>
-                {
-                    b.HasOne("WillClinic.Models.ApplicationUser", "ApplicationUser")
-                        .WithOne()
-                        .HasForeignKey("WillClinic.Models.Veteran", "ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WillClinic.Models.VeteranChildren", b =>
-                {
-                    b.HasOne("WillClinic.Models.Veteran", "Parent")
-                        .WithMany("Children")
-                        .HasForeignKey("ParentApplicationUserId");
-                });
-
-            modelBuilder.Entity("WillClinic.Models.VeteranIntake", b =>
-                {
-                    b.HasOne("WillClinic.Models.Veteran", "Author")
-                        .WithMany("IntakeForms")
-                        .HasForeignKey("AuthorApplicationUserId");
                 });
 #pragma warning restore 612, 618
         }

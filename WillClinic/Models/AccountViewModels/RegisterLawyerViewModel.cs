@@ -13,6 +13,10 @@ namespace WillClinic.Models.AccountViewModels
         public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Middle Initial")]
+        public string MiddleInitial { get; set; }
+
+        [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 

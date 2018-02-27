@@ -21,4 +21,3 @@ namespace WillClinic.Models
         public bool OtherLanguages { get; set; }
     }
 }
-

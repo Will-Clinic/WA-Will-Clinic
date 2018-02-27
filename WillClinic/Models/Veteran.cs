@@ -9,29 +9,12 @@ namespace WillClinic.Models
     public class Veteran
     {
         public string ApplicationUserId { get; set; }
-
         public ApplicationUser ApplicationUser { get; set; }
-
-        [StringLength(50), Required]
-        public string FirstName { get; set; }
-
-        [StringLength(50), Required]
-        public string MiddleInitial { get; set; }
-
-        [StringLength(50), Required]
-        public string LastName { get; set; }
-
-        [StringLength(50), Required]
-        public string Password { get; set; }
-
-        [StringLength(50), Required]
-        public string ConfirmPassword { get; set; }
-
-        [StringLength(50), Required]
-        public string Location { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZIP { get; set; }
 
         public ICollection<VeteranChildren> Children { get; set; }
-
-        public ICollection<VeteranIntake> IntakeForms { get; set; }
+        public ICollection<VeteranIntakeForm> IntakeForms { get; set; }
     }
 }

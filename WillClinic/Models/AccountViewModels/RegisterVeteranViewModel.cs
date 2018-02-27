@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models.AccountViewModels
 {
-    public class LawyersRegisterViewModel
+    public class RegisterVeteranViewModel
     {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
 
-        ///
-        /// todo: We need to split this LawyersRegisterViewModel out into three, one for each user type.
-        ///
+        [Required]
+        [Display(Name = "Middle Initial")]
+        public string MiddleInitial { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
 
         [Required]
         [EmailAddress]
