@@ -6,8 +6,20 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models.AccountViewModels
 {
-    public class RegisterViewModel
+    public class RegisterVeteranViewModel
     {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Middle Initial")]
+        public string MiddleInitial { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
