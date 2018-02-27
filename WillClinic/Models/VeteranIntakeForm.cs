@@ -12,7 +12,7 @@ namespace WillClinic.Models
 
         public string VeteranModelApplicationUserId { get; set; }
 
-        public VeteranModel Author { get; set; }
+        public Veteran Author { get; set; }
 
         [Required]
         public bool TermsAndConditions { get; set; }
