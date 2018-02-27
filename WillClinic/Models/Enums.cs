@@ -12,9 +12,9 @@ namespace WillClinic.Models
         Status1,
         [Display(Name = "Presently married, and had a prior marriage (previous spouse is deceased or legally divorced)")]
         Status2,
-        [Display(Name = "Widow/widower")]
+        [Display(Name = "Widow/Widower")]
         Status3,
-        [Display(Name = "Single,nevermarried")]
+        [Display(Name = "Single, never married")]
         Status4
     }
 
@@ -45,7 +45,7 @@ namespace WillClinic.Models
     {
         [Display(Name = "My then living children, in equal shares")]
         Status1,
-        [Display(Name = "Mythenlivingchildren,butifoneormoreofmychildrenisdeceasedwhenIdie,thenhis/hershareuntothatdeceasedchild'schildren(mygrandchildren)")]
+        [Display(Name = "My then living children, but if one or more of my children is deceased when I die, then his/her share un to that deceased child's children (my grandchildren)")]
         Status2,
         [Display(Name = "A specific charity")]
         Status3,
