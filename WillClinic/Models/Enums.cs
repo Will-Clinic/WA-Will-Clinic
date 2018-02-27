@@ -52,4 +52,14 @@ namespace WillClinic.Models
         [Display(Name = "A Specific person(s)/ other")]
         Status4
     }
+
+    public enum UserType
+    {
+        [Display(Name = "Admin")]
+        Status1,
+        [Display(Name = "Lawyer")]
+        Status2,
+        [Display(Name = "Veteran")]
+        Status3
+    }
 }

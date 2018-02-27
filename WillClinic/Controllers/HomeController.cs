@@ -12,7 +12,29 @@ namespace WillClinic.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Lawyer"))
+                {
+                    return RedirectToAction("Index", "Lawyer");
+                }
+                //else if (User.IsInRole("Veteran"))
+                //{
+                //    RedirectToAction("Index", "Veteran");
+                //}
+                //else if (User.IsInRole("Admin"))
+                //{
+                //    RedirectToAction("Index", "Admin");
+                //}
+                else
+                {
+                    return View();
+                }
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult About()
