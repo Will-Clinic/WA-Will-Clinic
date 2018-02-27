@@ -54,6 +54,14 @@ body {
     font-size: 4em;
 }
 
+#footer {
+    background: dimgray;
+}
+
+.logo {
+    padding: 10px 1px 10px 1px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
  
