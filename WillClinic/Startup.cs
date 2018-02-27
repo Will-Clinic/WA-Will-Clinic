@@ -66,7 +66,7 @@ namespace WillClinic
             
             foreach (string role in new List<string>() { "Lawyer", "Veteran" })
             {
-                CreateRoleIfNotExists(roleManager, role);
+                //CreateRoleIfNotExists(roleManager, role);
             }
             
         }
