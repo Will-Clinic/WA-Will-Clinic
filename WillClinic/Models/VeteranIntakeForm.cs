@@ -12,7 +12,13 @@ namespace WillClinic.Models
 
         public string VeteranModelApplicationUserId { get; set; }
 
-        public Veteran Author { get; set; }
+        [Required]
+        public bool IsNotarized { get; set; }
+
+        [Required]
+        public DateTime TimeStamp { get; set; }
+
+        public Veteran Veteran { get; set; }
 
         [Required]
         public bool TermsAndConditions { get; set; }
@@ -39,10 +45,10 @@ namespace WillClinic.Models
         public bool NetWorth { get; set; }
 
         [Required]
-        public int BankAccountAssests { get; set; }
+        public int BankAccountAssets { get; set; }
 
         [Required]
-        public int RealEstateAssest { get; set; }
+        public int RealEstateAssets { get; set; }
 
         [Required]
         public int LifeInsuranceCashValue { get; set; }
@@ -63,10 +69,10 @@ namespace WillClinic.Models
         public int MoneyOwedToYou { get; set; }
 
         [Required]
-        public int OtherAssestsOrMoney { get; set; }
+        public int OtherAssetsOrMoney { get; set; }
 
         [Required]
-        public int HouseHoldSiza { get; set; }
+        public int HouseHoldSize { get; set; }
 
         [Required]
         public int MonthlyIncome { get; set; }
@@ -106,8 +112,6 @@ namespace WillClinic.Models
 
         [StringLength(500), Required]
         public string BequestInfromation { get; set; }
-
-
     }
 }
 

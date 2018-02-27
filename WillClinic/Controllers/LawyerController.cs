@@ -19,7 +19,7 @@ namespace WillClinic.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
-    public class LawyerAccountController : Controller
+    public class LawyerController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -27,12 +27,12 @@ namespace WillClinic.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
-        public LawyerAccountController(
+        public LawyerController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ApplicationDbContext context,
             IEmailSender emailSender,
-            ILogger<LawyerAccountController> logger)
+            ILogger<LawyerController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -77,7 +77,7 @@ namespace WillClinic.Controllers
                     await _userManager.AddToRoleAsync(user, ApplicationRoles.Lawyer);
 
                     // Populate Veteran Table with new account
-                    Lawyer newLaw = new Lawyer { ApplicationUserId = user.Id };
+                    Lawyer newLaw = new Lawyer { ApplicationUserId = user.Id, BarNumber = model.BarNumber, City = model.City, Country = model.Country, OtherLanguages = model.OtherLanguages, PracticeAreas = model.PracticeAreas, State = model.State, YearsOfExperience = model.YearsOfExperience, ZipCode = model.ZipCode };
                     await _context.Lawyers.AddAsync(newLaw);
                     await _context.SaveChangesAsync();
 
