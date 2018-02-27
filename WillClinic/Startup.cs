@@ -40,7 +40,7 @@ namespace WillClinic
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +63,29 @@ namespace WillClinic
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            foreach (string role in new List<string>() { "Lawyer", "Veteran" })
+            {
+                CreateRoleIfNotExists(roleManager, role);
+            }
+        }
+
+        public void CreateRoleIfNotExists(RoleManager<IdentityRole> roleManager, string role)
+        {
+            Task<bool> task = roleManager.RoleExistsAsync(role);
+            task.Wait();
+
+            if(!task.Result)
+            {
+                var createTask = roleManager.CreateAsync(new IdentityRole
+                {
+                    Name = role
+                });
+
+                createTask.Wait();
+            }
+            
+
         }
     }
 }

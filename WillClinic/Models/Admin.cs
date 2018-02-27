@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
-    public class AdminModel
+    public class Admin
     {
         public string ApplicationUserId { get; set; }
 

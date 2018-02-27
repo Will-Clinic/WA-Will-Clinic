@@ -10,18 +10,17 @@ namespace WillClinic.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Lawyer> Lawyers { get; set; }
+        public DbSet<Veteran> Veterans { get; set; }
+        public DbSet<VeteranChildren> VeteranChildren { get; set; }
+        public DbSet<VeteranIntake> VeteranIntakeForms { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
             
         }
-
-        public DbSet<AdminModel> Admin;
-        public DbSet<LawyerModel> Lawyer;
-        public DbSet<VeteranModel> Veterans;
-        public DbSet<VeteranChildrenModel> VeteranChildren;
-        public DbSet<VeteranIntakeModel> VeteranIntakeForm;
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -30,25 +29,34 @@ namespace WillClinic.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
-            builder.Entity<VeteranChildrenModel>()
+            builder.Entity<VeteranChildren>()
                 .HasOne(child => child.Parent)
                 .WithMany(vet => vet.Children);
 
-            builder.Entity<VeteranIntakeModel>()
+            builder.Entity<VeteranIntake>()
                 .HasOne(form => form.Author)
                 .WithMany(vet => vet.IntakeForms);
 
-            builder.Entity<VeteranModel>()
+            builder.Entity<Veteran>()
                 .HasOne(vet => vet.ApplicationUser)
                 .WithOne();
 
-            builder.Entity<LawyerModel>()
+            builder.Entity<Veteran>()
+                .HasKey(veteran => veteran.ApplicationUserId);
+
+            builder.Entity<Lawyer>()
                 .HasOne(vet => vet.ApplicationUser)
                 .WithOne();
 
-            builder.Entity<AdminModel>()
+            builder.Entity<Lawyer>()
+                .HasKey(lawyer => lawyer.ApplicationUserId);
+
+            builder.Entity<Admin>()
                 .HasOne(vet => vet.ApplicationUser)
                 .WithOne();
+
+            builder.Entity<Admin>()
+                .HasKey(admin => admin.ApplicationUserId);
 
 
 

@@ -6,14 +6,11 @@ using Microsoft.AspNetCore.Identity;
 
 namespace WillClinic.Models
 {
-    // Add profile data for application users by adding properties to the ApplicationUser class
-    
     public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
+        public string MiddleInitial { get; set; }
         public string LastName { get; set; }
-        public string EmailAddress { get; set; }
-        
     }
 
     public static class ApplicationRoles
@@ -21,6 +18,5 @@ namespace WillClinic.Models
         public const string Veteran = "Veteran";
         public const string Lawyer = "Lawyer";
         public const string Admin = "Admin";
-        
     }
 }
