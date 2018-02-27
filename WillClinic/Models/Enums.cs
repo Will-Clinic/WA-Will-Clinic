@@ -15,8 +15,7 @@ namespace WillClinic.Models
         [Display(Name = "Widow/widower")]
         Status3,
         [Display(Name = "Single,nevermarried")]
-        Status4,
-
+        Status4
     }
 
     public enum ChildRelationToVeteran
@@ -26,7 +25,7 @@ namespace WillClinic.Models
         [Display(Name = "Adoptive Child")]
         Status2,
         [Display(Name = "Step-Child")]
-        Status3,
+        Status3
       
     }
 
@@ -39,8 +38,7 @@ namespace WillClinic.Models
         [Display(Name = "A specific charity")]
         Status3,
         [Display(Name = "A Specific person(s)/ other")]
-        Status4,
-
+        Status4
     }
 
     public enum RemainderBeneficiary
@@ -52,11 +50,6 @@ namespace WillClinic.Models
         [Display(Name = "A specific charity")]
         Status3,
         [Display(Name = "A Specific person(s)/ other")]
-        Status4,
-
+        Status4
     }
-
-    
-
-
 }
