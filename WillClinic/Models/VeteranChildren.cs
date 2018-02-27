@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,8 +11,7 @@ namespace WillClinic.Models
         public int ID { get; set; }
 
         public Veteran Parent { get; set; }
-
-        [StringLength(50), Required]
+        
         public string VeteranModelApplicationUserId { get; set; }
 
         [StringLength(50), Required]
@@ -21,11 +20,13 @@ namespace WillClinic.Models
         public DateTime DOB { get; set; }
 
         [StringLength(50), Required]
-        public string Lineage { get; set; }
+        public ChildRelationToVeteran ChildRelationToVeteran { get; set; }
 
         [StringLength(50), Required]
         public string MotherOfChildName { get; set; }
 
 
     }
+
+   
 }
