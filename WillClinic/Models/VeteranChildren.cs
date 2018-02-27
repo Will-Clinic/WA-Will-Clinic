@@ -12,7 +12,7 @@ namespace WillClinic.Models
 
         public Veteran Parent { get; set; }
         
-        public string VeteranModelApplicationUserId { get; set; }
+        public string VeteranApplicationUserId { get; set; }
 
         [StringLength(50), Required]
         public string FullName { get; set; }
