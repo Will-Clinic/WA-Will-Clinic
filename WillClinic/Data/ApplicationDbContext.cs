@@ -10,18 +10,17 @@ namespace WillClinic.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Lawyer> Lawyers { get; set; }
+        public DbSet<Veteran> Veterans { get; set; }
+        public DbSet<VeteranChildren> VeteranChildren { get; set; }
+        public DbSet<VeteranIntake> VeteranIntakeForms { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
             
         }
-
-        public DbSet<Admin> Admin { get; set; }
-        public DbSet<Lawyer> Lawyer { get; set; }
-        public DbSet<Veteran> Veterans { get; set; }
-        public DbSet<VeteranChildren> VeteranChildren { get; set; }
-        public DbSet<VeteranIntake> VeteranIntakeForm { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -62,8 +61,5 @@ namespace WillClinic.Data
 
 
         }
-
-
-        public DbSet<WillClinic.Models.Lawyer> Lawyer_1 { get; set; }
     }
 }
