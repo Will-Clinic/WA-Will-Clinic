@@ -60,21 +60,26 @@ namespace WillClinic.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                string lawyerFullName = $"{model.FirstName} {model.middle}";
-                Claim nameClaim = new Claim(ClaimTypes.Name, ClaimValueTypes.String)
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Lawyer");
-
-                    Lawyer lawyer = new Lawyer(){ApplicationUserId = user.Id};
-
-                    await _context.Lawyers.AddAsync(lawyer);
-                    await _context.SaveChangesAsync();
-
-
                     _logger.LogInformation("User created a new account with password.");
+                    
+                    // Setting up claims for the Lawyer
+                    string fullname = $"{model.FirstName} {model.MiddleInitial}. {model.LastName}";
+                    Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);
+                    Claim email = new Claim(ClaimTypes.Email, model.Email, ClaimValueTypes.String);
+                    List<Claim> claims = new List<Claim> { name, email };
+                    await _userManager.AddClaimsAsync(user, claims);
+
+                    // Adding Role to Lawyer account
+                    await _userManager.AddToRoleAsync(user, ApplicationRoles.Lawyer);
+
+                    // Populate Veteran Table with new account
+                    Lawyer newLaw = new Lawyer { ApplicationUserId = user.Id };
+                    await _context.Lawyers.AddAsync(newLaw);
+                    await _context.SaveChangesAsync();
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
