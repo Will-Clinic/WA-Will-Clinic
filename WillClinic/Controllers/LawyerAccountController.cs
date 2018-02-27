@@ -219,7 +219,7 @@ namespace WillClinic.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegisterLawyer(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(LawyersRegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
@@ -228,16 +228,14 @@ namespace WillClinic.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    ApplicationUser newUser = await _userManager.FindByNameAsync(model.Email);
-
-                    string newUserID = newUser.Id;
-
                     Lawyer lawyer = new Lawyer()
                     {
-                        ApplicationUserId = newUserID
+                        ApplicationUserId = user.Id
                     };
 
                     _context.Lawyer.Add(lawyer);
+
+                    _context.SaveChanges();
 
                     await _userManager.AddToRoleAsync(user, "Lawyer");
 

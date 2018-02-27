@@ -64,10 +64,10 @@ namespace WillClinic
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //foreach (string role in new List<string>() { "Lawyer", "Veteran" })
-            //{
-            //    CreateRoleIfNotExists(roleManager, role);
-            //}
+            foreach (string role in new List<string>() { "Lawyer", "Veteran" })
+            {
+                CreateRoleIfNotExists(roleManager, role);
+            }
         }
 
         public void CreateRoleIfNotExists(RoleManager<IdentityRole> roleManager, string role)

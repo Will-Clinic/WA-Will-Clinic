@@ -11,8 +11,8 @@ using WillClinic.Data;
 namespace WillClinic.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180227013254_WillClinic01")]
-    partial class WillClinic01
+    [Migration("20180227020859_willclinic01")]
+    partial class willclinic01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -223,7 +223,7 @@ namespace WillClinic.Migrations
 
                     b.HasKey("ApplicationUserId");
 
-                    b.ToTable("Lawyer_1");
+                    b.ToTable("Lawyer");
                 });
 
             modelBuilder.Entity("WillClinic.Models.Veteran", b =>
@@ -256,7 +256,7 @@ namespace WillClinic.Migrations
 
                     b.HasKey("ApplicationUserId");
 
-                    b.ToTable("Veteran");
+                    b.ToTable("Veterans");
                 });
 
             modelBuilder.Entity("WillClinic.Models.VeteranChildren", b =>
@@ -368,7 +368,7 @@ namespace WillClinic.Migrations
 
                     b.HasIndex("AuthorApplicationUserId");
 
-                    b.ToTable("VeteranIntake");
+                    b.ToTable("VeteranIntakeForm");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

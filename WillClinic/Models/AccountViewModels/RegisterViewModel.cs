@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models.AccountViewModels
 {
-    public class RegisterViewModel
+    public class LawyersRegisterViewModel
     {
 
         ///
-        /// todo: We need to split this RegisterViewModel out into three, one for each user type.
+        /// todo: We need to split this LawyersRegisterViewModel out into three, one for each user type.
         ///
 
         [Required]

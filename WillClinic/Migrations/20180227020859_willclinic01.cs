@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace WillClinic.Migrations
 {
-    public partial class WillClinic01 : Migration
+    public partial class willclinic01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -176,7 +176,7 @@ namespace WillClinic.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Lawyer_1",
+                name: "Lawyer",
                 columns: table => new
                 {
                     ApplicationUserId = table.Column<string>(nullable: false),
@@ -193,9 +193,9 @@ namespace WillClinic.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Lawyer_1", x => x.ApplicationUserId);
+                    table.PrimaryKey("PK_Lawyer", x => x.ApplicationUserId);
                     table.ForeignKey(
-                        name: "FK_Lawyer_1_AspNetUsers_ApplicationUserId",
+                        name: "FK_Lawyer_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -203,7 +203,7 @@ namespace WillClinic.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Veteran",
+                name: "Veterans",
                 columns: table => new
                 {
                     ApplicationUserId = table.Column<string>(nullable: false),
@@ -216,9 +216,9 @@ namespace WillClinic.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Veteran", x => x.ApplicationUserId);
+                    table.PrimaryKey("PK_Veterans", x => x.ApplicationUserId);
                     table.ForeignKey(
-                        name: "FK_Veteran_AspNetUsers_ApplicationUserId",
+                        name: "FK_Veterans_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -242,15 +242,15 @@ namespace WillClinic.Migrations
                 {
                     table.PrimaryKey("PK_VeteranChildren", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_VeteranChildren_Veteran_ParentApplicationUserId",
+                        name: "FK_VeteranChildren_Veterans_ParentApplicationUserId",
                         column: x => x.ParentApplicationUserId,
-                        principalTable: "Veteran",
+                        principalTable: "Veterans",
                         principalColumn: "ApplicationUserId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "VeteranIntake",
+                name: "VeteranIntakeForm",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -287,11 +287,11 @@ namespace WillClinic.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VeteranIntake", x => x.ID);
+                    table.PrimaryKey("PK_VeteranIntakeForm", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_VeteranIntake_Veteran_AuthorApplicationUserId",
+                        name: "FK_VeteranIntakeForm_Veterans_AuthorApplicationUserId",
                         column: x => x.AuthorApplicationUserId,
-                        principalTable: "Veteran",
+                        principalTable: "Veterans",
                         principalColumn: "ApplicationUserId",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -341,8 +341,8 @@ namespace WillClinic.Migrations
                 column: "ParentApplicationUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VeteranIntake_AuthorApplicationUserId",
-                table: "VeteranIntake",
+                name: "IX_VeteranIntakeForm_AuthorApplicationUserId",
+                table: "VeteranIntakeForm",
                 column: "AuthorApplicationUserId");
         }
 
@@ -367,19 +367,19 @@ namespace WillClinic.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Lawyer_1");
+                name: "Lawyer");
 
             migrationBuilder.DropTable(
                 name: "VeteranChildren");
 
             migrationBuilder.DropTable(
-                name: "VeteranIntake");
+                name: "VeteranIntakeForm");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Veteran");
+                name: "Veterans");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

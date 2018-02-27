@@ -16,11 +16,11 @@ namespace WillClinic.Data
             
         }
 
-        public DbSet<Admin> Admin;
-        public DbSet<Lawyer> Lawyer;
-        public DbSet<Veteran> Veterans;
-        public DbSet<VeteranChildren> VeteranChildren;
-        public DbSet<VeteranIntake> VeteranIntakeForm;
+        public DbSet<Admin> Admin { get; set; }
+        public DbSet<Lawyer> Lawyer { get; set; }
+        public DbSet<Veteran> Veterans { get; set; }
+        public DbSet<VeteranChildren> VeteranChildren { get; set; }
+        public DbSet<VeteranIntake> VeteranIntakeForm { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

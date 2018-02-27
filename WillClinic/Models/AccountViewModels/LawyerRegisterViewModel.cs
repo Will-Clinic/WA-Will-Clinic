@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models.AccountViewModels
 {
-    public class LawyerRegisterViewModel
+    public class LawyerLawyersRegisterViewModel
     {
         [Required]
         public int BarNumber { get; set; }

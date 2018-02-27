@@ -24,10 +24,6 @@ namespace WillClinic.Models
 
         public int ZipCode { get; set; }
 
-        public string Password { get; set; }
-
-        public string ConfirmPassword { get; set; }
-
         public string PracticeAreas { get; set; }
 
         public bool OtherLanguages { get; set; }

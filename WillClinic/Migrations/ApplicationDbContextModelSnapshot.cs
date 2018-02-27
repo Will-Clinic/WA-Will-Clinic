@@ -222,7 +222,7 @@ namespace WillClinic.Migrations
 
                     b.HasKey("ApplicationUserId");
 
-                    b.ToTable("Lawyer_1");
+                    b.ToTable("Lawyer");
                 });
 
             modelBuilder.Entity("WillClinic.Models.Veteran", b =>
@@ -255,7 +255,7 @@ namespace WillClinic.Migrations
 
                     b.HasKey("ApplicationUserId");
 
-                    b.ToTable("Veteran");
+                    b.ToTable("Veterans");
                 });
 
             modelBuilder.Entity("WillClinic.Models.VeteranChildren", b =>
@@ -367,7 +367,7 @@ namespace WillClinic.Migrations
 
                     b.HasIndex("AuthorApplicationUserId");
 
-                    b.ToTable("VeteranIntake");
+                    b.ToTable("VeteranIntakeForm");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
