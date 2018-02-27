@@ -42,6 +42,13 @@ namespace WillClinic.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Lawyer")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
