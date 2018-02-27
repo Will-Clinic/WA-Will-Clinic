@@ -41,9 +41,23 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2018 - WillClinic</p>
-        </footer>
+        <div id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="row text-center">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <img src="~/images/Marines.png" alt="Marines Insignia" width="100" />
+                    <img src="~/images/Army.png" alt="Army Insignia" width="100" />
+                    <img src="~/images/AirForce.png" alt="Air Force Insignia" width="100" />
+                    <img src="~/images/Navy.png" alt="Navy Insignia" width="100" />
+                    <img src="~/images/CoastGuard.png" alt="Coast Guard Insignia" width="100" />
+                </div>
+                <div class="col-md-4">
+                </div>
+
+                <p>&copy; 2018 - WillClinic</p>
+            </div>
+        </div>
     </div>
 
     <environment include="Development">
@@ -69,4 +83,7 @@
 
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>
+
+
