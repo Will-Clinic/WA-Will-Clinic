@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
-    public class VeteranChildrenModel
+    public class VeteranChildren
     {
         public int ID { get; set; }
 

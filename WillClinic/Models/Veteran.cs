@@ -14,7 +14,7 @@ namespace WillClinic.Models
         public string State { get; set; }
         public string ZIP { get; set; }
 
-        public ICollection<VeteranChildrenModel> Children { get; set; }
-        public ICollection<VeteranIntakeModel> IntakeForms { get; set; }
+        public ICollection<VeteranChildren> Children { get; set; }
+        public ICollection<VeteranIntakeForm> IntakeForms { get; set; }
     }
 }

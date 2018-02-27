@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
-    public class VeteranIntakeModel
+    public class VeteranIntakeForm
     {
         public int ID { get; set; }
 

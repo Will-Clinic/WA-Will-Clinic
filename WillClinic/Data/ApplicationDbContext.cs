@@ -20,7 +20,7 @@ namespace WillClinic.Data
         public DbSet<Lawyer> Lawyers { get; set; }
         public DbSet<Veteran> Veterans { get; set; }
         public DbSet<VeteranChildren> VeteranChildren { get; set; }
-        public DbSet<VeteranIntake> VeteranIntakeForms { get; set; }
+        public DbSet<VeteranIntakeForm> VeteranIntakeForms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -29,18 +29,18 @@ namespace WillClinic.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
             
-            builder.Entity<VeteranChildrenModel>()
+            builder.Entity<VeteranChildren>()
                 .HasOne(child => child.Parent)
                 .WithMany(vet => vet.Children);
 
-            builder.Entity<VeteranChildrenModel>()
+            builder.Entity<VeteranChildren>()
                 .HasKey(a => a.VeteranModelApplicationUserId);
 
-            builder.Entity<VeteranIntakeModel>()
+            builder.Entity<VeteranIntakeForm>()
                 .HasOne(form => form.Author)
                 .WithMany(vet => vet.IntakeForms);
 
-            builder.Entity<VeteranIntakeModel>()
+            builder.Entity<VeteranIntakeForm>()
                 .HasKey(a => a.VeteranModelApplicationUserId);
 
             builder.Entity<Veteran>()
@@ -50,18 +50,18 @@ namespace WillClinic.Data
             builder.Entity<Veteran>()
                 .HasKey(a => a.ApplicationUserId);
 
-            builder.Entity<LawyerModel>()
+            builder.Entity<Lawyer>()
                 .HasOne(vet => vet.ApplicationUser)
                 .WithOne();
 
-            builder.Entity<LawyerModel>()
+            builder.Entity<Lawyer>()
                 .HasKey(a => a.ApplicationUserId);
 
-            builder.Entity<AdminModel>()
+            builder.Entity<Admin>()
                 .HasOne(vet => vet.ApplicationUser)
                 .WithOne();
 
-            builder.Entity<AdminModel>()
+            builder.Entity<Admin>()
                 .HasKey(a => a.ApplicationUserId);
         }
     }
