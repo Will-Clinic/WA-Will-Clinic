@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WillClinic.Data;
 using WillClinic.Models;
 using WillClinic.Models.AccountViewModels;
 using WillClinic.Services;
@@ -22,6 +23,7 @@ namespace WillClinic.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ApplicationDbContext _context;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
@@ -215,7 +217,7 @@ namespace WillClinic.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> RegisterLawyer(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
@@ -224,18 +226,18 @@ namespace WillClinic.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    ///
-                    /// todo: We need to split these register actions out into three, one for each user type.
-                    ///
+                    ApplicationUser newUser = await _userManager.FindByNameAsync(model.Email);
 
-                    ///
-                    /// todo: We need to add identity roles to the user here
-                    ///
+                    string newUserID = newUser.Id;
 
-                    ///
-                    /// todo: We need to get the ApplicationUser.Id and create a new Admin/Lawyer/Veteran object
-                    /// with that Id in the propery "ApplicationUserId"
-                    ///
+                    LawyerModel lawyer = new LawyerModel()
+                    {
+                        ApplicationUserId = newUserID
+                    };
+
+                    _context.Lawyer.Add(lawyer);
+
+                    await _userManager.AddToRoleAsync(user, "Lawyer");
 
                     _logger.LogInformation("User created a new account with password.");
 
