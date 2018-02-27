@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WillClinic.Data;
 using WillClinic.Models;
 using WillClinic.Models.AccountViewModels;
 using WillClinic.Services;
@@ -18,21 +19,24 @@ namespace WillClinic.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
-    public class AccountController : Controller
+    public class LawyerAccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ApplicationDbContext _context;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
-        public AccountController(
+        public LawyerAccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
+            ApplicationDbContext context,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<LawyerAccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
             _emailSender = emailSender;
             _logger = logger;
         }
@@ -215,7 +219,7 @@ namespace WillClinic.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(LawyersRegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
@@ -224,6 +228,17 @@ namespace WillClinic.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    Lawyer lawyer = new Lawyer()
+                    {
+                        ApplicationUserId = user.Id
+                    };
+
+                    _context.Lawyer.Add(lawyer);
+
+                    _context.SaveChanges();
+
+                    await _userManager.AddToRoleAsync(user, "Lawyer");
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
