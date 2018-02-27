@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models.AccountViewModels
 {
-    public class LawyerLawyersRegisterViewModel
+    public class RegisterLawyerViewModel
     {
-        [Required]
-        public int BarNumber { get; set; }
-
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -20,8 +17,20 @@ namespace WillClinic.Models.AccountViewModels
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "MM/DD/YYY")]
-        public DateTime DOB { get; set; }
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
 
         [Required]
         [Display(Name = "City")]
@@ -40,20 +49,11 @@ namespace WillClinic.Models.AccountViewModels
         public int ZipCode { get; set; }
 
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        public int BarNumber { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
+        [Display(Name = "Years of Experience")]
+        public int YearsOfExperience { get; set; }
 
         [Required]
         [Display(Name = "PracticeAreas")]
