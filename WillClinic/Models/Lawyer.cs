@@ -19,5 +19,8 @@ namespace WillClinic.Models
         public string PracticeAreas { get; set; }
         public int YearsOfExperience { get; set; }
         public bool OtherLanguages { get; set; }
+
+        // These coordinates are not the lawyer's exact location but are the coordinates returned to a google API request based on the zip code.
+        public string Coordinates { get; set; }
     }
 }
