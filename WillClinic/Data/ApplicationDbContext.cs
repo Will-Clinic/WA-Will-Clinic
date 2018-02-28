@@ -34,14 +34,14 @@ namespace WillClinic.Data
                 .WithMany(vet => vet.Children);
 
             builder.Entity<VeteranChildren>()
-                .HasKey(a => a.VeteranApplicationUserId);
+                .HasKey(a => a.ID);
 
             builder.Entity<VeteranIntakeForm>()
                 .HasOne(form => form.Veteran)
                 .WithMany(vet => vet.IntakeForms);
 
             builder.Entity<VeteranIntakeForm>()
-                .HasKey(a => a.VeteranApplicationUserId);
+                .HasKey(a => a.ID);
 
             builder.Entity<Veteran>()
                 .HasOne(vet => vet.ApplicationUser)
