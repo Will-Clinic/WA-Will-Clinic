@@ -20,7 +20,9 @@ namespace WillClinic.Controllers
 
         public IActionResult Index()
         {
-         return View();            
+            var results = _context.Lawyers.Where(x => x.IsVerified == false).ToList();
+
+            return View(results);            
         }
 
         public List<Lawyer> GetUnverifiedLawyers()

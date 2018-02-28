@@ -25,7 +25,7 @@ namespace WillClinic.Models
             Stage = 1;
 
             // Populate Clients list with veterans found within a certain radius from Veterans table.
-            List<Request> requests = _context.Requests.ToList();
+            //List<Request> requests = _context.Requests.ToList();
 
             //Sort requests by Id
 

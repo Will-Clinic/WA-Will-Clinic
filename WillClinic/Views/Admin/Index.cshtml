@@ -1,25 +1,28 @@
-﻿
+﻿@model IEnumerable<Lawyer>
 @*Landing page for Admin*@
 
 
 <h2>Welcome!</h2>
 
 <h3>Lawyers waiting for approval</h3>
+<a href="https://www.mywsba.org/LegalDirectory.aspx" target="_blank">Quick Link for verification</a>
+@*Enumerate through list of nonapproved lawyers and then make the into list elements?*@
+@*DONE: Add isVerified property on Lawyer*@
+@*DONE: Create query to grab all Lawyers where isVerified is false*@
 
-@*Enumerate through list of nonapproved lawyers and then make the into list elements*@
-@*TODO: Add isVerified property on Lawyer*@
-@*TODO: Create query to grab all Lawyers where isVerified is false*@
 
-<ul>
+
+
+
+    @foreach (var i in Model)
+    {
+        <a asp-action="GetUnverifiedLawyers" asp-controller="Lawyer" asp-route-id="@i.ApplicationUserId">@i.BarNumber</a>
+    }
+
+
+
     @*Wrap in anchor tags, on click take them to lawyers sign up information?*@
-    <li>Lawyer 1</li>
     @*Approval Button for each lawyer?*@
-
-    <li>Lawyer 2</li>
-
-    <li>Lawyer 3</li>
-</ul>
 
 @*DONE : Maybe make this open in a new tab instead of redirecting?*@
 
-<a href="https://www.mywsba.org/LegalDirectory.aspx" target="_blank">Quick Link for verification</a>
