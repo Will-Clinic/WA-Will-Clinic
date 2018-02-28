@@ -2,37 +2,45 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="info-custom row">
+<div class="row">
     <div class="col-lg-12 text-center">
-        <h1>Veterans Will Clinic</h1>
+        <h1>WA Vets Will Clinic</h1>
         <h4>
-        Providing FREE Estate Planning documents to Veterans of the U.S. Armed Forces in Washington State</h4>
+            Now in its fifth year, the WA Vets Will Clinic offers FREE estate planning documents to veterans of the US Armed Forces.
+            <br />
+
+            The WA Vets Will Clinic was founded by the Spokane County Bar Association Young Lawyers Division in collaboration with Army OneSource, Gonzaga University School of Law, Red Cross - Inland Northwest Region, Vet Center  (a division of the U.S. Department of Veterans Affairs), and Washington State Department of Veterans Affairs.
+        </h4>
         <hr />
     </div>
-    </div>
+</div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-2">
+    
+    </div>
+    <div class="col-md-4">
         <div class="card center-block text-center" style="width: 20rem;">
             <i id="lawyer-icon" class="material-icons">account_balance</i>
             <div class="card-block text-center">
                 <h2 class="card-title">Lawyer</h2>
                 <p class="card-text">Volunteer today and be quickly matched up with a Veteran in need of legal services.  Meet locally to complete form</p>
-                <a asp-area="" class="btn btn-primary" asp-controller="Lawyer" asp-action="Register">Lawyer Register</a>
+                <a asp-area="" class="btn btn-primary" asp-controller="Lawyer" asp-action="Register">Lawyer Registration</a>
             </div>
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="card center-block text-center" style="width: 20rem;">
-            <i id="veteran-icon"class="material-icons">account_circle</i>
+            <i id="veteran-icon" class="material-icons">account_circle</i>
             <div class="card-block text-center">
                 <h2 class="card-title">Veterans</h2>
                 <p class="card-text">Gain access to the Will Intake Form & be matched up with a local lawyer who will guide you through the process</p>
-                <a asp-area="" class="btn btn-primary" asp-controller="Veteran" asp-action="Register">Veteran Register</a>
+                <a asp-area="" class="btn btn-primary" asp-controller="Veteran" asp-action="Register">Veteran Registration</a>
             </div>
+        
         </div>
-  
+
 
     </div>
 </div>
