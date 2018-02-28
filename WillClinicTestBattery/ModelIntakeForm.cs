@@ -230,31 +230,31 @@ namespace WillClinicTestBattery
         }
 
         // Testing DisinherentDescription
-        [Fact]
-        public void DisinherentDescription_TestingGetter_ReturnString()
-        {
-            // Arrange
-            VeteranIntakeForm n = new VeteranIntakeForm();
+        //[Fact]
+        //public void DisinherentDescription_TestingGetter_ReturnString()
+        //{
+        //    // Arrange
+        //    VeteranIntakeForm n = new VeteranIntakeForm();
 
-            // Act
-            n.DisinherentDescription = "Veteran";
+        //    // Act
+        //    n.DisinherentDescription = "Veteran";
 
-            // Assert
-            Assert.Equal("Veteran", n.DisinherentDescription);
-        }
+        //    // Assert
+        //    Assert.Equal("Veteran", n.DisinherentDescription);
+        //}
 
-        [Fact]
-        public void DisinherentDescription_TestingSetter_ReturnString()
-        {
-            // Arrange
-            VeteranIntakeForm n = new VeteranIntakeForm() { DisinherentDescription = "Lawyer" };
+        //[Fact]
+        //public void DisinherentDescription_TestingSetter_ReturnString()
+        //{
+        //    // Arrange
+        //    VeteranIntakeForm n = new VeteranIntakeForm() { DisinherentDescription = "Lawyer" };
 
-            // Act
-            n.DisinherentDescription = "Veteran";
+        //    // Act
+        //    n.DisinherentDescription = "Veteran";
 
-            // Assert
-            Assert.Equal("Veteran", n.DisinherentDescription);
-        }
+        //    // Assert
+        //    Assert.Equal("Veteran", n.DisinherentDescription);
+        //}
 
         // Testing PrimaryGuardian
         [Fact]
