@@ -23,7 +23,6 @@ namespace WillClinicTestBattery
             };
         }
 
-        [Fact]
         public void SetGetID()
         {
             Veteran veteran = new Veteran()
@@ -67,12 +66,27 @@ namespace WillClinicTestBattery
         {
             Veteran veteran = new Veteran()
             {
-                ZIP = "98122"
+                ZipCode = 98122
             };
-            Assert.Matches("98122", veteran.ZIP);
+            Assert.Equal(98122, veteran.ZipCode);
 
-            veteran.ZIP = "98121";
-            Assert.Matches("98121", veteran.ZIP);
+            veteran.ZipCode = 98121;
+            Assert.Equal(98121, veteran.ZipCode);
         }
+      
+        //[Fact]
+        //public void ChildrenSetGet()
+        //{
+        //    Veteran veteran = new Veteran()
+        //    {
+        //        ApplicationUserId = _user.Id,
+
+        //        ApplicationUser = _user
+        //    };
+
+        //    veteran.Children = "" ;
+
+        //    Assert.Collection("", veteran.Children);
+        //}
     }
 }

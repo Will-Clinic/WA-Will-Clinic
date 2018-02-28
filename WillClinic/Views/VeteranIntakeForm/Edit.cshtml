@@ -1,0 +1,301 @@
+﻿@model WillClinic.Models.VeteranIntakeForm
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>VeteranIntakeForm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="VeteranApplicationUserId" />
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsNotarized" /> @Html.DisplayNameFor(model => model.IsNotarized)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeStamp" class="control-label"></label>
+                <input asp-for="TimeStamp" class="form-control" />
+                <span asp-validation-for="TimeStamp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="TermsAndConditions" /> @Html.DisplayNameFor(model => model.TermsAndConditions)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullLegalName" class="control-label"></label>
+                <input asp-for="FullLegalName" class="form-control" />
+                <span asp-validation-for="FullLegalName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="VeteranStatus" /> @Html.DisplayNameFor(model => model.VeteranStatus)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="ProofOfService" /> @Html.DisplayNameFor(model => model.ProofOfService)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="ResidentStatus" /> @Html.DisplayNameFor(model => model.ResidentStatus)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="NetWorth" /> @Html.DisplayNameFor(model => model.NetWorth)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankAccountAssets" class="control-label"></label>
+                <input asp-for="BankAccountAssets" class="form-control" />
+                <span asp-validation-for="BankAccountAssets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RealEstateAssets" class="control-label"></label>
+                <input asp-for="RealEstateAssets" class="form-control" />
+                <span asp-validation-for="RealEstateAssets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LifeInsuranceCashValue" class="control-label"></label>
+                <input asp-for="LifeInsuranceCashValue" class="form-control" />
+                <span asp-validation-for="LifeInsuranceCashValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RetirementAccounts" class="control-label"></label>
+                <input asp-for="RetirementAccounts" class="form-control" />
+                <span asp-validation-for="RetirementAccounts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StockBonds" class="control-label"></label>
+                <input asp-for="StockBonds" class="form-control" />
+                <span asp-validation-for="StockBonds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pension" class="control-label"></label>
+                <input asp-for="Pension" class="form-control" />
+                <span asp-validation-for="Pension" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessInterest" class="control-label"></label>
+                <input asp-for="BusinessInterest" class="form-control" />
+                <span asp-validation-for="BusinessInterest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoneyOwedToYou" class="control-label"></label>
+                <input asp-for="MoneyOwedToYou" class="form-control" />
+                <span asp-validation-for="MoneyOwedToYou" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OtherAssetsOrMoney" class="control-label"></label>
+                <input asp-for="OtherAssetsOrMoney" class="form-control" />
+                <span asp-validation-for="OtherAssetsOrMoney" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseHoldSize" class="control-label"></label>
+                <input asp-for="HouseHoldSize" class="form-control" />
+                <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthlyIncome" class="control-label"></label>
+                <input asp-for="MonthlyIncome" class="form-control" />
+                <span asp-validation-for="MonthlyIncome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                <input asp-for="MaritalStatus" class="form-control" />
+                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullNameSpouse" class="control-label"></label>
+                <input asp-for="FullNameSpouse" class="form-control" />
+                <span asp-validation-for="FullNameSpouse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="HaveChildren" /> @Html.DisplayNameFor(model => model.HaveChildren)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="UnderAgeChildren" /> @Html.DisplayNameFor(model => model.UnderAgeChildren)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinorChildrenDifferentSpouse" class="control-label"></label>
+                <input asp-for="MinorChildrenDifferentSpouse" class="form-control" />
+                <span asp-validation-for="MinorChildrenDifferentSpouse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="CurrentlyPregnant" /> @Html.DisplayNameFor(model => model.CurrentlyPregnant)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="SpecificBequest" /> @Html.DisplayNameFor(model => model.SpecificBequest)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="BequestInfromation" class="control-label"></label>
+                <input asp-for="BequestInfromation" class="form-control" />
+                <span asp-validation-for="BequestInfromation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InheritEstate" class="control-label"></label>
+                <select asp-for="InheritEstate" class="form-control"></select>
+                <span asp-validation-for="InheritEstate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InheritEstateSpecific" class="control-label"></label>
+                <input asp-for="InheritEstateSpecific" class="form-control" />
+                <span asp-validation-for="InheritEstateSpecific" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RemainderBeneficiary" class="control-label"></label>
+                <select asp-for="RemainderBeneficiary" class="form-control"></select>
+                <span asp-validation-for="RemainderBeneficiary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RemainderBeneficiarySpecific" class="control-label"></label>
+                <input asp-for="RemainderBeneficiarySpecific" class="form-control" />
+                <span asp-validation-for="RemainderBeneficiarySpecific" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="DisinheritSomeone" /> @Html.DisplayNameFor(model => model.DisinheritSomeone)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisinherentDescription" class="control-label"></label>
+                <input asp-for="DisinherentDescription" class="form-control" />
+                <span asp-validation-for="DisinherentDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrimaryGuardian" class="control-label"></label>
+                <input asp-for="PrimaryGuardian" class="form-control" />
+                <span asp-validation-for="PrimaryGuardian" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlternateGuardian" class="control-label"></label>
+                <input asp-for="AlternateGuardian" class="form-control" />
+                <span asp-validation-for="AlternateGuardian" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonalRepresentative" class="control-label"></label>
+                <input asp-for="PersonalRepresentative" class="form-control" />
+                <span asp-validation-for="PersonalRepresentative" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlternateRepresentative" class="control-label"></label>
+                <input asp-for="AlternateRepresentative" class="form-control" />
+                <span asp-validation-for="AlternateRepresentative" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="RequestPowerOfAttorney" /> @Html.DisplayNameFor(model => model.RequestPowerOfAttorney)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrimaryAttorney" class="control-label"></label>
+                <input asp-for="PrimaryAttorney" class="form-control" />
+                <span asp-validation-for="PrimaryAttorney" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlternateAttorney" class="control-label"></label>
+                <input asp-for="AlternateAttorney" class="form-control" />
+                <span asp-validation-for="AlternateAttorney" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="HealthCareDirective" /> @Html.DisplayNameFor(model => model.HealthCareDirective)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="HydrationDirective" /> @Html.DisplayNameFor(model => model.HydrationDirective)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="NutritionDirective" /> @Html.DisplayNameFor(model => model.NutritionDirective)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="ArtificialVentilation" /> @Html.DisplayNameFor(model => model.ArtificialVentilation)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="DistressMedication" /> @Html.DisplayNameFor(model => model.DistressMedication)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

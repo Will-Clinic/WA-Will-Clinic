@@ -12,7 +12,7 @@ namespace WillClinic.Models
         public ApplicationUser ApplicationUser { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public string ZIP { get; set; }
+        public int ZipCode { get; set; }
 
         public ICollection<VeteranChildren> Children { get; set; }
         public ICollection<VeteranIntakeForm> IntakeForms { get; set; }

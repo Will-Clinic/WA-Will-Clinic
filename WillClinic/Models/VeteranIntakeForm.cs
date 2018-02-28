@@ -16,6 +16,9 @@ namespace WillClinic.Models
         public bool IsNotarized { get; set; }
 
         [Required]
+        public byte CurrentStep { get; set; }
+
+        [Required]
         public DateTime TimeStamp { get; set; }
 
         public Veteran Veteran { get; set; }
@@ -151,6 +154,9 @@ namespace WillClinic.Models
 
         [Required]
         public bool DistressMedication { get; set; }
+
+        [Required]
+        public bool IsCompleted { get; set; }
 
     }
 }

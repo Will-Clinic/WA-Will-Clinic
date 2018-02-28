@@ -21,6 +21,14 @@
 <body>
     <nav class="navbar-custom navbar navbar-fixed-top">
         <div class="container">
+            <div class="info-custom row">
+                <div class="col-lg-12 text-center">
+                    <h3>Veterans Will Clinic</h3>
+                    <h5>
+                        Providing FREE Estate Planning documents to Veterans of the U.S. Armed Forces in Washington State
+                    </h5>
+                <div class="navline-custom"></div>
+                </div>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -39,11 +47,13 @@
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
+      </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <div id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
+        <div id="footer" class="navbar">
             <div class="row text-center">
                 <div class="col-md-2">
                 </div>
