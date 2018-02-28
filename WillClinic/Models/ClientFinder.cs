@@ -10,9 +10,10 @@ namespace WillClinic.Models
     {
         private readonly ApplicationDbContext _context;
 
+
         public int Stage { get; set; }
 
-        public ICollection<Veteran> Clients { get; set; }
+        public ICollection<VeteranQueue> Clients { get; set; }
 
         public ClientFinder(ApplicationDbContext context)
         {
