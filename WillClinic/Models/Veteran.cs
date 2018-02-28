@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,5 +18,8 @@ namespace WillClinic.Models
         public VeteranQueue VetQueue { get; set; }
         public ICollection<VeteranChildren> Children { get; set; }
         public ICollection<VeteranIntakeForm> IntakeForms { get; set; }
+      
+        // These coordinates are not the veteran's exact location but are the coordinates returned to a google API request based on the zip code.
+        public string Coordinates { get; set; }
     }
 }
