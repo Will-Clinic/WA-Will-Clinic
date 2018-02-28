@@ -23,7 +23,6 @@ namespace WillClinicTestBattery
             };
         }
 
-        [Fact]
         public void SetGetID()
         {
             Veteran veteran = new Veteran()
@@ -73,6 +72,21 @@ namespace WillClinicTestBattery
 
             veteran.ZIP = "98121";
             Assert.Matches("98121", veteran.ZIP);
+        }
+      
+        [Fact]
+        public void ChildrenSetGet()
+        {
+            Veteran Veteran = new Veteran()
+            {
+                ApplicationUserId = user.Id,
+
+                ApplicationUser = user
+            };
+
+            Veteran.Children = "" ;
+
+            Assert.Collection<VeteranChildren>("", Veteran.Children);
         }
     }
 }
