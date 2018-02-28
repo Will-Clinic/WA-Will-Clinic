@@ -152,6 +152,9 @@ namespace WillClinic.Models
         [Required]
         public bool DistressMedication { get; set; }
 
+        [Required]
+        public bool IsCompleted { get; set; }
+
     }
 }
 
