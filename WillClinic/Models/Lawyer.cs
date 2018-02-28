@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,5 +19,11 @@ namespace WillClinic.Models
         public string PracticeAreas { get; set; }
         public int YearsOfExperience { get; set; }
         public bool OtherLanguages { get; set; }
+      
+        public ICollection<LawyerAvailability> Availability { get; set; }
+        public ICollection<VeteranLawyerMatch> VetLawMatches { get; set; }
+      
+        // These coordinates are not the lawyer's exact location but are the coordinates returned to a google API request based on the zip code.
+        public string Coordinates { get; set; }
     }
 }
