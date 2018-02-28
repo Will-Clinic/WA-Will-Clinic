@@ -8,11 +8,11 @@ namespace WillClinicTestBattery
 {
     public class ModelVeteran
     {
-        public ApplicationUser user { get; set; }
+        private ApplicationUser _user { get; set; }
 
         public ModelVeteran()
         {
-            user = new ApplicationUser()
+            _user = new ApplicationUser()
             {
                 Id = "00000000-0000-0000-0000-000000000000",
                 Email = "username@domain.tld",
@@ -23,64 +23,57 @@ namespace WillClinicTestBattery
             };
         }
 
-        [Fact]
-        public void IdSetGet()
+        public void SetGetID()
         {
-            Veteran Veteran = new Veteran()
+            Veteran veteran = new Veteran()
             {
-                ApplicationUserId = user.Id,
+                ApplicationUserId = _user.Id,
 
-                ApplicationUser = user
+                ApplicationUser = _user
             };
 
-            Assert.Equal("00000000-0000-0000-0000-000000000000", Veteran.ApplicationUserId);
+            Assert.Equal("00000000-0000-0000-0000-000000000000", veteran.ApplicationUserId);
         }
 
         [Fact]
-        public void CitySetGet()
+        public void GetSetCity()
         {
-            Veteran Veteran = new Veteran()
+            Veteran veteran = new Veteran()
             {
-                ApplicationUserId = user.Id,
-
-                ApplicationUser = user
+                City = "Seattle"
             };
+            Assert.Matches("Seattle", veteran.City);
 
-            Veteran.City = "Seattle";
-
-            Assert.Equal("Seattle", Veteran.City);
+            veteran.City = "Redmond";
+            Assert.Matches("Redmond", veteran.City);
         }
 
         [Fact]
-        public void StateSetGet()
+        public void GetSetState()
         {
-            Veteran Veteran = new Veteran()
+            Veteran veteran = new Veteran()
             {
-                ApplicationUserId = user.Id,
-
-                ApplicationUser = user
+                State = "Washington"
             };
+            Assert.Matches("Washington", veteran.State);
 
-            Veteran.State = "Washington";
-
-            Assert.Equal("Washington", Veteran.State);
+            veteran.State = "California";
+            Assert.Matches("California", veteran.State);
         }
 
         [Fact]
-        public void ZipSetGet()
+        public void GetSetZIP()
         {
-            Veteran Veteran = new Veteran()
+            Veteran veteran = new Veteran()
             {
-                ApplicationUserId = user.Id,
-
-                ApplicationUser = user
+                ZIP = "98122"
             };
+            Assert.Matches("98122", veteran.ZIP);
 
-            Veteran.ZipCode = 99999;
-
-            Assert.Equal(99999, Veteran.ZipCode);
+            veteran.ZIP = "98121";
+            Assert.Matches("98121", veteran.ZIP);
         }
-
+      
         [Fact]
         public void ChildrenSetGet()
         {
@@ -95,8 +88,5 @@ namespace WillClinicTestBattery
 
             Assert.Collection<VeteranChildren>("", Veteran.Children);
         }
-
-
-
     }
 }

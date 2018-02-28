@@ -18,23 +18,16 @@ namespace WillClinic.Controllers
                 {
                     return RedirectToAction("Index", "Lawyer");
                 }
-                //else if (User.IsInRole("Veteran"))
-                //{
-                //    RedirectToAction("Index", "Veteran");
-                //}
+                else if (User.IsInRole("Veteran"))
+                {
+                    return RedirectToAction("Index", "Veteran");
+                }
                 //else if (User.IsInRole("Admin"))
                 //{
                 //    RedirectToAction("Index", "Admin");
                 //}
-                else
-                {
-                    return View();
-                }
             }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         public IActionResult About()
