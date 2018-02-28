@@ -1,0 +1,37 @@
+﻿@model WillClinic.Models.VeteranIntakeForm
+
+@{
+    ViewData["Title"] = "User Agreement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>VeteranIntakeForm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateStep0">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <iframe src="~/VeteranUserAgreement.html" width="800" height="800" scrolling="yes"></iframe>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="TermsAndConditions" /> @Html.DisplayNameFor(model => model.TermsAndConditions)
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Veteran" asp-action="Index">Cancel</a>
+</div>
+

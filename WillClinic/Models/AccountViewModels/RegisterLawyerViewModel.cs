@@ -53,6 +53,7 @@ namespace WillClinic.Models.AccountViewModels
         public int ZipCode { get; set; }
 
         [Required]
+        [Display(Name = "Bar Number")]
         public int BarNumber { get; set; }
 
         [Required]
@@ -60,7 +61,7 @@ namespace WillClinic.Models.AccountViewModels
         public int YearsOfExperience { get; set; }
 
         [Required]
-        [Display(Name = "PracticeAreas")]
+        [Display(Name = "Practice Areas")]
         public string PracticeAreas { get; set; }
 
         [Required]

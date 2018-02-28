@@ -12,16 +12,13 @@
                 {
                     <tr>
                     <td>Form Name - Form Date</td>
-                    <td>View Form</td>
-                    <td>Edit Form</td>
-                    <td>Delete Form</td>
-                    <td><a asp-action="Details" asp-controller="Veteran" asp-route-id="@i.ID">Details</a></td>
-                    <td><a asp-action="Edit" asp-controller="Veteran" asp-route-id="@i.ID">Edit</a></td>
-                    <td><a asp-action="Delete" asp-controller="Veteran" asp-route-id="@i.ID">Delete</a></td>
+                    <td><a asp-action="Details" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Details</a></td>
+                    <td><a asp-action="Edit" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Edit</a></td>
+                    <td><a asp-action="Delete" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Delete</a></td>
                     </tr>
                 }
             }
-            <tr><td><a asp-action="AddForm" asp-controller="Veteran">Create New Form</a></td></tr>
+            <tr><td><a asp-action="GoToStep" asp-controller="VeteranIntakeForm">Create New Form</a></td></tr>
             <tr id="th"><td colspan="4" class="text-center">Archived Forms</td></tr>
             @foreach(var i in Model)
             {

@@ -1,0 +1,318 @@
+﻿@model IEnumerable<WillClinic.Models.VeteranIntakeForm>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsNotarized)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeStamp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TermsAndConditions)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullLegalName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VeteranStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProofOfService)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResidentStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NetWorth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BankAccountAssets)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RealEstateAssets)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LifeInsuranceCashValue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RetirementAccounts)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StockBonds)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pension)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BusinessInterest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoneyOwedToYou)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OtherAssetsOrMoney)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HouseHoldSize)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MonthlyIncome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaritalStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullNameSpouse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HaveChildren)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnderAgeChildren)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MinorChildrenDifferentSpouse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CurrentlyPregnant)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SpecificBequest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BequestInfromation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InheritEstate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InheritEstateSpecific)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RemainderBeneficiary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RemainderBeneficiarySpecific)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DisinheritSomeone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DisinherentDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrimaryGuardian)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AlternateGuardian)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PersonalRepresentative)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AlternateRepresentative)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RequestPowerOfAttorney)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrimaryAttorney)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AlternateAttorney)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HealthCareDirective)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HydrationDirective)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NutritionDirective)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArtificialVentilation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DistressMedication)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNotarized)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TermsAndConditions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullLegalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VeteranStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProofOfService)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResidentStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetWorth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankAccountAssets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RealEstateAssets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LifeInsuranceCashValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RetirementAccounts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockBonds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessInterest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyOwedToYou)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherAssetsOrMoney)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseHoldSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullNameSpouse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HaveChildren)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnderAgeChildren)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinorChildrenDifferentSpouse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentlyPregnant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecificBequest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BequestInfromation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InheritEstate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InheritEstateSpecific)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RemainderBeneficiary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RemainderBeneficiarySpecific)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisinheritSomeone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisinherentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimaryGuardian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlternateGuardian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonalRepresentative)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlternateRepresentative)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestPowerOfAttorney)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimaryAttorney)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlternateAttorney)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HealthCareDirective)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrationDirective)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NutritionDirective)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArtificialVentilation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistressMedication)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VeteranApplicationUserId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VeteranApplicationUserId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VeteranApplicationUserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
