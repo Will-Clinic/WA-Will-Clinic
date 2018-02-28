@@ -41,6 +41,20 @@ namespace WillClinic.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Veteran")]
+        public IActionResult Index()
+        {
+            string userID = _userManager.GetUserId(User);
+
+            // VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(f => f.);
+            List<VeteranIntakeForm> intakeForms = new List<VeteranIntakeForm>();
+            
+            intakeForms = _context.VeteranIntakeForms.Where(f => f.VeteranApplicationUserId == userID).ToList();
+
+            return View(intakeForms);
+        }
+
         /// <summary>
         /// Open Veteran Registration Page
         /// </summary>
@@ -96,66 +110,12 @@ namespace WillClinic.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction(nameof(Index));
                 }
                 AddErrors(result);
             }
 
             return View(model);
-        }
-
-        /// <summary>
-        /// Open Veteran Login Page
-        /// </summary>
-        /// <param name="returnUrl"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> Login(string returnUrl = null)
-        {
-            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-
-            ViewData["ReturnUrl"] = returnUrl;
-            return View();
-        }
-
-        /// <summary>
-        /// Login veteran using the login view model
-        /// </summary>
-        /// <param name="model"></param>
-        /// <param name="returnUrl"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
-        {
-            ViewData["ReturnUrl"] = returnUrl;
-            if (ModelState.IsValid)
-            {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
-                }
-            }
-
-            return View(model);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            _logger.LogInformation("User logged out.");
-            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         #region Helpers

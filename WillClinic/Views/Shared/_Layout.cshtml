@@ -19,7 +19,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar-custom navbar @*navbar-inverse*@ navbar-fixed-top">
+    <nav class="navbar-custom navbar navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -30,11 +30,11 @@
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Will Clinic</a>
             </div>
-            <div class="navbar-collapse collapse">
+            <div id="navlist" class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Resources</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -43,9 +43,23 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2018 - WillClinic</p>
-        </footer>
+        <div id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="row text-center">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <img class="logo" src="~/images/Marines.png" alt="Marines Insignia" width="100" />
+                    <img class="logo" src="~/images/Army.png" alt="Army Insignia" width="100" />
+                    <img class="logo" src="~/images/AirForce.png" alt="Air Force Insignia" width="100" />
+                    <img class="logo" src="~/images/Navy.png" alt="Navy Insignia" width="100" />
+                    <img class="logo" src="~/images/CoastGuard.png" alt="Coast Guard Insignia" width="100" />
+                </div>
+                <div class="col-md-2">
+                </div>
+
+                <p id="footer-copy">&copy; 2018 - WillClinic</p>
+            </div>
+        </div>
     </div>
 
     <environment include="Development">
@@ -71,4 +85,7 @@
 
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>
+
+

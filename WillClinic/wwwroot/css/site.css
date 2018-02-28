@@ -11,10 +11,62 @@ body {
     padding-right: 15px;
 }
 
-/* Carousel */
+/*Navbar*/
 .navbar-custom {
-    background: navy;
+    background: rgb(44,62,80);
+    
 }
+
+/*nav logo*/
+.navbar-brand {
+    color: floralwhite;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+    .navbar-brand:hover {
+        color: floralwhite;
+    }
+
+#navlist ul li a {
+    font-size: 1em;
+    font-weight: bold;
+    color: floralwhite !important;
+}
+
+    #navlist ul li a:hover {
+        color: saddlebrown !important;
+        text-decoration: none !important;
+    }
+
+/*Index Jumbotron*/
+.info-custom {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+/*Index Icons*/
+#lawyer-icon {
+    font-size: 4em;
+}
+
+#veteran-icon {
+    font-size: 4em;
+}
+
+/*Footer*/
+#footer {
+    background: dimgray;
+}
+
+.logo {
+    padding: 10px 10px 5px 15px;
+}
+
+#footer-copy {
+    margin-top: 4%;
+    color: floralwhite;
+ }
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
