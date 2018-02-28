@@ -65,7 +65,7 @@ namespace WillClinic.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction(nameof(HomeController.Index));
                 }
                 if (result.RequiresTwoFactor)
                 {
