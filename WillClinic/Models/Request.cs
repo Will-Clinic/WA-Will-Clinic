@@ -8,6 +8,7 @@ namespace WillClinic.Models
     public class Request
     {
         public int Id { get; set; }
-        
+
+        public string VeteranApplicationUserId{ get; set; }
     }
 }

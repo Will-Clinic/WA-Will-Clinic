@@ -21,6 +21,7 @@ namespace WillClinic.Data
         public DbSet<Veteran> Veterans { get; set; }
         public DbSet<VeteranChildren> VeteranChildren { get; set; }
         public DbSet<VeteranIntakeForm> VeteranIntakeForms { get; set; }
+        public DbSet<Request> Requests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
