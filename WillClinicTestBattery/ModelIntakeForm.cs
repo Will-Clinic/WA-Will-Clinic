@@ -237,23 +237,23 @@ namespace WillClinicTestBattery
             VeteranIntakeForm n = new VeteranIntakeForm();
 
             // Act
-            n.DisinherentDescription = "Veteran";
+            n.DisinheretDescription = "Veteran";
 
             // Assert
-            Assert.Equal("Veteran", n.DisinherentDescription);
+            Assert.Equal("Veteran", n.DisinheretDescription);
         }
 
         [Fact]
         public void DisinherentDescription_TestingSetter_ReturnString()
         {
             // Arrange
-            VeteranIntakeForm n = new VeteranIntakeForm() { DisinherentDescription = "Lawyer" };
+            VeteranIntakeForm n = new VeteranIntakeForm() { DisinheretDescription = "Lawyer" };
 
             // Act
-            n.DisinherentDescription = "Veteran";
+            n.DisinheretDescription = "Veteran";
 
             // Assert
-            Assert.Equal("Veteran", n.DisinherentDescription);
+            Assert.Equal("Veteran", n.DisinheretDescription);
         }
 
         // Testing PrimaryGuardian
