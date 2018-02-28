@@ -10,7 +10,7 @@ namespace WillClinic.Components
     {
         public IViewComponentResult Invoke()
         {
-            Models.ClientFinder clientFinder = new Models.ClientFinder();
+            //Models.ClientFinder clientFinder = new Models.ClientFinder();
 
             return View();
         }
