@@ -108,7 +108,7 @@ namespace WillClinic.Controllers
             {
                 _context.Add(veteranIntakeForm);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(VeteranController.Index));
             }
             return View(veteranIntakeForm);
         }
@@ -159,7 +159,7 @@ namespace WillClinic.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(VeteranController.Index));
             }
             return View(veteranIntakeForm);
         }
@@ -190,7 +190,7 @@ namespace WillClinic.Controllers
             var veteranIntakeForm = await _context.VeteranIntakeForms.SingleOrDefaultAsync(m => m.VeteranApplicationUserId == id);
             _context.VeteranIntakeForms.Remove(veteranIntakeForm);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(VeteranController.Index));
         }
 
         private bool VeteranIntakeFormExists(string id)
