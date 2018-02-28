@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WillClinic.Data;
 using WillClinic.Models;
 using WillClinic.Services;
+using WillClinic.Models.Interfaces;
 
 namespace WillClinic
 {
@@ -35,6 +36,7 @@ namespace WillClinic
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IMatchService, MatchService>();
 
             services.AddMvc();
         }
