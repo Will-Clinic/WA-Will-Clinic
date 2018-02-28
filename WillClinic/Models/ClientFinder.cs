@@ -24,7 +24,7 @@ namespace WillClinic.Models
         {
             Stage = 1;
             // Populate Clients list with veterans found within a certain radius from Veterans table.
-            _context.Veterans.
+            _context.Veterans.Where(vet => vet.RequestLawyer != null)
         }
     }
 }
