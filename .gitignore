@@ -262,3 +262,10 @@ paket-files/
 __pycache__/
 *.pyc
 /WillClinic/Migrations
+
+# ignore appsettings configuration files
+**/appsettings.development.json
+**/appsettings.staging.json
+**/appsettings.production.json
+**/appsettings.json
+/WillClinic/Components/LocalMap.cs
