@@ -165,6 +165,7 @@ namespace WillClinicTestBattery
             };
 
             Assert.Equal("username@domain.tld", Lawyer.ApplicationUser.UserName);
+           
         }
 
         // Testing Coordinates
