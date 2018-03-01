@@ -109,6 +109,7 @@ namespace WillClinic.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
+
             }
             return View(nameof(CreateStep1));
         }
