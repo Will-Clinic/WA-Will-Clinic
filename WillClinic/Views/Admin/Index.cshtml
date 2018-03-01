@@ -10,20 +10,23 @@
 @*DONE: Create query to grab all Lawyers where isVerified is false*@
 
 
+<div class="row">
 
-@foreach (var i in Model)
-{
-    <div class="card text-center">
-        <div class="card-block">
-            <h3 class="card-title">@i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName</h3>
-            <p class="card-text">Bar ID : @i.BarNumber</p>
-            <a asp-area="" class="btn btn-success" asp-controller="Admin" asp-action="VerifyLawyer" asp-route-id="@i.ApplicationUserId">Verify @i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName </a>
+    @foreach (var i in Model)
+    {
+        <div class="col-md-3">
+        <div class="card text-center" style="width : 20rem;">
+            <div class="card-block">
+                <h3 class="card-title">@i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName</h3>
+                <p class="card-text">Bar ID : @i.BarNumber</p>
+                <a asp-area="" class="btn btn-success" asp-controller="Admin" asp-action="VerifyLawyer" asp-route-id="@i.ApplicationUserId">Verify @i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName </a>
+            </div>
         </div>
-    </div>
-}
+        </div>
+    }
 
+</div>
+    @*Wrap in anchor tags, on click take them to lawyers sign up information?*@
+    @*Approval Button for each lawyer?*@
 
-@*Wrap in anchor tags, on click take them to lawyers sign up information?*@
-@*Approval Button for each lawyer?*@
-
-@*DONE : Maybe make this open in a new tab instead of redirecting?*@
+    @*DONE : Maybe make this open in a new tab instead of redirecting?*@

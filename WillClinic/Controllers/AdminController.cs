@@ -20,27 +20,12 @@ namespace WillClinic.Controllers
         
 
         public IActionResult Index()
-        {
+        {   
+            // capturing the list of lawyers who are not yet verified
             var results = _context.Lawyers.Include(x => x.ApplicationUser).Where(x => x.IsVerified == false).ToList();
 
+            // Displaying above list to the View
             return View(results);            
-        }
-
-        public IActionResult VerifyLawyer(string id)
-        {
-            var attorney = _context.Lawyers.First(x => x.ApplicationUserId == id);
-
-            if(attorney.ApplicationUserId == id)
-            {
-                attorney.IsVerified = true;
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
-            
         }
 
         public IActionResult About()
@@ -56,6 +41,5 @@ namespace WillClinic.Controllers
 
             return View();
         }
-
     }
 }
