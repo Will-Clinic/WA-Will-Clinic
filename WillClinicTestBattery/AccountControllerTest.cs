@@ -13,50 +13,53 @@ using WillClinic.Services;
 using Xunit;
 
 namespace WillClinicTestBattery
-{
-    public class AccountControllerTest
     {
-        ApplicationDbContext _context;
-
-        public ClaimsPrincipal User { get; set; }
-
-        public HomeController()
+        public class AccountControllerTest
         {
-            User = new ClaimsPrincipal();
+            ApplicationDbContext _context;
 
-        }
+            public ClaimsPrincipal User { get; set; }
+
+            public HomeController()
+            {
+                User = new ClaimsPrincipal();
+
+            }
 
 
-        DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
 
-              .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                  .UseInMemoryDatabase(Guid.NewGuid().ToString())
 
-              .Options;
+                  .Options;
 
-        [Fact]
-        public void ReturnsView()
-        {
-            ClaimsPrincipal User = new ClaimsPrincipal();
-            // Arrange
-            HomeController homeController = new HomeController();
+            [Fact]
+            public void ReturnsView()
+            {
+                ClaimsPrincipal User = new ClaimsPrincipal();
+                // Arrange
+                HomeController homeController = new HomeController();
 
-            // Act
-            var result = homeController.Index();
+                // Act
+                var result = homeController.Index();
 
-            // Assert
-            Assert.NotNull(result);
+                // Assert
+                Assert.NotNull(result);
 
-        }
+            }
 
-        [Fact]
-        public void determineindexreturnscorrectview()
-        {
-            HomeController controller = new HomeController();
+            [Fact]
+            public void determineindexreturnscorrectview()
+            {
+                HomeController controller = new HomeController();
 
-            ViewResult result = controller.Index() as ViewResult;
+                ViewResult result = controller.Index() as ViewResult;
 
-            //****result.viewname is empty!!!!***//
-            Assert.Equal("index", result.ViewName);
+                //****result.viewname is empty!!!!***//
+                Assert.Equal("index", result.ViewName);
+            }
         }
     }
+
+}
 }
