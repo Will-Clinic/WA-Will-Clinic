@@ -3,5 +3,8 @@
     ViewData["Title"] = "Default";
 }
 
-<h2>Default</h2>
+<form asp-action="confirm" method="post">
+    <label for="find">Set your travel radius in miles above, then click Find a Veteran to match with a client.</label>
+    <button name="find" type="submit" class="btn-success">Find a Veteran</button>
+</form>
 
