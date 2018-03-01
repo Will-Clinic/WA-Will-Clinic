@@ -2,12 +2,13 @@
 body {
     margin: 0;
     padding: 0;
+
 }
 
 .body-custom {
-    //padding: 0;
     margin-top: 12%;
-
+    padding-left: 0;
+    padding-right: 0;
 }
 
 h2 {
@@ -16,7 +17,7 @@ h2 {
 
 /*Navbar*/
 .navbar-custom {
-    position: absolute;
+    position: fixed;
     background: rgb(44,62,80);
 }
 
@@ -52,8 +53,13 @@ h2 {
 }
 
 /*Footer*/
-#footer {
-    background: dimgrey;
+.footy {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-custom {
+    background: #636e72;
     margin: 0;
 }
 
@@ -64,7 +70,6 @@ h2 {
 #footer-copy {
     margin-top: 4%;
     color: floralwhite;
-    font-weight: bold;
  }
 
 

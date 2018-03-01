@@ -13,7 +13,7 @@ namespace WillClinic.Models
     public class MatchService : IMatchService
     {
         public int Stage { get; set; }
-        public Request EarliestRequest { get; set; }
+        //public Request EarliestRequest { get; set; }
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
 
