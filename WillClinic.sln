@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillClinic", "WillClinic\WillClinic.csproj", "{B3B78508-2CC4-4517-941D-9D6830FCE5D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillClinicTestBattery", "WillClinicTestBattery\WillClinicTestBattery.csproj", "{76D6E32F-704D-4B68-8BF5-6ECAACF1BA1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillClinicTestBattery", "WillClinicTestBattery\WillClinicTestBattery.csproj", "{76D6E32F-704D-4B68-8BF5-6ECAACF1BA1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -19,7 +19,7 @@ namespace WillClinic.Data
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Lawyer> Lawyers { get; set; }
         public DbSet<Veteran> Veterans { get; set; }
-        public DbSet<VeteranChildren> VeteranChildren { get; set; }
+        public DbSet<VeteranChild> VeteranChildren { get; set; }
         public DbSet<VeteranIntakeForm> VeteranIntakeForms { get; set; }
         public DbSet<VeteranQueue> VeteranQueue { get; set; }
         public DbSet<LawyerAvailability> LawyerAvailability { get; set; }
@@ -45,11 +45,11 @@ namespace WillClinic.Data
 
             builder.Entity<VeteranQueue>()
                 .HasOne(vq => vq.Veteran)
-                .WithOne(vet => vet.VetQueue);
+                .WithOne();
 
-            builder.Entity<VeteranQueue>()
+           // builder.Entity<VeteranQueue>()
             //    .HasKey(a => a.VeteranApplicationUserId);
-                .HasKey(vq => vq.ID);
+             //   .HasKey(vq => vq.ID);
 
             builder.Entity<LawyerAvailability>()
                 .HasOne(la => la.Lawyer)
@@ -58,11 +58,11 @@ namespace WillClinic.Data
             builder.Entity<LawyerAvailability>()
                 .HasKey(la => la.ID);
 
-            builder.Entity<VeteranChildren>()
-                .HasOne(child => child.Parent)
+             builder.Entity<VeteranChild>()
+                .HasOne(child => child.Veteran)
                 .WithMany(vet => vet.Children);
 
-            builder.Entity<VeteranChildren>()
+            builder.Entity<VeteranChild>()
                 .HasKey(a => a.ID);
 
             builder.Entity<VeteranIntakeForm>()

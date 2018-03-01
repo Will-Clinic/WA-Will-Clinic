@@ -1,0 +1,16 @@
+﻿@model WillClinic.Models.VeteranLawyerMatch
+@{
+    ViewData["Title"] = "Default";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr><th colspan="2">Find Veteran Module</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Lawyer: </td>
+            <td>@Model.Lawyer.ApplicationUser.FirstName</td>
+        </tr>
+    </tbody>
+</table>
