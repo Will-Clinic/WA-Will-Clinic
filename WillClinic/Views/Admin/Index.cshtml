@@ -20,6 +20,7 @@
                 <h3 class="card-title">@i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName</h3>
                 <p class="card-text">Bar ID : @i.BarNumber</p>
                 <a asp-area="" class="btn btn-success" asp-controller="Admin" asp-action="VerifyLawyer" asp-route-id="@i.ApplicationUserId">Verify @i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName </a>
+                <a asp-area="" class="btn btn-danger" asp-controller="Admin" asp-action="RemoveLawyer" asp-route-id="@i.ApplicationUserId">Remove @i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName's Request</a>
             </div>
         </div>
         </div>
