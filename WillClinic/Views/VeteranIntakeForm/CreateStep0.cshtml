@@ -1,37 +1,44 @@
-﻿@model WillClinic.Models.VeteranIntakeForm
+﻿@model WillClinic.Models.IntakeFormViewModels.IntakeFormViewModel0
 
 @{
     ViewData["Title"] = "User Agreement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-
-<h4>VeteranIntakeForm</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
+    <div>
         <form asp-action="CreateStep0">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <iframe src="~/VeteranUserAgreement.html" width="800" height="800" scrolling="yes"></iframe>
+
+            <iframe src="~/VeteranUserAgreement.html" style="width:100%; height:500px;overflow:auto;" scrolling="yes"></iframe>
 
             <div class="form-group">
-                <div class="checkbox">
+                <label>
+                    I HAVE READ THE WA VETS WILL CLINIC INFORMATION AND INSTRUCTIONS AND AGREE TO ITS TERMS *
+                </label>
+                <h5>
+                    By checking the following box, you acknowledge you have read the information and instructions above, waive any conflicts, and agree to the terms of WA Vets  Will Clinic
+                </h5>
+
+                <div class="radio">
                     <label>
-                        <input asp-for="TermsAndConditions" /> @Html.DisplayNameFor(model => model.TermsAndConditions)
+                        @Html.RadioButtonFor(x => x.TermsAndConditions, true) I AGREE. I have read the information and instructions above and AGREE to the WA Vets  Will Clinic terms.
                     </label>
                 </div>
+                <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
             </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+
+            <div class="class-md-12">
+                <div class="form-group col-md-offset-1 col-md-1 pull-left">
+                    <a asp-controller="Veteran" asp-action="Index" class="btn btn-danger">Back</a>
+                </div>
+
+                <div class="form-group text-center col-md-8 pull-left"></div>
+
+                <div class="form-group col-md-2">
+                    <input type="submit" value="Start" class="btn btn-success" />
+                </div>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-controller="Veteran" asp-action="Index">Cancel</a>
-</div>
-
