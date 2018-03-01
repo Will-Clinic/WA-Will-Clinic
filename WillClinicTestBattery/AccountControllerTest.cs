@@ -1,27 +1,26 @@
-﻿using System;
-using Xunit;
-using WillClinic.Models;
-using Microsoft.EntityFrameworkCore;
-using WillClinic.Data;
-using WillClinic.Controllers;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Net.Http;
-
-using Newtonsoft.Json.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
 using System.Security.Claims;
+using System.Text;
+using WillClinic.Controllers;
+using WillClinic.Data;
+using WillClinic.Models;
+using WillClinic.Services;
+using Xunit;
 
 namespace WillClinicTestBattery
 {
-    public class ModelHomeController
+    public class AccountControllerTest
     {
         ApplicationDbContext _context;
 
-        public  ClaimsPrincipal User { get; set; }
+        public ClaimsPrincipal User { get; set; }
 
-        public ModelHomeController()
+        public HomeController()
         {
             User = new ClaimsPrincipal();
 
@@ -46,7 +45,7 @@ namespace WillClinicTestBattery
 
             // Assert
             Assert.NotNull(result);
-            
+
         }
 
         [Fact]
@@ -59,9 +58,5 @@ namespace WillClinicTestBattery
             //****result.viewname is empty!!!!***//
             Assert.Equal("index", result.ViewName);
         }
-
-
-
-
     }
 }
