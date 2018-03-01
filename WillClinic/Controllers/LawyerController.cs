@@ -45,7 +45,13 @@ namespace WillClinic.Controllers
         [Authorize(Roles = "Lawyer")]
         public IActionResult Index()
         {
-            return View();
+            string userID = _userManager.GetUserId(User);
+
+            List<LawyerAvailability> availability = new List<LawyerAvailability>();
+
+            availability = _context.LawyerAvailability.Where(law => law.LawyerApplicationUserId == userID).ToList();
+
+            return View(availability);
         }
 
         [HttpGet]

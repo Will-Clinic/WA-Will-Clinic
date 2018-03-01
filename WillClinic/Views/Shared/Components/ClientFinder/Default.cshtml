@@ -1,7 +1,17 @@
-﻿
 @{
     ViewData["Title"] = "Default";
 }
 
-<h2>Default</h2>
-
+<table class="table table-bordered">
+    <thead>
+        <tr><th colspan="2">Find Veteran Module</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Test</td>
+            <td><form method="post" asp-controller="Match" asp-action="FindVeteran">
+                <button type="submit">Find Veteran (Search queue)</button>
+            </form></td>
+        </tr>
+    </tbody>
+</table>

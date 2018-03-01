@@ -1,39 +1,30 @@
-﻿
+﻿html,
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    margin: 0;
+    padding: 0;
+
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 8%;
+.body-custom {
+    margin-top: 12%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+h2 {
+    font-weight: bold;
 }
 
 /*Navbar*/
 .navbar-custom {
-    position: absolute;
+    position: fixed;
     background: rgb(44,62,80);
-    
 }
 
 .navline-custom {
     height: 2px;
     background-color: rgb(101,67,33);
 }
-
-/*nav logo*/
-.navbar-brand {
-    color: floralwhite;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-    .navbar-brand:hover {
-        color: floralwhite;
-    }
 
 #navlist ul li a {
     font-size: 1em;
@@ -62,8 +53,14 @@ body {
 }
 
 /*Footer*/
-#footer {
-    background: dimgray;
+.footy {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-custom {
+    background: #636e72;
+    margin: 0;
 }
 
 .logo {
@@ -73,8 +70,9 @@ body {
 #footer-copy {
     margin-top: 4%;
     color: floralwhite;
-    font-weight: bold;
  }
+
+
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {

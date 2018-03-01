@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
-    public class VeteranChildren
+    public class VeteranChild
     {
         public int ID { get; set; }
 
-        public Veteran Parent { get; set; }
-        
+        public Veteran Veteran { get; set; }
+
+        [StringLength(50), Required]
+        public string MotherOfChildName { get; set; }
+
         public string VeteranApplicationUserId { get; set; }
 
         [StringLength(50), Required]
@@ -19,14 +22,7 @@ namespace WillClinic.Models
 
         public DateTime DOB { get; set; }
 
-        [StringLength(50), Required]
+        [Required]
         public ChildRelationToVeteran ChildRelationToVeteran { get; set; }
-
-        [StringLength(50), Required]
-        public string MotherOfChildName { get; set; }
-
-
     }
-
-   
 }

@@ -1,0 +1,96 @@
+﻿@model WillClinic.Models.IntakeFormViewModels.IntakeFormViewModel6
+
+@{
+    ViewData["Title"] = "Create Step 3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div>
+        <form asp-action="CreateStep6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <h3>
+                SECTION 6: Health Care Directive
+            </h3>
+            <h4>
+                A health care directive, sometimes called a physician's directive or living will, is a directive that states your
+                wishes for the withholding or withdrawal of life-sustaining treatment if you are in a terminal condition or
+                permanent unconscious condition. This document is used to spell out your wishes to your treating health care
+                professionals.
+            </h4>
+            <hr />
+
+            <div class="form-group">
+                <label asp-for="HealthCareDirective" class="control-label">
+                    41) Do you want a health care directive? *
+                </label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="HealthCareDirective" /> Yes
+                        <input asp-for="HealthCareDirective" /> No
+                    </label>
+                </div>
+                <span asp-validation-for="HealthCareDirective" class="text-danger"></span>
+            </div>
+
+            <h4>
+                If you selected yes, please chose the treatment(s) you DO or DO NOT want as
+                indicated below:
+            </h4>
+            <div class="form-group">
+                <label asp-for="HydrationDirective" class="control-label">42) Hydration:</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="HydrationDirective" /> I DO want to have artificially-provided hydration
+                        <input asp-for="HydrationDirective" /> I DO NOT want to have artificially-provided hydration
+                    </label>
+                </div>
+                <span asp-validation-for="HydrationDirective" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NutritionDirective" class="control-label">43) Nutrition:</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="NutritionDirective" /> I DO want to have artificially-provided nutrition
+                        <input asp-for="NutritionDirective" /> I DO NOT want to have artificially-provided nutrition
+                    </label>
+                </div>
+                <span asp-validation-for="NutritionDirective" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtificialVentilation" class="control-label">44) Cardiopulmonary resuscitation / assisted ventilation:</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="ArtificialVentilation" /> I DO want cardiopulmonary resuscitation and/or assisted ventilation
+                        <input asp-for="ArtificialVentilation" /> I DO NOT want cardiopulmonary resuscitation and/or assisted ventilation
+                    </label>
+                </div>
+                <span asp-validation-for="ArtificialVentilation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DistressMedication" class="control-label">45) Pain / distress medication:</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="DistressMedication" /> I DO want to receive appropriate medical treatment to alleviate or eliminate pain or distress
+                        <input asp-for="DistressMedication" /> I DO NOT want to receive medical treatment to alleviate or eliminate pain or distress
+                    </label>
+                </div>
+                <span asp-validation-for="DistressMedication" class="text-danger"></span>
+            </div>
+            <div class="class-md-12">
+                <div class="form-group col-md-offset-1 col-md-1 pull-left">
+                    <a asp-controller="VeteranIntakeForm" asp-action="CreateStep5" class="btn btn-danger">Back</a>
+                </div>
+
+                <div class="form-group text-center col-md-8 pull-left">
+                    <a asp-controller="VeteranIntakeForm" asp-action="" class="btn btn-default">Save & Exit</a>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <input type="submit" value="Next" class="btn btn-success" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

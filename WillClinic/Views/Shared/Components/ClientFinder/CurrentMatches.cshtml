@@ -1,0 +1,19 @@
+﻿@model List<WillClinic.Models.VeteranLawyerMatch>
+@{
+    ViewData["Title"] = "Default";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr><th colspan="2">Find Veteran Module</th></tr>
+    </thead>
+    <tbody>
+        @foreach(VeteranLawyerMatch x in Model)
+        {
+            <tr>
+                <td>Veteran: </td>
+                <td>@x.Veteran.ApplicationUser.FirstName</td>
+            </tr>
+        }
+    </tbody>
+</table>
