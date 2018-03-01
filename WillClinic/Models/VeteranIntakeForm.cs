@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -48,7 +48,7 @@ namespace WillClinic.Models
         public RemainderBeneficiary RemainderBeneficiary { get; set; }
         public string RemainderBeneficiarySpecific { get; set; }
         public bool? DisinheritSomeone { get; set; }
-        public string DisinheretDescription { get; set; }
+        public string DisinheritDescription { get; set; }
         public string PrimaryGuardian { get; set; }
         public string AlternateGuardian { get; set; }
         public string PersonalRepresentative { get; set; }
@@ -66,7 +66,3 @@ namespace WillClinic.Models
         public string SecondaryHealthAttorney { get; set; }
     }
 }
-
-
-
-
