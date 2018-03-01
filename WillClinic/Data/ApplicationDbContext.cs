@@ -19,7 +19,7 @@ namespace WillClinic.Data
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Lawyer> Lawyers { get; set; }
         public DbSet<Veteran> Veterans { get; set; }
-        public DbSet<VeteranChildren> VeteranChildren { get; set; }
+        public DbSet<VeteranChild> VeteranChildren { get; set; }
         public DbSet<VeteranIntakeForm> VeteranIntakeForms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -29,11 +29,11 @@ namespace WillClinic.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
             
-            builder.Entity<VeteranChildren>()
-                .HasOne(child => child.Parent)
+            builder.Entity<VeteranChild>()
+                .HasOne(child => child.Veteran)
                 .WithMany(vet => vet.Children);
 
-            builder.Entity<VeteranChildren>()
+            builder.Entity<VeteranChild>()
                 .HasKey(a => a.ID);
 
             builder.Entity<VeteranIntakeForm>()
