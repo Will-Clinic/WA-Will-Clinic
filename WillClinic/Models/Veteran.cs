@@ -14,9 +14,10 @@ namespace WillClinic.Models
         public string State { get; set; }
         public int ZipCode { get; set; }
 
+        // Those ICollections exist for the purpose of Fluent API to enable the one-to-many relationship
         public VeteranLawyerMatch VetLawMatch { get; set; }
         public VeteranQueue VetQueue { get; set; }
-        public ICollection<VeteranChildren> Children { get; set; }
+        public ICollection<VeteranChild> Children { get; set; }
         public ICollection<VeteranIntakeForm> IntakeForms { get; set; }
       
         // These coordinates are not the veteran's exact location but are the coordinates returned to a google API request based on the zip code.

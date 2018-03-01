@@ -864,6 +864,7 @@ namespace WillClinicTestBattery
             Assert.Equal("Veteran", n.RemainderBeneficiarySpecific);
         }
 
+
         // Testing DisinheritSomeone
         [Fact]
         public void DisinheritSomeone_TestingGetter_ReturnBool()
@@ -926,6 +927,7 @@ namespace WillClinicTestBattery
             // Assert
             Assert.Equal("Veteran", n.DisinheritDescription);
         }
+
 
         // Testing PrimaryGuardian
         [Fact]

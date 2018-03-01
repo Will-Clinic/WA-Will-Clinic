@@ -19,7 +19,7 @@ namespace WillClinic.Models
         public string PracticeAreas { get; set; }
         public int YearsOfExperience { get; set; }
         public bool OtherLanguages { get; set; }
-      
+        public bool IsVerified { get; set; }
         public ICollection<LawyerAvailability> Availability { get; set; }
         public ICollection<VeteranLawyerMatch> VetLawMatches { get; set; }
       
