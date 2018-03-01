@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WillClinic.Data;
 using WillClinic.Models;
 
@@ -20,17 +21,27 @@ namespace WillClinic.Controllers
 
         public IActionResult Index()
         {
-            var results = _context.Lawyers.Where(x => x.IsVerified == false).ToList();
+            var results = _context.Lawyers.Include(x => x.ApplicationUser).Where(x => x.IsVerified == false).ToList();
 
             return View(results);            
         }
 
-        public List<Lawyer> GetUnverifiedLawyers()
+        public IActionResult VerifyLawyer(string id)
         {
-            var results = _context.Lawyers.Where(x => x.IsVerified == false).ToList();
-            return results;
-        }
+            var attorney = _context.Lawyers.First(x => x.ApplicationUserId == id);
 
+            if(attorney.ApplicationUserId == id)
+            {
+                attorney.IsVerified = true;
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
+        }
 
         public IActionResult About()
         {
