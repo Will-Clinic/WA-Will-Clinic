@@ -8,6 +8,10 @@ namespace WillClinic.Models.Interfaces
     public interface IMatchService
     {
         bool IsInQueue();
-        void FindVeterans();
+        bool IsMatched();
+        void FindVeteran();
+        VeteranLawyerMatch GetMatch();
+        List<VeteranLawyerMatch> GetMatches();
+        void AddtoQueue(string userId);
     }
 }
