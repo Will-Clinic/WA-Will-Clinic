@@ -23,6 +23,7 @@ namespace WillClinicTestBattery
             };
         }
 
+        [Fact]
         public void SetGetID()
         {
             Veteran veteran = new Veteran()

@@ -45,7 +45,13 @@ namespace WillClinic.Controllers
         [Authorize(Roles = "Lawyer")]
         public IActionResult Index()
         {
-            return View();
+            string userID = _userManager.GetUserId(User);
+
+            List<LawyerAvailability> availability = new List<LawyerAvailability>();
+
+            availability = _context.LawyerAvailability.Where(law => law.LawyerApplicationUserId == userID).ToList();
+
+            return View(availability);
         }
 
         [HttpGet]
@@ -64,7 +70,7 @@ namespace WillClinic.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, MiddleInitial = model.MiddleInitial, LastName = model.LastName };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
