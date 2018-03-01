@@ -1,300 +1,343 @@
-﻿@model WillClinic.Models.VeteranIntakeForm
+﻿@model WillClinic.Models.IntakeFormViewModels.IntakeFormViewModel4
 
 @{
     ViewData["Title"] = "Create Step 4";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-
-<h4>VeteranIntakeForm</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div>
+        <form asp-action="CreateStep4">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <h3>
+                SECTION 4: Last Will & Testament
+            </h3>
+            <hr />
             <div class="form-group">
-                <label asp-for="ID" class="control-label"></label>
-                <input asp-for="ID" class="form-control" />
-                <span asp-validation-for="ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="IsNotarized" /> @Html.DisplayNameFor(model => model.IsNotarized)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeStamp" class="control-label"></label>
-                <input asp-for="TimeStamp" class="form-control" />
-                <span asp-validation-for="TimeStamp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="TermsAndConditions" /> @Html.DisplayNameFor(model => model.TermsAndConditions)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="FullLegalName" class="control-label"></label>
-                <input asp-for="FullLegalName" class="form-control" />
-                <span asp-validation-for="FullLegalName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="VeteranStatus" /> @Html.DisplayNameFor(model => model.VeteranStatus)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="ProofOfService" /> @Html.DisplayNameFor(model => model.ProofOfService)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="ResidentStatus" /> @Html.DisplayNameFor(model => model.ResidentStatus)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="NetWorth" /> @Html.DisplayNameFor(model => model.NetWorth)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="BankAccountAssets" class="control-label"></label>
-                <input asp-for="BankAccountAssets" class="form-control" />
-                <span asp-validation-for="BankAccountAssets" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RealEstateAssets" class="control-label"></label>
-                <input asp-for="RealEstateAssets" class="form-control" />
-                <span asp-validation-for="RealEstateAssets" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LifeInsuranceCashValue" class="control-label"></label>
-                <input asp-for="LifeInsuranceCashValue" class="form-control" />
-                <span asp-validation-for="LifeInsuranceCashValue" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RetirementAccounts" class="control-label"></label>
-                <input asp-for="RetirementAccounts" class="form-control" />
-                <span asp-validation-for="RetirementAccounts" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StockBonds" class="control-label"></label>
-                <input asp-for="StockBonds" class="form-control" />
-                <span asp-validation-for="StockBonds" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Pension" class="control-label"></label>
-                <input asp-for="Pension" class="form-control" />
-                <span asp-validation-for="Pension" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BusinessInterest" class="control-label"></label>
-                <input asp-for="BusinessInterest" class="form-control" />
-                <span asp-validation-for="BusinessInterest" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MoneyOwedToYou" class="control-label"></label>
-                <input asp-for="MoneyOwedToYou" class="form-control" />
-                <span asp-validation-for="MoneyOwedToYou" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OtherAssetsOrMoney" class="control-label"></label>
-                <input asp-for="OtherAssetsOrMoney" class="form-control" />
-                <span asp-validation-for="OtherAssetsOrMoney" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HouseHoldSize" class="control-label"></label>
+                <label asp-for="HouseHoldSize" class="control-label">
+                    19) Household Size:
+                </label>
                 <input asp-for="HouseHoldSize" class="form-control" />
                 <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MonthlyIncome" class="control-label"></label>
-                <input asp-for="MonthlyIncome" class="form-control" />
-                <span asp-validation-for="MonthlyIncome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaritalStatus" class="control-label"></label>
-                <input asp-for="MaritalStatus" class="form-control" />
+                <label asp-for="MaritalStatus" class="control-label">
+                    20) Marital status: *
+                </label>
+                <h5>
+                    select the most appropriate
+                </h5>
+                <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
+
+                @*@foreach (string item in Enum.GetNames(typeof(MaritalStatus)))
+            {
+
+                <div class="checkbox">
+                    <input type="radio" asp-for="MaritalStatus" value="@item">
+                    <label asp-for="MaritalStatus"> </label>
+
+                </div>
+            }*@
+
                 <span asp-validation-for="MaritalStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FullNameSpouse" class="control-label"></label>
+                <label asp-for="FullNameSpouse" class="control-label">
+                    21) Full legal name of your spouse
+                </label>
+                <h5>
+                    provide the full legal name of your spouse, if applicable
+                </h5>
                 <input asp-for="FullNameSpouse" class="form-control" />
                 <span asp-validation-for="FullNameSpouse" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="HaveChildren" class="control-label">
+                    22) Do you have any children? *
+                </label>
+                <h5>
+                    include biological, adopted, or step-children
+                </h5>
                 <div class="checkbox">
                     <label>
-                        <input asp-for="HaveChildren" /> @Html.DisplayNameFor(model => model.HaveChildren)
+                        <input asp-for="HaveChildren" /> Yes
+                        <input asp-for="HaveChildren" /> No
                     </label>
                 </div>
             </div>
             <div class="form-group">
+                <label asp-for="UnderAgeChildren" class="control-label">
+                    23) Do you have any minor children?
+                </label>
+                <h5>
+                    (under the age of 18 on October 12, 2013)
+                </h5>
                 <div class="checkbox">
                     <label>
-                        <input asp-for="UnderAgeChildren" /> @Html.DisplayNameFor(model => model.UnderAgeChildren)
+                        <input asp-for="UnderAgeChildren" /> Yes
+                        <input asp-for="UnderAgeChildren" /> No
                     </label>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="MinorChildrenDifferentSpouse" class="control-label"></label>
+                <label asp-for="MinorChildrenDifferentSpouse" class="control-label">
+                    24) If you have minor children, AND the parent of your minor child is DIFFERENT from your current spouse,
+                    please list them below.
+                </label>
                 <input asp-for="MinorChildrenDifferentSpouse" class="form-control" />
                 <span asp-validation-for="MinorChildrenDifferentSpouse" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CurrentlyPregnant" class="control-label">
+                    25) Are you, your spouse, or your partner currently pregnant?
+                </label>
                 <div class="checkbox">
                     <label>
-                        <input asp-for="CurrentlyPregnant" /> @Html.DisplayNameFor(model => model.CurrentlyPregnant)
+                        <input asp-for="CurrentlyPregnant" /> Yes
+                        <input asp-for="CurrentlyPregnant" /> No
                     </label>
                 </div>
             </div>
             <div class="form-group">
+
+                <h1>#1</h1>
+                <h4>For each child, please list their full legal name, date of birth, and biological, adoptive, or step-child status.</h4>
+
+                <label asp-for="Children[0].FullName">
+                    Child #1
+                </label>
+                <h5>
+                    Full Legal Name
+                </h5>
+                <input asp-for="Children[0].FullName" class="form-control" />
+
+                <label asp-for="Children[0].DOB">
+                    Child's Date of Birth *
+                </label>
+                <h5>
+                    please list in MM / DD / YYYY format. (Example: 02/14/1980)
+                </h5>
+                <input asp-for="Children[0].DOB" class="form-control" />
+
+                <label asp-for="Children[0].ChildRelationToVeteran">
+                    Please indicate if this is a biological, adoptive, or step-child. *
+                </label>
+                @*<input asp-for="Children[0].DOB" class="form-control" />*@
+            </div>
+
+            <h1>Beneficiary Information - Specific Bequests</h1>
+            <h4>
+                Specific bequest may be made with through a list attached to you will. This is one way that tangible personal
+                property or specific amount of money be given to the named individual(s). Specific bequests are distributed from
+                your assets first, and may make up the bulk of your estate or deplete it entirely. Specific bequests may also lapse
+                if the specific property cannot be found at your death (i.e., the gift will become void). Thus, it is important to make
+                specific bequests of property that you are reasonably sure you will have when you die.
+
+                YOU ARE NOT REQUIRED TO MAKE SPECIFIC BEQUESTS. If you make no specific bequests, all of your assets
+                will pass to the remainder (or residuary) beneficiaries of your estate. WA Vets Will Clinic only handles specific
+                bequests of tangible personal property or other items pursuant to a written list (i.e., those permitted in RCW
+                11.12.260).
+
+                The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY.
+            </h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="SpecificBequest" class="control-label">
+                    26) Would you like to make any specific bequests? *
+                </label>
+                <h5>
+                    The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY. Including real property
+                    transfers will disqualify you from participation.
+                </h5>
                 <div class="checkbox">
                     <label>
-                        <input asp-for="SpecificBequest" /> @Html.DisplayNameFor(model => model.SpecificBequest)
+                        <input asp-for="SpecificBequest" /> Yes
+                        <input asp-for="SpecificBequest" /> No
                     </label>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="BequestInfromation" class="control-label"></label>
+                <label asp-for="BequestInfromation" class="control-label">
+                    27) If you answered YES:
+                </label>
+                <h5>
+                    Please indicate what specific bequests you would like to make below by indicating who is the recipient of the
+                    bequest(s), and the property they will receive. Be specific. (Example: John Smith - my diamond wedding ring;
+                    Jane Doe - $10,000 cash; John Doe - 1970 Dodge Challenger)
+                </h5>
                 <input asp-for="BequestInfromation" class="form-control" />
                 <span asp-validation-for="BequestInfromation" class="text-danger"></span>
             </div>
+
+            <h1>Remainder of Your Estate</h1>
+            <h4>
+                The remainder (or residuary) of your estate consists of any and all property remaining in your estate after paying
+                debts, expenses of administration, and any specific bequests. Because many people do not make specific
+                bequests, the remainder of your estate usually describes the vast majority of the property in your estate.
+            </h4>
+            <hr />
             <div class="form-group">
-                <label asp-for="InheritEstate" class="control-label"></label>
-                <select asp-for="InheritEstate" class="form-control"></select>
+                <label asp-for="InheritEstate" class="control-label">
+                    28) Who would you like to inherit your estate when you die? Please check one: *
+                </label>
+                @*                <select asp-for="InheritEstate" class="form-control">My Spouse</select>*@
+                <select asp-for="InheritEstate" class="form-control">My Spouse</select>
+                <select asp-for="InheritEstate" class="form-control">My Spouse again! :)</select>
                 <span asp-validation-for="InheritEstate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InheritEstateSpecific" class="control-label"></label>
+                <label asp-for="InheritEstateSpecific" class="control-label">
+                    29) If you selected a specific charity, person(s), or other:
+                </label>
+                <h5>
+                    If you would like a specific charity or person(s) to inherit your estate, please indicate their identity, relationship to
+                    you (if any), and percent of your estate you would like them to receive. Be specific. If you select a charity, be sure
+                    to verify the legal name of the organization. All percentages MUST total 100%. (Example: John Doe - my brother,
+                    100%. Example for naming charities: Red Cross - Inland Northwest Region, 50%; and Spokane Humane Society
+                    & Society for the Prevention of Cruelty to Animals, 50%)
+                </h5>
                 <input asp-for="InheritEstateSpecific" class="form-control" />
                 <span asp-validation-for="InheritEstateSpecific" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RemainderBeneficiary" class="control-label"></label>
+                <label asp-for="RemainderBeneficiary" class="control-label">
+                    30) Contingent Remainder Beneficiary *
+                </label>
+                <h5>
+                    If any of the beneficiaries named above predecease you (die before you) or the charity that you have named is no
+                    longer in existence, who would you like to inherit your estate when you die?
+                </h5>
                 <select asp-for="RemainderBeneficiary" class="form-control"></select>
                 <span asp-validation-for="RemainderBeneficiary" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RemainderBeneficiarySpecific" class="control-label"></label>
+                <label asp-for="RemainderBeneficiarySpecific" class="control-label">
+                    31) If you selected a specific charity or person(s) to be your Contingent Remainder Beneficiary
+                </label>
+                <h5>
+                    If you would like a specific charity or person(s) to inherit your estate, please indicate their identity, relationship to
+                    you (if any), and percent of your estate you would like them to receive. Be specific. If you select a charity, be sure
+                    to verify the legal name of the organization. All percentages MUST total 100%. (Example: John Doe - my brother,
+                    100%. Example for naming charities: Red Cross - Inland Northwest Region, 50%; and Spokane Humane Society
+                    & Society for the Prevention of Cruelty to Animals, 50%)
+                </h5>
                 <input asp-for="RemainderBeneficiarySpecific" class="form-control" />
                 <span asp-validation-for="RemainderBeneficiarySpecific" class="text-danger"></span>
             </div>
+
+            <h1>
+                Disinheriting Someone
+            </h1>
+            <hr />
             <div class="form-group">
+                <label asp-for="DisinheritSomeone" class="control-label">
+                    32) Would you like to disinherit someone, other than your spouse? *
+                </label>
+                <h5>
+                    To 'disinherit' someone is to make a specific statement that a personal will not inherit from your estate.
+                    Disinheriting your spouse is beyond the scope of the WA Vets Will Clinic, and will disqualify you from eligibility.
+                </h5>
                 <div class="checkbox">
                     <label>
-                        <input asp-for="DisinheritSomeone" /> @Html.DisplayNameFor(model => model.DisinheritSomeone)
+                        <input asp-for="DisinheritSomeone" /> Yes
+                        <input asp-for="DisinheritSomeone" /> No
                     </label>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="DisinherentDescription" class="control-label"></label>
-                <input asp-for="DisinherentDescription" class="form-control" />
-                <span asp-validation-for="DisinherentDescription" class="text-danger"></span>
+                <label asp-for="DisinheretDescription" class="control-label">
+                    33) If you have chosen to disinherit someone, other than your spouse, please provide their full legal name
+                    and relationship to you.
+                </label>
+                <h5>
+                    Example: John Doe Smith - my son
+                </h5>
+                <input asp-for="DisinheretDescription" class="form-control" />
+                <span asp-validation-for="DisinheretDescription" class="text-danger"></span>
             </div>
+
+            <h1>
+                Guardianship
+            </h1>
+            <h4>
+                If you do not have minor children (under 18), skip this section.
+
+                A guardianship is a legal mechanism by which one individual or entity (a guardian) is appointed by a court to
+                exercise certain decision making functions on behalf of, and in the place of, a minor child (under age 18). If you
+                have minor children when you die, and if the other natural/adoptive parent of the child not alive or for any reason
+                cannot act as guardian, a court may appoint a guardian of your choosing to have custody and decision making
+                authority for your child/children until they reach age 18. If you have sole custody, upon your death, the child’s other
+                natural or adopted parent will be entitled to act as parent even if you provide for someone else to serve as
+                guardian in your Will. However, it is still advisable to name a guardian in case the other parent is unable or
+                unwilling to serve as guardian.
+            </h4>
+            <hr />
             <div class="form-group">
-                <label asp-for="PrimaryGuardian" class="control-label"></label>
+                <label asp-for="PrimaryGuardian" class="control-label">
+                    34) If you'd like to appoint a guardian, please list their name, city, and state of residence. (Example: John Doe,
+                    Spokane, Washington)
+                </label>
+                <h5>
+                    You may choose to have co-guardians. Do so by listing both persons, along with their city and state of residence.
+                    (Example: John Doe, Spokane, Washington; Jane Doe, Spokane, Washington)
+                </h5>
                 <input asp-for="PrimaryGuardian" class="form-control" />
                 <span asp-validation-for="PrimaryGuardian" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AlternateGuardian" class="control-label"></label>
+                <label asp-for="AlternateGuardian" class="control-label">
+                    35) If you'd like to appoint an alternate guardian, in the event the above guardian(s) are unavailable, you may
+                    do so by listing their name, city, and state of residence below. (Example: John Doe, Spokane, Washington)
+                </label>
                 <input asp-for="AlternateGuardian" class="form-control" />
                 <span asp-validation-for="AlternateGuardian" class="text-danger"></span>
             </div>
+
+            <h1>
+                Personal Representative
+            </h1>
+            <h4>
+                Your personal representative (sometimes called an "Executor") is the representative of your estate after your
+                death. A personal representative typically is responsible for administering your estate through probate, the court
+                process of distributing of your assets which may including settling claims against your estate and distributing
+                property to heirs.
+            </h4>
             <div class="form-group">
-                <label asp-for="PersonalRepresentative" class="control-label"></label>
+                <label asp-for="PersonalRepresentative" class="control-label">
+                    36) Whom do you wish to serve as your personal representative? *
+                </label>
+                <h5>
+                    List the person's full legal name. This is required.
+                </h5>
                 <input asp-for="PersonalRepresentative" class="form-control" />
                 <span asp-validation-for="PersonalRepresentative" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AlternateRepresentative" class="control-label"></label>
+                <label asp-for="AlternateRepresentative" class="control-label">
+                    37) Whom do you wish to serve as an alternate if your first choice for personal representative is unable to
+                    serve?
+                </label>
+                <h5>
+                    List the person's full legal name.
+                </h5>
                 <input asp-for="AlternateRepresentative" class="form-control" />
                 <span asp-validation-for="AlternateRepresentative" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="RequestPowerOfAttorney" /> @Html.DisplayNameFor(model => model.RequestPowerOfAttorney)
-                    </label>
+
+            <div class="class-md-12">
+                <div class="form-group col-md-offset-1 col-md-1 pull-left">
+                    <a asp-controller="VeteranIntakeForm" asp-action="CreateStep3" class="btn btn-danger">Back</a>
                 </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="PrimaryAttorney" class="control-label"></label>
-                <input asp-for="PrimaryAttorney" class="form-control" />
-                <span asp-validation-for="PrimaryAttorney" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AlternateAttorney" class="control-label"></label>
-                <input asp-for="AlternateAttorney" class="form-control" />
-                <span asp-validation-for="AlternateAttorney" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="HealthCareDirective" /> @Html.DisplayNameFor(model => model.HealthCareDirective)
-                    </label>
+
+                <div class="form-group text-center col-md-8 pull-left">
+                    <a asp-controller="VeteranIntakeForm" asp-action="" class="btn btn-default">Save & Exit</a>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="HydrationDirective" /> @Html.DisplayNameFor(model => model.HydrationDirective)
-                    </label>
+
+                <div class="form-group col-md-2">
+                    <input type="submit" value="Next" class="btn btn-success" />
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="NutritionDirective" /> @Html.DisplayNameFor(model => model.NutritionDirective)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="ArtificialVentilation" /> @Html.DisplayNameFor(model => model.ArtificialVentilation)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="DistressMedication" /> @Html.DisplayNameFor(model => model.DistressMedication)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-

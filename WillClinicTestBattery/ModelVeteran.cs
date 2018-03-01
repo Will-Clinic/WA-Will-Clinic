@@ -74,7 +74,7 @@ namespace WillClinicTestBattery
             veteran.ZipCode = 98121;
             Assert.Equal(98121, veteran.ZipCode);
         }
-      
+
         //[Fact]
         //public void ChildrenSetGet()
         //{
@@ -89,5 +89,33 @@ namespace WillClinicTestBattery
 
         //    Assert.Collection("", veteran.Children);
         //}
+
+        // Testing Coordinates
+        [Fact]
+        public void Coordinates_TestingGetter_ReturnString()
+        {
+            // Arrange
+            Veteran n = new Veteran();
+
+            // Act
+            n.Coordinates = "Veteran";
+
+            // Assert
+            Assert.Equal("Veteran", n.Coordinates);
+        }
+
+        [Fact]
+        public void Coordinates_TestingSetter_ReturnString()
+        {
+            // Arrange
+            Veteran n = new Veteran() { Coordinates = "Lawyer" };
+
+            // Act
+            n.Coordinates = "Veteran";
+
+            // Assert
+            Assert.Equal("Veteran", n.Coordinates);
+        }
+
     }
 }
