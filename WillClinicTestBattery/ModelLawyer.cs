@@ -166,5 +166,32 @@ namespace WillClinicTestBattery
 
             Assert.Equal("username@domain.tld", Lawyer.ApplicationUser.UserName);
         }
+
+        // Testing Coordinates
+        [Fact]
+        public void Coordinates_TestingGetter_ReturnString()
+        {
+            // Arrange
+            Lawyer n = new Lawyer();
+
+            // Act
+            n.Coordinates = "Veteran";
+
+            // Assert
+            Assert.Equal("Veteran", n.Coordinates);
+        }
+
+        [Fact]
+        public void Coordinates_TestingSetter_ReturnString()
+        {
+            // Arrange
+            Lawyer n = new Lawyer() { Coordinates = "Lawyer" };
+
+            // Act
+            n.Coordinates = "Veteran";
+
+            // Assert
+            Assert.Equal("Veteran", n.Coordinates);
+        }
     }
 }
