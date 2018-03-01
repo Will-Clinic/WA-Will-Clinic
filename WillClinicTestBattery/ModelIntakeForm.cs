@@ -898,33 +898,33 @@ namespace WillClinicTestBattery
 
         // Testing DisinheretDescription
         [Fact]
-        public void DisinheretDescription_TestingGetter_ReturnString()
+        public void DisinheritDescription_TestingGetter_ReturnString()
         {
             // Arrange
             VeteranIntakeForm n = new VeteranIntakeForm();
 
             // Act
-            n.DisinheretDescription = "Veteran";
+            n.DisinheritDescription = "Veteran";
 
             // Assert
 
           
 
             // Assert
-            Assert.Equal("Veteran", n.DisinheretDescription);
+            Assert.Equal("Veteran", n.DisinheritDescription);
         }
 
         [Fact]
         public void DisinheretDescription_TestingSetter_ReturnString()
         {
             // Arrange
-            VeteranIntakeForm n = new VeteranIntakeForm() { DisinheretDescription = "Lawyer" };
+            VeteranIntakeForm n = new VeteranIntakeForm() { DisinheritDescription = "Lawyer" };
 
             // Act
-            n.DisinheretDescription = "Veteran";
+            n.DisinheritDescription = "Veteran";
 
             // Assert
-            Assert.Equal("Veteran", n.DisinheretDescription);
+            Assert.Equal("Veteran", n.DisinheritDescription);
         }
 
         // Testing PrimaryGuardian
