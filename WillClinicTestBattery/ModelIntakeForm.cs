@@ -577,32 +577,32 @@ namespace WillClinicTestBattery
         }
 
 
-        // Testing Marital Status
-        [Fact]
-        public void MaritalStatus_TestingGetter_ReturnString()
-        {
-            // Arrange
-            VeteranIntakeForm n = new VeteranIntakeForm();
+        //// Testing Marital Status
+        //[Fact]
+        //public void MaritalStatus_TestingGetter_ReturnString()
+        //{
+        //    // Arrange
+        //    VeteranIntakeForm n = new VeteranIntakeForm();
 
-            // Act
-            // n.MaritalStatus = "Veteran";
+        //    // Act
+        //    // n.MaritalStatus = "Veteran";
 
-            // Assert
-            // Assert.Equal("Veteran", n.MaritalStatus);
-        }
+        //    // Assert
+        //    // Assert.Equal("Veteran", n.MaritalStatus);
+        //}
 
-        [Fact]
-        public void MaritalStatus_TestingSetter_ReturnString()
-        {
-            // Arrange
-            VeteranIntakeForm n = new VeteranIntakeForm() { Address = "Lawyer" };
+        //[Fact]
+        //public void MaritalStatus_TestingSetter_ReturnString()
+        //{
+        //    // Arrange
+        //    VeteranIntakeForm n = new VeteranIntakeForm() { Address = "Lawyer" };
 
-            // Act
-            // n.MaritalStatus = "Veteran";
+        //    // Act
+        //    // n.MaritalStatus = "Veteran";
 
-            // Assert
-            // Assert.Equal("Veteran", n.MaritalStatus);
-        }
+        //    // Assert
+        //    // Assert.Equal("Veteran", n.MaritalStatus);
+        //}
 
         // Testing FullNameSpouse
         [Fact]
