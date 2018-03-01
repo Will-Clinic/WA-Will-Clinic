@@ -6,32 +6,38 @@
         <table class="table">
             <tr><td id="tname" colspan="4">Veteran Intake Form Module</td></tr>
             <tr id="th"><td colspan="4" class="text-center">Current/Active Form</td></tr>
-            @foreach(var i in Model)
+            @foreach (var i in Model)
             {
-                if(i.IsNotarized == false)
+                if (i.IsNotarized == false)
                 {
                     <tr>
-                    <td>Form Name - Form Date</td>
-                    <td><a asp-action="Details" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Details</a></td>
-                    <td><a asp-action="Edit" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Edit</a></td>
-                    <td><a asp-action="Delete" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Delete</a></td>
+                        <td>Form Name - Form Date</td>
+                        <td><a asp-action="Details" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Details</a></td>
+                        <td><a asp-action="Edit" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Edit</a></td>
+                        <td><a asp-action="Delete" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Delete</a></td>
                     </tr>
                 }
             }
             <tr><td><a asp-action="GoToStep" asp-controller="VeteranIntakeForm">Create New Form</a></td></tr>
             <tr id="th"><td colspan="4" class="text-center">Archived Forms</td></tr>
-            @foreach(var i in Model)
+            @foreach (var i in Model)
             {
-                if(i.IsNotarized == true)
+                if (i.IsNotarized == true)
                 {
                     <tr>
-                    <td>Form Name</td>
-                    <td>Form Date</td>
-                    <td><a asp-action="Details" asp-controller="Veteran" asp-route-id="@i.ID">Details</a></td>
-                    <td><a asp-action="Delete" asp-controller="Veteran" asp-route-id="@i.ID">Delete</a></td>
+                        <td>Form Name</td>
+                        <td>Form Date</td>
+                        <td><a asp-action="Details" asp-controller="Veteran" asp-route-id="@i.ID">Details</a></td>
+                        <td><a asp-action="Delete" asp-controller="Veteran" asp-route-id="@i.ID">Delete</a></td>
                     </tr>
                 }
             }
         </table>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
+            @await Component.InvokeAsync("RequestLawyer")
+        </div>
     </div>
 </div>

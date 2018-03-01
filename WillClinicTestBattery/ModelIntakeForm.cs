@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -873,6 +873,7 @@ namespace WillClinicTestBattery
             VeteranIntakeForm parent = new VeteranIntakeForm();
 
             // Act
+
             n.DisinheritSomeone = true;
             parent.DisinheritSomeone = true;
 
@@ -904,6 +905,10 @@ namespace WillClinicTestBattery
 
             // Act
             n.DisinheretDescription = "Veteran";
+
+            // Assert
+
+          
 
             // Assert
             Assert.Equal("Veteran", n.DisinheretDescription);
