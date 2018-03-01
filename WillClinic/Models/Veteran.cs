@@ -14,7 +14,8 @@ namespace WillClinic.Models
         public string State { get; set; }
         public int ZipCode { get; set; }
 
-        public ICollection<VeteranChildren> Children { get; set; }
+        // Those ICollections exist for the purpose of Fluent API to enable the one-to-many relationship
+        public ICollection<VeteranChild> Children { get; set; }
         public ICollection<VeteranIntakeForm> IntakeForms { get; set; }
     }
 }
