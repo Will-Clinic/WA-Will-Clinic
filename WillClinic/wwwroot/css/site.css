@@ -1,39 +1,29 @@
-﻿
+﻿html,
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    margin: 0;
+    padding: 0;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 8%;
+.body-custom {
+    //padding: 0;
+    margin-top: 12%;
+
+}
+
+h2 {
+    font-weight: bold;
 }
 
 /*Navbar*/
 .navbar-custom {
     position: absolute;
     background: rgb(44,62,80);
-    
 }
 
 .navline-custom {
     height: 2px;
     background-color: rgb(101,67,33);
 }
-
-/*nav logo*/
-.navbar-brand {
-    color: floralwhite;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-    .navbar-brand:hover {
-        color: floralwhite;
-    }
 
 #navlist ul li a {
     font-size: 1em;
@@ -63,7 +53,8 @@ body {
 
 /*Footer*/
 #footer {
-    background: dimgray;
+    background: dimgrey;
+    margin: 0;
 }
 
 .logo {
@@ -75,6 +66,8 @@ body {
     color: floralwhite;
     font-weight: bold;
  }
+
+
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
