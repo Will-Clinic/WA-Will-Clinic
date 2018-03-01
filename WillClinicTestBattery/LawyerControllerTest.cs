@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WillClinicTestBattery
 {
-    public class ModelLawyerControllerTest
+    public class LawyerControllerTest
     {
     }
 }
