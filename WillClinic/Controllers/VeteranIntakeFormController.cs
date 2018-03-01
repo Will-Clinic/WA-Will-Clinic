@@ -211,7 +211,7 @@ namespace WillClinic.Controllers
                 currentForm.RemainderBeneficiary = intakeFormViewModel.RemainderBeneficiary;
                 currentForm.RemainderBeneficiarySpecific = intakeFormViewModel.RemainderBeneficiarySpecific;
                 currentForm.DisinheritSomeone = intakeFormViewModel.DisinheritSomeone;
-                currentForm.DisinheretDescription = intakeFormViewModel.DisinheretDescription;
+                currentForm.DisinheritDescription = intakeFormViewModel.DisinheretDescription;
                 currentForm.PrimaryGuardian = intakeFormViewModel.PrimaryGuardian;
                 currentForm.AlternateGuardian = intakeFormViewModel.AlternateGuardian;
                 currentForm.PersonalRepresentative = intakeFormViewModel.PersonalRepresentative;
@@ -249,8 +249,9 @@ namespace WillClinic.Controllers
                 currentForm.CurrentStep = 6;
                 currentForm.TimeStamp = DateTime.Now;
 
-                bool actualBool = intakeFormViewModel.RequestPowerOfAttorney == "Yes" ? true : false;
-                currentForm.RequestPowerOfAttorney = actualBool;
+                // bool actualBool = intakeFormViewModel.RequestPowerOfAttorney == "Yes" ? true : false;
+                // currentForm.RequestPowerOfAttorney = actualBool;
+                currentForm.RequestPowerOfAttorney = intakeFormViewModel.RequestPowerOfAttorney;
                 currentForm.PrimaryAttorney = intakeFormViewModel.PrimaryAttorney;
                 currentForm.AlternateAttorney = intakeFormViewModel.AlternateAttorney;
 
