@@ -47,9 +47,9 @@ namespace WillClinic.Data
                 .HasOne(vq => vq.Veteran)
                 .WithOne();
 
-            builder.Entity<VeteranQueue>()
+           // builder.Entity<VeteranQueue>()
             //    .HasKey(a => a.VeteranApplicationUserId);
-                .HasKey(vq => vq.ID);
+             //   .HasKey(vq => vq.ID);
 
             builder.Entity<LawyerAvailability>()
                 .HasOne(la => la.Lawyer)
