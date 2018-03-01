@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace WillClinic.Models
 {
@@ -104,12 +105,10 @@ namespace WillClinic.Models
         {
             string userid = _userManager.GetUserId(_httpContext.User);
             List<VeteranLawyerMatch> list = new List<VeteranLawyerMatch>();
-            list = _context.VeteranLawyerMatches.Where(x => x.LawyerApplicationUserId == userid).ToList();
-            foreach(VeteranLawyerMatch x in list)
-            {
-                x.Veteran = _context.Veterans.Find(x.VeteranApplicationUserId);
-                x.Veteran.ApplicationUser = _context.Users.Find(x.Veteran.ApplicationUserId);
-            }
+            list = _context.VeteranLawyerMatches
+                .Include(match => match.Veteran.IntakeForms .Where(form => form.IsCompleted != null) .Where(form => form.IsCompleted == true))
+                .Include(match => match.Veteran.ApplicationUser) .Where(x => x.LawyerApplicationUserId == userid)
+                .ToList();
             return list;
         }
 

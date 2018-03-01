@@ -43,7 +43,10 @@
                         <a asp-action="ForgotPassword">Forgot your password?</a>
                     </p>
                     <p>
-                        <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Register as a new user?</a>
+                        <a asp-controller="Veteran" asp-action="Register">Register as a Veteran</a>
+                    </p>
+                    <p>
+                        <a asp-controller="Lawyer" asp-action="Register">Register as a Lawyer</a>
                     </p>
                 </div>
             </form>
