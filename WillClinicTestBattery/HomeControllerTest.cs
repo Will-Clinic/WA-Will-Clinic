@@ -51,6 +51,21 @@ namespace WillClinicTestBattery
             Assert.IsType<ViewResult>(result);
         }
 
+        [Fact]
+        public void ReturnsView()
+        {
+            //Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            var result = controller.Index() as IActionResult;
+
+            // Assert
+            Assert.NotNull(result);
+
+        }
+
+
 
         [Fact]
         public void HomeAboutResultView()
@@ -72,18 +87,7 @@ namespace WillClinicTestBattery
             IActionResult result = home.Contact();
 
             Assert.IsType<ViewResult>(result);
-        }
-
-        [Fact]
-        public void HomeErrorResultView()
-        {
-
-            HomeController home = new HomeController();
-
-            IActionResult result = home.Error();
-
-            Assert.IsType<ViewResult>(result);
-        }
+        }        
 
     }
 }

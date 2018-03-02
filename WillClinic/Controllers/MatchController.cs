@@ -40,10 +40,10 @@ namespace WillClinic.Controllers
             return RedirectToAction("Index", "Veteran");
         }
 
-        public ViewResult GetForms(VeteranLawyerMatch match)
+        public ViewResult Application(int matchId)
         {
-            List<VeteranIntakeForm> forms = _matchService.GetForms(match);
-            return View(forms);
+            VeteranIntakeForm form = _matchService.GetForm(matchId);
+            return View(form);
         }
     }
 }

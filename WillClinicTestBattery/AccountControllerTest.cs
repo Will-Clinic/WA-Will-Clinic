@@ -14,50 +14,43 @@ using Xunit;
 
 namespace WillClinicTestBattery
 {
-        public class AccountControllerTest
-        {
-            ApplicationDbContext _context;
-
-            public ClaimsPrincipal User { get; set; }
-
-            //public HomeController()
-            //{
-            //    User = new ClaimsPrincipal();
-
-            //}
+    public class AccountControllerTest
+    {
+        ApplicationDbContext _context;
 
 
-            DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
+        DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
 
                   .UseInMemoryDatabase(Guid.NewGuid().ToString())
 
                   .Options;
 
-            [Fact]
-            public void ReturnsView()
-            {
-                ClaimsPrincipal User = new ClaimsPrincipal();
-                // Arrange
-                HomeController homeController = new HomeController();
+        [Fact]
+        public void ReturnsView()
+        {
+            //Arrange
+            AccountController controller = new AccountController();
 
-                // Act
-                var result = homeController.Index();
+            // Act
+            var result = controller.Index() as IActionResult;
 
-                // Assert
-                Assert.NotNull(result);
+            // Assert
+            Assert.NotNull(result);
 
-            }
-
-            [Fact]
-            public void determineindexreturnscorrectview()
-            {
-                HomeController controller = new HomeController();
-
-                ViewResult result = controller.Index() as ViewResult;
-
-                //****result.viewname is empty!!!!***//
-                Assert.Equal("index", result.ViewName);
-            }
         }
+
+
+
+        [Fact]
+        public void determineindexreturnscorrectview()
+        {
+            HomeController controller = new HomeController();
+
+            ViewResult result = controller.Index() as ViewResult;
+
+            //****result.viewname is empty!!!!***//
+            Assert.Equal("index", result.Model);
+        }
+    }
 }
 

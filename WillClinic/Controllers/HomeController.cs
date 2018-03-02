@@ -22,10 +22,10 @@ namespace WillClinic.Controllers
                 {
                     return RedirectToAction("Index", "Veteran");
                 }
-                //else if (User.IsInRole("Admin"))
-                //{
-                //    RedirectToAction("Index", "Admin");
-                //}
+                else if (User.IsInRole("Admin"))
+                {
+                    RedirectToAction("Index", "Admin");
+                }
             }
             return View();
         }
@@ -46,7 +46,8 @@ namespace WillClinic.Controllers
 
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

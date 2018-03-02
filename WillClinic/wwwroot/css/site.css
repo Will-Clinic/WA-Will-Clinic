@@ -1,7 +1,22 @@
-﻿html,
+﻿html {
+    //margin: 0;
+    //padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
+    position: relative;
     margin: 0;
-    padding: 0 5% 0 5%;
+
+    padding-bottom: 6rem;
+    min-height: 100%;
 
 }
 
@@ -54,11 +69,14 @@ h2 {
 
 /*Footer*/
 .footy {
-    margin: 0;
-    padding: 0;
 }
 
 .footer-custom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+    padding: 0;
     background: #636e72;
     margin: 0;
 }
@@ -89,4 +107,19 @@ img#map {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+}
+
+ul.container {
+    width: 90%;
+}
+
+li.row {
+    list-style: none;
+    margin: 4px;
+}
+
+.bordercol {
+    padding: 3px;
+    border: 1px solid #0094ff;
+    border-radius: 4px 5px; 
 }
