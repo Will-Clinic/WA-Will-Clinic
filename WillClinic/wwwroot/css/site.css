@@ -1,6 +1,6 @@
 ﻿html {
-    //margin: 0;
-    //padding: 0;
+    /*margin: 0;
+    padding: 0;*/
     height: 100%;
     box-sizing: border-box;
 }
@@ -139,4 +139,26 @@ li.row {
     padding: 3px;
     border: 1px solid #0094ff;
     border-radius: 4px 5px; 
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: 'liga';
 }
