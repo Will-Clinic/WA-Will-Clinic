@@ -4,34 +4,53 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
         <table class="table">
-            <tr><td id="tname" colspan="4">Veteran Intake Form Module</td></tr>
-            <tr id="th"><td colspan="4" class="text-center">Current/Active Form</td></tr>
-            @foreach (var i in Model)
+            <tr><td id="tname" colspan="4">Veteran Application Module</td></tr>
+
+            @if (Model.Where(x => !x.IsNotarized.HasValue).Count() < 1)
             {
-                if (i.IsNotarized == false)
+                <tr><td><a asp-action="GoToStep" asp-controller="VeteranIntakeForm">Create New Application</a></td></tr>
+            }
+
+            @if (Model.Any(x => x.CurrentStep > 0 && !x.IsCompleted.HasValue && !x.IsNotarized.HasValue))
+            {
+                <tr>
+                    <td><a asp-action="GoToStep" asp-controller="VeteranIntakeForm" asp-route-step="@Model.FirstOrDefault(x => !x.IsNotarized.HasValue).CurrentStep">Continue Form</a></td>
+                    <td><a asp-action="Delete" asp-controller="VeteranIntakeForm" asp-route-id="@Model.FirstOrDefault(x => !x.IsNotarized.HasValue).ID">Delete</a></td>
+                </tr>
+            }
+
+            @if (Model.Any(x => x.IsCompleted.HasValue && !x.IsNotarized.HasValue))
+            {
+                <tr id="th"><td colspan="4" class="text-center">Current/Active Application</td></tr>
+
+                foreach (var i in Model)
                 {
-                    <tr>
-                        <td>Form Name - Form Date</td>
-                        <td><a asp-action="Details" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Details</a></td>
-                        <td><a asp-action="Edit" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Edit</a></td>
-                        <td><a asp-action="Delete" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Delete</a></td>
-                    </tr>
+                    if (i.IsCompleted.HasValue && !i.IsNotarized.HasValue)
+                    {
+                        <tr>
+                            <td><b>Application Created On</b> @i.TimeStamp</td>
+                            <td><a asp-action="Details" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Details</a></td>
+                            <td><a asp-action="Edit" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Edit</a></td>
+                            <td><a asp-action="Delete" asp-controller="VeteranIntakeForm" asp-route-id="@i.ID">Delete</a></td>
+                        </tr>
+                    }
                 }
             }
-            <tr><td><a asp-action="GoToStep" asp-controller="VeteranIntakeForm">Create New Form</a></td></tr>
-            <tr id="th"><td colspan="4" class="text-center">Archived Forms</td></tr>
-            @foreach (var i in Model)
+
+            @if (Model.Any(x => x.IsNotarized.HasValue))
             {
-                if (i.IsNotarized == true)
+                <tr id="th"><td colspan="4" class="text-center">Archived Forms</td></tr>
+                @foreach (var i in Model)
                 {
-                    <tr>
-                        <td>Form Name</td>
-                        <td>Form Date</td>
-                        <td><a asp-action="Details" asp-controller="Veteran" asp-route-id="@i.ID">Details</a></td>
-                        <td><a asp-action="Delete" asp-controller="Veteran" asp-route-id="@i.ID">Delete</a></td>
-                    </tr>
+                    if (i.IsNotarized.HasValue)
+                    {
+                        <tr>
+                            <td><a asp-action="Details" asp-controller="Veteran" asp-route-id="@i.ID">Form: @i.TimeStamp</a></td>
+                        </tr>
+                    }
                 }
             }
+
         </table>
     </div>
 
