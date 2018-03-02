@@ -13,7 +13,7 @@ using WillClinic.Services;
 using Xunit;
 
 namespace WillClinicTestBattery
-    {
+{
         public class AccountControllerTest
         {
             ApplicationDbContext _context;
@@ -59,5 +59,5 @@ namespace WillClinicTestBattery
                 Assert.Equal("index", result.ViewName);
             }
         }
-    }
+}
 
