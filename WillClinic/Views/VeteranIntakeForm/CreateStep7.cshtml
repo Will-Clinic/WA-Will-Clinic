@@ -1,7 +1,7 @@
 ﻿@model WillClinic.Models.IntakeFormViewModels.IntakeFormViewModel7
 
 @{
-    ViewData["Title"] = "Create Step 3";
+    ViewData["Title"] = "Application";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -27,12 +27,17 @@
                 <label asp-for="HealthPOA" class="control-label">
                     46) Would you like a health care power of attorney? *
                 </label>
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input asp-for="HealthPOA" /> Yes
-                        <input asp-for="HealthPOA" /> No
+                        <input asp-for="HealthPOA" type="radio" value="true"/> Yes
                     </label>
                 </div>
+                <div class="radio">
+                    <label>
+                        <input asp-for="HealthPOA" type="radio" value="false"/> No
+                    </label>
+                </div>
+
                 <span asp-validation-for="HealthPOA" class="text-danger"></span>
             </div>
 

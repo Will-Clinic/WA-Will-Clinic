@@ -10,7 +10,6 @@ namespace WillClinic.Models.IntakeFormViewModels
     {
         [Required]
         [Display(Name = "Terms and Conditions")]
-        [Range(typeof(bool), "true", "true", ErrorMessage = "The field Terms and Conditions must be checked.")]
         public bool? TermsAndConditions { get; set; }
     }
 }

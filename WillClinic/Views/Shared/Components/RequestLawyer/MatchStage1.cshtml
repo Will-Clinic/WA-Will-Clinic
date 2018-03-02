@@ -1,0 +1,28 @@
+﻿@model WillClinic.Models.VeteranLawyerMatch
+@{
+    ViewData["Title"] = "Default";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr><th colspan="2">Find Veteran Module</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Lawyer: </td>
+            <td>@Model.Lawyer.ApplicationUser.FirstName</td>
+        </tr>
+        <tr>
+            <td colspan="2">Available Time Slots:</td>
+        </tr>
+        @foreach (LawyerAvailability time in Model.Lawyer.Availability)
+        {
+            <tr>
+                <td>@time.TimeAvailable</td>
+                <td><form method="post" asp-controller="Match" asp-action="AcceptTimeSlot" asp-route-timeId="@time.ID">
+                    <button type="submit">Accept Time Slot</button>
+                </form></td>
+            </tr>
+        }
+    </tbody>
+</table>
