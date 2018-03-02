@@ -9,9 +9,14 @@ namespace WillClinic.Models.Interfaces
     {
         bool IsInQueue();
         bool IsMatched();
-        void FindVeteran();
+        bool HasCompletedForm();
+        VeteranQueue GetQueueItem();
         VeteranLawyerMatch GetMatch();
+        List<LawyerAvailability> GetLawyerAvailability(string lawyerId);
         List<VeteranLawyerMatch> GetMatches();
+
         void AddtoQueue(string userId);
+        void FindVeteran();
+        void AcceptTimeSlot(int timeId);
     }
 }
