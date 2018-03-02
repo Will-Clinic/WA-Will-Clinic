@@ -17,7 +17,7 @@
             <li class="row">
                 <form asp-controller="Match" asp-action="Application" asp-route-matchId="@match.ID" method="post">
                     <p class="col-xs-10">Veteran meeting confirmed for @match.TimeSelected </p>
-                    <button class="col-xs-2 btn btn-primary ">View </button>
+                    <button class="col-xs-2 btn btn-primary">View </button>
                 </form>
             </li>
         }
@@ -33,6 +33,9 @@
         <p>One veteran matched, waiting for them to select a time</p>
     }
 }
-<form method="post" asp-controller="Match" asp-action="FindVeteran">
-    <button type="submit">Find Veteran (Search queue)</button>
-</form>
+@*@if ()
+{
+    <form method="post" asp-controller="Match" asp-action="FindVeteran">
+        <button type="submit" class="btn btn-primary">Find Veteran</button>
+    </form>
+}*@

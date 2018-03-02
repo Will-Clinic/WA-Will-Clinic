@@ -1,6 +1,6 @@
-﻿@model RegisterVeteranViewModel
+﻿@model RegisterAdminViewModel
 @{
-    ViewData["Title"] = "Veteran Registration";
+    ViewData["Title"] = "Admin Registration";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -41,7 +41,8 @@
                 <input asp-for="ConfirmPassword" class="form-control" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            
+            <button type="submit" class="btn btn-default">Register</button>
         </form>
     </div>
 </div>

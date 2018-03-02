@@ -23,6 +23,7 @@ namespace WillClinic.Controllers
     [Route("[controller]/[action]")]
     public class VeteranController : Controller
     {
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
@@ -30,12 +31,14 @@ namespace WillClinic.Controllers
         private readonly ApplicationDbContext _context;
 
         public VeteranController(
+            RoleManager<IdentityRole> roleManager,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ILogger<AccountController> logger,
             ApplicationDbContext context)
         {
+            _roleManager = roleManager;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
@@ -82,6 +85,11 @@ namespace WillClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterVeteranViewModel model, string returnUrl = null)
         {
+            if (!await _roleManager.RoleExistsAsync("Veteran"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole("Veteran"));
+            }
+
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {

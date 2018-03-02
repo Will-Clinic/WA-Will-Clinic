@@ -10,6 +10,7 @@ namespace WillClinic.Models.Interfaces
         bool IsInQueue();
         bool IsMatched();
         bool HasCompletedForm();
+        bool IsVerified();
         VeteranQueue GetQueueItem();
         VeteranLawyerMatch GetMatch();
         List<LawyerAvailability> GetLawyerAvailability(string lawyerId);

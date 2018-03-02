@@ -1,15 +1,11 @@
 ﻿@model IEnumerable<Lawyer>
 @*Landing page for Admin*@
-
 <h2>Welcome!</h2>
 
+
 <h3>Lawyers waiting for approval</h3>
-<a href="https://www.mywsba.org/LegalDirectory.aspx" target="_blank">Quick Link for verification</a>
-@*Enumerate through list of nonapproved lawyers and then make the into list elements?*@
-@*DONE: Add isVerified property on Lawyer*@
-@*DONE: Create query to grab all Lawyers where isVerified is false*@
-
-
+<a asp-action="RejectedLawyers" asp-controller="Admin">Rejected Lawyers</a>
+<a href="https://www.mywsba.org/LegalDirectory.aspx" target="_blank">Quick Link for Verification</a>
 <div class="row">
 
     @foreach (var i in Model)

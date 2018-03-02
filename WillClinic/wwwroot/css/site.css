@@ -1,8 +1,27 @@
-﻿html,
-body {
-    margin: 0;
-    padding: 0 5% 0 5%;
+﻿html {
+    /*margin: 0;
+    padding: 0;*/
+    height: 100%;
+    box-sizing: border-box;
+}
 
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    margin: 0;
+
+    padding-bottom: 12rem;
+    min-height: 100%;
+
+}
+
+.icon-bar {
+    background-color: whitesmoke !important;
 }
 
 .body-custom {
@@ -17,7 +36,6 @@ h2 {
 
 /*Navbar*/
 .navbar-custom {
-    position: fixed;
     background: rgb(44,62,80);
 }
 
@@ -54,11 +72,22 @@ h2 {
 
 /*Footer*/
 .footy {
-    margin: 0;
-    padding: 0;
+}
+
+#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .footer-custom {
+  position: absolute;
+  right: 0;
+  left: 0;
+    padding: 0;
     background: #636e72;
     margin: 0;
 }
@@ -72,6 +101,12 @@ h2 {
     color: floralwhite;
  }
 
+
+/* Progress Bar */
+.progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem
+}
 
 
 /* Hide/rearrange for smaller screens */
@@ -104,4 +139,26 @@ li.row {
     padding: 3px;
     border: 1px solid #0094ff;
     border-radius: 4px 5px; 
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: 'liga';
 }

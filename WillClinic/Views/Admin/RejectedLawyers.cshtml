@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Lawyer>
+
+<h2>Rejected Lawyers</h2>
+
+@foreach(var i in Model)
+{
+<p>@i.ApplicationUser.FirstName @i.ApplicationUser.LastName</p>
+    <p>Reason for rejection: @i.IsRejected </p>
+
+}
