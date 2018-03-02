@@ -5,11 +5,11 @@
 
 <table class="table table-bordered">
     <thead>
-        <tr><th colspan="2">Find Veteran Module</th></tr>
+        <tr><th colspan="2">Find Attorney Module</th></tr>
     </thead>
     <tbody>
         <tr>
-            <td>Lawyer: </td>
+            <td>Attorney: </td>
             <td>@Model.Lawyer.ApplicationUser.FirstName</td>
         </tr>
         <tr>
@@ -20,7 +20,7 @@
             <tr>
                 <td>@time.TimeAvailable</td>
                 <td><form method="post" asp-controller="Match" asp-action="AcceptTimeSlot" asp-route-timeId="@time.ID">
-                    <button type="submit">Accept Time Slot</button>
+                    <button type="submit" class="btn-primary">Accept Time Slot</button>
                 </form></td>
             </tr>
         }

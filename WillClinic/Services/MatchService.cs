@@ -66,7 +66,7 @@ namespace WillClinic.Models
         /// <param name="userid"></param>
         public void AddtoQueue(string userid)
         {
-            if (!IsInQueue())
+            if (!IsInQueue() && !IsMatched())
             {
                 VeteranQueue vq = new VeteranQueue();
                 vq.TimeEnteredQueue = DateTime.Now;
