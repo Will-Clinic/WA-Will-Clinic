@@ -34,5 +34,11 @@ namespace WillClinic.Controllers
             _matchService.FindVeteran();
             return RedirectToAction("Index", "Lawyer");
         }
+
+        private List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
+        {
+            List<VeteranIntakeForm> forms = _matchService.GetForms(match);
+            return View(forms);
+        }
     }
 }

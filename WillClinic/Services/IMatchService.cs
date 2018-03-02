@@ -13,5 +13,6 @@ namespace WillClinic.Models.Interfaces
         VeteranLawyerMatch GetMatch();
         List<VeteranLawyerMatch> GetMatches();
         void AddtoQueue(string userId);
+        List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match);
     }
 }

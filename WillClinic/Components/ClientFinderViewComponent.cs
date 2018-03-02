@@ -19,13 +19,7 @@ namespace WillClinic.Components
 
         public IViewComponentResult Invoke()
         {
-            if (_matchService.IsMatched())
-            {
-                List<VeteranLawyerMatch> list = _matchService.GetMatches();
-                return View("CurrentMatches", list);
-            }
-            else
-                return View(); // Default
+            return View(_matchService.GetMatches()); // Default
         }
     }
 }
