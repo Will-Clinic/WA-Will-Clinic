@@ -30,6 +30,7 @@ To be considered for matching with a veteran in need, attorneys must be verified
 If interested in volunteering to help our organization, a simple form for submission can be found here [link to volunteer application].
 
 ## [Architecture](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
+![Database Schema](https://i.imgur.com/1TC13OI.png "Microsoft SQL Database Schema")
 **DB Schema, Wireframes, dependencies used go here!**
 
 ## [FAQs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
