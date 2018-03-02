@@ -1,28 +1,40 @@
 ﻿@model IEnumerable<Lawyer>
 @*Landing page for Admin*@
 
-<h2>Welcome!</h2>
-<a href="https://www.mywsba.org/LegalDirectory.aspx" target="_blank">Quick Link for verification</a>
-<h3>Lawyers waiting for approval</h3>
+<div class="jumbotron">
+    <h2 class="lead text-center"><b>Attornys waiting for Approval</b></h2>
+</div>
 
-<div class="row">
+<div class="alert alert-dismissible alert-primary text-center">
+    <p style="font-size: 20px;">
+        <a href="https://www.mywsba.org/LegalDirectory.aspx" target="_blank"><b>Verify Attorney</b></a>
+    </p>
+</div>
+<div class="card-header text-center">
+    <h3>
+        <b>Attornys to be approved</b>
+    </h3>
+</div>
+<p></p>
+@foreach (var i in Model)
+{
+    <div class="row">
 
-    @foreach (var i in Model)
-    {
-        <div class="col-md-4">
-        <div class="card text-center" style="width : 20rem;">
-            <div class="card-block">
-                <h3 class="card-title">@i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName</h3>
-                <p class="card-text">Bar ID : @i.BarNumber</p>
+        <div class="col-md-2"></div>
+        <div class="cardbordered border-primary col-md-8">
+            <div class="card-body text-center">
+                <h4><b>@i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName</b></h4>
+                <h4>Bar ID : @i.BarNumber</h4>
                 <a asp-area="" class="btn btn-success" asp-controller="Admin" asp-action="VerifyLawyer" asp-route-id="@i.ApplicationUserId">Verify @i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName </a>
                 <a asp-area="" class="btn btn-danger" asp-controller="Admin" asp-action="RemoveLawyer" asp-route-id="@i.ApplicationUserId">Remove @i.ApplicationUser.FirstName @i.ApplicationUser.MiddleInitial @i.ApplicationUser.LastName's Request</a>
             </div>
         </div>
-        </div>
-    }
+        <div class="col-md-2"></div>
+    </div>
 
-</div>
-    @*Wrap in anchor tags, on click take them to lawyers sign up information?*@
-    @*Approval Button for each lawyer?*@
+}
 
-    @*DONE : Maybe make this open in a new tab instead of redirecting?*@
+@*Wrap in anchor tags, on click take them to lawyers sign up information?*@
+@*Approval Button for each lawyer?*@
+
+@*DONE : Maybe make this open in a new tab instead of redirecting?*@

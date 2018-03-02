@@ -29,44 +29,6 @@ namespace WillClinicTestBattery
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger _logger;
 
-        //[Fact]
-        //public void UserAuthAdminRegisterViewResult()
-        //{
-        //    AccountController user = new AccountController(_userManager, _signInManager, _logger);
-
-        //    var result = user.RegisterAdmin();
-
-        //    Assert.IsType<ViewResult>(result);
-        //}
-
-
-        [Fact]
-        public void HomeIndexResultView()
-        {
-
-            HomeController home = new HomeController();
-
-            IActionResult result = home.Index();
-
-            Assert.IsType<ViewResult>(result);
-        }
-
-        [Fact]
-        public void ReturnsView()
-        {
-            //Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            var result = controller.Index() as IActionResult;
-
-            // Assert
-            Assert.NotNull(result);
-
-        }
-
-
-
         [Fact]
         public void HomeAboutResultView()
         {
