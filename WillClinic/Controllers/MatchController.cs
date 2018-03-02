@@ -9,8 +9,13 @@ using WillClinic.Models.Interfaces;
 
 namespace WillClinic.Controllers
 {
+
+    //Controls stuff regarding the match item between the Veteran and Lawyer which should allow access to all required data.
+
     public class MatchController : Controller
     {
+
+
         private readonly IMatchService _matchService;
         private readonly UserManager<ApplicationUser> _userManager;
 
@@ -27,10 +32,14 @@ namespace WillClinic.Controllers
             return RedirectToAction("Index", "Veteran");
         }
 
-        public ActionResult FindVeteran()
+        public async Task<ActionResult> FindVeteran()
         {
-            // var user = await _userManager.GetUserAsync(User);
-            _matchService.FindVeteran();
+
+            var user = await _userManager.GetUserAsync(User);
+            if(_matchService.IsVerified())
+            {
+            _matchService.FindVeteran();          
+            }
             return RedirectToAction("Index", "Lawyer");
         }
 

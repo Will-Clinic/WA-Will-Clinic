@@ -184,5 +184,23 @@ namespace WillClinic.Models
                 .FirstOrDefault(form => form.VeteranApplicationUserId == vetId);
             return task;
         }
+
+        public bool IsVerified()
+        {
+           
+            
+                string userid = _userManager.GetUserId(_httpContext.User);
+            Lawyer attorney = _context.Lawyers.First(x => x.ApplicationUserId == userid);    
+
+                if (attorney.IsVerified == true)
+                {
+                return true;
+                }
+
+                return false;
+            
+
+
+        }
     }
 }
