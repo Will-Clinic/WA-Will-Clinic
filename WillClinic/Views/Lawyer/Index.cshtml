@@ -8,17 +8,19 @@
 <div class="row">
     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
         <h2>Availability Timeslots</h2>
-        <ul class="container">
+        <ul class="container bg-info">
             @foreach (var item in Model)
             {
                <li class="row">
                    <form method="post" asp-controller="LawyerAvailability" asp-action="Delete" asp-route-id="@item.ID">
                        <p class="col-lg-10">@item.TimeAvailable</p>
-                       <button type="submit" class="col-xs-2 btn">Delete</button>
+                       <button type="submit" class="col-xs-2 btn btn-danger">Delete</button>
                    </form>
                </li>
              }
-            <div class="row"><div class="col-xs-12"><a asp-controller="LawyerAvailability" asp-action="Create">Add Time Slot</a></div></div>
+            <div class="row">
+                <div class="col-xs-12"><a asp-controller="LawyerAvailability" asp-action="Create">Add Time Slot</a></div>
+            </div>
         </ul>
     </div>
 </div>
@@ -44,5 +46,15 @@
 <div class="row">
     <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
         @await Component.InvokeAsync("ClientFinder")
+        @if (Model.Count > 0)
+        {
+            <form method="post" asp-controller="Match" asp-action="FindVeteran">
+                <button type="submit" class="btn btn-primary">Find Veteran</button>
+            </form>
+        }
+        else
+        {
+            <p>Please enter some availability in order to be matched with a veteran.</p>
+        }
     </div>
 </div>

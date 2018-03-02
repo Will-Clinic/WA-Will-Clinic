@@ -18,13 +18,9 @@ namespace WillClinicTestBattery
     {
         //ApplicationDbContext _context;
 
-
         //DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
-
         //          .UseInMemoryDatabase(Guid.NewGuid().ToString())
-
         //          .Options;
-
         //[Fact]
         //public void ReturnsView()
         //{
@@ -36,10 +32,7 @@ namespace WillClinicTestBattery
 
         //    // Assert
         //    Assert.NotNull(result);
-
         //}
-
-
 
         //[Fact]
         //public void determineindexreturnscorrectview()
@@ -53,4 +46,3 @@ namespace WillClinicTestBattery
         //}
     }
 }
-
