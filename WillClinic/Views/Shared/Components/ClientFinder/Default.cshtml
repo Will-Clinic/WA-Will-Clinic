@@ -10,32 +10,44 @@
     List<VeteranLawyerMatch> nontimeconfirmedmatches = Model.Where(match => match.IsDateTimeApproved == false).ToList();
     @if (timeconfirmedmatches.Count > 0)
     {
-    <h2>Scheduled Meetings</h2>
-    <ul class="container bg-info">
-        @foreach (VeteranLawyerMatch match in timeconfirmedmatches)
-        {
-            <li class="row">
-                <form asp-controller="Match" asp-action="Application" asp-route-matchId="@match.ID" method="post">
-                    <p class="col-xs-10">Veteran meeting confirmed for @match.TimeSelected </p>
-                    <button class="col-xs-2 btn btn-primary">View </button>
-                </form>
-            </li>
-        }
-    </ul>
+        <h2>Scheduled Meetings</h2>
+        <ul class="container bg-info">
+            @foreach (VeteranLawyerMatch match in timeconfirmedmatches)
+            {
+                <li class="row">
+                    <form asp-controller="Match" asp-action="Application" asp-route-matchId="@match.ID" method="post">
+                        <p class="col-xs-10">Veteran meeting confirmed for @match.TimeSelected </p>
+                        <button class="col-xs-2 btn btn-primary btn-success">View </button>
+                    </form>
+                </li>
+            }
+        </ul>
     }
     @if (nontimeconfirmedmatches.Count > 1)
     {
-        <h2>Veterans not yet scheduled</h2>
-        <p>@nontimeconfirmedmatches.Count Veterans matched, waiting for them to select a time</p>
+        <div class="col-md-2"></div>
+        <div class="cardbordered border-primary col-md-8">
+            <div class="card-body text-center">
+                <h4>Veterans not yet scheduled</h4>
+                <h4>@nontimeconfirmedmatches.Count Veterans matched, waiting for them to select a time</h4>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
     }
     else if (nontimeconfirmedmatches.Count == 1)
     {
-        <p>One veteran matched, waiting for them to select a time</p>
+        <div class="col-md-2"></div>
+        <div class="cardbordered border-primary col-md-8">
+            <div class="card-body text-center">
+                <h4>One veteran matched, waiting for them to select a time</h4>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
     }
 }
 @*@if ()
-{
-    <form method="post" asp-controller="Match" asp-action="FindVeteran">
-        <button type="submit" class="btn btn-primary">Find Veteran</button>
-    </form>
-}*@
+    {
+        <form method="post" asp-controller="Match" asp-action="FindVeteran">
+            <button type="submit" class="btn btn-primary">Find Veteran</button>
+        </form>
+    }*@
