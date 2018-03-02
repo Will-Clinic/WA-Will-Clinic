@@ -129,5 +129,20 @@ namespace WillClinic.Models
             match.Lawyer.ApplicationUser = _context.Users.Find(match.Lawyer.ApplicationUserId);
             return match;
         }
+
+        // Get unnotarized forms for the lawyer
+        public List<VeteranIntakeForm> GetForm(VeteranLawyerMatch match)
+        {
+            string userId = _userManager.GetUserId(_httpContext.User);
+            string vetId = match.VeteranApplicationUserId;
+            // Add check here to see if Lawyer is in the non-existant LawyerId property on the Form.
+            return _context.VeteranIntakeForms
+                .Where(form => form.VeteranApplicationUserId == vetId)
+                .Where(form => form.IsNotarized == null || form.IsNotarized == false)
+                .Where(form => form.IsCompleted != null && form.IsCompleted == true)
+                .OrderBy(form => form.ID)
+                .Reverse()
+                .ToList();
+        }
     }
 }
