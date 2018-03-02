@@ -17,7 +17,7 @@ using WillClinic.Services;
 
 namespace WillClinic.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Lawyer")]
     [Route("[controller]/[action]")]
     public class LawyerController : Controller
     {
@@ -83,7 +83,7 @@ namespace WillClinic.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    
+
                     // Setting up claims for the Lawyer
                     string fullname = $"{model.FirstName} {model.MiddleInitial}. {model.LastName}";
                     Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);

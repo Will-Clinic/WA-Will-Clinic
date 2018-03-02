@@ -23,19 +23,32 @@ namespace WillClinic.Components
 
         public IViewComponentResult Invoke()
         {
-            // Make sure the user exists in the queue
-            // if they do --> Show the waiting match VC
-            // if they are not in the queue, show not in queue VC
-
-            // bool status = _matchService.GetStatus();
-
-            if (_matchService.IsInQueue()) return View("WaitingMatch");
-            else if (_matchService.IsMatched())
+            if (_matchService.IsMatched())
             {
                 VeteranLawyerMatch match = _matchService.GetMatch();
-                return View("CurrentMatch", match);
+                if (!match.IsDateTimeApproved)
+                {
+                    match.Lawyer.Availability = _matchService.GetLawyerAvailability(match.LawyerApplicationUserId);
+                    return View("MatchStage1", match);
+                }
+                else
+                {
+                    return View("MatchStage2", match);
+                }
             }
-            else return View(); // Default
+            else if (_matchService.IsInQueue())
+            {
+                VeteranQueue queue = _matchService.GetQueueItem();
+                return View("WaitingMatch", queue);
+            }
+            else if (!_matchService.HasCompletedForm())
+            {
+                return View("NoForm");
+            }
+            else
+            {
+                return View(); // "Default"
+            }
         }
     }
 }

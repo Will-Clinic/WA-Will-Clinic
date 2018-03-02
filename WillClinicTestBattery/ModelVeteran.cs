@@ -9,6 +9,7 @@ namespace WillClinicTestBattery
     public class ModelVeteran
     {
         private ApplicationUser _user { get; set; }
+        private VeteranLawyerMatch _match { get; set; }
 
         public ModelVeteran()
         {
@@ -21,6 +22,19 @@ namespace WillClinicTestBattery
                 MiddleInitial = "H",
                 UserName = "username@domain.tld"
             };
+
+            _match = new VeteranLawyerMatch()
+            {
+                ID = 1,
+                LawyerApplicationUserId = "1",
+                Veteran = new Veteran(),
+                Lawyer = new Lawyer(),
+                VeteranApplicationUserId = "1",
+                IsDateTimeApproved = true,
+                IsLocationApproved = true,
+                LocationSelected = "Library",
+            };
+
         }
 
         [Fact]
@@ -115,6 +129,67 @@ namespace WillClinicTestBattery
 
             // Assert
             Assert.Equal("Veteran", n.Coordinates);
+        }
+
+        [Fact]
+        public void SetGetMatchID()
+        {
+            Veteran veteran = new Veteran()
+            {
+                ApplicationUserId = _match.ID.ToString(),
+
+                VetLawMatch = _match,
+            };
+            Assert.Equal("1", veteran.VetLawMatch.ID.ToString());
+        }
+
+        [Fact]
+        public void SetGetLawyerId()
+        {
+            Veteran veteran = new Veteran()
+            {
+                ApplicationUserId = _match.LawyerApplicationUserId,
+
+                VetLawMatch = _match
+            };
+
+            Assert.Equal("1", veteran.VetLawMatch.LawyerApplicationUserId);
+        }
+
+        [Fact]
+        public void SetGetVetId()
+        {
+            Veteran veteran = new Veteran()
+            {
+                ApplicationUserId = _match.VeteranApplicationUserId,
+
+                VetLawMatch = _match
+            };
+
+            Assert.Equal("1", veteran.VetLawMatch.VeteranApplicationUserId);
+        }
+
+
+        [Fact]
+        public void LocationSelected_TestingGetter_ReturnString()
+        {
+            // Arrange
+            VeteranLawyerMatch n = new VeteranLawyerMatch();
+            // Act
+            n.LocationSelected = "Library";
+            // Assert
+            Assert.Equal("Library", n.LocationSelected);
+        }
+
+        [Fact]
+        public void LocationSelected_TestingSetter_ReturnString()
+        {
+            // Arrange
+            VeteranLawyerMatch n = new VeteranLawyerMatch() { LocationSelected = "Library" };
+            // Act
+            n.LocationSelected = "Library";
+            // Assert
+            Assert.Equal("Library", n.LocationSelected);
         }
 
     }
