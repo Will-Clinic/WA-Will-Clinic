@@ -172,8 +172,9 @@ namespace WillClinic.Models
         {
             string userid = _userManager.GetUserId(_httpContext.User);
             return _context.VeteranQueue.First(v => v.VeteranApplicationUserId == userid);
+            
+        }
 
-        // Get unnotarized forms for the lawyer
         public List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
         {
             string userId = _userManager.GetUserId(_httpContext.User);
