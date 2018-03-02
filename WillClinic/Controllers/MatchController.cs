@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,7 +14,6 @@ namespace WillClinic.Controllers
         private readonly IMatchService _matchService;
         private readonly UserManager<ApplicationUser> _userManager;
 
-
         public MatchController(IMatchService matchService, UserManager<ApplicationUser> userManager)
         {
             _matchService = matchService;
@@ -28,12 +27,17 @@ namespace WillClinic.Controllers
             return RedirectToAction("Index", "Veteran");
         }
 
-        public async Task<ActionResult> FindVeteran()
+        public ActionResult FindVeteran()
         {
-            var user = await _userManager.GetUserAsync(User);
+            // var user = await _userManager.GetUserAsync(User);
             _matchService.FindVeteran();
             return RedirectToAction("Index", "Lawyer");
         }
+
+        public ActionResult AcceptTimeSlot(int timeId)
+        {
+            _matchService.AcceptTimeSlot(timeId);
+            return RedirectToAction("Index", "Veteran");
 
         private List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
         {
