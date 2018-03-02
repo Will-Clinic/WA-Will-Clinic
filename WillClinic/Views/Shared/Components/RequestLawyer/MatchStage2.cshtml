@@ -3,18 +3,16 @@
     ViewData["Title"] = "Default";
 }
 
-<table class="table table-bordered">
-    <thead>
-        <tr><th colspan="2">Find Attorney Module</th></tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Attorney: </td>
-            <td>@Model.Lawyer.ApplicationUser.FirstName</td>
-        </tr>
-        <tr>
-            <td>Accepted Time Slot:</td>
-            <td>@Model.TimeSelected</td>
-        </tr>
-    </tbody>
-</table>
+<div class="col-md-2"></div>
+<div class="cardbordered border-primary col-md-8">
+    <div class="card-header text-center">
+        <h3>
+            <b>Scheduled Meeting</b>
+        </h3>
+    </div>
+    <div class="card-body text-center">
+        <h4><b>Attorney: </b> @Model.Lawyer.ApplicationUser.FirstName</h4>
+        <h4><b>Accepted Time Slot:</b> @Model.TimeSelected</h4>
+    </div>
+</div>
+<div class="col-md-2"></div>
