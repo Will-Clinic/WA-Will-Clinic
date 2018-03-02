@@ -131,7 +131,7 @@ namespace WillClinic.Models
         }
 
         // Get unnotarized forms for the lawyer
-        public List<VeteranIntakeForm> GetForm(VeteranLawyerMatch match)
+        public List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
         {
             string userId = _userManager.GetUserId(_httpContext.User);
             string vetId = match.VeteranApplicationUserId;
