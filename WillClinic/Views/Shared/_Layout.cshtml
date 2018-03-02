@@ -15,12 +15,12 @@
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
 </head>
 
 <body id="body">
-    <nav class="navbar-custom navbar navbar-fixed-top">
+    <nav class="navbar-custom navbar">
         <div class="container">
             <div class="info-custom row">
                 <div class="col-lg-12 text-center">
@@ -50,9 +50,8 @@
         </div>
     </nav>
 
-    <div class="body-custom container container-fluid">
+    <div class="container container-fluid">
         @RenderBody()
-        <hr />
 
 
     </div>
@@ -93,7 +92,7 @@
         <div class="col-md-2">
         </div>
 
-        <p id="footer-copy">&copy; 2018 - VetsWillClinic</p>
+        <p id="footer-copy">&copy; 2018 - Vets Will Clinic</p>
     </footer>
 </body>
 </html>

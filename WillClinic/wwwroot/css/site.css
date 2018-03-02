@@ -15,9 +15,13 @@ body {
     position: relative;
     margin: 0;
 
-    padding-bottom: 6rem;
+    padding-bottom: 12rem;
     min-height: 100%;
 
+}
+
+.icon-bar {
+    background-color: whitesmoke !important;
 }
 
 .body-custom {
@@ -32,7 +36,6 @@ h2 {
 
 /*Navbar*/
 .navbar-custom {
-    position: fixed;
     background: rgb(44,62,80);
 }
 
@@ -71,10 +74,18 @@ h2 {
 .footy {
 }
 
+#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
 .footer-custom {
   position: absolute;
   right: 0;
-  bottom: 0;
   left: 0;
     padding: 0;
     background: #636e72;
@@ -90,6 +101,12 @@ h2 {
     color: floralwhite;
  }
 
+
+/* Progress Bar */
+.progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem
+}
 
 
 /* Hide/rearrange for smaller screens */
