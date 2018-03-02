@@ -39,7 +39,7 @@ namespace WillClinic.Controllers
             _matchService.AcceptTimeSlot(timeId);
             return RedirectToAction("Index", "Veteran");
 
-        private List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
+        private ViewResult GetForms(VeteranLawyerMatch match)
         {
             List<VeteranIntakeForm> forms = _matchService.GetForms(match);
             return View(forms);

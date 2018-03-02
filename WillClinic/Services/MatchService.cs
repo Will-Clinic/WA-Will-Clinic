@@ -179,13 +179,14 @@ namespace WillClinic.Models
             string userId = _userManager.GetUserId(_httpContext.User);
             string vetId = match.VeteranApplicationUserId;
             // Add check here to see if Lawyer is in the non-existant LawyerId property on the Form.
-            return _context.VeteranIntakeForms
+            var task = _context.VeteranIntakeForms
                 .Where(form => form.VeteranApplicationUserId == vetId)
                 .Where(form => form.IsNotarized == null || form.IsNotarized == false)
                 .Where(form => form.IsCompleted != null && form.IsCompleted == true)
                 .OrderBy(form => form.ID)
                 .Reverse()
                 .ToList();
+            return task;
         }
     }
 }
