@@ -22,10 +22,10 @@ namespace WillClinic.Controllers
                 {
                     return RedirectToAction("Index", "Veteran");
                 }
-                //else if (User.IsInRole("Admin"))
-                //{
-                //    RedirectToAction("Index", "Admin");
-                //}
+                else if (User.IsInRole("Admin"))
+                {
+                    RedirectToAction("Index", "Admin");
+                }
             }
             return View();
         }
