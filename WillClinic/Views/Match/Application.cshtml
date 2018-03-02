@@ -1,0 +1,89 @@
+﻿@model VeteranIntakeForm
+
+<h2>Matched Veteran's Completed Form</h2>
+
+<div class="container bg-info">
+    <div class="row">
+        <div class="bordercol col-sm-4">Legal Name: @Model.FullLegalName</div>
+        <div class="bordercol col-sm-4">Address: @Model.Address</div>
+        <div class="bordercol col-sm-4">Phone Number: @Model.PhoneNumber</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-3">Veteran Status: @Model.VeteranStatus</div>
+        <div class="bordercol col-sm-3">Proof of Service: @Model.ProofOfService</div>
+        <div class="bordercol col-sm-3">Resident Status: @Model.ResidentStatus</div>
+        <div class="bordercol col-sm-3">Networth Qualified: @Model.NetWorth</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-3">Bank Account Assets: @Model.BankAccountAssets</div>
+        <div class="bordercol col-sm-3">Real Estate Assets: @Model.RealEstateAssets</div>
+        <div class="bordercol col-sm-3">Life Insurance Value:@Model.LifeInsuranceCashValue</div>
+        <div class="bordercol col-sm-3">Retirement Accounts: @Model.RetirementAccounts</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-3">Stock Bonds: @Model.StockBonds</div>
+        <div class="bordercol col-sm-3">Pension: @Model.Pension</div>
+        <div class="bordercol col-sm-3">Business Interest:@Model.BusinessInterest</div>
+        <div class="bordercol col-sm-3">Owings: @Model.MoneyOwedToYou</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-3">Other Assets: @Model.OtherAssetsOrMoney</div>
+        <div class="bordercol col-sm-3">Household Size: @Model.HouseHoldSize</div>
+        <div class="bordercol col-sm-3">Monthly Income: @Model.MonthlyIncome</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-3">Marital Status:@Model.MaritalStatus</div>
+        <div class="bordercol col-sm-3">Spouse Name: @Model.FullNameSpouse</div>
+        <div class="bordercol col-sm-3">Children:@Model.HaveChildren</div>
+        <div class="bordercol col-sm-3">Minor Children: @Model.UnderAgeChildren</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-6">Birth Parent:@Model.MinorChildrenDifferentSpouse</div>
+        <div class="bordercol col-sm-3">Pregnant: @Model.CurrentlyPregnant</div>
+        <div class="bordercol col-sm-3">Bequest:@Model.SpecificBequest</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-12">Bequest Information: @Model.BequestInfromation</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-6">Inherit Estate: @Model.InheritEstate</div>
+        <div class="bordercol col-sm-6">Specific: @Model.InheritEstateSpecific</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-6">Remainder Benificiary: @Model.RemainderBeneficiary</div>
+        <div class="bordercol col-sm-6">Specific: @Model.RemainderBeneficiarySpecific</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-2">Disinherit: @Model.DisinheritSomeone</div>
+        <div class="bordercol col-sm-10">Who: @Model.DisinheritDescription</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-6">Primary Guardian: @Model.PrimaryGuardian</div>
+        <div class="bordercol col-sm-6">Alternate Guardian: @Model.AlternateGuardian</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-6">Personal Representative: @Model.PersonalRepresentative</div>
+        <div class="bordercol col-sm-6">Alternate Representative: @Model.AlternateRepresentative</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-6">Request Power of Attorney: @Model.RequestPowerOfAttorney</div>
+        <div class="bordercol col-sm-6">Primary Attorney: @Model.PrimaryAttorney</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-7">Alternate Attorney: @Model.AlternateAttorney</div>
+        <div class="bordercol col-sm-5">Healthcare Directive: @Model.HealthCareDirective</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-4">Hydration Directive: @Model.HydrationDirective</div>
+        <div class="bordercol col-sm-4">Nutrition Directive: @Model.NutritionDirective</div>
+        <div class="bordercol col-sm-4">Artificial Ventilation: @Model.ArtificialVentilation</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-4">DistressMedication: @Model.DistressMedication</div>
+        <div class="bordercol col-sm-4">Health POA: @Model.HealthPOA</div>
+    </div>
+    <div class="row">
+        <div class="bordercol col-sm-6">Primary Health Attorney: @Model.PrimaryHealthAttorney</div>
+        <div class="bordercol col-sm-6">Secondary Health Attorney: @Model.SecondaryHealthAttorney</div>
+    </div>
+</div>

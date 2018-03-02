@@ -90,3 +90,18 @@ img#map {
     margin-right: auto;
     width: 100%;
 }
+
+ul.container {
+    width: 90%;
+}
+
+li.row {
+    list-style: none;
+    margin: 4px;
+}
+
+.bordercol {
+    padding: 3px;
+    border: 1px solid #0094ff;
+    border-radius: 4px 5px; 
+}

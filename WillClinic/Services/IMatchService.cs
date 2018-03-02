@@ -19,6 +19,6 @@ namespace WillClinic.Models.Interfaces
         void FindVeteran();
         void AcceptTimeSlot(int timeId);
 
-        List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match);
+        VeteranIntakeForm GetForm(int matchId);
     }
 }
