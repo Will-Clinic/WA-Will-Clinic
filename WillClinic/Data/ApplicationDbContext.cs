@@ -32,6 +32,12 @@ namespace WillClinic.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
+            // This code is Fluent API. Make sure you are reading documentation for the most current version of .Net Core.
+            // At the time of writing .Net Core 2.x doesn't support many to many relationships ( .HasMany().WithMany() ) but it should
+            // by about Q2 2018 according to .Net Core roadmap. This could be used to simplify a few things
+            // As a rule of thumb please use descriptive names in lambda statements, such as lawyer => lawyer.VetLawMatches instead of
+            // x => x.VetLawMatches in order to keep things easily understandable for future teams.
+
             builder.Entity<VeteranLawyerMatch>()
                 .HasOne(vlm => vlm.Lawyer)
                 .WithMany(law => law.VetLawMatches);
@@ -40,6 +46,7 @@ namespace WillClinic.Data
                 .WithOne(vet => vet.VetLawMatch);
 
             builder.Entity<VeteranLawyerMatch>()
+                // Potentially use these two properties as a composite key instead of requiring match to have it's own ID.
             //    .HasKey(a => new { a.LawyerApplicationUserId, a.VeteranApplicationUserId });
                 .HasKey(vlm => vlm.ID);
 

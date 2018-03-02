@@ -26,6 +26,7 @@ Upon registration, veteran user will be directed to their landing page. On this 
 Upon registration, attorney user will be directed to their landing page. On this page, they will be able to flag themselves as looking for veterans to match with, as well as set up their availability for times and dates they are available for meeting. **To be considered for matching with a veteran in need, attorneys must be verified by an Admin using information provided on Attorney Registration.** Once a veteran has been matched with an attorney, the attorney will be notified of the time slot the veteran has chosen, as well as the location for the meeting.
 
 ## [Architecture](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
+![Database Schema](https://i.imgur.com/1TC13OI.png "Microsoft SQL Database Schema")
 **DB Schema, Wireframes, dependencies used go here!**
 
 ## [FAQs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
