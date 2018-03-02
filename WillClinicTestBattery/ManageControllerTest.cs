@@ -10,7 +10,7 @@ using WillClinic.Models;
 
 namespace WillClinicTestBattery
 {
-    class ModelAccountController 
+    class ManageControllerTest
     {
     }
 }
