@@ -20,11 +20,11 @@ namespace WillClinicTestBattery
 
             public ClaimsPrincipal User { get; set; }
 
-            public HomeController()
-            {
-                User = new ClaimsPrincipal();
+            //public HomeController()
+            //{
+            //    User = new ClaimsPrincipal();
 
-            }
+            //}
 
 
             DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
@@ -61,5 +61,3 @@ namespace WillClinicTestBattery
         }
     }
 
-}
-}

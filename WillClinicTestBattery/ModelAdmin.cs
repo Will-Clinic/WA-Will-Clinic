@@ -20,6 +20,7 @@ namespace WillClinicTestBattery
                 UserName = "username@domain.tld"
             };
         }
+        
 
         [Fact]
         public void IdSetGet()
