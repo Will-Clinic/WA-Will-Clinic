@@ -1,17 +1,36 @@
+@model List<VeteranLawyerMatch>
 @{
     ViewData["Title"] = "Default";
 }
 
-<table class="table table-bordered">
-    <thead>
-        <tr><th colspan="2">Find Veteran Module</th></tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Test</td>
-            <td><form method="post" asp-controller="Match" asp-action="FindVeteran">
-                <button type="submit">Find Veteran (Search queue)</button>
-            </form></td>
-        </tr>
-    </tbody>
-</table>
+
+@if (Model.Count > 0)
+{
+    List<VeteranLawyerMatch> timeconfirmedmatches = Model.Where(match => match.IsDateTimeApproved == true).ToList();
+    List<VeteranLawyerMatch> nontimeconfirmedmatches = Model.Where(match => match.IsDateTimeApproved == false).ToList();
+    @if (timeconfirmedmatches.Count > 0)
+    {
+        <ul>
+            @foreach (VeteranLawyerMatch match in timeconfirmedmatches)
+            {
+                <li>
+                    <form asp-controller="VeteranIntakeForm" asp-action="" method="post">
+                        <p>Veteran meeting confirmed for @match.TimeSelected</p>
+                        <button>Veiw </button>
+                    </form>
+                </li>
+            }
+        </ul>
+    }
+    @if (nontimeconfirmedmatches.Count > 1)
+    {
+        <p>@nontimeconfirmedmatches.Count Veterans matched, waiting for them to select a time</p>
+    }
+    else if (nontimeconfirmedmatches.Count == 1)
+    {
+        <p>One veteran matched, waiting for them to select a time</p>
+    }
+}
+<form method="post" asp-controller="Match" asp-action="FindVeteran">
+    <button type="submit">Find Veteran (Search queue)</button>
+</form>

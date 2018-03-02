@@ -104,11 +104,18 @@ namespace WillClinic.Models
         public List<VeteranLawyerMatch> GetMatches()
         {
             string userid = _userManager.GetUserId(_httpContext.User);
-            List<VeteranLawyerMatch> list = new List<VeteranLawyerMatch>();
-            list = _context.VeteranLawyerMatches
-                .Include(match => match.Veteran.IntakeForms .Where(form => form.IsCompleted != null) .Where(form => form.IsCompleted == true))
-                .Include(match => match.Veteran.ApplicationUser) .Where(x => x.LawyerApplicationUserId == userid)
+            List<VeteranLawyerMatch> list = _context.VeteranLawyerMatches
+                .Include(match => match.Veteran.IntakeForms)
+                .Include(match => match.Veteran.ApplicationUser)
+                .Where(x => x.LawyerApplicationUserId == userid)
                 .ToList();
+            foreach(VeteranLawyerMatch match in list)
+            {
+                match.Veteran.IntakeForms = match.Veteran.IntakeForms
+                    .Where(form => form.IsCompleted != null)
+                    .Where(form => form.IsCompleted == true)
+                    .Where(form => form.IsNotarized == null || form.IsNotarized == false).ToList();
+            }
             return list;
         }
 
@@ -165,6 +172,20 @@ namespace WillClinic.Models
         {
             string userid = _userManager.GetUserId(_httpContext.User);
             return _context.VeteranQueue.First(v => v.VeteranApplicationUserId == userid);
+
+        // Get unnotarized forms for the lawyer
+        public List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
+        {
+            string userId = _userManager.GetUserId(_httpContext.User);
+            string vetId = match.VeteranApplicationUserId;
+            // Add check here to see if Lawyer is in the non-existant LawyerId property on the Form.
+            return _context.VeteranIntakeForms
+                .Where(form => form.VeteranApplicationUserId == vetId)
+                .Where(form => form.IsNotarized == null || form.IsNotarized == false)
+                .Where(form => form.IsCompleted != null && form.IsCompleted == true)
+                .OrderBy(form => form.ID)
+                .Reverse()
+                .ToList();
         }
     }
 }

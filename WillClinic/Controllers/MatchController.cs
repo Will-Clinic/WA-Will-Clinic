@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,6 +38,11 @@ namespace WillClinic.Controllers
         {
             _matchService.AcceptTimeSlot(timeId);
             return RedirectToAction("Index", "Veteran");
+
+        private List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
+        {
+            List<VeteranIntakeForm> forms = _matchService.GetForms(match);
+            return View(forms);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,5 +18,7 @@ namespace WillClinic.Models.Interfaces
         void AddtoQueue(string userId);
         void FindVeteran();
         void AcceptTimeSlot(int timeId);
+
+        List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match);
     }
 }
