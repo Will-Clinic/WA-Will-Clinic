@@ -1,7 +1,7 @@
 ﻿@model WillClinic.Models.IntakeFormViewModels.IntakeFormViewModel4
 
 @{
-    ViewData["Title"] = "Create Step 4";
+    ViewData["Title"] = "Application";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -21,6 +21,7 @@
                 <input asp-for="HouseHoldSize" class="form-control" />
                 <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="MaritalStatus" class="control-label">
                     20) Marital status: *
@@ -28,20 +29,11 @@
                 <h5>
                     select the most appropriate
                 </h5>
+
                 <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
-
-                @*@foreach (string item in Enum.GetNames(typeof(MaritalStatus)))
-            {
-
-                <div class="checkbox">
-                    <input type="radio" asp-for="MaritalStatus" value="@item">
-                    <label asp-for="MaritalStatus"> </label>
-
-                </div>
-            }*@
-
                 <span asp-validation-for="MaritalStatus" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="FullNameSpouse" class="control-label">
                     21) Full legal name of your spouse
@@ -59,10 +51,12 @@
                 <h5>
                     include biological, adopted, or step-children
                 </h5>
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input asp-for="HaveChildren" /> Yes
-                        <input asp-for="HaveChildren" /> No
+                        <input asp-for="HaveChildren" type="radio" value="true" /> Yes
+                    </label>
+                    <label>
+                        <input asp-for="HaveChildren" type="radio" value="false" /> No
                     </label>
                 </div>
             </div>
@@ -73,10 +67,12 @@
                 <h5>
                     (under the age of 18 on October 12, 2013)
                 </h5>
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input asp-for="UnderAgeChildren" /> Yes
-                        <input asp-for="UnderAgeChildren" /> No
+                        <input asp-for="UnderAgeChildren" type="radio" value="true" /> Yes
+                    </label>
+                    <label>
+                        <input asp-for="UnderAgeChildren" type="radio" value="false" /> No
                     </label>
                 </div>
             </div>
@@ -92,37 +88,39 @@
                 <label asp-for="CurrentlyPregnant" class="control-label">
                     25) Are you, your spouse, or your partner currently pregnant?
                 </label>
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input asp-for="CurrentlyPregnant" /> Yes
-                        <input asp-for="CurrentlyPregnant" /> No
+                        <input asp-for="CurrentlyPregnant" type="radio" value="true" /> Yes
+                    </label>
+                    <label>
+                        <input asp-for="CurrentlyPregnant" type="radio" value="false" /> No
                     </label>
                 </div>
             </div>
             <div class="form-group">
 
-                <h1>#1</h1>
-                <h4>For each child, please list their full legal name, date of birth, and biological, adoptive, or step-child status.</h4>
+                @*<h1>#1</h1>
+                    <h4>For each child, please list their full legal name, date of birth, and biological, adoptive, or step-child status.</h4>*@
 
-                <label asp-for="Children[0].FullName">
-                    Child #1
-                </label>
-                <h5>
-                    Full Legal Name
-                </h5>
-                <input asp-for="Children[0].FullName" class="form-control" />
+                @*<label asp-for="Children[0].FullName">
+                        Child #1
+                    </label>
+                    <h5>
+                        Full Legal Name
+                    </h5>
+                    <input asp-for="Children[0].FullName" class="form-control" />
 
-                <label asp-for="Children[0].DOB">
-                    Child's Date of Birth *
-                </label>
-                <h5>
-                    please list in MM / DD / YYYY format. (Example: 02/14/1980)
-                </h5>
-                <input asp-for="Children[0].DOB" class="form-control" />
+                    <label asp-for="Children[0].DOB">
+                        Child's Date of Birth *
+                    </label>
+                    <h5>
+                        please list in MM / DD / YYYY format. (Example: 02/14/1980)
+                    </h5>
+                    <input asp-for="Children[0].DOB" class="form-control" />
 
-                <label asp-for="Children[0].ChildRelationToVeteran">
-                    Please indicate if this is a biological, adoptive, or step-child. *
-                </label>
+                    <label asp-for="Children[0].ChildRelationToVeteran">
+                        Please indicate if this is a biological, adoptive, or step-child. *
+                    </label>*@
                 @*<input asp-for="Children[0].DOB" class="form-control" />*@
             </div>
 
@@ -150,10 +148,12 @@
                     The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY. Including real property
                     transfers will disqualify you from participation.
                 </h5>
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input asp-for="SpecificBequest" /> Yes
-                        <input asp-for="SpecificBequest" /> No
+                        <input asp-for="SpecificBequest" type="radio" value="true" /> Yes
+                    </label>
+                    <label>
+                        <input asp-for="SpecificBequest" type="radio" value="false" /> No
                     </label>
                 </div>
             </div>
@@ -181,9 +181,10 @@
                 <label asp-for="InheritEstate" class="control-label">
                     28) Who would you like to inherit your estate when you die? Please check one: *
                 </label>
-                @*                <select asp-for="InheritEstate" class="form-control">My Spouse</select>*@
-                <select asp-for="InheritEstate" class="form-control">My Spouse</select>
-                <select asp-for="InheritEstate" class="form-control">My Spouse again! :)</select>
+                <h5>
+                    select the most appropriate
+                </h5>
+                <select asp-for="InheritEstate" class="form-control" asp-items="Html.GetEnumSelectList<InheritEstate>()"></select>
                 <span asp-validation-for="InheritEstate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -208,7 +209,7 @@
                     If any of the beneficiaries named above predecease you (die before you) or the charity that you have named is no
                     longer in existence, who would you like to inherit your estate when you die?
                 </h5>
-                <select asp-for="RemainderBeneficiary" class="form-control"></select>
+                <select asp-for="RemainderBeneficiary" class="form-control" asp-items="Html.GetEnumSelectList<RemainderBeneficiary>()"></select>
                 <span asp-validation-for="RemainderBeneficiary" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -238,10 +239,12 @@
                     To 'disinherit' someone is to make a specific statement that a personal will not inherit from your estate.
                     Disinheriting your spouse is beyond the scope of the WA Vets Will Clinic, and will disqualify you from eligibility.
                 </h5>
-                <div class="checkbox">
+                <div class="radio">
                     <label>
-                        <input asp-for="DisinheritSomeone" /> Yes
-                        <input asp-for="DisinheritSomeone" /> No
+                        <input asp-for="DisinheritSomeone" type="radio" value="true" /> Yes
+                    </label>
+                    <label>
+                        <input asp-for="DisinheritSomeone" type="radio" value="false" /> No
                     </label>
                 </div>
             </div>

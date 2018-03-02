@@ -8,8 +8,8 @@ namespace WillClinic.Models.IntakeFormViewModels
 {
     public class IntakeFormViewModel7
     {
+        [Required]
         [Display(Name = "Health Power Of Attorney")]
-        [Range(typeof(bool?), "false", "true", ErrorMessage = "The field Health Power Of Attorney must be checked.")]
         public bool? HealthPOA { get; set; }
 
         [Display(Name = "Primary Health Attorney")]

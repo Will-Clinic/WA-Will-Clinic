@@ -5,13 +5,16 @@
 
 <table class="table table-bordered">
     <thead>
-        <tr><th colspan="2">Find Veteran Module</th></tr>
+        <tr><th colspan="2">Find Lawyer Module</th></tr>
     </thead>
     <tbody>
         <tr>
             <td>Lawyer: </td>
             <td>@Model.Lawyer.ApplicationUser.FirstName</td>
-            @*@foreach(LawyerAvailability availability in )*@
+        </tr>
+        <tr>
+            <td>Accepted Time Slot:</td>
+            <td>@Model.TimeSelected</td>
         </tr>
     </tbody>
 </table>

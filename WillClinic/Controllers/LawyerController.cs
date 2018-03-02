@@ -17,10 +17,11 @@ using WillClinic.Services;
 
 namespace WillClinic.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Lawyer")]
     [Route("[controller]/[action]")]
     public class LawyerController : Controller
     {
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationDbContext _context;
@@ -28,12 +29,14 @@ namespace WillClinic.Controllers
         private readonly ILogger _logger;
 
         public LawyerController(
+            RoleManager<IdentityRole> roleManager,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ApplicationDbContext context,
             IEmailSender emailSender,
             ILogger<LawyerController> logger)
         {
+            _roleManager = roleManager;
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
@@ -67,6 +70,11 @@ namespace WillClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterLawyerViewModel model, string returnUrl = null)
         {
+            if (!await _roleManager.RoleExistsAsync("Lawyer"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole("Lawyer"));
+            }
+
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
@@ -75,7 +83,7 @@ namespace WillClinic.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    
+
                     // Setting up claims for the Lawyer
                     string fullname = $"{model.FirstName} {model.MiddleInitial}. {model.LastName}";
                     Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);

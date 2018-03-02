@@ -28,6 +28,10 @@ namespace WillClinic.Models
             _httpContext = httpc.HttpContext;
         }
 
+        /// <summary>
+        /// Action for Veteran. 
+        /// </summary>
+        /// <returns></returns>
         public bool IsInQueue()
         {
             string userid = _userManager.GetUserId(_httpContext.User);
@@ -56,6 +60,10 @@ namespace WillClinic.Models
             return false;
         }
 
+        /// <summary>
+        /// Action for Veteran.
+        /// </summary>
+        /// <param name="userid"></param>
         public void AddtoQueue(string userid)
         {
             if (!IsInQueue())
@@ -67,18 +75,6 @@ namespace WillClinic.Models
                 _context.VeteranQueue.Add(vq);
                 _context.SaveChanges();
             }
-
-            // Check if user is in queue
-
-            // If not --> gives them a view from the VC that provides a button to be put in th queue.
-
-            // if they don't have any valid applicaitons 
-            // the njust show them a message that says "no applications found...."
-
-            // if they are in the match table --> then rturn a view that shows them the lawyer they are matched with
-            // show available times frm that lawyer
-            // IsDateTimeApproved --> if no shows available time slots
-            // if yes --> deets of the meeting.
         }
 
         public void FindVeteran()
@@ -101,17 +97,32 @@ namespace WillClinic.Models
             }
         }
 
+        /// <summary>
+        /// Action for Lawyer.
+        /// </summary>
+        /// <returns></returns>
         public List<VeteranLawyerMatch> GetMatches()
         {
             string userid = _userManager.GetUserId(_httpContext.User);
-            List<VeteranLawyerMatch> list = new List<VeteranLawyerMatch>();
-            list = _context.VeteranLawyerMatches
-                .Include(match => match.Veteran.IntakeForms .Where(form => form.IsCompleted != null) .Where(form => form.IsCompleted == true))
-                .Include(match => match.Veteran.ApplicationUser) .Where(x => x.LawyerApplicationUserId == userid)
+            List<VeteranLawyerMatch> list = _context.VeteranLawyerMatches
+                .Include(match => match.Veteran.IntakeForms)
+                .Include(match => match.Veteran.ApplicationUser)
+                .Where(x => x.LawyerApplicationUserId == userid)
                 .ToList();
+            foreach(VeteranLawyerMatch match in list)
+            {
+                match.Veteran.IntakeForms = match.Veteran.IntakeForms
+                    .Where(form => form.IsCompleted != null)
+                    .Where(form => form.IsCompleted == true)
+                    .Where(form => form.IsNotarized == null || form.IsNotarized == false).ToList();
+            }
             return list;
         }
 
+        /// <summary>
+        /// Action for Veteran.
+        /// </summary>
+        /// <returns></returns>
         public VeteranLawyerMatch GetMatch()
         {
             string userid = _userManager.GetUserId(_httpContext.User);
@@ -119,6 +130,64 @@ namespace WillClinic.Models
             match.Lawyer = _context.Lawyers.Find(match.LawyerApplicationUserId);
             match.Lawyer.ApplicationUser = _context.Users.Find(match.Lawyer.ApplicationUserId);
             return match;
+        }
+
+        /// <summary>
+        /// Action for Veteran.
+        /// </summary>
+        /// <param name="lawyerId"></param>
+        /// <returns></returns>
+        public List<LawyerAvailability> GetLawyerAvailability(string lawyerId)
+        {
+            return _context.LawyerAvailability.Where(a => a.LawyerApplicationUserId == lawyerId).ToList();
+        }
+
+        /// <summary>
+        /// Action for Veteran.
+        /// </summary>
+        /// <param name="timeId"></param>
+        public void AcceptTimeSlot(int timeId)
+        {
+            LawyerAvailability timeSlot = _context.LawyerAvailability.Find(timeId);
+            // Add timeslot to match obj
+            VeteranLawyerMatch match = GetMatch();
+            match.TimeSelected = timeSlot.TimeAvailable;
+            match.IsDateTimeApproved = true;
+            // Remove timeslot from availability obj
+            _context.LawyerAvailability.Remove(timeSlot);
+            _context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Action for Veteran.
+        /// </summary>
+        /// <returns></returns>
+        public bool HasCompletedForm()
+        {
+            string userid = _userManager.GetUserId(_httpContext.User);
+            return _context.VeteranIntakeForms.Any(f => f.VeteranApplicationUserId == userid) ? true : false;
+        }
+
+        public VeteranQueue GetQueueItem()
+        {
+            string userid = _userManager.GetUserId(_httpContext.User);
+            return _context.VeteranQueue.First(v => v.VeteranApplicationUserId == userid);
+            
+        }
+
+        public List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
+        {
+            string userId = _userManager.GetUserId(_httpContext.User);
+            string vetId = match.VeteranApplicationUserId;
+            // Add check here to see if Lawyer is in the non-existant LawyerId property on the Form.
+            var task = _context.VeteranIntakeForms
+                .Where(form => form.VeteranApplicationUserId == vetId)
+                .Where(form => form.IsNotarized == null || form.IsNotarized == false)
+                .Where(form => form.IsCompleted != null && form.IsCompleted == true)
+                .OrderBy(form => form.ID)
+                .Reverse()
+                .ToList();
+            return task;
         }
     }
 }

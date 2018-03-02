@@ -13,9 +13,19 @@ namespace WillClinic.Models
         public string LawyerApplicationUserId { get; set; }
         public Lawyer Lawyer { get; set; }
 
+        // Meeting time selected by the lawyer
         public DateTime TimeSelected { get; set; }
-        public string LocationSelected { get; set; }
+
+        // Has the veteran selected a value?
+        // Possibly remove and make TimeSelected nullable
         public bool IsDateTimeApproved { get; set; }
+
+        // Has a meeting location been chosen by a party?
+        // Unused
+        public string LocationSelected { get; set; }
+
+        // Has a meeting location been agreed upon by both parties?
+        // Unused
         public bool IsLocationApproved { get; set; }
     }
 }

@@ -67,29 +67,6 @@ namespace WillClinic
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            foreach (string role in new List<string>() { "Lawyer", "Veteran" })
-            {
-                CreateRoleIfNotExists(roleManager, role);
-            }
-
-        }
-
-        public void CreateRoleIfNotExists(RoleManager<IdentityRole> roleManager, string role)
-        {
-            Task<bool> task = roleManager.RoleExistsAsync(role);
-            task.Wait();
-
-            if (!task.Result)
-            {
-                var createTask = roleManager.CreateAsync(new IdentityRole
-                {
-                    Name = role,
-                    NormalizedName = role
-                });
-
-                createTask.Wait();
-            }
         }
     }
 }
