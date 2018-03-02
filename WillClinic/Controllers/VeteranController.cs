@@ -17,6 +17,8 @@ using WillClinic.Services;
 
 namespace WillClinic.Controllers
 {
+    // Recommend using resource-specific authorization in the future to keep veterans from accessing eachother's forms.
+    // https://docs.microsoft.com/en-us/aspnet/core/security/authorization/resourcebased?tabs=aspnetcore2x
     [Authorize]
     [Route("[controller]/[action]")]
     public class VeteranController : Controller
