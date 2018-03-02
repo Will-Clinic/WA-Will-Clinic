@@ -60,7 +60,6 @@ namespace WillClinic.Controllers
         [HttpGet]
         public IActionResult CreateStep0() => View();
 
-        // POST: VeteranIntakeForm/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -85,7 +84,6 @@ namespace WillClinic.Controllers
         [HttpGet]
         public IActionResult CreateStep1() => View();
 
-        // POST: VeteranIntakeForm/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -109,7 +107,6 @@ namespace WillClinic.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
-
             }
             return View(nameof(CreateStep1));
         }
@@ -186,12 +183,13 @@ namespace WillClinic.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep4(IntakeFormViewModel4 intakeFormViewModel)
+
         {
             if (ModelState.IsValid)
             {
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
-                    form.IsCompleted == false
+                    form.IsCompleted == null
                 );
 
                 currentForm.CurrentStep = 5;
@@ -218,13 +216,6 @@ namespace WillClinic.Controllers
                 currentForm.AlternateRepresentative = intakeFormViewModel.AlternateRepresentative;
                 _context.VeteranIntakeForms.Update(currentForm);
 
-                foreach (VeteranChild vc in intakeFormViewModel.Children)
-                {
-                    VeteranChild currentChild = vc;
-                    currentChild.VeteranApplicationUserId = _userManager.GetUserId(User);
-                    await _context.VeteranChildren.AddAsync(currentChild);
-                }
-
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
@@ -243,14 +234,12 @@ namespace WillClinic.Controllers
             {
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
-                    form.IsCompleted == false
+                    form.IsCompleted == null
                 );
 
                 currentForm.CurrentStep = 6;
                 currentForm.TimeStamp = DateTime.Now;
 
-                // bool actualBool = intakeFormViewModel.RequestPowerOfAttorney == "Yes" ? true : false;
-                // currentForm.RequestPowerOfAttorney = actualBool;
                 currentForm.RequestPowerOfAttorney = intakeFormViewModel.RequestPowerOfAttorney;
                 currentForm.PrimaryAttorney = intakeFormViewModel.PrimaryAttorney;
                 currentForm.AlternateAttorney = intakeFormViewModel.AlternateAttorney;
@@ -274,7 +263,7 @@ namespace WillClinic.Controllers
             {
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
-                    form.IsCompleted == false
+                    form.IsCompleted == null
                 );
 
                 currentForm.CurrentStep = 7;
@@ -305,7 +294,7 @@ namespace WillClinic.Controllers
             {
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
-                    form.IsCompleted == false
+                    form.IsCompleted == null
                 );
 
                 currentForm.CurrentStep = 8;
@@ -324,17 +313,25 @@ namespace WillClinic.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreateStep8() => View();
+        public IActionResult CreateStep8()
+        {
+            // The whole form filled in ready for review
+            VeteranIntakeForm formToReview = _context.VeteranIntakeForms.FirstOrDefault(form =>
+                    form.VeteranApplicationUserId == _userManager.GetUserId(User) && 
+                    form.IsCompleted == null);
+
+            return View(formToReview);
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep8(bool IsCompleted)
         {
-            if (ModelState.IsValid)
+            if (IsCompleted == true)
             {
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
-                    form.IsCompleted == false
+                    form.IsCompleted == null
                 );
 
                 currentForm.TimeStamp = DateTime.Now;
@@ -349,32 +346,30 @@ namespace WillClinic.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == 0)
+                return RedirectToAction("Index", "Veteran");
+            
+            var veteranIntakeForm = await _context.VeteranIntakeForms.SingleOrDefaultAsync(m => m.ID == id);
 
-            var veteranIntakeForm = await _context.VeteranIntakeForms.SingleOrDefaultAsync(m => m.VeteranApplicationUserId == id);
             if (veteranIntakeForm == null)
-            {
-                return NotFound();
-            }
-            return View(veteranIntakeForm);
+                return RedirectToAction("Index", "Veteran");
+
+            veteranIntakeForm.IsCompleted = null;
+
+            _context.VeteranIntakeForms.Update(veteranIntakeForm);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("GoToStep", new { step = 1 });
         }
 
-        // POST: VeteranIntakeForm/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("ID,VeteranApplicationUserId,IsNotarized,TimeStamp,TermsAndConditions,FullLegalName,Address,PhoneNumber,VeteranStatus,ProofOfService,ResidentStatus,NetWorth,BankAccountAssets,RealEstateAssets,LifeInsuranceCashValue,RetirementAccounts,StockBonds,Pension,BusinessInterest,MoneyOwedToYou,OtherAssetsOrMoney,HouseHoldSize,MonthlyIncome,MaritalStatus,FullNameSpouse,HaveChildren,UnderAgeChildren,MinorChildrenDifferentSpouse,CurrentlyPregnant,SpecificBequest,BequestInfromation,InheritEstate,InheritEstateSpecific,RemainderBeneficiary,RemainderBeneficiarySpecific,DisinheritSomeone,DisinherentDescription,PrimaryGuardian,AlternateGuardian,PersonalRepresentative,AlternateRepresentative,RequestPowerOfAttorney,PrimaryAttorney,AlternateAttorney,HealthCareDirective,HydrationDirective,NutritionDirective,ArtificialVentilation,DistressMedication")] VeteranIntakeForm veteranIntakeForm)
         {
             if (id != veteranIntakeForm.VeteranApplicationUserId)
-            {
                 return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
@@ -386,13 +381,9 @@ namespace WillClinic.Controllers
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!VeteranIntakeFormExists(veteranIntakeForm.VeteranApplicationUserId))
-                    {
                         return NotFound();
-                    }
                     else
-                    {
                         throw;
-                    }
                 }
                 return RedirectToAction(nameof(VeteranController.Index));
             }
@@ -403,22 +394,17 @@ namespace WillClinic.Controllers
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var veteranIntakeForm = await _context.VeteranIntakeForms
                 .SingleOrDefaultAsync(m => m.ID == int.Parse(id));
 
             if (veteranIntakeForm == null)
-            {
                 return NotFound();
-            }
 
             return View(veteranIntakeForm);
         }
 
-        // POST: VeteranIntakeForm/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -1,7 +1,7 @@
 ﻿@model WillClinic.Models.IntakeFormViewModels.IntakeFormViewModel5
 
 @{
-    ViewData["Title"] = "Create Step 3";
+    ViewData["Title"] = "Application";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -27,10 +27,10 @@
                 </label>
                 <div class="radio">
                     <label>
-                        <input asp-for="RequestPowerOfAttorney" type="radio" value="Yes"/> Yes
+                        <input asp-for="RequestPowerOfAttorney" type="radio" value="true" /> Yes
                     </label>
                     <label>
-                        <input asp-for="RequestPowerOfAttorney" type="radio" value="No" /> No
+                        <input asp-for="RequestPowerOfAttorney" type="radio" value="false" /> No
                     </label>
                 </div>
                 <span asp-validation-for="RequestPowerOfAttorney" class="text-danger"></span>

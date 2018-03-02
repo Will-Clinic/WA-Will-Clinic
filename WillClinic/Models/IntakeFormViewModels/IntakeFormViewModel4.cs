@@ -12,7 +12,7 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "House Hold Size")]
         public int HouseHoldSize { get; set; }
 
-        [StringLength(50), Required]
+        [Required]
         [Display(Name = "Marital Status")]
         public MaritalStatus MaritalStatus { get; set; }
 
@@ -26,7 +26,6 @@ namespace WillClinic.Models.IntakeFormViewModels
 
         [Required]
         [Display(Name = "Under Age Children")]
-        [Range(typeof(bool), "false", "true", ErrorMessage = "The field Under Age Children must be checked.")]
         public bool? UnderAgeChildren { get; set; }
 
         [StringLength(50), Required]
@@ -35,16 +34,14 @@ namespace WillClinic.Models.IntakeFormViewModels
 
         [Required]
         [Display(Name = "Currently Pregnant")]
-        [Range(typeof(bool), "false", "true", ErrorMessage = "The field Currently Pregnant must be checked.")]
         public bool? CurrentlyPregnant { get; set; }
 
-        public List<VeteranChild> Children { get; set; }
+        //public List<VeteranChild> Children { get; set; }
 
-        public ChildRelationToVeteran ChildRelationToVeteran { get; set; }
+        //public ChildRelationToVeteran ChildRelationToVeteran { get; set; }
 
         [Required]
         [Display(Name = "Specific Bequest")]
-        [Range(typeof(bool), "false", "true", ErrorMessage = "The field Specific Bequest must be checked.")]
         public bool? SpecificBequest { get; set; }
 
         [StringLength(500)]
@@ -67,7 +64,6 @@ namespace WillClinic.Models.IntakeFormViewModels
 
         [Required]
         [Display(Name = "Disinherit Someone")]
-        [Range(typeof(bool), "false", "true", ErrorMessage = "The field Disinherit Someone must be checked.")]
         public bool? DisinheritSomeone { get; set; }
 
         [StringLength(75)]
