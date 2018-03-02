@@ -7,24 +7,19 @@
 
 <div class="row">
     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-        <table class="table table-responsive">
-            <tr><td id="tname" colspan="2" class="text-center">Lawyer Availability Module</td></tr>
-            <tr id="th"><td colspan="2" class="text-center">Current Availability</td></tr>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.TimeAvailable)</td>
-                        <td>
-                            <form method="post" asp-controller="LawyerAvailability" asp-action="Delete" asp-route-id="@item.ID">
-                                <input type="submit" value="Delete" class="btn btn-default" />
-                            </form>
-                        </td>
-                    </tr>
-                }
-                <tr><td><a asp-controller="LawyerAvailability" asp-action="Create">Add Time Slot</a></td></tr>
-            </tbody>
-        </table>
+        <h2>Availability Timeslots</h2>
+        <ul class="container">
+            @foreach (var item in Model)
+            {
+               <li class="row">
+                   <form method="post" asp-controller="LawyerAvailability" asp-action="Delete" asp-route-id="@item.ID">
+                       <p class="col-lg-10">@item.TimeAvailable</p>
+                       <button type="submit" class="col-xs-2 btn">Delete</button>
+                   </form>
+               </li>
+             }
+            <div class="row"><div class="col-xs-12"><a asp-controller="LawyerAvailability" asp-action="Create">Add Time Slot</a></div></div>
+        </ul>
     </div>
 </div>
 

@@ -175,18 +175,13 @@ namespace WillClinic.Models
             
         }
 
-        public List<VeteranIntakeForm> GetForms(VeteranLawyerMatch match)
+        public VeteranIntakeForm GetForm(int matchId)
         {
+            string vetId = _context.VeteranLawyerMatches.FirstOrDefault(match => match.ID == matchId).VeteranApplicationUserId;
             string userId = _userManager.GetUserId(_httpContext.User);
-            string vetId = match.VeteranApplicationUserId;
             // Add check here to see if Lawyer is in the non-existant LawyerId property on the Form.
             var task = _context.VeteranIntakeForms
-                .Where(form => form.VeteranApplicationUserId == vetId)
-                .Where(form => form.IsNotarized == null || form.IsNotarized == false)
-                .Where(form => form.IsCompleted != null && form.IsCompleted == true)
-                .OrderBy(form => form.ID)
-                .Reverse()
-                .ToList();
+                .FirstOrDefault(form => form.VeteranApplicationUserId == vetId);
             return task;
         }
     }
