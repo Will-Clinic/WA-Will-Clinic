@@ -30,7 +30,6 @@ Upon registration, attorney user will be directed to their landing page. On this
 
 ## [Architecture](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 ![Database Schema](https://i.imgur.com/1TC13OI.png "Microsoft SQL Database Schema")
-**DB Schema, Wireframes, dependencies used go here!**
 
 ## [FAQs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 1. How long does the application process for veterans normally take?
