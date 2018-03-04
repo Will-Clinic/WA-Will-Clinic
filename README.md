@@ -1,6 +1,9 @@
 # Washington Will Clinic
-Authors : Andres Ibarra, Jeff Martinez, Zachary Johnson, Ariel R. Pedraza, Luay Younus, Dustin Mundy
-Version : 1.0.0
+**Authors:** Andres Ibarra, Jeff Martinez, Zachary Johnson, Ariel R. Pedraza, Luay Younus, Dustin Mundy
+</br>
+**Version:** : 1.0.0
+
+[**App Deployed on Azure**](http://willclinic.azurewebsites.net)
 
 ## Table of Contents
 
@@ -27,7 +30,6 @@ Upon registration, attorney user will be directed to their landing page. On this
 
 ## [Architecture](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 ![Database Schema](https://i.imgur.com/1TC13OI.png "Microsoft SQL Database Schema")
-**DB Schema, Wireframes, dependencies used go here!**
 
 ## [FAQs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 1. How long does the application process for veterans normally take?
