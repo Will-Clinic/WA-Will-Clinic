@@ -1,0 +1,155 @@
+﻿@using WillClinic.Models.Documents;
+@model WillClinic.Models.Documents.AllDocsViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>WILL OF</h2>
+<h2>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</h2>
+
+<p>
+    I, @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName), a resident of @Html.DisplayFor(model => model.County) County, Washington, declare this to be my
+    last Will and revoke all other Wills and Codicils that I have previously made.
+</p>
+
+<h2>Article I</h2>
+<h2>DECLARATIONS</h2>
+
+<p>
+    I am @Html.DisplayFor(model => model.MaritalStatus) @Html.DisplayFor(model => model.SpouseName)
+    @if (Model.HasChildren)
+    {
+        @foreach (string item in Model.Children)
+        {
+            @Html.DisplayFor(modelItem => item)
+        }
+    }
+    . I have no children, living or deceased, that have not been identified herein. The if;child&quot; and &quot;children&quot; as used in this Will shall mean the aforementioned child/children, and any
+    child subsequently born to or adopted by me. The term &quot;child&quot; or &quot;children&quot; shall not include
+    more remote lineal descendants. Except as hereinafter provided, the omission of any provision
+    in this Will for any child and for the issue of any child who might predecease me is intentional.
+</p>
+
+<h2>Article II</h2>
+<h2>PERSONAL REPRESENTATIVE</h2>
+
+<p>
+    I nominate as personal representative and as successor personal representatives of this Will those named below.  Each successor personal representative shall serve in the order designated if the prior designated personal representative fails to qualify or ceases to act:
+</p>
+<p>First: @Html.DisplayFor(model => model.PRPrimeFirstName) @Html.DisplayFor(model => model.PRPrimeLastName) </p>
+<p>Second: @Html.DisplayFor(model => model.PRAltFirstName) @Html.DisplayFor(model => model.PRAltLastName)</p>
+<p>Any nominated personal representative shall:</p>
+<p>
+    A. Serve without the security of any bond, and is authorized to exercise, without restriction, all authority which may be exercised by a nonintervention personal representative under the laws of the State of Washington incident to liquidation, management, settlement and distribution of my estate, including (but not by way of limitation) the power to hold and operate, at the risk of my estate, any property or business received as part of my estate, the power to liquidate, sell at public or private sale, exchange, lease, mortgage, pledge and otherwise deal with or dispose of the whole or any part of the estate, whether or not such action be necessary in the process of the ordinary administration of my estate, the power to make any distribution to any beneficiary in cash or in kind or partly in each, and the power to allocate undivided interests in property to two or more beneficiaries, all within the discretion of such personal representative;
+</p>
+<p>B. Be reimbursed for all reasonable personal expenses incurred in administration of my estate; and</p>
+<p>C. Be entitled to make any tax election which the personal representative believes to be in the best interest of my estate and to be indemnified for such tax election made in good faith.</p>
+
+<div>
+    <p>Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    <p>1</p>
+    <p>Initials ______</p>
+</div>
+
+<h2>Article III</h2>
+<h2>SPECIFIC GIFTS</h2>
+
+<p>If I leave a letter or memo in compliance with RCW 11.12.260, as amended, indicating my preferences for distribution of the general tangible personal property in my estate, I direct that the personal representative and my heirs honor these wishes. These gifts shall be free of all death taxes.</p>
+
+<h2>Article IV</h2>
+<h2>RESIDUARY ESTATE</h2>
+<p>A. Except as provided in Article IV, Section B, I give all my residuary estate, being all property, real and personal, wherever situated, in which I have any interest at the time of my death, and not otherwise disposed of, to @Html.DisplayFor(model => model.PrimeBenificiary). In the event the aforementioned persons do(es) not survive me by sixty (60) days, in the event of our simultaneous deaths, or in the event such organization is no longer in existence at the time of my death, I give devise and bequeath all the rest and residue to @Html.DisplayFor(model => model.AltBenificiary)</p>
+<p>B. Except as otherwise provided herein, any distribution to my children shall be in equal shares with one share to each of my children who survive me, and one share to the surviving issue by right of representation of any child who does not survive me but leaves issue surviving me.</p>
+
+<h2>Article V</h2>
+<h2>MISCELLANEOUS</h2>
+
+<p>A. The term "issue" shall include adopted children of any person, who shall have the same status as natural born children.</p>
+<p>B. For purposes of this Will, no person shall be deemed to have survived me if such person predeceases me or dies within sixty (60) days after my death.</p>
+<p>C. The captions and titles are for convenience and reference only and they shall not define, limit, or construe the contents of any provision of this Will.</p>
+<p>D. Except where the context otherwise indicates, words in the singular shall include the plural and words in the masculine gender shall include feminine and vice versa.</p>
+
+<h2>Article VI</h2>
+<h2>CUSTODIAN</h2>
+
+<p>
+    If a share of my residuary estate is distributable to any person under the age of eighteen (18) years, I direct that such person's share be distributed to a custodian nominated by my personal representative, as the case may be, for administration and distribution pursuant to the Washington Uniform Transfers to Minors Act prior to the time that such person attains the age of eighteen (18) years.
+</p>
+<p>I have initialed for identification purposes the 4 pages to this my Will, and have executed the entire instrument by signing this, the 3rd and next to the last page, on the day @DateTime.UtcNow.AddHours(-8.0) at @Html.DisplayFor(model => model.County), Washington.</p>
+
+<p>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+
+<div>
+    <p>Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    <p>3</p>
+    <p>Initials ______</p>
+</div>
+
+<div>
+    <p>
+        STATE OF WASHINGTON )/n
+        ) ss./n
+        COUNTY OF SPOKANE	)
+    </p>
+</div>
+<div>
+    <p>Each of the undersigned, being first duly sworn on oath, states that, on this @DateTime.UtcNow.AddHours(-8.0)</p>
+    <ol>
+        <li>I am over the age of eighteen (18) and competent to be a witness to the will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</li>
+        <li>
+            @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) in my presence and in the presence of the other witness whose signature appears below:
+            <ol>
+                <li>
+                    Declared this instrument, consisting of 5 pages, including the page signed by us as witnesses and to be signed by the notary, to be his/her Will;
+                </li>
+                <li>
+                    Requested me and the other witness to act as witnesses to his/her Will and to make this affidavit; and
+                </li>
+                <li>
+                    Signed such instrument.
+                </li>
+            </ol>
+        </li>
+        <li>
+            I believe @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) to be of sound mind, and that in so declaring and signing they where not acting under any duress, menace, fraud, or undue influence.
+        </li>
+        <li>
+            The other witness and I, in the presence of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) and of each other, now subscribe our signatures as witnesses to the will, attest to such, and make this affidavit.
+        </li>
+    </ol>
+</div>
+<div>
+    <p>WITNESSES:</p>
+    <p>
+        Address: _________________/n
+        __________________________
+    </p>
+    <p>
+        Name: ____________________/n
+        __________________________
+    </p>
+    <p>
+        SUBSCRIBED AND SWORN to before me this @DateTime.UtcNow.AddHours(-8.0)
+    </p>
+    <p>_______________ and _______________</p>
+</div>
+<div>
+    <p>
+        Notary Public in and for the State of/n
+        Washington, Residing at	_____________/n
+        My Commission Expires: ______________
+    </p>
+</div>
+<div>
+    <p>Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    <p>4</p>
+    <p>Initials ______</p>
+</div>
+<div>
+    <p>Pursuant to RCW 11.12.260, as amended, it is my intent to dispose of the following property to the designated individuals and/or organizations:</p>
+    <p>PERSON AND PROPERTY LIST</p>
+    <p>Dated this @DateTime.UtcNow.AddHours(-8.0)</p>
+    <p>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+</div>
