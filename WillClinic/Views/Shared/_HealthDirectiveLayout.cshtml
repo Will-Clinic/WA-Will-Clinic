@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "_HealthDirectiveLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" asp-page="WillAndTestament/Dependents">Dependents</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" asp-page="WillAndTestament/Beneficiaries">Beneficiaries</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" asp-page="WillAndTestament/Guardianship">Guardianship</a>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    @RenderBody()
+</div>
+

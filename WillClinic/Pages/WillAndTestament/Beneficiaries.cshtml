@@ -1,0 +1,159 @@
+﻿@page
+@model WillClinic.Pages.BeneficiariesModel
+@{
+    ViewData["Title"] = "Beneficiaries";
+    Layout = "~/Views/Shared/_WillLayout.cshtml";
+}
+
+<h2>Beneficiaries</h2>
+<form method="post">
+    <h4>
+        Specific bequest may be made with through a list attached to you will. This is one way that tangible personal
+        property or specific amount of money be given to the named individual(s). Specific bequests are distributed from
+        your assets first, and may make up the bulk of your estate or deplete it entirely. Specific bequests may also lapse
+        if the specific property cannot be found at your death (i.e., the gift will become void). Thus, it is important to make
+        specific bequests of property that you are reasonably sure you will have when you die.
+
+        YOU ARE NOT REQUIRED TO MAKE SPECIFIC BEQUESTS. If you make no specific bequests, all of your assets
+        will pass to the remainder (or residuary) beneficiaries of your estate. WA Vets Will Clinic only handles specific
+        bequests of tangible personal property or other items pursuant to a written list (i.e., those permitted in RCW
+        11.12.260).
+
+        The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY.
+    </h4>
+    <hr />
+    <div class="form-group">
+        <label asp-for="SpecificBequest" class="control-label">
+            Would you like to make any specific bequests? *
+        </label>
+        <h5>
+            The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY. Including real property
+            transfers will disqualify you from participation.
+        </h5>
+        <div class="radio">
+            <label>
+                <input asp-for="SpecificBequest" type="radio" value="true" /> Yes
+            </label>
+            <label>
+                <input asp-for="SpecificBequest" type="radio" value="false" /> No
+            </label>
+        </div>
+    </div>
+
+    @*TODO: If yes display this question*@
+    <div class="form-group">
+        <label asp-for="BequestInfromation" class="control-label"></label>
+        <h4>
+            Please indicate what specific bequests you would like to make below by indicating who is the recipient of the
+            bequest(s), and the property they will receive. Be specific.
+        </h4>
+        <br />
+        <h5>
+            (Example: John Smith - my diamond wedding ring;
+            Jane Doe - $10,000 cash; John Doe - 1970 Dodge Challenger)
+        </h5>
+        <input asp-for="BequestInfromation" class="form-control" />
+        <span asp-validation-for="BequestInfromation" class="text-danger"></span>
+    </div>
+
+    <h2>Remainder of Your Estate</h2>
+    <h3>
+        The remainder (or residuary) of your estate consists of any and all property remaining in your estate after paying
+        debts, expenses of administration, and any specific bequests. Because many people do not make specific
+        bequests, the remainder of your estate usually describes the vast majority of the property in your estate.
+    </h3>
+
+    <hr />
+    <div class="form-group">
+        <label asp-for="InheritEstate" class="control-label">
+            Who would you like to inherit your estate when you die? Please check one: *
+        </label>
+        <h5>
+            Select the most appropriate
+        </h5>
+        <select asp-for="InheritEstate" class="form-control" asp-items="Html.GetEnumSelectList<InheritEstate>()"></select>
+        <span asp-validation-for="InheritEstate" class="text-danger"></span>
+    </div>
+
+    @*TODO: If charity, person(s), other was selected, display this question*@
+    <div class="form-group">
+        <label asp-for="InheritEstateSpecific" class="control-label">
+            If you selected a specific charity, person(s), or other:
+        </label>
+        <h4>
+            If you would like a specific charity or person(s) to inherit your estate, please indicate their identity, relationship to
+            you (if any), and percent of your estate you would like them to receive. Be specific. If you select a charity, be sure
+            to verify the legal name of the organization. All percentages MUST total 100%.
+        </h4>
+        <h5>
+            (Example: John Doe - my brother,
+            100%. Example for naming charities: Red Cross - Inland Northwest Region, 50%; and Spokane Humane Society
+            & Society for the Prevention of Cruelty to Animals, 50%)
+        </h5>
+        <input asp-for="InheritEstateSpecific" class="form-control" />
+        <span asp-validation-for="InheritEstateSpecific" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RemainderBeneficiary" class="control-label">
+            Contingent Remainder Beneficiary *
+        </label>
+        <h5>
+            If any of the beneficiaries named above predecease you (die before you) or the charity that you have named is no
+            longer in existence, who would you like to inherit your estate when you die?
+        </h5>
+        <select asp-for="RemainderBeneficiary" class="form-control" asp-items="Html.GetEnumSelectList<RemainderBeneficiary>()"></select>
+        <span asp-validation-for="RemainderBeneficiary" class="text-danger"></span>
+    </div>
+
+    @*TODO: If charity, person(s), other was selected, display this question*@
+    <div class="form-group">
+        <label asp-for="RemainderBeneficiarySpecific" class="control-label">
+            If you selected a specific charity or person(s) to be your Contingent Remainder Beneficiary
+        </label>
+        <h5>
+            If you would like a specific charity or person(s) to inherit your estate, please indicate their identity, relationship to
+            you (if any), and percent of your estate you would like them to receive. Be specific. If you select a charity, be sure
+            to verify the legal name of the organization. All percentages MUST total 100%. (Example: John Doe - my brother,
+            100%. Example for naming charities: Red Cross - Inland Northwest Region, 50%; and Spokane Humane Society
+            & Society for the Prevention of Cruelty to Animals, 50%)
+        </h5>
+        <input asp-for="RemainderBeneficiarySpecific" class="form-control" />
+        <span asp-validation-for="RemainderBeneficiarySpecific" class="text-danger"></span>
+    </div>
+
+    <h2>
+        Disinheriting Someone
+    </h2>
+    <hr />
+    <div class="form-group">
+        <label asp-for="DisinheritSomeone" class="control-label">
+            Would you like to disinherit someone, other than your spouse? *
+        </label>
+        <h5>
+            To 'disinherit' someone is to make a specific statement that a personal will not inherit from your estate.
+            Disinheriting your spouse is beyond the scope of the WA Vets Will Clinic, and will disqualify you from eligibility.
+        </h5>
+        <div class="radio">
+            <label>
+                <input asp-for="DisinheritSomeone" type="radio" value="true" /> Yes
+            </label>
+            <label>
+                <input asp-for="DisinheritSomeone" type="radio" value="false" /> No
+            </label>
+        </div>
+    </div>
+
+    @*TODO: If yes to disinherit, display this question*@
+    <div class="form-group">
+        <label asp-for="DisinheretDescription" class="control-label">
+            If you have chosen to disinherit someone, other than your spouse, please provide their full legal name
+            and relationship to you.
+        </label>
+        <h5>
+            Example: John Doe Smith - my son
+        </h5>
+        <input asp-for="DisinheretDescription" class="form-control" />
+        <span asp-validation-for="DisinheretDescription" class="text-danger"></span>
+    </div>
+</form>

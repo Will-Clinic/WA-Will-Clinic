@@ -1,0 +1,49 @@
+﻿@page
+@model WillClinic.Pages.PersonalInfoModel
+@{
+    ViewData["Title"] = "PersonalInfo";
+    Layout = "~/Views/Shared/_IntakeLayout.cshtml";
+}
+
+<h2>Personal Info</h2>
+
+<form asp-action="CreateStep1">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <h3>SECTION 1: Basic Information</h3>
+    <h4>Please provide your name, address, phone number, and email.</h4>
+    <hr />
+    <div class="form-group">
+        <label asp-for="FullLegalName" class="control-label">1) Full legal name: *</label>
+        <h5>Include your first, middle, and last names. Example: John Smith Doe</h5>
+        <input asp-for="FullLegalName" class="form-control" />
+        <span asp-validation-for="FullLegalName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Address" class="control-label">2) Address: *</label>
+        <h5>Street Address, City, and State</h5>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="control-label">3) Phone Number: *</label>
+        <h5>Include area code</h5>
+        <input asp-for="PhoneNumber" type="number" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <hr />
+    <div class="class-md-12">
+        <div class="form-group col-md-offset-1 col-md-1 pull-left">
+            <a asp-controller="VeteranIntakeForm" asp-action="CreateStep0" class="btn btn-danger">Back</a>
+        </div>
+
+        <div class="form-group text-center col-md-8 pull-left">
+            <a asp-controller="VeteranIntakeForm" asp-action="" class="btn btn-default">Save & Exit</a>
+        </div>
+
+        <div class="form-group col-md-2">
+            <input type="submit" value="Next" class="btn btn-success" />
+        </div>
+    </div>
+
+</form>
+
