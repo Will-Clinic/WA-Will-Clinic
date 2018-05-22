@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillClinicTestBattery", "Wi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E2352D37-12D9-48D7-8878-7B8DCBDAE676}"
 	ProjectSection(SolutionItems) = preProject
+		Libraries.json = Libraries.json
 		README.md = README.md
 	EndProjectSection
 EndProject

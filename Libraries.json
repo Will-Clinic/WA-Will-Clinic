@@ -1,0 +1,2452 @@
+[
+  {
+    "city": "Aberdeen",
+    "name": "Aberdeen Timberland Library",
+    "address": "121 E. Market St.",
+    "zip": "98520",
+    "phone": "(360) 533-2360"
+  },
+  {
+    "city": "Airway Heights",
+    "name": "Airway Heights Library",
+    "address": "1213 S. Lundstrom",
+    "zip": "99001",
+    "phone": "(509) 244-5510"
+  },
+  {
+    "city": "Albion",
+    "name": "Albion Branch Library",
+    "address": "310 F Street",
+    "zip": "99102",
+    "phone": "(509) 332-5095"
+  },
+  {
+    "city": "Amanda Park",
+    "name": "Amanda Park Timberland Library",
+    "address": "6118 U.S. Highway 101",
+    "zip": "98526",
+    "phone": "(360) 288-2725"
+  },
+  {
+    "city": "Anacortes",
+    "name": "Anacortes Public Library",
+    "address": "1220 10th St",
+    "zip": "98221",
+    "phone": "(360) 293-1910"
+  },
+  {
+    "city": "Arlington",
+    "name": "Arlington Library",
+    "address": "135 N. Washington Ave.",
+    "zip": "98223",
+    "phone": "(360) 435-3033"
+  },
+  {
+    "city": "Auburn",
+    "name": "Auburn Public Library",
+    "address": "1102 Auburn Way South",
+    "zip": "98002",
+    "phone": "(253) 931-3018"
+  },
+  {
+    "city": "Auburn",
+    "name": "Muckleshoot Library",
+    "address": "38811 172nd Avenue Se",
+    "zip": "98092",
+    "phone": "(253) 931-6779"
+  },
+  {
+    "city": "Bainbridge Island",
+    "name": "Bainbridge Island Library",
+    "address": "1270 Madison N.",
+    "zip": "98110",
+    "phone": "(206) 842-4162"
+  },
+  {
+    "city": "Basin City",
+    "name": "Basin City Library",
+    "address": "50-A N. Canal Blvd.",
+    "zip": "99343",
+    "phone": "(509) 269-4201"
+  },
+  {
+    "city": "Battle Ground",
+    "name": "Battle Ground Community Library",
+    "address": "12 West Main Street",
+    "zip": "98604",
+    "phone": "(360) 687-2322"
+  },
+  {
+    "city": "Belfair",
+    "name": "North Mason Timberland Library",
+    "address": "23081 Ne State Rt. 3",
+    "zip": "98528",
+    "phone": "(360) 275-3232"
+  },
+  {
+    "city": "Bellevue",
+    "name": "Bellevue Library",
+    "address": "1111 110th Avenue Ne",
+    "zip": "98004",
+    "phone": "(425) 450-1765"
+  },
+  {
+    "city": "Bellevue",
+    "name": "Lake Hills Library",
+    "address": "15228 Lake Hills Boulevard",
+    "zip": "98007",
+    "phone": "(425) 747-3350"
+  },
+  {
+    "city": "Bellevue",
+    "name": "Library Connection At Crossroads",
+    "address": "15600 Ne 8th Street, Suite K-11",
+    "zip": "98008",
+    "phone": "(425) 644-6203"
+  },
+  {
+    "city": "Bellevue",
+    "name": "Newport Way Library",
+    "address": "14250 Se Newport Way",
+    "zip": "98006",
+    "phone": "(425) 747-2390"
+  },
+  {
+    "city": "Bellingham",
+    "name": "Bellingham Public Library",
+    "address": "210 Central Ave",
+    "zip": "98225",
+    "phone": "(360) 778-7323"
+  },
+  {
+    "city": "Bellingham",
+    "name": "Fairhaven Branch Library",
+    "address": "1117 12th Street",
+    "zip": "98225",
+    "phone": "(360) 676-6877"
+  },
+  {
+    "city": "Bellingham",
+    "name": "Whatcom County Library System",
+    "address": "5205 Northwest Drive",
+    "zip": "98226",
+    "phone": "(360) 384-3150"
+  },
+  {
+    "city": "Benton City",
+    "name": "Benton City Library",
+    "address": "708 9th Street",
+    "zip": "99320",
+    "phone": "(509) 588-6471"
+  },
+  {
+    "city": "Black Diamond",
+    "name": "Black Diamond Library",
+    "address": "24301 Roberts Drive",
+    "zip": "98010",
+    "phone": "(360) 886-1105"
+  },
+  {
+    "city": "Blaine",
+    "name": "Blaine Library",
+    "address": "610 3rd Street",
+    "zip": "98230",
+    "phone": "(360) 332-8146"
+  },
+  {
+    "city": "Bonney Lake",
+    "name": "Bonney Lake Library",
+    "address": "18501 90th Street East",
+    "zip": "98390",
+    "phone": "(253) 863-5867"
+  },
+  {
+    "city": "Bothell",
+    "name": "Bothell Library",
+    "address": "18215 98th Avenue Ne",
+    "zip": "98011",
+    "phone": "(425) 486-7811"
+  },
+  {
+    "city": "Bremerton",
+    "name": "Bremerton Library",
+    "address": "612 5th St.",
+    "zip": "98337",
+    "phone": "(360) 377-3955"
+  },
+  {
+    "city": "Bremerton",
+    "name": "Kitsap Regional Library",
+    "address": "1301 Sylvan Way",
+    "zip": "98310",
+    "phone": "(360) 405-9158"
+  },
+  {
+    "city": "Brewster",
+    "name": "Brewster Community Library",
+    "address": "108 S Third",
+    "zip": "98812",
+    "phone": "(509) 689-4046"
+  },
+  {
+    "city": "Bridgeport",
+    "name": "Bridgeport Community Library",
+    "address": "1206 Columbia St",
+    "zip": "98813",
+    "phone": "(509) 686-7281"
+  },
+  {
+    "city": "Brier",
+    "name": "Brier Library",
+    "address": "23303 Brier Rd.",
+    "zip": "98036",
+    "phone": "(425) 483-0888"
+  },
+  {
+    "city": "Buckley",
+    "name": "Buckley Library",
+    "address": "123 South River Avenue",
+    "zip": "98321",
+    "phone": "(253) 829-0300"
+  },
+  {
+    "city": "Buena",
+    "name": "Buena Library",
+    "address": "813 Buena Rd",
+    "zip": "98921",
+    "phone": "(509) 865-3390"
+  },
+  {
+    "city": "Burbank",
+    "name": "Burbank Heights Library",
+    "address": "875 Lake Road",
+    "zip": "99323",
+    "phone": "(509) 545-6549"
+  },
+  {
+    "city": "Burien",
+    "name": "Burien Library",
+    "address": "14700 6th Avenue Sw",
+    "zip": "98166",
+    "phone": "(206) 243-3490"
+  },
+  {
+    "city": "Burlington",
+    "name": "Burlington Public Library",
+    "address": "820 East Washington Avenue",
+    "zip": "98233",
+    "phone": "(360) 755-0760"
+  },
+  {
+    "city": "Camas",
+    "name": "Camas Public Library",
+    "address": "625 Ne Fourth Ave.",
+    "zip": "98607",
+    "phone": "(360) 834-4692"
+  },
+  {
+    "city": "Carnation",
+    "name": "Carnation Library",
+    "address": "4804 Tolt Avenue",
+    "zip": "98014",
+    "phone": "(425) 333-4398"
+  },
+  {
+    "city": "Cashmere",
+    "name": "Cashmere Community Library",
+    "address": "300 Woodring",
+    "zip": "98815",
+    "phone": "(509) 782-3314"
+  },
+  {
+    "city": "Castle Rock",
+    "name": "Castle Rock Public Library",
+    "address": "137 Cowlitz St W.",
+    "zip": "98611",
+    "phone": "(360) 274-6961"
+  },
+  {
+    "city": "Cathlamet",
+    "name": "Cathlamet (Blanche Bradley) Public Library",
+    "address": "100 Main St",
+    "zip": "98612",
+    "phone": "(360) 795-3254"
+  },
+  {
+    "city": "Centralia",
+    "name": "Centralia Timberland Library",
+    "address": "110 S. Silver St.",
+    "zip": "98531",
+    "phone": "(360) 736-0183"
+  },
+  {
+    "city": "Chehalis",
+    "name": "Chehalis Timberland Library",
+    "address": "76 N.E. Park St.",
+    "zip": "98532",
+    "phone": "(360) 748-3301"
+  },
+  {
+    "city": "Chelan",
+    "name": "Chelan Community Library",
+    "address": "417 S Bradley St",
+    "zip": "98816",
+    "phone": "(509) 682-5131"
+  },
+  {
+    "city": "Cheney",
+    "name": "Cheney Library",
+    "address": "610 First Street",
+    "zip": "99004",
+    "phone": "(509) 235-7333"
+  },
+  {
+    "city": "Chewelah",
+    "name": "Chewelah Public Library",
+    "address": "307 East Clay Ave",
+    "zip": "99109",
+    "phone": "(509) 935-6805"
+  },
+  {
+    "city": "Clallam Bay",
+    "name": "Clallam Bay Public Library",
+    "address": "16990 Hwy 112",
+    "zip": "98326",
+    "phone": "(360) 963-2414"
+  },
+  {
+    "city": "Clarkston",
+    "name": "Asotin County Library",
+    "address": "417 Sycamore",
+    "zip": "99403",
+    "phone": "(509) 758-5454"
+  },
+  {
+    "city": "Clarkston",
+    "name": "Heights Branch Library",
+    "address": "2036 4th Ave.",
+    "zip": "99403",
+    "phone": "(509) 758-4601"
+  },
+  {
+    "city": "Cle Elum",
+    "name": "Cle Elum (Carpenter Memorial) Library",
+    "address": "302 Pennsylvania Ave.",
+    "zip": "98922",
+    "phone": "(509) 674-2313"
+  },
+  {
+    "city": "Clinton",
+    "name": "Clinton Library",
+    "address": "4781 Deer Lake Rd",
+    "zip": "98236",
+    "phone": "(360) 341-4280"
+  },
+  {
+    "city": "Colfax",
+    "name": "Colfax Library",
+    "address": "102 S. Main",
+    "zip": "99111",
+    "phone": "(509) 397-4366"
+  },
+  {
+    "city": "Colfax",
+    "name": "Whitman County Library",
+    "address": "102 S. Main Street",
+    "zip": "99111",
+    "phone": "(509) 397-4366"
+  },
+  {
+    "city": "Colton",
+    "name": "Colton Branch Library",
+    "address": "706 Broadway",
+    "zip": "99113",
+    "phone": "(509) 229-3887"
+  },
+  {
+    "city": "Colville",
+    "name": "Colville Public Library",
+    "address": "195 South Oak",
+    "zip": "99114",
+    "phone": "(509) 684-6620"
+  },
+  {
+    "city": "Colville",
+    "name": "Onion Creek Library",
+    "address": "2191 Clugston-Onion Cr. Rd.",
+    "zip": "99114",
+    "phone": "(877) 251-3300"
+  },
+  {
+    "city": "Concrete",
+    "name": "Concrete Public Library",
+    "address": "45672 Main Street",
+    "zip": "98237",
+    "phone": "(360) 853-8950"
+  },
+  {
+    "city": "Concrete",
+    "name": "Upper Skagit Library District",
+    "address": "45770 B Main St.",
+    "zip": "98237",
+    "phone": "(360) 853-7939"
+  },
+  {
+    "city": "Connell",
+    "name": "Connell Library",
+    "address": "118 N. Columbia",
+    "zip": "99326",
+    "phone": "(509) 234-4971"
+  },
+  {
+    "city": "Coulee City",
+    "name": "Coulee City Community Library",
+    "address": "405 W Main",
+    "zip": "99115",
+    "phone": "(509) 632-8751"
+  },
+  {
+    "city": "Coupeville",
+    "name": "Coupeville Library",
+    "address": "788 Nw Alexander",
+    "zip": "98239",
+    "phone": "(360) 678-4911"
+  },
+  {
+    "city": "Covington",
+    "name": "Covington Library",
+    "address": "27100 164th Avenue Se",
+    "zip": "98042",
+    "phone": "(253) 630-8761"
+  },
+  {
+    "city": "Cusick",
+    "name": "Calispel Valley Library",
+    "address": "107 1st Ave",
+    "zip": "99119",
+    "phone": "(509) 445-1215"
+  },
+  {
+    "city": "Darrington",
+    "name": "Darrington Library",
+    "address": "1005 Cascade St.",
+    "zip": "98241",
+    "phone": "(360) 436-1600"
+  },
+  {
+    "city": "Davenport",
+    "name": "Davenport Public Library",
+    "address": "505 7th St",
+    "zip": "99122",
+    "phone": "(509) 725-4355"
+  },
+  {
+    "city": "Dayton",
+    "name": "Columbia County Rural Library District",
+    "address": "111 S 3rd St.",
+    "zip": "99328",
+    "phone": "(509) 382-4131"
+  },
+  {
+    "city": "Dayton",
+    "name": "Dayton Memorial Library",
+    "address": "111 S 3rd St",
+    "zip": "99328",
+    "phone": "(509) 382-4131"
+  },
+  {
+    "city": "Deer Park",
+    "name": "Deer Park Library",
+    "address": "208 S. Forest",
+    "zip": "99006",
+    "phone": "(509) 276-2985"
+  },
+  {
+    "city": "Deming",
+    "name": "Deming Library",
+    "address": "5044 Mt. Baker Highway",
+    "zip": "98244",
+    "phone": "(360) 592-2422"
+  },
+  {
+    "city": "Des Moines",
+    "name": "Des Moines Library",
+    "address": "21620 11th Avenue S",
+    "zip": "98198",
+    "phone": "(206) 824-6066"
+  },
+  {
+    "city": "Des Moines",
+    "name": "Woodmont Library",
+    "address": "26809 Pacific Hwy S",
+    "zip": "98198",
+    "phone": "(253) 839-0121"
+  },
+  {
+    "city": "Duvall",
+    "name": "Duvall Library",
+    "address": "15619 Ne Main Street",
+    "zip": "98019",
+    "phone": "(425) 788-1173"
+  },
+  {
+    "city": "East Wenatchee",
+    "name": "East Wenatchee Community Library",
+    "address": "271 9th St Ne",
+    "zip": "98802",
+    "phone": "(509) 886-7404"
+  },
+  {
+    "city": "Eastsound",
+    "name": "Orcas Island Library District",
+    "address": "500 Rose Street",
+    "zip": "98245",
+    "phone": "(360) 376-4985"
+  },
+  {
+    "city": "Eatonville",
+    "name": "Eatonville Library",
+    "address": "205 Center Street",
+    "zip": "98328",
+    "phone": "(360) 832-6011"
+  },
+  {
+    "city": "Edmonds",
+    "name": "Edmonds Library",
+    "address": "650 Main St.",
+    "zip": "98020",
+    "phone": "(425) 771-1933"
+  },
+  {
+    "city": "Ellensburg",
+    "name": "Ellensburg Public Library",
+    "address": "209 North Ruby Street",
+    "zip": "98926",
+    "phone": "(509) 962-7252"
+  },
+  {
+    "city": "Elma",
+    "name": "Elma Timberland Library",
+    "address": "118 N. First",
+    "zip": "98541",
+    "phone": "(360) 482-3737"
+  },
+  {
+    "city": "Eltopia",
+    "name": "Merrills Corner Library",
+    "address": "5240 Eltopia West",
+    "zip": "99330",
+    "phone": "(509) 297-4341"
+  },
+  {
+    "city": "Endicott",
+    "name": "Endicott Branch Library",
+    "address": "324 E Street",
+    "zip": "99125",
+    "phone": "(509) 657-3429"
+  },
+  {
+    "city": "Entiat",
+    "name": "Entiat Community Library",
+    "address": "14138 Kinzel St",
+    "zip": "98822",
+    "phone": "(509) 784-1517"
+  },
+  {
+    "city": "Enumclaw",
+    "name": "Enumclaw Public Library",
+    "address": "1700 First Street",
+    "zip": "98022",
+    "phone": "(360) 825-2938"
+  },
+  {
+    "city": "Ephrata",
+    "name": "Ephrata Community Library",
+    "address": "45 Alder Nw",
+    "zip": "98823",
+    "phone": "(509) 754-3971"
+  },
+  {
+    "city": "Everett",
+    "name": "Everett Public Library",
+    "address": "2702 Hoyt Ave",
+    "zip": "98201",
+    "phone": "(425) 257-7620"
+  },
+  {
+    "city": "Everett",
+    "name": "Evergreen Branch Library",
+    "address": "9512 Evergreen Way",
+    "zip": "98204",
+    "phone": "(425) 257-8260"
+  },
+  {
+    "city": "Everson",
+    "name": "Everson Library",
+    "address": "104 Kirsch Drive",
+    "zip": "98247",
+    "phone": "(360) 966-5100"
+  },
+  {
+    "city": "Fairfield",
+    "name": "Fairfield Library",
+    "address": "305 E. Main",
+    "zip": "99012",
+    "phone": "(509) 283-2512"
+  },
+  {
+    "city": "Fall City",
+    "name": "Fall City Library",
+    "address": "33415 Se 42nd Place",
+    "zip": "98024",
+    "phone": "(425) 222-5951"
+  },
+  {
+    "city": "Farmington",
+    "name": "Farmington Branch Library",
+    "address": "",
+    "zip": "99128",
+    "phone": "(509) 287-2500"
+  },
+  {
+    "city": "Federal Way",
+    "name": "Federal Way 320th Library",
+    "address": "848 S 320th Street",
+    "zip": "98003",
+    "phone": "(253) 839-0257"
+  },
+  {
+    "city": "Federal Way",
+    "name": "Federal Way Library",
+    "address": "34200 1st Way South",
+    "zip": "98003",
+    "phone": "(253) 838-3668"
+  },
+  {
+    "city": "Ferndale",
+    "name": "Ferndale Library",
+    "address": "2222 Main Street",
+    "zip": "98248",
+    "phone": "(360) 384-3647"
+  },
+  {
+    "city": "Forks",
+    "name": "Forks Public Library",
+    "address": "171 Forks Avenue",
+    "zip": "98331",
+    "phone": "(360) 374-6424"
+  },
+  {
+    "city": "Freeland",
+    "name": "Freeland Library",
+    "address": "5495 Harbor Ave",
+    "zip": "98249",
+    "phone": "(360) 331-7323"
+  },
+  {
+    "city": "Friday Harbor",
+    "name": "San Juan Island Library District",
+    "address": "1010 Guard Street",
+    "zip": "98250",
+    "phone": "(360) 378-2798"
+  },
+  {
+    "city": "Garfield",
+    "name": "Garfield Branch Library",
+    "address": "113 N 3rd",
+    "zip": "99130",
+    "phone": "(509) 635-1490"
+  },
+  {
+    "city": "Gig Harbor",
+    "name": "Peninsula Library",
+    "address": "4424 Point Fosdick Drive Nw",
+    "zip": "98335",
+    "phone": "(253) 851-3793"
+  },
+  {
+    "city": "Goldendale",
+    "name": "Goldendale Community Library",
+    "address": "131 West Burgen",
+    "zip": "98620",
+    "phone": "(509) 773-4487"
+  },
+  {
+    "city": "Graham",
+    "name": "Graham Library",
+    "address": "9202 224th Street East",
+    "zip": "98338",
+    "phone": "(253) 847-4030"
+  },
+  {
+    "city": "Grand Coulee",
+    "name": "Grand Coulee Community Library",
+    "address": "225 Federal",
+    "zip": "99133",
+    "phone": "(509) 633-0972"
+  },
+  {
+    "city": "Grandview",
+    "name": "Grandview Library",
+    "address": "500 W. Main St.",
+    "zip": "98930",
+    "phone": "(509) 882-7034"
+  },
+  {
+    "city": "Granger",
+    "name": "Granger Library",
+    "address": "508 Sunnyside Ave",
+    "zip": "98932",
+    "phone": "(509) 854-1446"
+  },
+  {
+    "city": "Granite Falls",
+    "name": "Granite Falls Library",
+    "address": "815 East Galena",
+    "zip": "98252",
+    "phone": "(360) 691-6087"
+  },
+  {
+    "city": "Harrah",
+    "name": "Harrah Library",
+    "address": "21 E Pioneer",
+    "zip": "98933",
+    "phone": "(509) 848-3458"
+  },
+  {
+    "city": "Harrington",
+    "name": "Harrington Public Library",
+    "address": "po box 496",
+    "zip": "99134",
+    "phone": "(509) 253-4345"
+  },
+  {
+    "city": "Hoodsport",
+    "name": "Hoodsport Timberland Library",
+    "address": "",
+    "zip": "98548",
+    "phone": "(360) 877-9339"
+  },
+  {
+    "city": "Hoquiam",
+    "name": "Hoquiam Timberland Library",
+    "address": "420 7th St.",
+    "zip": "98550",
+    "phone": "(360) 532-1710"
+  },
+  {
+    "city": "Hunters",
+    "name": "Hunters Public Library",
+    "address": "6209 Columbia River Rd.",
+    "zip": "99129",
+    "phone": "(509) 233-3016"
+  },
+  {
+    "city": "Ilwaco",
+    "name": "Ilwaco Timberland Library",
+    "address": "158 1st Ave. N.",
+    "zip": "98624",
+    "phone": "(360) 642-3908"
+  },
+  {
+    "city": "Ione",
+    "name": "Ione Public Library",
+    "address": "210 Blackwell, Suite 1",
+    "zip": "99139",
+    "phone": "(509) 442-3030"
+  },
+  {
+    "city": "Issaquah",
+    "name": "Issaquah Library",
+    "address": "10 W Sunset Way",
+    "zip": "98027",
+    "phone": "(425) 392-5430"
+  },
+  {
+    "city": "Issaquah",
+    "name": "King County Library System",
+    "address": "960 Newport Way Nw",
+    "zip": "98027",
+    "phone": "(425) 369-3200"
+  },
+  {
+    "city": "Kahlotus",
+    "name": "Kahlotus Library",
+    "address": "255 Weston",
+    "zip": "99335",
+    "phone": "(509) 282-3493"
+  },
+  {
+    "city": "Kalama",
+    "name": "Kalama Public Library",
+    "address": "312 N 1st",
+    "zip": "98625",
+    "phone": "(360) 673-4568"
+  },
+  {
+    "city": "Kelso",
+    "name": "Kelso Public Library",
+    "address": "314 Academy St.",
+    "zip": "98626",
+    "phone": "(360) 423-8110"
+  },
+  {
+    "city": "Kenmore",
+    "name": "Kenmore Library",
+    "address": "18138 73rd Ave Ne",
+    "zip": "98028",
+    "phone": "(425) 486-8747"
+  },
+  {
+    "city": "Kennewick",
+    "name": "Keewaydin Library",
+    "address": "405 S. Dayton",
+    "zip": "99336",
+    "phone": "(509) 586-3156"
+  },
+  {
+    "city": "Kennewick",
+    "name": "Kennewick Library",
+    "address": "1620 S. Union",
+    "zip": "99338",
+    "phone": "(509) 783-7878"
+  },
+  {
+    "city": "Kennewick",
+    "name": "Mid-Columbia Library System",
+    "address": "405 S. Dayton Street",
+    "zip": "99336",
+    "phone": "(509) 582-4745"
+  },
+  {
+    "city": "Kent",
+    "name": "Kent Library",
+    "address": "212 2nd Ave N",
+    "zip": "98032",
+    "phone": "(253) 859-3330"
+  },
+  {
+    "city": "Kettle Falls",
+    "name": "Columbia River Community Library",
+    "address": "225 E 3rd",
+    "zip": "99141",
+    "phone": "(509) 738-3033"
+  },
+  {
+    "city": "Kettle Falls",
+    "name": "Kettle Falls Public Library",
+    "address": "605 Meyers St.",
+    "zip": "99141",
+    "phone": "(509) 738-6817"
+  },
+  {
+    "city": "Kingston",
+    "name": "Kingston Library",
+    "address": "11212 Ne State Hwy 104",
+    "zip": "98346",
+    "phone": "(360) 297-3330"
+  },
+  {
+    "city": "Kingston",
+    "name": "Little Boston Library",
+    "address": "31980 Little Boston Rd. Ne",
+    "zip": "98346",
+    "phone": "(360) 297-2670"
+  },
+  {
+    "city": "Kirkland",
+    "name": "Kingsgate Library",
+    "address": "12315 Ne 143rd Street",
+    "zip": "98034",
+    "phone": "(425) 821-7686"
+  },
+  {
+    "city": "Kirkland",
+    "name": "Kirkland Library",
+    "address": "308 Kirkland Avenue",
+    "zip": "98033",
+    "phone": "(425) 822-2459"
+  },
+  {
+    "city": "Kittitas",
+    "name": "Kittitas Public Library",
+    "address": "2nd Pierce St",
+    "zip": "98934",
+    "phone": "(509) 968-0226"
+  },
+  {
+    "city": "La Conner",
+    "name": "La Conner Regional Library",
+    "address": "614 Morris St.",
+    "zip": "98257",
+    "phone": "(360) 466-3352"
+  },
+  {
+    "city": "Lacey",
+    "name": "Lacey Timberland Library",
+    "address": "500 College St. Se",
+    "zip": "98503",
+    "phone": "(360) 491-3860"
+  },
+  {
+    "city": "Lacrosse",
+    "name": "Lacrosse Branch Library",
+    "address": "107 S Main",
+    "zip": "99143",
+    "phone": "(509) 635-1490"
+  },
+  {
+    "city": "Lake Forest Park",
+    "name": "Lake Forest Park Library",
+    "address": "17171 Bothell Way Ne",
+    "zip": "98155",
+    "phone": "(206) 362-8860"
+  },
+  {
+    "city": "Lake Stevens",
+    "name": "Lake Stevens Library",
+    "address": "1804 Main St.",
+    "zip": "98258",
+    "phone": "(425) 334-1900"
+  },
+  {
+    "city": "Lakebay",
+    "name": "Key Center Library",
+    "address": "8905 Key Peninsula Hwy N",
+    "zip": "98349",
+    "phone": "(253) 884-2242"
+  },
+  {
+    "city": "Lakewood",
+    "name": "Lakewood Library",
+    "address": "6300 Wildaire Road Sw",
+    "zip": "98499",
+    "phone": "(253) 582-6040"
+  },
+  {
+    "city": "Lakewood",
+    "name": "Tillicum Library",
+    "address": "14916 Washington Avenue Sw",
+    "zip": "98498",
+    "phone": "(253) 588-1014"
+  },
+  {
+    "city": "Langley",
+    "name": "Langley Library",
+    "address": "104 Second St.",
+    "zip": "98260",
+    "phone": "(360) 221-4383"
+  },
+  {
+    "city": "Leavenworth",
+    "name": "Leavenworth Community Library",
+    "address": "700 Hwy 2",
+    "zip": "98826",
+    "phone": "(509) 548-7923"
+  },
+  {
+    "city": "Liberty Lake",
+    "name": "Liberty Lake Municipal Library",
+    "address": "1421 N. Meadowwood Ln, Suite 130",
+    "zip": "99019",
+    "phone": "(509) 232-2510"
+  },
+  {
+    "city": "Longview",
+    "name": "Longview Public Library",
+    "address": "1600 Louisiana Street",
+    "zip": "98632",
+    "phone": "(360) 442-5300"
+  },
+  {
+    "city": "Loon Lake",
+    "name": "Library Of The Lakes",
+    "address": "4008 Cedar St.",
+    "zip": "99148",
+    "phone": "(509) 233-3016"
+  },
+  {
+    "city": "Loon Lake",
+    "name": "Stevens County Rural Library District",
+    "address": "4008 Cedar St.",
+    "zip": "99148",
+    "phone": "(509) 233-9621"
+  },
+  {
+    "city": "Lopez Island",
+    "name": "Lopez Island Library District",
+    "address": "2225 Fisherman Bay Rd",
+    "zip": "98261",
+    "phone": "(360) 468-2265"
+  },
+  {
+    "city": "Lummi Island",
+    "name": "Island Library",
+    "address": "2144 South Nugent Road",
+    "zip": "98262",
+    "phone": "(360) 758-7145"
+  },
+  {
+    "city": "Lynden",
+    "name": "Lynden Library",
+    "address": "216 4th Street",
+    "zip": "98264",
+    "phone": "(360) 354-4883"
+  },
+  {
+    "city": "Lynnwood",
+    "name": "Lynnwood Library",
+    "address": "19200 44th Ave. W",
+    "zip": "98036",
+    "phone": "(425) 778-2148"
+  },
+  {
+    "city": "Mabton",
+    "name": "Mabton Library",
+    "address": "415 B Street",
+    "zip": "98935",
+    "phone": "(509) 894-4128"
+  },
+  {
+    "city": "Manchester",
+    "name": "Manchester Library",
+    "address": "8067 E. Main St.",
+    "zip": "98353",
+    "phone": "(360) 871-3921"
+  },
+  {
+    "city": "Manson",
+    "name": "Manson Community Library",
+    "address": "",
+    "zip": "98831",
+    "phone": "(509) 687-3420"
+  },
+  {
+    "city": "Maple Falls",
+    "name": "Maple Falls Library",
+    "address": "7509 Mt. Baker Highway",
+    "zip": "98266",
+    "phone": "(360) 599-2020"
+  },
+  {
+    "city": "Maple Valley",
+    "name": "Maple Valley Library",
+    "address": "21844 Se 248th Street",
+    "zip": "98038",
+    "phone": "(425) 432-4620"
+  },
+  {
+    "city": "Marysville",
+    "name": "Marysville Library",
+    "address": "6120 Grove Street",
+    "zip": "98270",
+    "phone": "(360) 658-5000"
+  },
+  {
+    "city": "Marysville",
+    "name": "Sno-Isle Libraries",
+    "address": "7312 35th Avenue Ne",
+    "zip": "98271",
+    "phone": "(360) 651-7000"
+  },
+  {
+    "city": "Mattawa",
+    "name": "Mattawa Community Library",
+    "address": "61 Government Way",
+    "zip": "99349",
+    "phone": "(509) 932-5507"
+  },
+  {
+    "city": "Mccleary",
+    "name": "Mccleary Timberland Library",
+    "address": "121 S. 4th St.",
+    "zip": "98557",
+    "phone": "(360) 495-3368"
+  },
+  {
+    "city": "Medical Lake",
+    "name": "Medical Lake Library",
+    "address": "321 E. Herb",
+    "zip": "99022",
+    "phone": "(509) 299-4891"
+  },
+  {
+    "city": "Mercer Island",
+    "name": "Mercer Island Library",
+    "address": "4400 88th Avenue Se",
+    "zip": "98040",
+    "phone": "(206) 236-3537"
+  },
+  {
+    "city": "Metaline Falls",
+    "name": "Metalines Community Library",
+    "address": "302 Park St",
+    "zip": "99153",
+    "phone": "(509) 446-3232"
+  },
+  {
+    "city": "Mill Creek",
+    "name": "Mill Creek Library",
+    "address": "15429 Bothell-Everett Hwy",
+    "zip": "98012",
+    "phone": "(425) 337-4822"
+  },
+  {
+    "city": "Milton",
+    "name": "Milton Library",
+    "address": "1000 Laurel St.",
+    "zip": "98354",
+    "phone": "(253) 922-2870"
+  },
+  {
+    "city": "Monroe",
+    "name": "Monroe Library",
+    "address": "1070 Village Way",
+    "zip": "98272",
+    "phone": "(360) 794-7851"
+  },
+  {
+    "city": "Montesano",
+    "name": "W. H. Abel Memorial Library",
+    "address": "125 Main St. S.",
+    "zip": "98563",
+    "phone": "(360) 249-4211"
+  },
+  {
+    "city": "Moses Lake",
+    "name": "Moses Lake Community Library",
+    "address": "418 E 5th Ave",
+    "zip": "98837",
+    "phone": "(509) 765-3489"
+  },
+  {
+    "city": "Mount Vernon",
+    "name": "Mount Vernon City Library",
+    "address": "315 Snoqualmie St.",
+    "zip": "98273",
+    "phone": "(360) 336-6249"
+  },
+  {
+    "city": "Mountlake Terrace",
+    "name": "Mountlake Terrace Library",
+    "address": "23300 58th Ave. W",
+    "zip": "98043",
+    "phone": "(425) 776-8722"
+  },
+  {
+    "city": "Moxee",
+    "name": "Moxee Library",
+    "address": "255 W Seattle",
+    "zip": "98936",
+    "phone": "(509) 575-8854"
+  },
+  {
+    "city": "Mukilteo",
+    "name": "Mukilteo Public Library",
+    "address": "4675 Harbour Pointe Blvd.",
+    "zip": "98275",
+    "phone": "(425) 493-8202"
+  },
+  {
+    "city": "Naches",
+    "name": "Naches Library",
+    "address": "303 Naches Ave",
+    "zip": "98937",
+    "phone": "(509) 653-2005"
+  },
+  {
+    "city": "Naches",
+    "name": "Nile Library",
+    "address": "1891 Nile Rd",
+    "zip": "98937",
+    "phone": "(509) 658-2660"
+  },
+  {
+    "city": "Naselle",
+    "name": "Naselle Timberland Library",
+    "address": "4 Parpala Rd.",
+    "zip": "98638",
+    "phone": "(360) 484-3877"
+  },
+  {
+    "city": "Newport",
+    "name": "Newport Public Library",
+    "address": "116 S Washington Avenue",
+    "zip": "99156",
+    "phone": "(509) 447-2111"
+  },
+  {
+    "city": "Newport",
+    "name": "Pend Oreille County Library District",
+    "address": "116 S. Washington Avenue",
+    "zip": "99156",
+    "phone": "(509) 447-2158"
+  },
+  {
+    "city": "Nine Mile Falls",
+    "name": "Lakeside Community Library",
+    "address": "6176 Hwy 291",
+    "zip": "99026",
+    "phone": "(509) 276-3329"
+  },
+  {
+    "city": "North Bend",
+    "name": "North Bend Library",
+    "address": "115 E 4th Street",
+    "zip": "98045",
+    "phone": "(425) 888-0554"
+  },
+  {
+    "city": "North Bonneville",
+    "name": "North Bonneville Community Library",
+    "address": "",
+    "zip": "98639",
+    "phone": "(509) 427-4439"
+  },
+  {
+    "city": "Northport",
+    "name": "Northport Community Library",
+    "address": "311 Columbia Ave.",
+    "zip": "99157",
+    "phone": "(509) 732-8928"
+  },
+  {
+    "city": "Oak Harbor",
+    "name": "Oak Harbor Library",
+    "address": "1000 Se Regatta Drive",
+    "zip": "98277",
+    "phone": "(360) 675-5115"
+  },
+  {
+    "city": "Oakesdale",
+    "name": "Oakesdale Branch Library",
+    "address": "",
+    "zip": "99158",
+    "phone": "(509) 285-4310"
+  },
+  {
+    "city": "Oakville",
+    "name": "Oakville Timberland Library",
+    "address": "204 Main St.",
+    "zip": "98568",
+    "phone": "(360) 273-5305"
+  },
+  {
+    "city": "Ocean Park",
+    "name": "Ocean Park Timberland Library",
+    "address": "1308 256th Place",
+    "zip": "98640",
+    "phone": "(360) 665-4184"
+  },
+  {
+    "city": "Ocean Shores",
+    "name": "Ocean Shores Public Library",
+    "address": "573 Pt. Brown Ave. N.W.",
+    "zip": "98569",
+    "phone": "(360) 289-3919"
+  },
+  {
+    "city": "Odessa",
+    "name": "Odessa Public Library",
+    "address": "21 E. First Street",
+    "zip": "99159",
+    "phone": "(509) 982-2654"
+  },
+  {
+    "city": "Okanogan",
+    "name": "Okanogan Community Library",
+    "address": "228 Pine",
+    "zip": "98840",
+    "phone": "(509) 422-2609"
+  },
+  {
+    "city": "Olympia",
+    "name": "Olympia Timberland Library",
+    "address": "313 8th Ave. Se",
+    "zip": "98501",
+    "phone": "(360) 352-0595"
+  },
+  {
+    "city": "Omak",
+    "name": "Omak Community Library",
+    "address": "30 S Ash",
+    "zip": "98841",
+    "phone": "(509) 826-1820"
+  },
+  {
+    "city": "Orient",
+    "name": "Kettle River East Library",
+    "address": "5th And C Street",
+    "zip": "99160",
+    "phone": "(509) 738-3033"
+  },
+  {
+    "city": "Oroville",
+    "name": "Oroville Community Library",
+    "address": "1276 Main St",
+    "zip": "98844",
+    "phone": "(509) 476-2662"
+  },
+  {
+    "city": "Orting",
+    "name": "Orting Library",
+    "address": "202 Washington Avenue",
+    "zip": "98360",
+    "phone": "(360) 893-2661"
+  },
+  {
+    "city": "Othello",
+    "name": "Othello Library",
+    "address": "101 E. Main Street",
+    "zip": "99344",
+    "phone": "(509) 488-9683"
+  },
+  {
+    "city": "Otis Orchards",
+    "name": "Otis Orchards Library",
+    "address": "22324 E. Wellesley Avenue",
+    "zip": "99027",
+    "phone": "(509) 921-1500"
+  },
+  {
+    "city": "Pacific",
+    "name": "Algona-Pacific Library",
+    "address": "255 Ellingson Road",
+    "zip": "98047",
+    "phone": "(253) 833-3554"
+  },
+  {
+    "city": "Packwood",
+    "name": "Packwood Timberland Library",
+    "address": "109 W. Main St.",
+    "zip": "98361",
+    "phone": "(360) 494-5111"
+  },
+  {
+    "city": "Palouse",
+    "name": "Palouse Branch Library",
+    "address": "120 E Main",
+    "zip": "99161",
+    "phone": "(509) 878-1513"
+  },
+  {
+    "city": "Pasco",
+    "name": "Pasco Library",
+    "address": "1320 W. Hopkins",
+    "zip": "99301",
+    "phone": "(509) 545-1019"
+  },
+  {
+    "city": "Pateros",
+    "name": "Pateros Community Library",
+    "address": "174 Pateros Mall",
+    "zip": "98846",
+    "phone": "(509) 923-2298"
+  },
+  {
+    "city": "Peshastin",
+    "name": "Peshastin Community Library",
+    "address": "8396 Main St",
+    "zip": "98847",
+    "phone": "(509) 548-7821"
+  },
+  {
+    "city": "Point Roberts",
+    "name": "Point Roberts Library",
+    "address": "",
+    "zip": "98281",
+    "phone": "(360) 945-6545"
+  },
+  {
+    "city": "Pomeroy",
+    "name": "Pomeroy (Denny Ashby) Library",
+    "address": "856 Arlington St",
+    "zip": "99347",
+    "phone": "(509) 843-3710"
+  },
+  {
+    "city": "Port Angeles",
+    "name": "North Olympic Library System",
+    "address": "2210 South Peabody Street",
+    "zip": "98362",
+    "phone": "(360) 417-8500"
+  },
+  {
+    "city": "Port Angeles",
+    "name": "Port Angeles Public Library",
+    "address": "2210 S. Peabody Street",
+    "zip": "98362",
+    "phone": "(360) 417-8500"
+  },
+  {
+    "city": "Port Hadlock",
+    "name": "Jefferson County Rural Library District",
+    "address": "620 Cedar Avenue",
+    "zip": "98339",
+    "phone": "(360) 385-6544"
+  },
+  {
+    "city": "Port Orchard",
+    "name": "Port Orchard Library",
+    "address": "87 Sidney St.",
+    "zip": "98366",
+    "phone": "(360) 876-2224"
+  },
+  {
+    "city": "Port Townsend",
+    "name": "Port Townsend Public Library",
+    "address": "1220 Lawrence Street",
+    "zip": "98368",
+    "phone": "(360) 385-3181"
+  },
+  {
+    "city": "Poulsbo",
+    "name": "Poulsbo Library",
+    "address": "700 Ne Lincoln St.",
+    "zip": "98370",
+    "phone": "(360) 779-2915"
+  },
+  {
+    "city": "Prescott",
+    "name": "Prescott Library",
+    "address": "103 D St.",
+    "zip": "99348",
+    "phone": "(509) 849-2411"
+  },
+  {
+    "city": "Prosser",
+    "name": "Prosser Library",
+    "address": "902 Seventh Street",
+    "zip": "99350",
+    "phone": "(509) 786-2533"
+  },
+  {
+    "city": "Pullman",
+    "name": "Pullman (Neill) Public Library",
+    "address": "210 N Grand Ave",
+    "zip": "99163",
+    "phone": "(509) 334-3595"
+  },
+  {
+    "city": "Puyallup",
+    "name": "Puyallup Public Library",
+    "address": "324 S Meridian",
+    "zip": "98371",
+    "phone": "(253) 841-5454"
+  },
+  {
+    "city": "Puyallup",
+    "name": "South Hill Library",
+    "address": "15420 Meridian East",
+    "zip": "98375",
+    "phone": "(253) 848-8686"
+  },
+  {
+    "city": "Quincy",
+    "name": "Quincy Community Library",
+    "address": "108 B St Sw",
+    "zip": "98848",
+    "phone": "(509) 787-2359"
+  },
+  {
+    "city": "Randle",
+    "name": "Mountain View Timberland Library",
+    "address": "210 Silverbrook Rd.",
+    "zip": "98377",
+    "phone": "(360) 497-2665"
+  },
+  {
+    "city": "Raymond",
+    "name": "Raymond Timberland Library",
+    "address": "507 Duryea St.",
+    "zip": "98577",
+    "phone": "(360) 942-2408"
+  },
+  {
+    "city": "Reardan",
+    "name": "Reardan Memorial Library",
+    "address": "120 S Oak",
+    "zip": "99029",
+    "phone": "(509) 994-9997"
+  },
+  {
+    "city": "Redmond",
+    "name": "Library Express At Redmond Ridge",
+    "address": "10735 Cedar Park Crescent Ne",
+    "zip": "98053",
+    "phone": "(425) 885-1861"
+  },
+  {
+    "city": "Redmond",
+    "name": "Redmond Library",
+    "address": "15990 Ne 85th Street",
+    "zip": "98052",
+    "phone": "(425) 885-1861"
+  },
+  {
+    "city": "Renton",
+    "name": "Fairwood Library",
+    "address": "17009 140th Avenue Se",
+    "zip": "98058",
+    "phone": "(425) 226-0522"
+  },
+  {
+    "city": "Renton",
+    "name": "Highlands Public Library",
+    "address": "2902 Ne 12th St",
+    "zip": "98056",
+    "phone": "(425) 430-6790"
+  },
+  {
+    "city": "Renton",
+    "name": "Renton Highlands Library",
+    "address": "2902 Ne 12th Street",
+    "zip": "98056",
+    "phone": "(425) 277-1831"
+  },
+  {
+    "city": "Renton",
+    "name": "Renton Library",
+    "address": "100 Mill Avenue South",
+    "zip": "98057",
+    "phone": "(425) 430-6610"
+  },
+  {
+    "city": "Republic",
+    "name": "Republic Community Library",
+    "address": "794 S Clark Ave",
+    "zip": "99166",
+    "phone": "(509) 775-3328"
+  },
+  {
+    "city": "Richland",
+    "name": "Richland Public Library",
+    "address": "1270 Lee Blvd",
+    "zip": "99352",
+    "phone": "(509) 942-7450"
+  },
+  {
+    "city": "Ridgefield",
+    "name": "Ridgefield Community Library",
+    "address": "210 North Main Avenue",
+    "zip": "98642",
+    "phone": "(360) 887-8281"
+  },
+  {
+    "city": "Ritzville",
+    "name": "Ritzville Public Library",
+    "address": "302 W Main",
+    "zip": "99169",
+    "phone": "(509) 659-1222"
+  },
+  {
+    "city": "Rosalia",
+    "name": "Rosalia Branch Library",
+    "address": "106 W. 5th",
+    "zip": "99170",
+    "phone": "(509) 523-3109"
+  },
+  {
+    "city": "Roslyn",
+    "name": "Roslyn Public Library",
+    "address": "201 S. First St.",
+    "zip": "98941",
+    "phone": "(509) 649-3420"
+  },
+  {
+    "city": "Roy",
+    "name": "Roy City Library",
+    "address": "122 3rd St. E",
+    "zip": "98580",
+    "phone": "(253) 843-2331"
+  },
+  {
+    "city": "Royal City",
+    "name": "Royal City Community Library",
+    "address": "356 Camelia",
+    "zip": "99357",
+    "phone": "(509) 346-9281"
+  },
+  {
+    "city": "Salkum",
+    "name": "Salkum Timberland Library",
+    "address": "2480 U.S. Hwy. 12",
+    "zip": "98582",
+    "phone": "(360) 985-2148"
+  },
+  {
+    "city": "Sammamish",
+    "name": "Sammamish Library",
+    "address": "825 228th Avenue Ne",
+    "zip": "98074",
+    "phone": "(425) 836-8793"
+  },
+  {
+    "city": "Seatac",
+    "name": "Valley View Library",
+    "address": "17850 Military Road S",
+    "zip": "98188",
+    "phone": "(206) 242-6044"
+  },
+  {
+    "city": "Seattle",
+    "name": "Boulevard Park Library",
+    "address": "12015 Roseberg Avenue S",
+    "zip": "98168",
+    "phone": "(206) 242-8662"
+  },
+  {
+    "city": "Seattle",
+    "name": "Greenbridge Library",
+    "address": "9720 8th Ave S.W.",
+    "zip": "98106",
+    "phone": "(206) 762-1682"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Ballard",
+    "address": "5711 24th Ave Nw",
+    "zip": "98107",
+    "phone": "(206) 684-4089"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Beacon Hill",
+    "address": "2519 15th Ave S",
+    "zip": "98144",
+    "phone": "(206) 684-4711"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Broadview",
+    "address": "12755 Greenwood Ave N",
+    "zip": "98133",
+    "phone": "(206) 684-7519"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Capitol Hill",
+    "address": "425 Harvard Ave E",
+    "zip": "98102",
+    "phone": "(206) 684-4715"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Central Library",
+    "address": "1000 4th Ave",
+    "zip": "98104",
+    "phone": "(206) 386-4636"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Columbia",
+    "address": "4721 Rainier Ave S",
+    "zip": "98118",
+    "phone": "(206) 386-1908"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Delridge",
+    "address": "5423 Delridge Way Sw",
+    "zip": "98106",
+    "phone": "(206) 733-9125"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Douglass-Truth",
+    "address": "2300 E Yesler Way",
+    "zip": "98122",
+    "phone": "(206) 684-4704"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Fremont",
+    "address": "731 N 35th St",
+    "zip": "98103",
+    "phone": "(206) 684-4084"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Green Lake",
+    "address": "7364 E Green Lake Dr N",
+    "zip": "98115",
+    "phone": "(206) 684-7547"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Greenwood",
+    "address": "8016 Greenwood Ave N",
+    "zip": "98103",
+    "phone": "(206) 684-4086"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - High Point",
+    "address": "6338 32nd Ave Sw",
+    "zip": "98126",
+    "phone": "(206) 684-7454"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - International District - Chinatown Branch",
+    "address": "713 Eighth Ave. S.",
+    "zip": "98104",
+    "phone": "(206) 386-1300"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Lake City",
+    "address": "12501 28th Ave Ne",
+    "zip": "98125",
+    "phone": "(206) 684-7518"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Madrona Sally Goldmark",
+    "address": "1134 33rd Ave",
+    "zip": "98122",
+    "phone": "(206) 684-4705"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Magnolia",
+    "address": "2801 34th Ave W",
+    "zip": "98199",
+    "phone": "(206) 386-4225"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Montlake",
+    "address": "2300 24th Ave E",
+    "zip": "98112",
+    "phone": "(206) 684-4720"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Newholly",
+    "address": "7058 32nd Ave S",
+    "zip": "98118",
+    "phone": "(206) 386-1905"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Northeast",
+    "address": "6801 35th Ave Ne",
+    "zip": "98115",
+    "phone": "(206) 684-7539"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Northgate",
+    "address": "10548 Fifth Ave. N.E.",
+    "zip": "98125",
+    "phone": "(206) 386-1980"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Queen Anne",
+    "address": "400 W Garfield St",
+    "zip": "98119",
+    "phone": "(206) 386-4227"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Rainier Beach",
+    "address": "9125 Rainier Ave S",
+    "zip": "98118",
+    "phone": "(206) 386-1906"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - South Park",
+    "address": "8604 Eighth Ave. S. At South Cloverdale Street",
+    "zip": "98108",
+    "phone": "(206) 615-1688"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Southwest",
+    "address": "9010 35th Ave Sw",
+    "zip": "98126",
+    "phone": "(206) 684-7455"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - University",
+    "address": "5009 Roosevelt Way Ne",
+    "zip": "98105",
+    "phone": "(206) 684-4063"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - Wallingford",
+    "address": "1501 N 45th St",
+    "zip": "98103",
+    "phone": "(206) 684-4088"
+  },
+  {
+    "city": "Seattle",
+    "name": "Seattle Public Library - West Seattle",
+    "address": "2306 42nd Ave Sw",
+    "zip": "98116",
+    "phone": "(206) 684-7444"
+  },
+  {
+    "city": "Seattle",
+    "name": "Skyway Library",
+    "address": "7614 S 126th Street",
+    "zip": "98178",
+    "phone": "(206) 772-5541"
+  },
+  {
+    "city": "Seattle",
+    "name": "White Center Library",
+    "address": "11220 16th Avenue Sw",
+    "zip": "98146",
+    "phone": "(206) 243-0233"
+  },
+  {
+    "city": "Sedro-Woolley",
+    "name": "Sedro-Woolley Public Library",
+    "address": "802 Ball Avenue",
+    "zip": "98284",
+    "phone": "(360) 855-1166"
+  },
+  {
+    "city": "Selah",
+    "name": "Selah Library",
+    "address": "115 W Naches",
+    "zip": "98942",
+    "phone": "(509) 698-7345"
+  },
+  {
+    "city": "Sequim",
+    "name": "Sequim Public Library",
+    "address": "630 N. Sequim Avenue",
+    "zip": "98382",
+    "phone": "(360) 683-1161"
+  },
+  {
+    "city": "Shelton",
+    "name": "William G. Reed Public Library",
+    "address": "710 W. Alder St.",
+    "zip": "98584",
+    "phone": "(360) 426-1362"
+  },
+  {
+    "city": "Shoreline",
+    "name": "Richmond Beach Library",
+    "address": "19601 21st Avenue Nw",
+    "zip": "98177",
+    "phone": "(206) 546-3522"
+  },
+  {
+    "city": "Shoreline",
+    "name": "Shoreline Library",
+    "address": "345 Ne 175th St",
+    "zip": "98155",
+    "phone": "(206) 362-7550"
+  },
+  {
+    "city": "Silverdale",
+    "name": "Silverdale Library",
+    "address": "3450 Nw Carlton St.",
+    "zip": "98383",
+    "phone": "(360) 692-2997"
+  },
+  {
+    "city": "Skykomish",
+    "name": "Skykomish Library",
+    "address": "100 Fifth Street",
+    "zip": "98288",
+    "phone": "(360) 677-2660"
+  },
+  {
+    "city": "Snohomish",
+    "name": "Snohomish Library",
+    "address": "311 Maple Avenue",
+    "zip": "98290",
+    "phone": "(360) 568-2898"
+  },
+  {
+    "city": "Snoqualmie",
+    "name": "Snoqualmie Library",
+    "address": "38580 Se River Street",
+    "zip": "98065",
+    "phone": "(425) 888-1223"
+  },
+  {
+    "city": "Soap Lake",
+    "name": "Soap Lake Community Library",
+    "address": "32 E Main",
+    "zip": "98851",
+    "phone": "(509) 246-1313"
+  },
+  {
+    "city": "South Bend",
+    "name": "South Bend Timberland Library",
+    "address": "1st Pacific",
+    "zip": "98586",
+    "phone": "(360) 875-5532"
+  },
+  {
+    "city": "Spokane",
+    "name": "Argonne Library",
+    "address": "4322 N. Argonne Road",
+    "zip": "99212",
+    "phone": "(509) 926-4334"
+  },
+  {
+    "city": "Spokane",
+    "name": "East Side Branch Library",
+    "address": "524 S. Stone",
+    "zip": "99202",
+    "phone": "(509) 444-5375"
+  },
+  {
+    "city": "Spokane",
+    "name": "Hillyard Branch Library",
+    "address": "4005 N. Cook",
+    "zip": "99207",
+    "phone": "(509) 444-5380"
+  },
+  {
+    "city": "Spokane",
+    "name": "Indian Trail Branch Library",
+    "address": "4909 W. Barnes Road",
+    "zip": "99208",
+    "phone": "(509) 444-5395"
+  },
+  {
+    "city": "Spokane",
+    "name": "Moran Prairie Library",
+    "address": "3022 E. 57th, Suite 19",
+    "zip": "99223",
+    "phone": "(509) 443-6663"
+  },
+  {
+    "city": "Spokane",
+    "name": "North Spokane Library",
+    "address": "44 E. Hawthorne Road",
+    "zip": "99218",
+    "phone": "(509) 467-5250"
+  },
+  {
+    "city": "Spokane",
+    "name": "Shadle Branch Library",
+    "address": "2111 W. Wellesley",
+    "zip": "99205",
+    "phone": "(509) 444-5390"
+  },
+  {
+    "city": "Spokane",
+    "name": "South Hill Branch Library",
+    "address": "3324 S. Perry",
+    "zip": "99203",
+    "phone": "(509) 444-5385"
+  },
+  {
+    "city": "Spokane",
+    "name": "Spokane County Library District",
+    "address": "4322 N Argonne Rd",
+    "zip": "99212",
+    "phone": "(509) 893-8200"
+  },
+  {
+    "city": "Spokane",
+    "name": "Spokane Public Library",
+    "address": "906 W. Main Ave.",
+    "zip": "99201",
+    "phone": "(509) 444-5300"
+  },
+  {
+    "city": "Spokane",
+    "name": "Spokane Public Library",
+    "address": "906 W. Main Ave.",
+    "zip": "99201",
+    "phone": "(509) 444-5307"
+  },
+  {
+    "city": "Spokane Valley",
+    "name": "Valley Library",
+    "address": "12004 E. Main Avenue",
+    "zip": "99206",
+    "phone": "(509) 926-6283"
+  },
+  {
+    "city": "Sprague",
+    "name": "Sprague Public Library",
+    "address": "119 West Second",
+    "zip": "99032",
+    "phone": "(509) 257-2662"
+  },
+  {
+    "city": "St. John",
+    "name": "St. John Branch Library",
+    "address": "19 East Front Street",
+    "zip": "99171",
+    "phone": "(509) 648-3319"
+  },
+  {
+    "city": "Stanwood",
+    "name": "Stanwood Library",
+    "address": "9701 271st St. Nw",
+    "zip": "98292",
+    "phone": "(360) 629-3132"
+  },
+  {
+    "city": "Steilacoom",
+    "name": "Steilacoom Library",
+    "address": "2950 Steilacoom Boulevard Sw",
+    "zip": "98388",
+    "phone": "(253) 588-1452"
+  },
+  {
+    "city": "Stevenson",
+    "name": "Stevenson Community Library",
+    "address": "120 Nw Vancouver Avenue",
+    "zip": "98648",
+    "phone": "(509) 427-5471"
+  },
+  {
+    "city": "Sultan",
+    "name": "Sultan Library",
+    "address": "319 Main St., Suite 100",
+    "zip": "98294",
+    "phone": "(360) 793-1695"
+  },
+  {
+    "city": "Sumas",
+    "name": "Sumas Library",
+    "address": "451 2nd Street",
+    "zip": "98295",
+    "phone": "(360) 988-2501"
+  },
+  {
+    "city": "Sumner",
+    "name": "Sumner Library",
+    "address": "1116 Fryar Avenue",
+    "zip": "98390",
+    "phone": "(253) 863-0441"
+  },
+  {
+    "city": "Sunnyside",
+    "name": "Sunnyside Public Library",
+    "address": "621 Grant",
+    "zip": "98944",
+    "phone": "(509) 837-3234"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Dr. Martin Luther King, Jr. Branch Library",
+    "address": "1902 South Cedar",
+    "zip": "98405",
+    "phone": "(253) 591-5166"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Fern Hill Branch Library",
+    "address": "765 South 84th",
+    "zip": "98444",
+    "phone": "(253) 591-5620"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Kobetich Branch Library",
+    "address": "212 Browns Point Blvd. Ne",
+    "zip": "98422",
+    "phone": "(253) 591-5630"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Moore Branch Library",
+    "address": "215 South 56th Street",
+    "zip": "98408",
+    "phone": "(253) 591-5650"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Mottet Branch Library",
+    "address": "3523 East G Street",
+    "zip": "98404",
+    "phone": "(253) 591-5660"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Parkland-Spanaway Library",
+    "address": "13718 Pacific Avenue South",
+    "zip": "98444",
+    "phone": "(253) 531-4656"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Pierce County Library System",
+    "address": "3005 112th Street East",
+    "zip": "98446",
+    "phone": "(253) 536-6500"
+  },
+  {
+    "city": "Tacoma",
+    "name": "South Tacoma Branch Library",
+    "address": "3411 South 56th Street",
+    "zip": "98409",
+    "phone": "(253) 591-5670"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Summit Library",
+    "address": "5107 112th Street East",
+    "zip": "98445",
+    "phone": "(253) 536-6186"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Swan Creek Branch Library",
+    "address": "3828 Portland Avenue",
+    "zip": "98404",
+    "phone": "(253) 591-7805"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Swasey Branch Library",
+    "address": "7001 Sixth Avenue",
+    "zip": "98406",
+    "phone": "(253) 591-5680"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Tacoma Public Library",
+    "address": "1102 Tacoma Ave S",
+    "zip": "98402",
+    "phone": "(253) 591-5606"
+  },
+  {
+    "city": "Tacoma",
+    "name": "Wheelock Branch Library",
+    "address": "3722 North 26th",
+    "zip": "98407",
+    "phone": "(253) 591-5640"
+  },
+  {
+    "city": "Tekoa",
+    "name": "Tekoa Branch Library",
+    "address": "120 E. Main",
+    "zip": "99033",
+    "phone": "(509) 284-3121"
+  },
+  {
+    "city": "Tenino",
+    "name": "Tenino Timberland Library",
+    "address": "172 Central Ave. W.",
+    "zip": "98589",
+    "phone": "(360) 264-2369"
+  },
+  {
+    "city": "Tieton",
+    "name": "Tieton Library",
+    "address": "418 Maple",
+    "zip": "98947",
+    "phone": "(509) 673-2621"
+  },
+  {
+    "city": "Tonasket",
+    "name": "Tonasket Community Library",
+    "address": "209 S Whitcomb",
+    "zip": "98855",
+    "phone": "(509) 486-2366"
+  },
+  {
+    "city": "Toppenish",
+    "name": "Toppenish (Mary Goodrich Memorial) Library",
+    "address": "1 South Elm",
+    "zip": "98948",
+    "phone": "(509) 865-3600"
+  },
+  {
+    "city": "Touchet",
+    "name": "Touchet Community Library",
+    "address": "161 Hanson Road",
+    "zip": "99360",
+    "phone": "(509) 394-2329"
+  },
+  {
+    "city": "Tukwila",
+    "name": "Foster Library",
+    "address": "4060 S 144th Street",
+    "zip": "98168",
+    "phone": "(206) 242-1640"
+  },
+  {
+    "city": "Tukwila",
+    "name": "Library Connection At Southcenter",
+    "address": "1386 Southcenter Mall",
+    "zip": "98188",
+    "phone": "(206) 242-6044"
+  },
+  {
+    "city": "Tukwila",
+    "name": "Tukwila Library",
+    "address": "14475 59th Avenue S",
+    "zip": "98168",
+    "phone": "(206) 244-5140"
+  },
+  {
+    "city": "Tumwater",
+    "name": "Timberland Regional Library",
+    "address": "415 Tumwater Blvd. Sw",
+    "zip": "98501",
+    "phone": "(360) 943-5001"
+  },
+  {
+    "city": "Tumwater",
+    "name": "Tumwater Timberland Library",
+    "address": "7023 New Market St.",
+    "zip": "98501",
+    "phone": "(360) 943-7790"
+  },
+  {
+    "city": "Twisp",
+    "name": "Twisp Community Library",
+    "address": "201 N Methow Valley Hwy",
+    "zip": "98856",
+    "phone": "(509) 997-4681"
+  },
+  {
+    "city": "Union Gap",
+    "name": "Union Gap Library",
+    "address": "3104 S 1st St",
+    "zip": "98903",
+    "phone": "(509) 452-4252"
+  },
+  {
+    "city": "Uniontown",
+    "name": "Uniontown Branch Library",
+    "address": "110 S Montgomery",
+    "zip": "99179",
+    "phone": "(509) 229-3880"
+  },
+  {
+    "city": "University Place",
+    "name": "University Place Library",
+    "address": "3605 Bridgeport Way West",
+    "zip": "98466",
+    "phone": "(253) 565-9447"
+  },
+  {
+    "city": "Vancouver",
+    "name": "Cascade Park Community Library",
+    "address": "301 Se Hearthwood Blvd",
+    "zip": "98684",
+    "phone": "(360) 256-7782"
+  },
+  {
+    "city": "Vancouver",
+    "name": "Fort Vancouver Regional Library District",
+    "address": "1007 E. Mill Plain Blvd",
+    "zip": "98663",
+    "phone": "(360) 695-1561"
+  },
+  {
+    "city": "Vancouver",
+    "name": "Three Creeks Community Library",
+    "address": "800-C Tenney Road",
+    "zip": "98685",
+    "phone": "(360) 571-9696"
+  },
+  {
+    "city": "Vancouver",
+    "name": "Vancouver Community Library",
+    "address": "1007 E Mill Plain Blvd",
+    "zip": "98663",
+    "phone": "(360) 695-1566"
+  },
+  {
+    "city": "Vancouver",
+    "name": "Vancouver Mall Community Library",
+    "address": "8700 Ne Vancouver Mall Drive",
+    "zip": "98662",
+    "phone": "(360) 892-8256"
+  },
+  {
+    "city": "Vashon Island",
+    "name": "Vashon Library",
+    "address": "17210 Vashon Highway Sw",
+    "zip": "98070",
+    "phone": "(206) 463-2069"
+  },
+  {
+    "city": "Waitsburg",
+    "name": "Waitsburg (Weller) Public Library",
+    "address": "212 Main Street",
+    "zip": "99361",
+    "phone": "(509) 337-8149"
+  },
+  {
+    "city": "Walla Walla",
+    "name": "Walla Walla County Rural Library District",
+    "address": "37 Jade Ave.",
+    "zip": "99362",
+    "phone": "(509) 527-3284"
+  },
+  {
+    "city": "Walla Walla",
+    "name": "Walla Walla Public Library",
+    "address": "238 E. Alder Street",
+    "zip": "99362",
+    "phone": "(509) 527-4388"
+  },
+  {
+    "city": "Wapato",
+    "name": "Wapato Library",
+    "address": "119 E 3rd St",
+    "zip": "98951",
+    "phone": "(509) 877-2882"
+  },
+  {
+    "city": "Warden",
+    "name": "Warden Community Library",
+    "address": "305 S Main",
+    "zip": "98857",
+    "phone": "(509) 349-2226"
+  },
+  {
+    "city": "Washougal",
+    "name": "Washougal Community Library",
+    "address": "1661 C Street",
+    "zip": "98671",
+    "phone": "(360) 835-5393"
+  },
+  {
+    "city": "Waterville",
+    "name": "Waterville Community Library",
+    "address": "105 N Chelan",
+    "zip": "98858",
+    "phone": "(509) 745-8354"
+  },
+  {
+    "city": "Wellpinit",
+    "name": "Wellpinit Library Station",
+    "address": "",
+    "zip": "99040",
+    "phone": "(877) 231-5500"
+  },
+  {
+    "city": "Wenatchee",
+    "name": "North Central Regional Library",
+    "address": "16 N Columbia St",
+    "zip": "98801",
+    "phone": "(509) 663-1117"
+  },
+  {
+    "city": "Wenatchee",
+    "name": "Wenatchee Public Library",
+    "address": "310 Douglas St",
+    "zip": "98801",
+    "phone": "(509) 662-5021"
+  },
+  {
+    "city": "West Richland",
+    "name": "West Richland Library",
+    "address": "3803 W. Van Giesen",
+    "zip": "99353",
+    "phone": "(509) 967-3191"
+  },
+  {
+    "city": "Westport",
+    "name": "Westport Timberland Library",
+    "address": "506 N. Montesano St.",
+    "zip": "98595",
+    "phone": "(360) 268-0521"
+  },
+  {
+    "city": "White Salmon",
+    "name": "White Salmon Valley Community Library",
+    "address": "5 Town Country Square",
+    "zip": "98672",
+    "phone": "(509) 493-1132"
+  },
+  {
+    "city": "White Swan",
+    "name": "White Swan Library",
+    "address": "391 1st St",
+    "zip": "98952",
+    "phone": "(509) 874-2060"
+  },
+  {
+    "city": "Wilbur",
+    "name": "Wilbur (Hesseltine) Public Library",
+    "address": "14 Nw Division",
+    "zip": "99185",
+    "phone": "(509) 647-5828"
+  },
+  {
+    "city": "Winlock",
+    "name": "Winlock Timberland Library",
+    "address": "322 1st St.",
+    "zip": "98596",
+    "phone": "(360) 785-3461"
+  },
+  {
+    "city": "Winthrop",
+    "name": "Winthrop Community Library",
+    "address": "509 State Rt 20",
+    "zip": "98862",
+    "phone": "(509) 996-2685"
+  },
+  {
+    "city": "Woodinville",
+    "name": "Woodinville Library",
+    "address": "17105 Avondale Road Ne",
+    "zip": "98072",
+    "phone": "(425) 788-0733"
+  },
+  {
+    "city": "Woodland",
+    "name": "Woodland Community Library",
+    "address": "770 Park Street",
+    "zip": "98674",
+    "phone": "(360) 225-2115"
+  },
+  {
+    "city": "Yakima",
+    "name": "Southeast Library",
+    "address": "1211 S 7th St",
+    "zip": "98901",
+    "phone": "(509) 576-0723"
+  },
+  {
+    "city": "Yakima",
+    "name": "Summitview Library",
+    "address": "5709 Summitview Ave",
+    "zip": "98908",
+    "phone": "(509) 966-7070"
+  },
+  {
+    "city": "Yakima",
+    "name": "Terrace Heights Library",
+    "address": "4011 Commonwealth",
+    "zip": "98901",
+    "phone": "(509) 457-5319"
+  },
+  {
+    "city": "Yakima",
+    "name": "Yakima Valley Regional Library",
+    "address": "102 N Third St",
+    "zip": "98901",
+    "phone": "(509) 575-3401"
+  },
+  {
+    "city": "Yelm",
+    "name": "Yelm Timberland Library",
+    "address": "210 Prairie Park St.",
+    "zip": "98597",
+    "phone": "(360) 458-3374"
+  },
+  {
+    "city": "Zillah",
+    "name": "Zillah Library",
+    "address": "109 7th",
+    "zip": "98953",
+    "phone": "(509) 829-6707"
+  }
+]
