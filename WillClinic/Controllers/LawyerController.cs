@@ -118,6 +118,10 @@ namespace WillClinic.Controllers
                     AddErrors(result);
                     return RedirectToLocal(returnUrl);
                 }
+                else
+                {
+                    ViewData["Error"] = "Error: Either your information is not an exact match for Washington State Bar OR your license is not that of a lawyer OR your license is not eligible";
+                }
             }
 
             // If we got this far, something failed, redisplay form
