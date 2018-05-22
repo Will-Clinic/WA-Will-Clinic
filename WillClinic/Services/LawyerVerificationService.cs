@@ -15,7 +15,7 @@ namespace WillClinic.Services
         /// </summary>
         /// <param name="barNumber">Bar number of lawyer</param>
         /// <returns>url of legal directory page</returns>
-        string BuildUrl(string barNumber)
+        string BuildUrl(int num)
         {
             //build a url like the working example below:
             //https://www.mywsba.org/personifyebusiness/LegalDirectory/LegalProfile.aspx?Usr_ID=000000009999
@@ -24,6 +24,7 @@ namespace WillClinic.Services
 
             //Not all bar numbers are of the same length - some are four digits, some are five, in the future one might be six.
             //This will prepend zeros to get the number to the right length 
+            string barNumber = num.ToString();
             StringBuilder sb = new StringBuilder();
             while (sb.Length < sampleNumber.Length - barNumber.Length)
                 sb.Append('0');
@@ -79,7 +80,7 @@ namespace WillClinic.Services
         /// <param name="barNumber"> bar number as a string</param>
         /// <param name="email">string that holds the provided email</param>
         /// <returns>true if lawyer is valid and information matches, false otherwise</returns>
-        public async Task<bool> IsValidLawyer(string name, string barNumber, string email)
+        public async Task<bool> IsValidLawyer(string name, int barNumber, string email)
         {
             BarInfo lawyer = await FetchBarInfoAsync(BuildUrl(barNumber));
             return (lawyer.Eligible.ToLower().Trim() == "yes"

@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Services
 {
-    interface ILawyerVerificationService
+    public interface ILawyerVerificationService
     {
-        Task<bool> IsValidLawyer(string name, string number, string email);
+        Task<bool> IsValidLawyer(string name, int number, string email);
     }
 }
