@@ -49,7 +49,13 @@
             </div>
         </div>
     </nav>
-
+    @if (ViewData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            <p>@ViewData["Error"]</p>
+        </div>
+        {ViewData["Error"] = null;}
+    }
     <div class="container container-fluid">
         @RenderBody()
 
