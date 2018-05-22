@@ -84,7 +84,7 @@ namespace WillClinic.Controllers
                 string fullname = $"{model.FirstName} {model.MiddleInitial} {model.LastName}";
 
                 //TODO refactor, this is a reference implementation of the LawyerValidationService
-                if (await _verify.IsValidLawyer(fullname, model.BarNumber, model.Email))
+                if (await _verify.IsValidLawyerAsync(fullname, model.BarNumber, model.Email))
                 {
                     var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, MiddleInitial = model.MiddleInitial, LastName = model.LastName };
                     var result = await _userManager.CreateAsync(user, model.Password);
