@@ -24,8 +24,8 @@ namespace WillClinic.Models
         public bool? VeteranStatus { get; set; }
         public bool? ProofOfService { get; set; }
         public bool? ResidentStatus { get; set; }
-
         public MaritalStatus MaritalStatus { get; set; }
+
         public string FullNameSpouse { get; set; }
         public bool? HaveChildren { get; set; }
         public bool? UnderAgeChildren { get; set; }
