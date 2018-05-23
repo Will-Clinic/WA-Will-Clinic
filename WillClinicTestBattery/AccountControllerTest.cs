@@ -16,23 +16,41 @@ namespace WillClinicTestBattery
 {
     public class AccountControllerTest
     {
-        //ApplicationDbContext _context;
+        ApplicationDbContext _context;
 
-        //DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
-        //          .UseInMemoryDatabase(Guid.NewGuid().ToString())
-        //          .Options;
-        //[Fact]
-        //public void ReturnsView()
-        //{
-        //    //Arrange
-        //    AccountController controller = new AccountController();
+        DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                  .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                  .Options;
 
-        //    // Act
-        //    var result = controller.Index() as IActionResult;
 
-        //    // Assert
-        //    Assert.NotNull(result);
-        //}
+        /*
+        [Fact]
+        public void ReturnView()
+        {
+            //Arrange
+            AccountController controller = new AccountController();
+
+
+            //Act
+
+            //Assert
+
+        }*/
+
+
+        /*
+        [Fact]
+        public void ReturnsView()
+        {
+           //Arrange
+            AccountController controller = new AccountController();
+
+            // Act
+           var result = controller.Index() as IActionResult;
+
+            // Assert
+           Assert.NotNull(result);
+        }*/
 
         //[Fact]
         //public void determineindexreturnscorrectview()
