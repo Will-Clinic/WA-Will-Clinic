@@ -23,7 +23,7 @@ namespace WillClinic.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Detail(int? id)
+        public async Task<IActionResult> Confirmation(int? id)
         {
             AllDocsViewModel vm = new AllDocsViewModel()
             {
