@@ -29,7 +29,7 @@ namespace WillClinic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["ApplicationDbConnection"]));
+                options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
