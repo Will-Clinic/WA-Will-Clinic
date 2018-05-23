@@ -15,6 +15,7 @@ namespace WillClinic.Models
         public DateTime TimeStamp { get; set; }
         public bool? IsCompleted { get; set; }
         public bool? IsNotarized { get; set; }
+        public byte? SavedStep { get; set; }
 
         public bool? TermsAndConditions { get; set; }
 

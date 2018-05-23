@@ -10,7 +10,7 @@ namespace WillClinic.Models
     {
         [Display(Name = "Married and my spouse is alive. No previous marriage")]
         Status1 = 1,
-        [Display(Name = "Presently married, and had a prior marriage (previous spouse is deceased or legally divorced)")]
+        [Display(Name = "Presently married, and had a prior marriage")]
         Status2,
         [Display(Name = "Widow/Widower")]
         Status3,

@@ -40,15 +40,15 @@ namespace WillClinic.Pages.PowerOfAttorneyForm
             return Page();
         }
 
-        public async Task<IActionResult> OnPost(int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+        //public async Task<IActionResult> OnPost(int id)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return Page();
+        //    }
 
-            Veteran veteran = await VeteranService.FindAsync(id);
+        //    Veteran veteran = await VeteranService.FindAsync(id);
             
-        }
+        //}
     }
 }

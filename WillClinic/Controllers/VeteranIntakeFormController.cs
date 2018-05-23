@@ -415,6 +415,17 @@ namespace WillClinic.Controllers
             return RedirectToAction("Index", "Veteran");
         }
 
+        [HttpPost, ActionName("SaveExit")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveAndExit(VeteranIntakeForm saveForm)
+        {
+            saveForm.CurrentStep = saveForm.CurrentStep;
+            _context.VeteranIntakeForms.Update(saveForm);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Veteran");
+        }
+
         private bool VeteranIntakeFormExists(string id)
         {
             return _context.VeteranIntakeForms.Any(e => e.VeteranApplicationUserId == id);
