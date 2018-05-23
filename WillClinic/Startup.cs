@@ -29,7 +29,7 @@ namespace WillClinic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["ApplicationDbConnection"]));
+                options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -39,6 +39,9 @@ namespace WillClinic
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IMatchService, MatchService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped<ILawyerService, LawyerService>();
+            services.AddScoped<ILibraryService, LibraryService>();
 
             services.AddMvc();
         }

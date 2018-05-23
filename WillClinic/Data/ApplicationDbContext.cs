@@ -24,6 +24,7 @@ namespace WillClinic.Data
         public DbSet<VeteranQueue> VeteranQueue { get; set; }
         public DbSet<LawyerAvailability> LawyerAvailability { get; set; }
         public DbSet<VeteranLawyerMatch> VeteranLawyerMatches { get; set; }
+        public DbSet<Library> Libraries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -100,5 +101,7 @@ namespace WillClinic.Data
             builder.Entity<Admin>()
                 .HasKey(a => a.ApplicationUserId);
         }
+
+        public DbSet<WillClinic.Models.ApplicationUser> ApplicationUser { get; set; }
     }
 }

@@ -1,0 +1,38 @@
+﻿@page
+@model WillClinic.Pages.Lawyers.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>Attorney Profile</h2>
+<strong>Bar#: @Model.Lawyer.BarNumber (@(Model.Lawyer.IsVerified ? "Verified" : "Unverified"))</strong>
+
+<h3>Your Availabilities:</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Library Name</td>
+            <td>City</td>
+            <td>Day(s)</td>
+            <td>Time</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var availability in Model.Availabilities)
+        {
+            <tr>
+                <td>@availability.Library.Name</td>
+                <td>@availability.Library.City</td>
+                @if (availability.RecurringDays == RecurringDays.None)
+                {
+                    <td>@Html.DisplayFor(m => availability.DateTimeBegin.Date)</td>
+                }
+                else
+                {
+                    <td>@Html.DisplayFor(m => availability.RecurringDays)</td>
+                }
+                <td>@Html.DisplayFor(m => availability.DateTimeBegin.TimeOfDay) - @Html.DisplayFor(m => availability.DateTimeEnd.TimeOfDay)</td>
+            </tr>
+        }
+    </tbody>
+</table>
