@@ -27,7 +27,7 @@ namespace WillClinicTestBattery
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger _logger;
 
-        /*
+        /* 
         [Fact]
         public void LawyerView()
         {
