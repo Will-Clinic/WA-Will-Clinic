@@ -12,6 +12,9 @@ using WillClinic.Services;
 
 namespace WillClinic.Pages.Lawyers
 {
+    // TODO(taylorjoshuaw): Add custom validators for conditionally
+    //                      recurring validation rules
+
     // TODO(taylorjoshuaw): Change to policy?
     [Authorize(Roles = ApplicationRoles.Lawyer)]
     public class AvailabilityModel : PageModel
@@ -22,7 +25,11 @@ namespace WillClinic.Pages.Lawyers
         [BindProperty]
         public LawyerAvailability LawyerAvailability { get; set; }
         [BindProperty]
-        public SelectList Libraries { get; set; }
+        public MultiSelectList Libraries { get; set; }
+        [BindProperty]
+        [Required]
+        [Display(Name = "Location")]
+        public List<int> LibraryIds { get; set; }
         [BindProperty]
         [Display(Name = "Recurring Weekly?")]
         public bool IsRecurring { get; set; }
@@ -37,20 +44,16 @@ namespace WillClinic.Pages.Lawyers
         [DataType(DataType.Time)]
         [Display(Name = "Ending Time")]
         public DateTime TimeEnd { get; set; }
+        /*
+        [Display(Name = "Recurring Days")]
+        public MultiSelectList RecurringDaysList { get; set; }
+        */
+
         [BindProperty]
-        public bool Sunday { get; set; }
+        [Display(Name = "Recurring Days")]
+        public List<string> RecurringDays { get; set; }
         [BindProperty]
-        public bool Monday { get; set; }
-        [BindProperty]
-        public bool Tuesday { get; set; }
-        [BindProperty]
-        public bool Wednesday { get; set; }
-        [BindProperty]
-        public bool Thursday { get; set; }
-        [BindProperty]
-        public bool Friday { get; set; }
-        [BindProperty]
-        public bool Saturday { get; set; }
+        public MultiSelectList DaysOfTheWeek { get; set; }
 
         public AvailabilityModel(ILibraryService libraryService, ILawyerService lawyerService)
         {
@@ -60,9 +63,12 @@ namespace WillClinic.Pages.Lawyers
 
         public async Task OnGetAsync(int? id)
         {
-            Libraries = new SelectList(_libraryService.GetAllLibraries(), "ID", "Name");
+            Libraries = new MultiSelectList(_libraryService.GetAllLibraries(), "ID", "Name");
+            Date = DateTime.UtcNow;
 
-            // If an ID has been provided, only retrieve that available if it belongs to its owner
+            DaysOfTheWeek = new MultiSelectList(Enum.GetNames(typeof(DayOfWeek)));
+
+            // If an ID has been provided, only retrieve that availability if it belongs to its owner
             if (id.HasValue)
             {
                 Lawyer currentLawyer = await _lawyerService.GetLawyerByPrincipalAsync(User);
