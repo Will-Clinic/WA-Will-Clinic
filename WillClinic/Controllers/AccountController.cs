@@ -309,6 +309,23 @@ namespace WillClinic.Controllers
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Verify(string email, string code, string userType)
+        {
+            ApplicationUser user = await _userManager.FindByEmailAsync(email);
+
+
+            if (!string.IsNullOrWhiteSpace(code) &&
+                (await _userManager.ConfirmEmailAsync(user, code)).Succeeded)
+            {
+                user.EmailConfirmed = true;
+                await _userManager.UpdateAsync(user);
+
+                return RedirectToAction("bluegreenred");//TODO point to confirmation page
+            }
+            //TODO Redirect to somewhere
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPassword()
