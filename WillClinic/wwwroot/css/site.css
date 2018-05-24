@@ -12,10 +12,8 @@
 body {
     position: relative;
     margin: 0;
-
     padding-bottom: 12rem;
     min-height: 100%;
-
 }
 
 .icon-bar {
@@ -85,9 +83,9 @@ h2 {
 }
 
 .footer-custom {
-  position: absolute;
-  right: 0;
-  left: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
     padding: 0;
     background: #636e72;
     margin: 0;
@@ -100,7 +98,17 @@ h2 {
 #footer-copy {
     margin-top: 4%;
     color: floralwhite;
- }
+}
+
+/*Document stlyling*/
+.alpha-list {
+    list-style-type: upper-alpha;
+}
+
+
+.doc-indent {
+    text-indent: 50px;
+}
 
 
 /* Progress Bar */
@@ -112,7 +120,6 @@ h2 {
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
- 
 }
 
 iframe {
@@ -132,14 +139,14 @@ ul.container {
 }
 
 li.row {
-    list-style: none;
+    /*list-style: none;*/
     margin: 4px;
 }
 
 .bordercol {
     padding: 3px;
     border: 1px solid #0094ff;
-    border-radius: 4px 5px; 
+    border-radius: 4px 5px;
 }
 
 /*Cards*/
@@ -160,20 +167,20 @@ li.row {
     border-radius: 0.25rem
 }
 
-    .card > hr {
-        margin-right: 0;
-        margin-left: 0
-    }
+.card > hr {
+    margin-right: 0;
+    margin-left: 0
+}
 
-    .card > .list-group:first-child .list-group-item:first-child {
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem
-    }
+.card > .list-group:first-child .list-group-item:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem
+}
 
-    .card > .list-group:last-child .list-group-item:last-child {
-        border-bottom-right-radius: 0.25rem;
-        border-bottom-left-radius: 0.25rem
-    }
+.card > .list-group:last-child .list-group-item:last-child {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem
+}
 
 .card-body {
     -webkit-box-flex: 1;
@@ -757,7 +764,7 @@ ul.container {
 }
 
 li.row {
-    list-style: none;
+    /*list-style: none;*/
     margin: 4px;
 }
 
