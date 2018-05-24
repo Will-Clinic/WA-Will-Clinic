@@ -87,6 +87,11 @@ namespace WillClinic.Pages.Lawyers
 
         public async Task<IActionResult> OnPostAsync(long? id)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             Lawyer lawyer = await _lawyerService.GetLawyerByPrincipalAsync(User);
             LawyerSchedule schedule;
 

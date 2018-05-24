@@ -42,7 +42,6 @@ namespace WillClinic
 
             services.AddScoped<ILawyerService, LawyerService>();
             services.AddTransient<ILibraryService, LibraryService>();
-            services.AddTransient<IAvailabilityService, AvailabilityService>();
 
             services.AddMvc();
         }

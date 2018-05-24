@@ -18,7 +18,7 @@ namespace WillClinic.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<LawyerService> _logger;
 
-        public LawyerService(ApplicationDbContext applicationDbContext, 
+        public LawyerService(ApplicationDbContext applicationDbContext,
             UserManager<ApplicationUser> userManager, ILogger<LawyerService> logger)
         {
             _context = applicationDbContext;
@@ -42,7 +42,7 @@ namespace WillClinic.Services
                                          .FirstOrDefaultAsync(l => l.ApplicationUserId == user.Id);
         }
 
-        public async Task<IEnumerable<LawyerSchedule>> GetSchedulesAsync(string lawyerId) => 
+        public async Task<IEnumerable<LawyerSchedule>> GetSchedulesAsync(string lawyerId) =>
             await _context.LawyerSchedules.Where(s => s.LawyerId == lawyerId)
                                           .ToListAsync();
 
@@ -123,6 +123,91 @@ namespace WillClinic.Services
             catch
             {
                 _logger.LogError("Unable to commit deletion of schedule from database");
+                return false;
+            }
+        }
+
+        public async Task<bool> AddLibraryToLawyerAsync(string lawyerId, long libraryId)
+        {
+            if (await _context.LawyerLibraryJunctions.AnyAsync(llj =>
+                llj.LawyerId == lawyerId && llj.LibraryId == libraryId))
+            {
+                return false;
+            }
+
+            await _context.LawyerLibraryJunctions.AddAsync(new LawyerLibraryJunction()
+            {
+                LibraryId = libraryId,
+                LawyerId = lawyerId
+            });
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                _logger.LogError("Could not add library to lawyer via junction table");
+                return false;
+            }
+        }
+
+        public async Task<bool> RemoveLibraryFromLawyerAsync(string lawyerId, long libraryId)
+        {
+            LawyerLibraryJunction junction = await _context.LawyerLibraryJunctions.FirstOrDefaultAsync(llj =>
+                llj.LawyerId == lawyerId && llj.LibraryId == libraryId);
+
+            if (junction is null)
+            {
+                _logger.LogError("Tried to remove non-existant library lawyer junction from database");
+                return false;
+            }
+
+            _context.LawyerLibraryJunctions.Remove(junction);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                _logger.LogError("Could not add library to lawyer via junction table");
+                return false;
+            }
+        }
+
+        public async Task<bool> MergeLibraryListWithLawyerAsync(string lawyerId, IEnumerable<long> libraryIds)
+        {
+            IEnumerable<long> currentLibraryIds = _context.LawyerLibraryJunctions.Where(llj => llj.LawyerId == lawyerId)
+                                                                                 .Select(llj => llj.LibraryId);
+
+            foreach (long libraryId in libraryIds.Except(currentLibraryIds))
+            {
+                await _context.LawyerLibraryJunctions.AddAsync(new LawyerLibraryJunction()
+                {
+                    LawyerId = lawyerId,
+                    LibraryId = libraryId
+                });
+            }
+
+            // TODO(taylorjoshuaw): Replace with a LINQ query. This is not efficient at all
+            foreach (long libraryId in currentLibraryIds.Except(libraryIds))
+            {
+                _context.LawyerLibraryJunctions.Remove(
+                    await _context.LawyerLibraryJunctions.FirstOrDefaultAsync(
+                        llj => llj.LawyerId == lawyerId && llj.LibraryId == libraryId));
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                _logger.LogError("Unable to merge library list with lawyer via junction table");
                 return false;
             }
         }
