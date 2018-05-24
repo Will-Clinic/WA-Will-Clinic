@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Application";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_IntakeLayout.cshtml";
 }
 
 <div class="row">
@@ -17,29 +17,27 @@
                 SECTION 4: Last Will & Testament
             </h3>
             <hr />
-            <div class="form-group">
-                <label asp-for="HouseHoldSize" class="control-label">
-                    18) Household Size:
-                </label>
-                <input asp-for="HouseHoldSize" class="form-control" />
-                <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
+            <div class="form-inline">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="HouseHoldSize" class="control-label">Household Size:</label>
+                        <input asp-for="HouseHoldSize" class="form-control" />
+                        <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="MaritalStatus" class="control-label">Marital status (select the most appropriate): *</label>
+                        <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
+                        <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="MaritalStatus" class="control-label">
-                    19) Marital status: *
-                </label>
-                <h5>
-                    select the most appropriate
-                </h5>
-
-                <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
-                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
-            </div>
 
             <div class="form-group">
                 <label asp-for="FullNameSpouse" class="control-label">
-                    20) Full legal name of your spouse
+                    Full legal name of your spouse
                 </label>
                 <h5>
                     provide the full legal name of your spouse, if applicable
@@ -337,7 +335,7 @@
                 </div>
 
                 <div class="form-group text-center col-md-8 pull-left">
-                    <a asp-controller="VeteranIntakeForm" asp-action="" class="btn btn-default">Save & Exit</a>
+                    <a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>
                 </div>
 
                 <div class="form-group col-md-2">
