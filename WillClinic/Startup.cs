@@ -35,9 +35,6 @@ namespace WillClinic
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            //services.AddScoped<UserManager<ApplicationUser>>();
-
-
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IMatchService, MatchService>();
