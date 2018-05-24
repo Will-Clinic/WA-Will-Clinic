@@ -39,6 +39,7 @@ namespace WillClinic
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IMatchService, MatchService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<ILawyerVerificationService, LawyerVerificationService>();
             services.AddScoped<ILawyerService, LawyerService>();
             services.AddTransient<ILibraryService, LibraryService>();
 
