@@ -1,0 +1,623 @@
+﻿@using WillClinic.Models.Documents;
+@model WillClinic.Models.Documents.AllDocsViewModel
+
+@*Date time is hardcoded to pacific time zone in all datetime objects*@
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h2 class="text-center">WILL OF</h2>
+        <h2 class="text-center">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</h2>
+
+        <p class="doc-indent">
+            I, @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName), a resident of @Html.DisplayFor(model => model.County) County, Washington, declare this to be my
+            last Will and revoke all other Wills and Codicils that I have previously made.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h3 class="text-center">Article I</h3>
+        <h3 class="text-center">DECLARATIONS</h3>
+
+        <p>
+            I am @Html.DisplayFor(model => model.MaritalStatus) @Html.DisplayFor(model => model.SpouseName)
+            @if (Model.HasChildren)
+            {
+                @foreach (string item in Model.Children)
+                {
+                    @Html.DisplayFor(modelItem => item)
+                }
+            }
+            . I have no children, living or deceased, that have not been identified herein. The if &quot;child&quot; and &quot;children&quot; as used in this Will shall mean the aforementioned child/children, and any
+            child subsequently born to or adopted by me. The term &quot;child&quot; or &quot;children&quot; shall not include
+            more remote lineal descendants. Except as hereinafter provided, the omission of any provision
+            in this Will for any child and for the issue of any child who might predecease me is intentional.
+        </p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h3 class="text-center">Article II</h3>
+        <h3 class="text-center">PERSONAL REPRESENTATIVE</h3>
+
+        <p>
+            I nominate as personal representative and as successor personal representatives of this Will those named below.  Each successor personal representative shall serve in the order designated if the prior designated personal representative fails to qualify or ceases to act:
+        </p>
+        <p>First: @Html.DisplayFor(model => model.PRPrimeFirstName) @Html.DisplayFor(model => model.PRPrimeLastName) </p>
+        <p>Second: @Html.DisplayFor(model => model.PRAltFirstName) @Html.DisplayFor(model => model.PRAltLastName)</p>
+        <p>Any nominated personal representative shall:</p>
+        <ol class="alpha-list">
+            <li>
+                Serve without the security of any bond, and is authorized to exercise, without restriction, all authority which may be exercised by a nonintervention personal representative under the laws of the State of Washington incident to liquidation, management, settlement and distribution of my estate, including (but not by way of limitation) the power to hold and operate, at the risk of my estate, any property or business received as part of my estate, the power to liquidate, sell at public or private sale, exchange, lease, mortgage, pledge and otherwise deal with or dispose of the whole or any part of the estate, whether or not such action be necessary in the process of the ordinary administration of my estate, the power to make any distribution to any beneficiary in cash or in kind or partly in each, and the power to allocate undivided interests in property to two or more beneficiaries, all within the discretion of such personal representative;
+            </li>
+            <li>
+                Be reimbursed for all reasonable personal expenses incurred in administration of my estate; and
+            </li>
+            <li>
+                Be entitled to make any tax election which the personal representative believes to be in the best interest of my estate and to be indemnified for such tax election made in good faith.
+            </li>
+        </ol>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <p class="col-md-4">Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    <div class="col-md-2">
+        <p class="text-center">- 1 -</p>
+    </div>
+    <div class="col-md-4">
+        <p class="text-right">Initials ______</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h3 class="text-center">Article III</h3>
+        <h3 class="text-center">SPECIFIC GIFTS</h3>
+
+        <p>If I leave a letter or memo in compliance with RCW 11.12.260, as amended, indicating my preferences for distribution of the general tangible personal property in my estate, I direct that the personal representative and my heirs honor these wishes. These gifts shall be free of all death taxes.</p>
+        <br />
+        <h3 class="text-center">Article IV</h3>
+        <h3 class="text-center">RESIDUARY ESTATE</h3>
+        <p>A. Except as provided in Article IV, Section B, I give all my residuary estate, being all property, real and personal, wherever situated, in which I have any interest at the time of my death, and not otherwise disposed of, to @Html.DisplayFor(model => model.PrimeBenificiary). In the event the aforementioned persons do(es) not survive me by sixty (60) days, in the event of our simultaneous deaths, or in the event such organization is no longer in existence at the time of my death, I give devise and bequeath all the rest and residue to @Html.DisplayFor(model => model.AltBenificiary)</p>
+        <p>B. Except as otherwise provided herein, any distribution to my children shall be in equal shares with one share to each of my children who survive me, and one share to the surviving issue by right of representation of any child who does not survive me but leaves issue surviving me.</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <p class="col-md-4">Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    <div class="col-md-2">
+        <p class="text-center">- 2 -</p>
+    </div>
+    <div class="col-md-4">
+        <p class="text-right">Initials ______</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h3 class="text-center">Article V</h3>
+        <h3 class="text-center">MISCELLANEOUS</h3>
+
+        <p>A. The term "issue" shall include adopted children of any person, who shall have the same status as natural born children.</p>
+        <p>B. For purposes of this Will, no person shall be deemed to have survived me if such person predeceases me or dies within sixty (60) days after my death.</p>
+        <p>C. The captions and titles are for convenience and reference only and they shall not define, limit, or construe the contents of any provision of this Will.</p>
+        <p>D. Except where the context otherwise indicates, words in the singular shall include the plural and words in the masculine gender shall include feminine and vice versa.</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h3 class="text-center">Article VI</h3>
+        <h3 class="text-center">CUSTODIAN</h3>
+
+        <p>
+            If a share of my residuary estate is distributable to any person under the age of eighteen (18) years, I direct that such person's share be distributed to a custodian nominated by my personal representative, as the case may be, for administration and distribution pursuant to the Washington Uniform Transfers to Minors Act prior to the time that such person attains the age of eighteen (18) years.
+        </p>
+        <p>I have initialed for identification purposes the 4 pages to this my Will, and have executed the entire instrument by signing this, the 3rd and next to the last page, on the day @DateTime.UtcNow.AddHours(-7.0).ToShortDateString() at @Html.DisplayFor(model => model.County), Washington.</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-7"></div>
+    <div class="col-md-4">
+        <p class="text-right">_________________________</p>
+    </div>
+    <div class="col-md-7"></div>
+    <div class="col-md-4">
+        <p class="text-right">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <p class="col-md-4">Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    <div class="col-md-2">
+        <p class="text-center">- 3 -</p>
+    </div>
+    <div class="col-md-4">
+        <p class="text-right">Initials ______</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <p>
+            STATE OF WASHINGTON<br />
+            <br />
+            COUNTY OF @Html.DisplayFor(model => model.County)
+        </p>
+    </div>
+    <p class="col-md-1">
+        ) <br />
+        ) ss. <br />
+        )
+    </p>
+</div>
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <p>Each of the undersigned, being first duly sworn on oath, states that, on this @DateTime.UtcNow.AddHours(-7.0)</p>
+        <ol>
+            <li>I am over the age of eighteen (18) and competent to be a witness to the will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</li>
+            <li>
+                @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) in my presence and in the presence of the other witness whose signature appears below:
+                <ol>
+                    <li>
+                        Declared this instrument, consisting of 5 pages, including the page signed by us as witnesses and to be signed by the notary, to be his/her Will;
+                    </li>
+                    <li>
+                        Requested me and the other witness to act as witnesses to his/her Will and to make this affidavit; and
+                    </li>
+                    <li>
+                        Signed such instrument.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                I believe @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) to be of sound mind, and that in so declaring and signing they where not acting under any duress, menace, fraud, or undue influence.
+            </li>
+            <li>
+                The other witness and I, in the presence of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) and of each other, now subscribe our signatures as witnesses to the will, attest to such, and make this affidavit.
+            </li>
+        </ol>
+    </div>
+</div>
+<br />
+<div class="container">
+    <p class="text-center">WITNESSES:</p>
+    <div class="col-md-2"></div>
+    <p class="col-md-3">
+        Address: ____________________<br />
+        ____________________________
+    </p>
+    <div class="col-md-2"></div>
+    <p class="col-md-3">
+        Name: ______________________<br />
+        ____________________________
+    </p>
+</div>
+<br />
+<div class="container">
+    <p class="text-center">
+        SUBSCRIBED AND SWORN to before me this @DateTime.UtcNow.AddHours(-7.0)
+    </p>
+    <br />
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <p class="text-right">_________________________</p>
+    </div>
+    <div class="col-md-2">
+        <p class="text-center">and</p>
+    </div>
+    <p class="col-md-4">_________________________</p>
+</div>
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="col-md-7"></div>
+    <div class="col-md-4">
+        <p>
+            Notary Public in and for the State of<br />
+            Washington, Residing at	______________<br />
+            My Commission Expires: _______________
+        </p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <p class="col-md-4">Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    <div class="col-md-2">
+        <p class="text-center">- 4 -</p>
+    </div>
+    <div class="col-md-4">
+        <p class="text-right">Initials ______</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <p>Pursuant to RCW 11.12.260, as amended, it is my intent to dispose of the following property to the designated individuals and/or organizations:</p>
+        <p>PERSON AND PROPERTY LIST</p>
+        <br />
+        <p class="text-center">Dated this @DateTime.UtcNow.AddHours(-7.0)</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-7"></div>
+    <div class="col-md-4">
+        <p class="text-right">_________________________</p>
+    </div>
+    <div class="col-md-7"></div>
+    <div class="col-md-4">
+        <p class="text-right">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h2 class="text-center">HEALTH CARE DIRECTIVE</h2>
+        <p>THIS DIRECTIVE is made this @DateTime.UtcNow.AddHours(-7.0)</p>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <p>
+            I, @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName), having the capacity to make health care decisions, willfully and voluntarily make known my desire that my dying shall not be artificially prolonged under the circumstances set forth below, and do hereby declare that:
+        </p>
+        <p>
+            If at any time I should be diagnosed in writing to be in a terminal condition by the attending physician, or in a permanent unconscious condition by two physicians, and where the application of life-sustaining treatment would serve only to prolong the process of my dying, I direct that such treatment be withheld or withdrawn, and that I be permitted to die naturally.
+        </p>
+        <p>
+            I understand by using this form that a terminal condition means an incurable and irreversible condition caused by injury, disease or illness that would, within reasonable medical judgment, cause death within a reasonable period of time in accordance with accepted medical standards, and where the application of life-sustaining treatment would serve only to prolong the process of dying. I further understand in using this form that a permanent unconscious condition means an incurable and irreversible condition in which I am medically assessed, within reasonable medical judgment, as having no reasonable probability of recovery from an irreversible coma or a persistent vegetative state.
+        </p>
+        <p>
+            In the absence of my ability to give directions regarding the use of such life-sustaining treatment, it is my intention that this Directive shall be honored by my family and physician(s) as the final expression of my legal right to refuse medical or surgical treatment and I accept the consequences of such refusal.
+        </p>
+        <p>
+            If another person is appointed to make these decisions for me, whether through a durable power of attorney or otherwise, I request that the person be guided by this Directive and any other clear expressions of my desires.
+        </p>
+        <p>
+            If I am diagnosed to be in a terminal condition or in a permanent unconscious condition:
+        </p>
+        <div>
+            <p>[Initial Your Desires]</p>
+            <ul>
+                <li>
+                    [_____] I DO want to have artificially-provided hydration. <br />
+                    [_____] I DO NOT want to have artificially-provided hydration.
+                </li>
+                <li>
+                    [_____] I DO want to have artificially-provided nutrition. <br />
+                    [_____] I DO NOT want to have artificially-provided nutrition.
+                </li>
+                <li>
+                    [_____] I DO want cardiopulmonary resuscitation and/or assisted ventilation. <br />
+                    [_____] I DO NOT want either cardiopulmonary resuscitation or assisted ventilation.
+                </li>
+                <li>
+                    [_____] I DO want to receive appropriate medical treatment to alleviate or eliminate pain or distress. <br />
+                    [_____] I DO NOT want to receive medical treatment to alleviate or eliminate pain or distress.
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p>
+                I understand the full import of this Directive and I am emotionally and mentally capable to make the health care decisions contained in this Directive.
+            </p>
+            <p>
+                I understand that before I sign this Directive I can add to or delete from or otherwise change the wording of this Directive and that I may add to or delete from this Directive at any time, and that any changes shall be consistent with Washington state law or federal constitutional law to be legally valid.
+            </p>
+            <p>
+                It is my wish that every part of this Directive be fully implemented. If for any reason any part is held invalid, it is my wish that the remainder of my Directive be implemented.
+            </p>
+        </div>
+        <div>
+            <p>
+                @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) Declarer
+            </p>
+            <p>
+                The Declarer has been personally known to me and I believe @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) to be capable of making health care decisions.
+            </p>
+        </div>
+        <div>
+            <p class="text-right">Witness: _________________________</p>
+            <p class="text-right">Witness: _________________________</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h2 class="text-center">GENERAL POWER OF ATTORNEY</h2>
+        <div>
+            <p>
+                I,	@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName),	a	Washington,	resident	hereby	appoint
+                @Html.DisplayFor(model => model.SuccessorPrime) as my attorney-in-fact for me and in my name, place and stead to do and perform all acts concerning my property and any interest therein, real, personal, and mixed, tangible and intangible, wherever situated, and whether held by me outright, in joint tenancy, tenancy by the entireties, tenancy in common or in any other manner with any other party or parties, including my attorney-in-fact, upon such terms, conditions and considerations as my attorney-in-fact shall deem proper and advisable, as fully and effectually as I could do if personally present and acting, including, but not limited to, the following matters listed below.
+            </p>
+        </div>
+        <div>
+            <ol>
+                <li>
+                    Real Property Transactions
+                    <ol>
+                        <li>
+                            To buy, contract to buy, lease or rent for any term real estate or any options or interest therein, including any and all rights for development of oil, gas or other mineral deposits.
+                        </li>
+                        <li>
+                            To sell, contract to sell, convey, mortgage, encumber, exchange, lease, rent for any term, grant options to purchase or otherwise dispose of any real estate in which I now have an interest or in which I may hereafter acquire an interest, including the development of oil, gas or other mineral deposits.
+                        </li>
+                        <li>
+                            To manage, utilize, conserve, demolish, repair, rebuild or to improve any real estate or structure on real estate, owned or claimed to be owned by me in whole or in part.
+                        </li>
+                        <li>
+                            To protect the same by action, proceeding or otherwise, including, but not limited to, the recovery of possession and removal of tenants or other persons.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Personal Property Transactions
+                    <ol>
+                        <li>
+                            To buy, contract to buy, lease or rent for any term any tangible personal property
+                        </li>
+                        <li>
+                            To sell, contract to sell, grant a security interest, exchange, lease or rent for any term any tangible personal property in which I now have an interest or in which I may hereafter acquire an interest.
+                        </li>
+                        <li>
+                            To manage, utilize, conserve, demolish, repair, rebuild and to improve any tangible personal property owned by me or hereafter acquired.
+                        </li>
+                        <li>
+                            To deposit in or withdraw from any bank, savings and loan association, trust company or other financial institution any funds, checks, certificates of deposit or other credits which I now own or subsequently may have on deposit or to which I may be entitled.
+                        </li>
+                        <li>
+                            To endorse, cash and receive the proceeds of any checks, vouchers, certificates of deposits or other instrument for the payment of money.  This authorization shall include  authority  to  negotiate  in  my  name  any  check  issued  from  any  government  or governmental agency.
+                        </li>
+                        <li>
+                            To receive statements, vouchers, notices or the documents of any bank or financial institution concerning any and all accounts or banking transactions in my name or in which I may have any interest.
+                        </li>
+                        <li>
+                            To have access for all purposes to any and all safe deposit boxes or vaults rented in my name or the name of any other person or persons and myself, with full power to use the same or safekeeping any property or papers, and to remove at any time or from time to time, all or any part of the contents of any such box or vault.
+                        </li>
+                        <li>
+                            To borrow money or to execute in my name any instrument evidencing indebtedness incurred in my behalf and to give security therefor, and to extend and renew any indebtedness so incurred or which I shall have incurred, or for the payment of which I may in any way be liable.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Investment Transactions
+                    <ol>
+                        <li>
+                            To purchase, sell, exchange or otherwise carry on transactions concerning any shares of stock, bonds, securities and other investments.
+                        </li>
+                        <li>
+                            To act as my attorney or proxy with respect to any shares of stock, bonds or other investments I may now hold or subsequently acquire.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Gifts and Transfers.
+                    <ol>
+                        <li>
+                            My attorney-in-fact shall have the power to make gifts on my behalf not to exceed the maximum amount allowable for annual gift tax exclusion under the Internal Revenue Code per donee per year. I expressly waive the application of Chapter 11.95.100 and 11.95.110 in respect of annual exclusion gifts made to the attorney-in-fact.
+                        </li>
+                        <li>
+                            My attorney-in-fact shall also have the power to make gifts or transfers of any of my assets, regardless of the value thereof, as the attorney-in-fact deems appropriate to my lineal descendants and the spouses of my lineal descendants, including the attorney-in-fact, when the gift or transfer is for the purpose of qualifying me for medical assistance, the limited casualty program for the medically needy or Medicaid benefits, or to continue or maintain such benefits or avoid or prevent estate or lien recovery in respect of such services. This power specifically includes the power to sign signature guaranteed stock powers and related documents on my behalf, to surrender or change beneficiary on "pay on death" (POD) or "in trust for" (ITF) bank or investment accounts, and to surrender or change beneficiaries on insurance policies and investment accounts. I expressly waive the application of Chapter 11.95.100 and 11.95.110 in respect to gifts or transfers made to the attorney-in-fact under this power.
+                        </li>
+                        <li>
+                            Notwithstanding any provision of the State law or other laws to the contrary, I specifically authorize the attorney-in-fact to transfer assets to themselves if such transfers are within the scope of the powers set forth hereinabove, regardless of whether such transfers may be deemed to be self serving, or contrary to law in respect of what an attorney-in- fact may do, acting in a fiduciary capacity. I intend that, should my attorney-in-fact, within their absolute discretion, determine that my assets need to be transferred to others to allow me to qualify for Medicaid, with or without a period of ineligibility, my attorney-in-fact may do so, and may make these transfers directly to themselves without violation of any fiduciary duties or laws to the contrary.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Miscellaneous Provisions
+                    <ol>
+                        <li>
+                            To transfer any of my assets to any living trust established by me or my attorney-in-fact, provided nothing contained herein will authorize my attorney-in-fact to execute or change any Will or testamentary document on my behalf as attorney-in-fact.
+                        </li>
+                        <li>
+                            To renounce and disclaim any property, interest in property, or power over property to which, for any reason and by any means, I may become entitled, whether by gift, testate, or intestate succession; and to exercise any right, to claim an elective share in any estate or under any Will and in exercising such discretion, my attorney-in-fact may take into account such matters as shall include, but shall not be limited to, any reduction in estate or inheritance taxes in my estate, and the effect of such disclaimer upon persons interested in my estate and persons who would receive the renounced or disclaimed property.
+                        </li>
+                        <li>
+                            To execute income and other tax returns and declarations of estimated tax required to be made by me and to make such elections and to execute such consents as my attorney-in-fact deems proper.
+                        </li>
+                        <li>
+                            To sign, seal, execute, acknowledge and deliver any and all instruments in writing of any kind which is necessary or convenient, containing such terms and conditions and such warranties and promises, if any, as may be necessary to accomplish any of the authority granted to my attorney-in-fact.
+                        </li>
+                        <li>
+                            To execute, negotiate, modify, reform, renegotiate or rescind any contract or obligation made by me or my attorney-in-fact.
+                        </li>
+                        <li>
+                            To amend and/or revoke any community property agreement signed by me and my spouse.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    General
+                    <ol>
+                        <li>
+                            I give to my attorney-in-fact full power of substitution, hereby empowering my attorney-in-fact to delegate all or any part of the powers hereby conferred to one or more substitute attorneys-in-fact upon such terms and conditions as my attorney-in-fact may specify.
+                        </li>
+                        <li>
+                            If the appointment of a guardian for my person and estate is necessary, it is my direction that my attorney-in-fact be appointed guardian of both my person and estate.
+                        </li>
+                        <li>
+                            All business transacted for me or for my account shall be transacted in my name, and all endorsements and instruments executed by my attorney-in-fact for the purpose of carrying out any of these powers shall contain my name, followed by that of my attorney-in-fact with the designation "attorney-in-fact".
+                        </li>
+                        <li>
+                            I hereby ratify and confirm all lawful acts done and caused to be done by my attorney-in-fact.
+                        </li>
+                        <li>
+                            This Power of Attorney shall not be affected by my subsequent incompetency or disability, whether temporary or permanent.
+                        </li>
+                        <li>
+                            I hereby revoke any and all general powers of attorney previously executed by me.
+                        </li>
+                        <li>
+                            I direct that this Power of Attorney shall only become effective upon the date of my disability or incompetency as determined by my attending physician. If my attending physician expresses an opinion that I am disabled or incompetent to such an extent to be unable to manage my personal or financial affairs, this Power of Attorney shall become effective on the date of such opinion. I expressly authorize my attending physician to render such an opinion to my attorney-in-fact and waive any claim of physician/patient privilege or confidentiality pertaining to medical treatment or medical records.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <p>Successor</p>
+                    <p>
+                        If @Html.DisplayFor(model => model.SuccessorPrime) is unable or unwilling to act or to continue to act as my attorney-in-fact, I appoint @Html.DisplayFor(model => model.SuccessorAlt) as successor attorney-in-fact.
+                    </p>
+                </li>
+            </ol>
+            <p>
+                This instrument was executed by me on this @DateTime.UtcNow.AddHours(-7.0)
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-7"></div>
+        <div class="col-md-4">
+            <p class="text-right">_________________________</p>
+        </div>
+        <div class="col-md-7"></div>
+        <div class="col-md-4">
+            <p class="text-right">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <p>
+                STATE OF WASHINGTON<br />
+                <br />
+                COUNTY OF @Html.DisplayFor(model => model.County)
+            </p>
+        </div>
+        <p class="col-md-1">
+            ) <br />
+            ) ss. <br />
+            )
+        </p>
+    </div>
+    <div>
+        <p>I certify that I know or have satisfactory evidence that @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) signed this instrument and acknowledged it to be his/her free and voluntary act for the uses and purposes mentioned in the instrument.</p>
+        <p>Dated: @DateTime.UtcNow.AddHours(-7.0)</p>
+    </div>
+    <div class="container">
+        <div class="col-md-7"></div>
+        <div class="col-md-4">
+            <p>
+                Notary Public in and for the State of<br />
+                Washington, Residing at	______________<br />
+                My Commission Expires: _______________
+            </p>
+        </div>
+    </div>
+</div>
+<div>
+    <h2 class="text-center">POWER OF ATTORNEY FOR HEALTH CARE</h2>
+    <p>
+        I, @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName), a resident of Washington state, appoint, @Html.DisplayFor(model => model.SuccessorPrime) as my attorney-in-fact for me and in my name, place and stead to do and perform the following acts related to health care decisions:
+    </p>
+    <div>
+        <ol>
+            <li>
+                Health Care Decisions.
+                <ol>
+                    <li>
+                        To provide informed consent for my medical care, including surgical procedures, health and nursing care, treatment or non-treatment and any medication;
+                    </li>
+                    <li>
+                        To consent to my admission to or discharge from any medical, nursing, residential, or similar health care facility;
+                    </li>
+                    <li>
+                        To employ and engage (or discharge) persons, including health care personnel (physicians, dentists, nurses and therapists), to advise or assist the attorney-in-fact in the performance of the duties of the attorney-in-fact, or as the attorney-in-fact for health care deems appropriate and necessary;
+                    </li>
+                    <li>
+                        To consent to or request the withholding or withdrawal of a life-sustaining treatment or procedure in the case of a terminal or permanent unconscious condition, including artificially provided nutrition or hydration; take any action deemed necessary by the attorney-in- fact to enforce any Directive to Physician (or similar instrument) executed by me;
+                    </li>
+                    <li>
+                        To pay the expenses incurred with respect to the exercise of the authority granted herein to make health care decisions and the enforcement of any Directive to Physician (or similar instrument).
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>HIPAA</p>
+                <p>
+                    Additionally, I grant my attorney-in-fact the authority to serve as my personal representative for all purposes of the Health Insurance Portability and Accountability Act of 1996 ("HIPAA") as amended from time to time in the exercise of any authority under this power of attorney.
+                </p>
+                <p>
+                    Pursuant to HIPAA, I specifically authorize my attorney-in-fact to request, receive and review any information regarding my physical or mental health, including without limitation, all HIPAA-protected health information, medical and hospital records; to execute on my behalf any authorizations, releases, or other documents that may be required in order to obtain this information and consent to the disclosure of this information. I further authorize my attorney-in-fact to execute on my behalf any documents necessary to implement the healthcare decisions that my HIPAA personal representative is authorized to make under this document.
+                </p>
+                <p>
+                    By execution of this power of attorney, I specifically empower and authorize any physician, hospital or healthcare provider to release any and all medical records to my HIPAA personal representative.
+                </p>
+            </li>
+            <li>
+                General
+                <ol>
+                    <li>
+                        All medical decisions on my behalf shall be transacted in my name followed by that of my attorney-in-fact with the designation "attorney-in-fact."
+                    </li>
+                    <li>
+                        I ratify and confirm all acts caused to be performed by my attorney-in-fact pursuant to this power of attorney.
+                    </li>
+                    <li>
+                        This power of attorney to make medical decisions shall not be affected by my subsequent incompetency or disability, whether temporary or permanent.
+                    </li>
+                    <li>
+                        To the extent that the provisions of this Power of Attorney For Healthcare is inconsistent or conflicts with any power of attorney previously executed by me, the provisions of this instrument shall control.
+                    </li>
+                    <li>
+                        I direct that this power of attorney shall become effective immediately.
+                    </li>
+                    <li>
+                        If @Html.DisplayFor(model => model.SuccessorPrime) is unavailable, unable or unwilling to act or to continue to act as my attorney-in-fact, I appoint the following as successor attorney-in-fact and personal representative for HIPAA purposes:
+                        @Html.DisplayFor(model => model.SuccessorAlt).
+                    </li>
+                </ol>
+            </li>
+        </ol>
+        <p>
+            This instrument was executed by me on this @DateTime.UtcNow.AddHours(-7.0)
+        </p>
+    </div>
+    <div>
+        <p>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    </div>
+    <div>
+        <p>
+            STATE OF WASHINGTON )<br />
+            ) ss.<br />
+            COUNTY OF @Html.DisplayFor(model => model.County))
+        </p>
+    </div>
+    <div>
+        <p>
+            I certify that I know or have satisfactory evidence that @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) is the person who appeared before me, and said person acknowledged that he/she signed this instrument and acknowledged it to be his/her free and voluntary act, for the uses and purposes mentioned in the instrument.
+        </p>
+        <p>Dated: @DateTime.UtcNow.AddHours(-7.0)</p>
+    </div>
+    <div>
+        <p>
+            Notary Public in and for the State of<br />
+            Washington, Residing at	_____________<br />
+            My Commission Expires: ______________
+        </p>
+    </div>
+</div>

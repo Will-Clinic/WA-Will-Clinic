@@ -14,17 +14,17 @@ namespace WillClinic.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                if (User.IsInRole("Lawyer"))
+                if (User.IsInRole(ApplicationRoles.Lawyer))
                 {
                     return RedirectToPage("/Lawyers/Index");
                 }
-                else if (User.IsInRole("Veteran"))
+                else if (User.IsInRole(ApplicationRoles.Veteran))
                 {
-                    return RedirectToAction("Index", "Veteran");
+                    return RedirectToAction(nameof(Index), "Veteran");
                 }
-                else if (User.IsInRole("Admin"))
+                else if (User.IsInRole(ApplicationRoles.Admin))
                 {
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction(nameof(Index), "Admin");
                 }
             }
             return View();
