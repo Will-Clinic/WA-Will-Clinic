@@ -16,19 +16,24 @@ namespace WillClinic
     public class ConditionalClassTagHelper : TagHelper
     {
         //Constructor for Dependency injection
-        public ConditionalClassTagHelper(UserManager<ApplicationUser> userManager)
+        public ConditionalClassTagHelper(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IHttpContextAccessor context)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
+            _httpContext = context;
         }
 
-        private UserManager<ApplicationUser> _userManager { get; set; }
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IHttpContextAccessor _httpContext;
 
         //String that describes the actual tag key in key-value pair
         private const string UserTheme = "user-theme";
 
         //Field that will hold the value of the tag helper key-value pair
         [HtmlAttributeName(UserTheme)]
-        public string Id { get; set; }
+        private string Id { get; set; }
+
 
         /// <summary>
         /// Method invoked when tag appears. Copies class list, will append role if one exists and add class list to output
@@ -38,6 +43,9 @@ namespace WillClinic
         /// <returns>void. Mutates HTML via output</returns>
         public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
+            
+            //Setting the Id of the current user
+            Id = _httpContext.HttpContext.User != null ? _signInManager.UserManager.GetUserId(_httpContext.HttpContext.User) : "";
             //Get class attribute if it exists on that html element
             var classes = context.AllAttributes.FirstOrDefault(x => x.Name == "class") ?? new TagHelperAttribute("class", "");
             //Gets rid of original class attribute
