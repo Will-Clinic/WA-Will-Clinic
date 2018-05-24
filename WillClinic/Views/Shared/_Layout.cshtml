@@ -22,8 +22,8 @@
 </head>
 
 <body id="body">
-    @*Navbar styling should depend on user role or being anonymous. Custom tag checks for this*@
-    <nav class="navbar navbar-custom" user-theme=@signInManager.UserManager.GetUserId(User)> @*else mark user as anonymous*@
+    @*User-theme custom tag helper applies a conditional class depending on user role*@
+    <nav class="navbar navbar-custom" user-theme=@signInManager.UserManager.GetUserId(User)>
         <div class="container">
             <div class="row info-custom" user-theme=@signInManager.UserManager.GetUserId(User)>
                 <div class="col-lg-12 text-center">
