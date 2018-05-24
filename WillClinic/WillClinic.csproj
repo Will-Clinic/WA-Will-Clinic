@@ -17,11 +17,16 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Bootstrap.Datepicker" Version="1.7.1" />
+    <PackageReference Include="Bootstrap.v3.Datetimepicker" Version="4.17.45" />
     <PackageReference Include="Google.Apis" Version="1.32.2" />
+    <PackageReference Include="jQuery.Fullcalendar" Version="3.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="Moq" Version="4.8.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
   </ItemGroup>
 
