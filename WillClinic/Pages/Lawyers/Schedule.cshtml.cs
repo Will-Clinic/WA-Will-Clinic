@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WillClinic.Models;
@@ -56,7 +57,7 @@ namespace WillClinic.Pages.Lawyers
             if (id.HasValue)
             {
                 Lawyer lawyer = await _lawyerService.GetLawyerByPrincipalAsync(User);
-                var schedule = lawyer.LawyerSchedules.FirstOrDefault(ls => ls.ID == id.Value);
+                LawyerSchedule schedule = lawyer.LawyerSchedules.FirstOrDefault(ls => ls.ID == id.Value);
 
                 ScheduleId = id;
 
@@ -79,6 +80,74 @@ namespace WillClinic.Pages.Lawyers
             else
             {
                 Date = DateTime.Today;
+            }
+        }
+
+        public async Task<IActionResult> OnPostAsync(long? id)
+        {
+            Lawyer lawyer = await _lawyerService.GetLawyerByPrincipalAsync(User);
+            LawyerSchedule schedule;
+
+            if (id.HasValue)
+            {
+                schedule = lawyer.LawyerSchedules.FirstOrDefault(ls => ls.ID == id.Value);
+
+                // Prevent any fraudulent edits to schedules the lawyer does not own
+                if (schedule is null)
+                {
+                    return StatusCode(StatusCodes.Status403Forbidden);
+                }
+            }
+            else
+            {
+                schedule = new LawyerSchedule();
+            }
+
+            schedule.LawyerId = lawyer.ApplicationUserId;
+            
+            if (IsRecurring)
+            {
+                schedule.TimeBegin = DateTime.UtcNow.Add(TimeBegin);
+                schedule.TimeEnd = DateTime.UtcNow.Add(TimeEnd);
+
+                // Construct RecurringDays based on checkbox input
+                schedule.RecurringDays =
+                    (Sunday ? RecurringDays.Sunday : RecurringDays.None) |
+                    (Monday ? RecurringDays.Monday : RecurringDays.None) |
+                    (Tuesday ? RecurringDays.Tuesday : RecurringDays.None) |
+                    (Wednesday ? RecurringDays.Wednesday : RecurringDays.None) |
+                    (Thursday ? RecurringDays.Thursday : RecurringDays.None) |
+                    (Friday ? RecurringDays.Friday : RecurringDays.None) |
+                    (Saturday ? RecurringDays.Saturday : RecurringDays.None);
+            }
+            else
+            {
+                schedule.TimeBegin = Date.Add(TimeBegin);
+                schedule.TimeEnd = Date.Add(TimeEnd);
+                schedule.RecurringDays = RecurringDays.None;
+            }
+
+            if (id.HasValue)
+            {
+                if (await _lawyerService.UpdateScheduleAsync(schedule))
+                {
+                    return RedirectToPage("/Lawyers/Profile");
+                }
+                else
+                {
+                    return Page();
+                }
+            }
+            else
+            {
+                if (await _lawyerService.AddScheduleAsync(schedule))
+                {
+                    return RedirectToPage("/Lawyers/Profile");
+                }
+                else
+                {
+                    return Page();
+                }
             }
         }
     }

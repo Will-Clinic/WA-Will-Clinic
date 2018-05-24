@@ -44,6 +44,50 @@ namespace WillClinic.Services
             await _context.LawyerSchedules.Where(s => s.LawyerId == lawyerId)
                                           .ToListAsync();
 
+        public async Task<bool> AddScheduleAsync(LawyerSchedule lawyerSchedule)
+        {
+            if (lawyerSchedule is null)
+            {
+                _logger.LogError("Tried to add null object as schedule");
+                return false;
+            }
+
+            await _context.LawyerSchedules.AddAsync(lawyerSchedule);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                _logger.LogError("Could not commit lawyer schedule creation");
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateScheduleAsync(LawyerSchedule lawyerSchedule)
+        {
+            if (lawyerSchedule is null || !(await _context.LawyerSchedules.AnyAsync(ls => ls.ID == lawyerSchedule.ID)))
+            {
+                _logger.LogError("Tried to update null or non-existant schedule");
+                return false;
+            }
+
+            _context.LawyerSchedules.Update(lawyerSchedule);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                _logger.LogError("Could not commit lawyer schedule update");
+                return false;
+            }
+        }
+
         public async Task<Lawyer> LockOutAsync(int id)
         {
             throw new NotImplementedException();

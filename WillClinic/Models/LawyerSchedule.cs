@@ -17,4 +17,22 @@ namespace WillClinic.Models
 
         public RecurringDays RecurringDays { get; set; }
     }
+
+    /// <summary>
+    /// Used to specify which days of the week the availability is recurring.
+    /// These can be OR combined, such as (Sunday | Wednesday | Friday); as
+    /// such, all values in this enumeration must be powers of 2.
+    /// </summary>
+    [Flags]
+    public enum RecurringDays : byte
+    {
+        None = 0,
+        Sunday = 1,
+        Monday = 2,
+        Tuesday = 4,
+        Wednesday = 8,
+        Thursday = 16,
+        Friday = 32,
+        Saturday = 64
+    }
 }
