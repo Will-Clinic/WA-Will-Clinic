@@ -7,17 +7,22 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using WillClinic.Data;
 using WillClinic.Models;
 using WillClinic.Services;
+using Microsoft.Extensions.Configuration;
+
 
 namespace WillClinic.Pages.Accounts
 {
     public class RegisterModel : PageModel
     {
         private readonly ApplicationDbContext _context;
-        private EmailSender _emailSender { get; set; }
-        private UserManager<ApplicationUser> _userManager { get; set; }
+        private readonly EmailSender _emailSender;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IConfiguration _configuration;
 
         [BindProperty]
         public ApplicationUser NewUser { get; set; }
@@ -31,11 +36,12 @@ namespace WillClinic.Pages.Accounts
         public string SelectedUserType { get; set; }
         public SelectList UserTypes { get; set; }
 
-        public RegisterModel(ApplicationDbContext context, EmailSender emailSender, UserManager<ApplicationUser> userManager)
+        public RegisterModel(ApplicationDbContext context, EmailSender emailSender, UserManager<ApplicationUser> userManager, IConfiguration configuration)
         {
             _context = context;
             _emailSender = emailSender;
             _userManager = userManager;
+            _configuration = configuration;
         }
 
         public IActionResult OnGet()
@@ -56,11 +62,34 @@ namespace WillClinic.Pages.Accounts
             
             string code = await _userManager.GenerateEmailConfirmationTokenAsync(NewUser);
 
-            //TODO refactor this to use pages
-            string link = Url.Action("Verify", "Acount",
-                new { email = NewUser.Email, code, userType = SelectedUserType }, "https", HttpContext.Request.Host.Value);
+            if (SelectedUserType == ApplicationRoles.Lawyer)
+            {
+                string verifyLink = Url.Page(nameof(LawyerConfirmationModel), "OnGet",
+                    new { email = NewUser.Email, code }, "https", HttpContext.Request.Host.Value);
 
-            await _emailSender.SendEmailConfirmationAsync(NewUser.Email, link);
+            }
+            else
+            {
+                //TODO verify non-lawyers
+                //string verifyLink = Url.Page(nameof(), "Account",
+                  //  new { email = NewUser.Email, code, userType = SelectedUserType }, "https", HttpContext.Request.Host.Value);
+
+            }
+
+
+            // Compose the e-mail message to send to the user
+            var message = new SendGridMessage()
+            {
+                From = new EmailAddress("donotreply@wavetswillclinic.com/", "Washington Veteran Will Clinic"),
+                Subject = "Verify Your Veteran Will Clinic",
+                HtmlContent = $"<h3>Veteran Will Clinic</h3><h4>Please verify your account by clicking the link below:</h4><a href=\"{verifyLink}\">{verifyLink}</a>",
+                PlainTextContent = $"Please copy and paste the following link into your browser's address bar: {verifyLink}"
+            };
+
+            var client = new SendGridClient(_configuration["SendGridAPIKey"]);
+
+            //Sending the email
+            var response = await client.SendEmailAsync(message);
 
             return RedirectToPage("./EmailVerificationSent");
         }
