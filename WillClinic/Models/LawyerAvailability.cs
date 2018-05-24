@@ -10,18 +10,16 @@ namespace WillClinic.Models
     {
         public int ID { get; set; }
 
-        public int LawyerId { get; set; }
         public Lawyer Lawyer { get; set; }
+        public string LawyerId { get; set; }
 
-        public Library Library { get; set; }
+        //public ICollection<LibraryAvailabilityJunction> LibraryAvailabilityJunctions { get; set; }
 
         public DateTime DateTimeBegin { get; set; }
         public DateTime DateTimeEnd { get; set; }
 
         public RecurringDays RecurringDays { get; set; }
 
-        [Obsolete("Availability is now a many-to-one relationship with a Lawyer rather than a one-to-one with an application")]
-        public string LawyerApplicationUserId { get; set; }
         [Obsolete("Use the DateTimeBegin and DateTimeEnd properties instead of TimeAvailable")]
         public DateTime TimeAvailable { get; set; }
     }

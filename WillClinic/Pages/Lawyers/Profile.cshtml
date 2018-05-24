@@ -8,30 +8,63 @@
 <strong>Bar#: @Model.Lawyer.BarNumber (@(Model.Lawyer.IsVerified ? "Verified" : "Unverified"))</strong>
 
 <h3>Your Availabilities:</h3>
+@if (Model.Libraries.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Library Name</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var library in Model.Libraries)
+            {
+                <tr>
+                    <td>@library.Name</td>
+                    <td>@library.City</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h4>No libraries selected yet.</h4>
+}
+<a asp-page="Libraries" class="btn btn-info">Update Libraries</a>
+
 <table class="table">
     <thead>
         <tr>
-            <td>Library Name</td>
-            <td>City</td>
-            <td>Day(s)</td>
-            <td>Time</td>
+            <th>Date / Days</th>
+            <th>Time Start</th>
+            <th>Time End</th>
+            <th>Options</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var availability in Model.Availabilities)
+        @foreach (var schedule in Model.Schedules)
         {
             <tr>
-                <td>@availability.Library.Name</td>
-                <td>@availability.Library.City</td>
-                @if (availability.RecurringDays == RecurringDays.None)
-                {
-                    <td>@Html.DisplayFor(m => availability.DateTimeBegin.Date)</td>
-                }
-                else
-                {
-                    <td>@Html.DisplayFor(m => availability.RecurringDays)</td>
-                }
-                <td>@Html.DisplayFor(m => availability.DateTimeBegin.TimeOfDay) - @Html.DisplayFor(m => availability.DateTimeEnd.TimeOfDay)</td>
+                <td>
+                    @if (schedule.RecurringDays == RecurringDays.None)
+                    {
+                        @schedule.TimeBegin.ToShortDateString()
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(m => schedule.RecurringDays)
+                    }
+                </td>
+                <td>@schedule.TimeBegin.ToShortTimeString()</td>
+                <td>@schedule.TimeEnd.ToShortTimeString()</td>
+                <td>
+                    <div class="btn-group-sm">
+                        <a asp-page="Schedule" asp-route-id="@schedule.ID" class="btn btn-warning">Update</a>
+                        <a asp-page="Schedule" asp-page-handler="Delete" asp-route-id="@schedule.ID" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>

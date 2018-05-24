@@ -41,7 +41,8 @@ namespace WillClinic
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddScoped<ILawyerService, LawyerService>();
-            services.AddScoped<ILibraryService, LibraryService>();
+            services.AddTransient<ILibraryService, LibraryService>();
+            services.AddTransient<IAvailabilityService, AvailabilityService>();
 
             services.AddMvc();
         }

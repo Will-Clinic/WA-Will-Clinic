@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,5 +23,13 @@ namespace WillClinic.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<Library> FindLibraryByIdAsync(long id) => await _context.Libraries.FindAsync(id);
+
+        public async Task<IEnumerable<Library>> GetAllLibrariesForLawyerAsync(string lawyerId) =>
+            await _context.LawyerLibraryJunctions.Where(llj => llj.LawyerId == lawyerId)
+                                                 .Include(llj => llj.Library)
+                                                 .Select(llj => llj.Library)
+                                                 .ToListAsync();
     }
 }

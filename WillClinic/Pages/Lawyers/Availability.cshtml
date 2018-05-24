@@ -6,7 +6,7 @@
 
     <strong class="alert alert-info col-xs-12">Multiple selections for libraries and recurring days can be made by holding either CTRL or SHIFT while clicking.</strong>
 <div class="col-md-8 col-md-offset-2">
-    <h2>@(Model.LawyerAvailability is null ? "Add" : "Update") Availability</h2>
+    <h2>@(Model.AvailabilityId.HasValue ? "Update" : "Add") Availability</h2>
     <br />
     <form method="post">
         <div asp-validation-summary="ModelOnly"></div>
@@ -35,17 +35,6 @@
             <input asp-for="Date" class="form-control" />
             <span asp-validation-for="Date" class="text-danger"></span>
         </div>
-        <!--
-        <div class="form-group recurring-toggleable" id="recurringDays">
-            <label class="checkbox-inline"><input asp-for="Sunday" />Sunday</label>
-            <label class="checkbox-inline"><input asp-for="Monday" />Monday</label>
-            <label class="checkbox-inline"><input asp-for="Tuesday" />Tuesday</label>
-            <label class="checkbox-inline"><input asp-for="Wednesday" />Wednesday</label>
-            <label class="checkbox-inline"><input asp-for="Thursday" />Thursday</label>
-            <label class="checkbox-inline"><input asp-for="Friday" />Friday</label>
-            <label class="checkbox-inline"><input asp-for="Saturday" />Saturday</label>
-        </div>
-        -->
         <div class="form-group recurring-toggleable" id="recurringDays">
             <label asp-for="RecurringDays"></label>
             <select asp-for="RecurringDays" asp-items="@Model.DaysOfTheWeek" multiple="multiple" class="form-control" size="7"></select>
@@ -54,7 +43,7 @@
 
         <div class="btn-group">
             <a asp-page="/Lawyers/Profile" class="btn btn-danger">Cancel</a>
-            <button type="submit" class="btn btn-success">@(Model.LawyerAvailability is null ? "Add" : "Update")</button>
+            <button asp-route-id="@Model.AvailabilityId" type="submit" class="btn btn-success">@(Model.AvailabilityId.HasValue ? "Update" : "Add")</button>
         </div>
     </form>
 </div>

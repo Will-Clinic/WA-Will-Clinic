@@ -28,23 +28,6 @@ namespace WillClinic.Services
 
         public async Task<Lawyer> FindAsync(string id) => await _context.Lawyers.FindAsync(id);
 
-        public async Task<ICollection<LawyerAvailability>> GetLawyerAvailabilitiesAsync(Lawyer lawyer)
-        {
-            if (lawyer is null)
-            {
-                return null;
-            }
-
-            await _context.Entry(lawyer).Collection(l => l.Availability).LoadAsync();
-
-            foreach (LawyerAvailability availability in lawyer.Availability)
-            {
-                await _context.Entry(availability).Reference(a => a.Library).LoadAsync();
-            }
-
-            return lawyer.Availability;
-        }
-
         public async Task<Lawyer> GetLawyerByPrincipalAsync(ClaimsPrincipal principal)
         {
             ApplicationUser user = await _userManager.GetUserAsync(principal);
@@ -56,6 +39,10 @@ namespace WillClinic.Services
 
             return await _context.Lawyers.FirstOrDefaultAsync(l => l.ApplicationUserId == user.Id);
         }
+
+        public async Task<IEnumerable<LawyerSchedule>> GetSchedulesAsync(string lawyerId) => 
+            await _context.LawyerSchedules.Where(s => s.LawyerId == lawyerId)
+                                          .ToListAsync();
 
         public async Task<Lawyer> LockOutAsync(int id)
         {

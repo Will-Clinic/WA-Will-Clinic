@@ -15,18 +15,28 @@ namespace WillClinic.Pages.Lawyers
     public class ProfileModel : PageModel
     {
         private readonly ILawyerService _lawyerService;
-        public Lawyer Lawyer { get; set; }
-        public ICollection<LawyerAvailability> Availabilities { get; set; }
+        private readonly ILibraryService _libraryService;
 
-        public ProfileModel(ILawyerService lawyerService)
+        public Lawyer Lawyer { get; set; }
+        //public ICollection<LawyerAvailability> Availabilities { get; set; }
+        public IEnumerable<LawyerSchedule> Schedules { get; set; }
+        public IEnumerable<Library> Libraries { get; set; }
+        public TimeZoneInfo UserTimeZone { get; set; }
+
+        public ProfileModel(ILawyerService lawyerService, ILibraryService libraryService)
         {
             _lawyerService = lawyerService;
+            _libraryService = libraryService;
         }
 
         public async Task OnGetAsync()
         {
             Lawyer = await _lawyerService.GetLawyerByPrincipalAsync(User);
-            Availabilities = await _lawyerService.GetLawyerAvailabilitiesAsync(Lawyer);
+            Libraries = await _libraryService.GetAllLibrariesForLawyerAsync(Lawyer.ApplicationUserId);
+            Schedules = await _lawyerService.GetSchedulesAsync(Lawyer.ApplicationUserId);
+
+            // TODO(taylorjoshuaw): Collect time zone from user rather than assuming Pacific time
+            UserTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
         }
     }
 }

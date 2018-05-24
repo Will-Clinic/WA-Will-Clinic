@@ -10,10 +10,10 @@ namespace WillClinic.Services
     public interface ILawyerService
     {
         Task<Lawyer> GetLawyerByPrincipalAsync(ClaimsPrincipal principal);
-        Task<ICollection<LawyerAvailability>> GetLawyerAvailabilitiesAsync(Lawyer lawyer);
         Task<Lawyer> FindAsync(string id);
         Task<bool> TryUpdateAsync(Lawyer lawyer);
         Task<Lawyer> LockOutAsync(int id);
+        Task<IEnumerable<LawyerSchedule>> GetSchedulesAsync(string lawyerId);
 
         Task<bool> VerifyBarStatus(int id);
     }
