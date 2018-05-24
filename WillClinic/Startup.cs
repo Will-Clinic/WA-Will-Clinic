@@ -13,6 +13,7 @@ using WillClinic.Models;
 using WillClinic.Services;
 using WillClinic.Models.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WillClinic
 {
@@ -43,6 +44,10 @@ namespace WillClinic
             services.AddScoped<ILawyerService, LawyerService>();
             services.AddTransient<ILibraryService, LibraryService>();
 
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new RequireHttpsAttribute());
+            });
 
             services.AddMvc();
         }
