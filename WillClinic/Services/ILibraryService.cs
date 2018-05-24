@@ -13,5 +13,6 @@ namespace WillClinic.Services
         Task<Library> FindLibraryByNameAsync(string name);
         Task<Library> FindLibraryByIdAsync(long id);
         Task<IEnumerable<Library>> GetAllLibrariesForLawyerAsync(string lawyerId);
+        Task<IEnumerable<Library>> GetAllLibrariesForVeteranAsync(string veteranId);
     }
 }

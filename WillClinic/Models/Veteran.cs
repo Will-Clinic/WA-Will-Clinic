@@ -19,6 +19,9 @@ namespace WillClinic.Models
         public VeteranQueue VetQueue { get; set; }
         public ICollection<VeteranChild> Children { get; set; }
         public ICollection<VeteranIntakeForm> IntakeForms { get; set; }
+
+        // Matching via many-to-many relationship to Library entities
+        public ICollection<VeteranLibraryJunction> VeteranLibraryJunctions { get; set; }
       
         // These coordinates are not the veteran's exact location but are the coordinates returned to a google API request based on the zip code.
         public string Coordinates { get; set; }

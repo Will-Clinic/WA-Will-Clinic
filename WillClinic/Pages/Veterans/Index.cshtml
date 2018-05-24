@@ -1,0 +1,12 @@
+﻿@page
+@model WillClinic.Pages.Veterans.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Veteran Profile</h2>
+
+@foreach (var library in Model.Libraries)
+{
+    @library.Name<br />
+}
