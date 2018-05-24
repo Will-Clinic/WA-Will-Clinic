@@ -138,7 +138,7 @@ namespace WillClinic.Pages.Lawyers
             {
                 if (await _lawyerService.UpdateScheduleAsync(schedule))
                 {
-                    return RedirectToPage("/Lawyers/Profile");
+                    return RedirectToPage("/Lawyers/Index");
                 }
                 else
                 {
@@ -149,7 +149,7 @@ namespace WillClinic.Pages.Lawyers
             {
                 if (await _lawyerService.AddScheduleAsync(schedule))
                 {
-                    return RedirectToPage("/Lawyers/Profile");
+                    return RedirectToPage("/Lawyers/Index");
                 }
                 else
                 {

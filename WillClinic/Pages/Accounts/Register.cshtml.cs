@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -16,8 +17,15 @@ namespace WillClinic.Pages.Accounts
 
         [BindProperty]
         public ApplicationUser ApplicationUser { get; set; }
+        /// <summary>
+        /// Gathers the type of user that is registered to be used to determine
+        /// which verification e-mail to send out. Should match the values found
+        /// in ApplicationRoles for Veteran and Lawyer
+        /// </summary>
         [BindProperty]
-        public SelectList UserType { get; set; }
+        [Display(Name = "User Type")]
+        public string SelectedUserType { get; set; }
+        public SelectList UserTypes { get; set; }
 
         public RegisterModel(ApplicationDbContext context)
         {
@@ -26,7 +34,7 @@ namespace WillClinic.Pages.Accounts
 
         public IActionResult OnGet()
         {
-            UserType = new SelectList(new string[] { ApplicationRoles.Veteran, ApplicationRoles.Lawyer });
+            UserTypes = new SelectList(new string[] { ApplicationRoles.Veteran, ApplicationRoles.Lawyer });
             return Page();
         }
 

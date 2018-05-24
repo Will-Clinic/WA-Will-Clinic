@@ -38,7 +38,7 @@
     <br />
 
     <div class="btn-group">
-        <a asp-page="/Lawyers/Profile" class="btn btn-danger">Cancel</a>
+        <a asp-page="/Lawyers/Index" class="btn btn-danger">Cancel</a>
         <button asp-route-id="@Model.ScheduleId" type="submit" class="btn btn-success">@(Model.ScheduleId.HasValue ? "Update" : "Add")</button>
     </div>
 </form>
