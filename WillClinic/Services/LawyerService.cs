@@ -100,7 +100,7 @@ namespace WillClinic.Services
             throw new NotImplementedException();
         }
 
-        public async Task<bool> VerifyBarStatus(int id)
+        public async Task<bool> VerifyBarStatus(string id)
         {
             throw new NotImplementedException();
         }

@@ -12,7 +12,7 @@ namespace WillClinic.Pages.Lawyers
 {
     // TODO(taylorjoshuaw): Change to policy?
     [Authorize(Roles = ApplicationRoles.Lawyer)]
-    public class ProfileModel : PageModel
+    public class IndexModel : PageModel
     {
         private readonly ILawyerService _lawyerService;
         private readonly ILibraryService _libraryService;
@@ -23,7 +23,7 @@ namespace WillClinic.Pages.Lawyers
         public IEnumerable<Library> Libraries { get; set; }
         public TimeZoneInfo UserTimeZone { get; set; }
 
-        public ProfileModel(ILawyerService lawyerService, ILibraryService libraryService)
+        public IndexModel(ILawyerService lawyerService, ILibraryService libraryService)
         {
             _lawyerService = lawyerService;
             _libraryService = libraryService;

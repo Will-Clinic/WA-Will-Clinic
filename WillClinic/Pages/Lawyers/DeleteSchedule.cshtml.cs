@@ -47,7 +47,7 @@ namespace WillClinic.Pages.Lawyers
                 {
                     if (await _lawyerService.DeleteScheduleAsync(LawyerSchedule))
                     {
-                        return RedirectToPage("Profile");
+                        return RedirectToPage("Index");
                     }
                 }
             }

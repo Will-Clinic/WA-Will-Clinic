@@ -47,7 +47,7 @@ namespace WillClinic.Pages.Lawyers
                 return Page();
             }
 
-            return RedirectToPage("Profile");
+            return RedirectToPage("Index");
         }
     }
 }

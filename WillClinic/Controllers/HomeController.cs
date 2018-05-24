@@ -16,7 +16,7 @@ namespace WillClinic.Controllers
             {
                 if (User.IsInRole(ApplicationRoles.Lawyer))
                 {
-                    return RedirectToAction(nameof(Index), "Lawyer");
+                    return RedirectToPage("/Lawyers/Index");
                 }
                 else if (User.IsInRole(ApplicationRoles.Veteran))
                 {
@@ -24,7 +24,7 @@ namespace WillClinic.Controllers
                 }
                 else if (User.IsInRole(ApplicationRoles.Admin))
                 {
-                    RedirectToAction(nameof(Index), "Admin");
+                    return RedirectToAction(nameof(Index), "Admin");
                 }
             }
             return View();

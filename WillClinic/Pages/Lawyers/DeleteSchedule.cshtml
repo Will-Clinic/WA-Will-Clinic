@@ -18,7 +18,7 @@ else
 @Model.LawyerSchedule.TimeBegin.ToShortTimeString() - @Model.LawyerSchedule.TimeEnd.ToShortTimeString()
 <form method="post">
     <div class="btn-group">
-        <a asp-page="Profile" class="btn btn-info">Cancel</a>
+        <a asp-page="Index" class="btn btn-info">Cancel</a>
         <button type="submit" asp-route-id="@Model.LawyerSchedule.ID" class="btn btn-danger">Delete</button>
     </div>
 </form>
