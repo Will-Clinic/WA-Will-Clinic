@@ -139,7 +139,7 @@ namespace WillClinic.Models
         /// <returns></returns>
         public List<LawyerAvailability> GetLawyerAvailability(string lawyerId)
         {
-            return _context.LawyerAvailability.Where(a => a.LawyerApplicationUserId == lawyerId).ToList();
+            return _context.LawyerAvailability.Where(a => a.LawyerId == lawyerId).ToList();
         }
 
         /// <summary>

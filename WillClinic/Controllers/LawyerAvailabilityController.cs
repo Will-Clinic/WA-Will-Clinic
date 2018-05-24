@@ -53,7 +53,7 @@ namespace WillClinic.Controllers
         //// GET: LawyerAvailability/Create
         public IActionResult Create()
         {
-            ViewData["LawyerApplicationUserId"] = new SelectList(_context.Lawyers, "ApplicationUserId", "ApplicationUserId");
+            ViewData["LawyerId"] = new SelectList(_context.Lawyers, "ApplicationUserId", "ApplicationUserId");
             return View();
         }
 
@@ -66,12 +66,12 @@ namespace WillClinic.Controllers
         {
             if (ModelState.IsValid)
             {
-                lawyerAvailability.LawyerApplicationUserId = _userManager.GetUserId(User);
+                lawyerAvailability.LawyerId = _userManager.GetUserId(User);
                 _context.Add(lawyerAvailability);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(LawyerController.Index), "Lawyer");
             }
-            ViewData["LawyerApplicationUserId"] = new SelectList(_context.Lawyers, "ApplicationUserId", "ApplicationUserId", lawyerAvailability.LawyerApplicationUserId);
+            ViewData["LawyerId"] = new SelectList(_context.Lawyers, "ApplicationUserId", "ApplicationUserId", lawyerAvailability.LawyerId);
 
             return RedirectToAction(nameof(LawyerController.Index), "Lawyer");
         }
@@ -89,7 +89,7 @@ namespace WillClinic.Controllers
         //    {
         //        return NotFound();
         //    }
-        //    ViewData["LawyerApplicationUserId"] = new SelectList(_context.Lawyers, "ApplicationUserId", "ApplicationUserId", lawyerAvailability.LawyerApplicationUserId);
+        //    ViewData["LawyerId"] = new SelectList(_context.Lawyers, "ApplicationUserId", "ApplicationUserId", lawyerAvailability.LawyerId);
         //    return View(lawyerAvailability);
         //}
 
@@ -98,7 +98,7 @@ namespace WillClinic.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("ID,LawyerApplicationUserId,TimeAvailable")] LawyerAvailability lawyerAvailability)
+        //public async Task<IActionResult> Edit(int id, [Bind("ID,LawyerId,TimeAvailable")] LawyerAvailability lawyerAvailability)
         //{
         //    if (id != lawyerAvailability.ID)
         //    {
@@ -125,7 +125,7 @@ namespace WillClinic.Controllers
         //        }
         //        return RedirectToAction(nameof(LawyerController.Index), "Lawyer");
         //    }
-        //    ViewData["LawyerApplicationUserId"] = new SelectList(_context.Lawyers, "ApplicationUserId", "ApplicationUserId", lawyerAvailability.LawyerApplicationUserId);
+        //    ViewData["LawyerId"] = new SelectList(_context.Lawyers, "ApplicationUserId", "ApplicationUserId", lawyerAvailability.LawyerId);
         //    return RedirectToAction(nameof(LawyerController.Index), "Lawyer");
         //}
 
