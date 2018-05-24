@@ -84,7 +84,7 @@
         <h3 class="text-center">Article III</h3>
         <h3 class="text-center">SPECIFIC GIFTS</h3>
 
-        <p>If I leave a letter or memo in compliance with RCW 11.12.260, as amended, indicating my preferences for distribution of the general tangible personal property in my estate, I direct that the personal representative and my heirs honor these wishes. These gifts shall be free of all death taxes.</p>
+        <p class="doc-indent">If I leave a letter or memo in compliance with RCW 11.12.260, as amended, indicating my preferences for distribution of the general tangible personal property in my estate, I direct that the personal representative and my heirs honor these wishes. These gifts shall be free of all death taxes.</p>
         <br />
         <h3 class="text-center">Article IV</h3>
         <h3 class="text-center">RESIDUARY ESTATE</h3>
@@ -138,10 +138,10 @@
         <h3 class="text-center">Article VI</h3>
         <h3 class="text-center">CUSTODIAN</h3>
 
-        <p>
+        <p class="doc-indent">
             If a share of my residuary estate is distributable to any person under the age of eighteen (18) years, I direct that such person's share be distributed to a custodian nominated by my personal representative, as the case may be, for administration and distribution pursuant to the Washington Uniform Transfers to Minors Act prior to the time that such person attains the age of eighteen (18) years.
         </p>
-        <p>I have initialed for identification purposes the 4 pages to this my Will, and have executed the entire instrument by signing this, the 3rd and next to the last page, on the day @DateTime.UtcNow.AddHours(-7.0).ToShortDateString() at @Html.DisplayFor(model => model.County), Washington.</p>
+        <p class="doc-indent">I have initialed for identification purposes the 4 pages to this my Will, and have executed the entire instrument by signing this, the 3rd and next to the last page, on the day @DateTime.UtcNow.AddHours(-7.0).ToShortDateString() at @Html.DisplayFor(model => model.County), Washington.</p>
     </div>
 </div>
 <br />
@@ -156,7 +156,7 @@
     </div>
 </div>
 <br />
-<div class="container, page-break">
+<div class="container">
     <div class="col-md-1"></div>
     <p class="col-md-4">Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
     <div class="col-md-2">
@@ -166,7 +166,6 @@
         <p class="text-right">Initials ______</p>
     </div>
 </div>
-<br />
 <div class="container">
     <div class="col-md-1"></div>
     <div class="col-md-3">
@@ -316,7 +315,7 @@
         </p>
         <div>
             <p>[Initial Your Desires]</p>
-            <ul>
+            <ul class="blank-list">
                 <li>
                     [_____] I DO want to have artificially-provided hydration. <br />
                     [_____] I DO NOT want to have artificially-provided hydration.

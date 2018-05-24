@@ -99,13 +99,12 @@ h2 {
     list-style-type: upper-alpha;
 }
 
-
 .doc-indent {
     text-indent: 4em;
 }
 
-.page-break-test {
-    page-break-after: always;
+.blank-list {
+    list-style-type: none;
 }
 
 @media print {
@@ -708,8 +707,6 @@ h2 {
 }
 
 /*Footer*/
-.footy {
-}
 
 #footer {
     position: absolute;

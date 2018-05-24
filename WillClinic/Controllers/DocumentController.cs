@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using WillClinic.Data;
 using WillClinic.Models.Documents;
@@ -23,13 +25,19 @@ namespace WillClinic.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Action to display the populated documents for confirmation.
+        /// </summary>
+        /// <param name="id">Veteran ID</param>
+        /// <returns>razor View</returns>
+        [HttpGet]
         public async Task<IActionResult> Confirmation(int? id)
         {
             AllDocsViewModel vm = new AllDocsViewModel()
             {
-                FirstName = "Kevin",
+                FirstName = "Josh",
                 MiddleName = "Alexander",
-                LastName = "Farrow",
+                LastName = "Lymen",
                 County = "King",
                 MaritalStatus = "Is married to ",
                 SpouseName = "Emma Watson",
@@ -45,7 +53,6 @@ namespace WillClinic.Controllers
                 SuccessorPrime = "Kira",
                 SuccessorAlt = "Jack"
             };
-
             return View(vm);
         }
     }
