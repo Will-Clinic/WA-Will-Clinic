@@ -12,5 +12,7 @@ namespace WillClinic.Services
         Task<Veteran> GetVeteranByPrincipalAsync(ClaimsPrincipal principal);
         Task<bool> MergeLibraryListWithVeteranAsync(string veteranId, IEnumerable<long> libraryIds);
         Task<IEnumerable<Veteran>> GetPotentialClientsForLawyerAsync(string lawyerId);
+        Task<Veteran> FindVeteranAsync(string id);
+        Task<IEnumerable<VeteranLibraryJunction>> GetVeteranLibraryJunctionsAsync(string veteranId);
     }
 }

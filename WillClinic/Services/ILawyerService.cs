@@ -23,6 +23,8 @@ namespace WillClinic.Services
         Task<bool> RemoveLibraryFromLawyerAsync(string lawyerId, long libraryId);
         Task<bool> MergeLibraryListWithLawyerAsync(string lawyerId, IEnumerable<long> libraryIds);
 
+        Task<bool> MatchWithVeteranAsync(string lawyerId, string veteranId);
+
         Task<bool> VerifyBarStatus(string id);
     }
 }

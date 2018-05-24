@@ -211,5 +211,39 @@ namespace WillClinic.Services
                 return false;
             }
         }
+
+        public async Task<bool> MatchWithVeteranAsync(string lawyerId, string veteranId)
+        {
+            if (await _context.VeteranLawyerMatches.AnyAsync(vlm => vlm.VeteranApplicationUserId == veteranId))
+            {
+                _logger.LogError("Tried to match a lawyer with a veteran who is already matched");
+                return false;
+            }
+
+            if (!(await _context.Lawyers.AnyAsync(l => l.ApplicationUserId == lawyerId)) ||
+                !(await _context.Veterans.AnyAsync(v => v.ApplicationUserId == veteranId)))
+            {
+                _logger.LogError("Attempted to match a veteran and lawyer but could not find one of the entities");
+                return false;
+            }
+
+            await _context.VeteranLawyerMatches.AddAsync(new VeteranLawyerMatch()
+            {
+                LawyerApplicationUserId = lawyerId,
+                VeteranApplicationUserId = veteranId,
+            });
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Successfully started matching process between lawyer and veteran");
+                return true;
+            }
+            catch
+            {
+                _logger.LogError("Could not matching lawyer with a veteran");
+                return false;
+            }
+        }
     }
 }

@@ -7,10 +7,14 @@
 <h2>Attorney Profile</h2>
 <strong>Bar#: @Model.Lawyer.BarNumber (@(Model.Lawyer.IsVerified ? "Verified" : "Unverified"))</strong>
 
-<h3>Potential Clients:</h3>
+<h3>@Model.PotentialClients.Count() Potential Client(s):</h3>
+@if (Model.PotentialClients.Count() > 0)
+{
+    <h4>Choose a client icon below to start matching:</h4>
+}
 @foreach (var client in Model.PotentialClients)
 {
-    <p>@client.ZipCode</p>
+    <a asp-page="Match" asp-route-id="@client.ApplicationUserId"><i class="material-icons">face</i></a>
 }
 
 <h3>Chosen Meeting Places:</h3>

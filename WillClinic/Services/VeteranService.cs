@@ -30,12 +30,16 @@ namespace WillClinic.Services
 
         public async Task<IEnumerable<Veteran>> GetPotentialClientsForLawyerAsync(string lawyerId) =>
             await _context.VeteranLibraryJunctions.Include(vlj => vlj.Veteran)
+                                                  .OrderBy(vlj => vlj.TimeAdded)
                                                   .Join(_context.LawyerLibraryJunctions,
                                                       vlj => vlj.LibraryId,
                                                       llj => llj.LibraryId,
                                                       (vlj, llj) => vlj.Veteran)
                                                   .Distinct()
+                                                  // This Where clause prevents matching with veterans who have already made a match with a lawyer
+                                                  .Where(v => !(_context.VeteranLawyerMatches.Any(vlm => vlm.VeteranApplicationUserId == v.ApplicationUserId)))
                                                   .ToListAsync();
+
 
         public async Task<Veteran> GetVeteranByPrincipalAsync(ClaimsPrincipal principal)
         {
@@ -49,6 +53,10 @@ namespace WillClinic.Services
             return await _context.Veterans.Include(v => v.VeteranLibraryJunctions)
                                           .FirstOrDefaultAsync(v => v.ApplicationUserId == user.Id);
         }
+
+        public async Task<Veteran> FindVeteranAsync(string id) =>
+            await _context.Veterans.Include(v => v.VeteranLibraryJunctions)
+                                   .FirstOrDefaultAsync(v => v.ApplicationUserId == id);
 
         public async Task<bool> MergeLibraryListWithVeteranAsync(string veteranId, IEnumerable<long> libraryIds)
         {
@@ -82,6 +90,14 @@ namespace WillClinic.Services
                 _logger.LogError("Unable to merge library list with veteran via junction table");
                 return false;
             }
+        }
+
+        public async Task<IEnumerable<VeteranLibraryJunction>> GetVeteranLibraryJunctionsAsync(string veteranId)
+        {
+            return await _context.VeteranLibraryJunctions.Where(vlj => vlj.VeteranId == veteranId)
+                                                         .Include(vlj => vlj.Library)
+                                                         .Include(vlj => vlj.Veteran)
+                                                         .ToListAsync();
         }
     }
 }
