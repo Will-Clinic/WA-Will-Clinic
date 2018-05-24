@@ -15,15 +15,28 @@ namespace WillClinic.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILibraryService _libraryService;
         private readonly ILogger<VeteranService> _logger;
 
         public VeteranService(ApplicationDbContext applicationDbContext,
-            UserManager<ApplicationUser> userManager, ILogger<VeteranService> logger)
+            UserManager<ApplicationUser> userManager,
+            ILibraryService libraryService, ILogger<VeteranService> logger)
         {
             _context = applicationDbContext;
             _userManager = userManager;
+            _libraryService = libraryService;
             _logger = logger;
         }
+
+        public async Task<IEnumerable<Veteran>> GetPotentialClientsForLawyerAsync(string lawyerId) =>
+            await _context.VeteranLibraryJunctions.Include(vlj => vlj.Veteran)
+                                                  .Join(_context.LawyerLibraryJunctions,
+                                                      vlj => vlj.LibraryId,
+                                                      llj => llj.LibraryId,
+                                                      (vlj, llj) => vlj.Veteran)
+                                                  .Distinct()
+                                                  .ToListAsync();
+
         public async Task<Veteran> GetVeteranByPrincipalAsync(ClaimsPrincipal principal)
         {
             ApplicationUser user = await _userManager.GetUserAsync(principal);

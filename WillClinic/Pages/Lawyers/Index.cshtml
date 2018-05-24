@@ -7,6 +7,12 @@
 <h2>Attorney Profile</h2>
 <strong>Bar#: @Model.Lawyer.BarNumber (@(Model.Lawyer.IsVerified ? "Verified" : "Unverified"))</strong>
 
+<h3>Potential Clients:</h3>
+@foreach (var client in Model.PotentialClients)
+{
+    <p>@client.ZipCode</p>
+}
+
 <h3>Chosen Meeting Places:</h3>
 @if (Model.Libraries.Count() > 0)
 {
