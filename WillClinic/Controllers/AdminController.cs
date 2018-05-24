@@ -142,12 +142,12 @@ namespace WillClinic.Controllers
 
 
 
-/// <summary>
-/// This method is for verifying lawyers and updateing their status
-/// </summary>
-/// <param name="id">Attorney's Application User ID</param>
-/// <returns>Attorney.isVerified = true; || Returns nothing if ID is not a match.</returns>
-public IActionResult VerifyLawyer(string id)
+        /// <summary>
+        /// This method is for verifying lawyers and updateing their status
+        /// </summary>
+        /// <param name="id">Attorney's Application User ID</param>
+        /// <returns>Attorney.isVerified = true; || Returns nothing if ID is not a match.</returns>
+        public IActionResult VerifyLawyer(string id)
         {
             var attorney = _context.Lawyers.First(x => x.ApplicationUserId == id);
 
