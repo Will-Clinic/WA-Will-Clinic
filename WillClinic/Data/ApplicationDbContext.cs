@@ -24,6 +24,11 @@ namespace WillClinic.Data
         public DbSet<VeteranQueue> VeteranQueue { get; set; }
         public DbSet<LawyerAvailability> LawyerAvailability { get; set; }
         public DbSet<VeteranLawyerMatch> VeteranLawyerMatches { get; set; }
+        public DbSet<Library> Libraries { get; set; }
+
+        public DbSet<LawyerSchedule> LawyerSchedules { get; set; }
+        public DbSet<LawyerLibraryJunction> LawyerLibraryJunctions { get; set; }
+        public DbSet<VeteranLibraryJunction> VeteranLibraryJunctions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -47,23 +52,31 @@ namespace WillClinic.Data
 
             builder.Entity<VeteranLawyerMatch>()
                 // Potentially use these two properties as a composite key instead of requiring match to have it's own ID.
-            //    .HasKey(a => new { a.LawyerApplicationUserId, a.VeteranApplicationUserId });
+            //    .HasKey(a => new { a.LawyerId, a.VeteranApplicationUserId });
                 .HasKey(vlm => vlm.ID);
 
             builder.Entity<VeteranQueue>()
                 .HasOne(vq => vq.Veteran)
                 .WithOne();
 
-           // builder.Entity<VeteranQueue>()
+            // builder.Entity<VeteranQueue>()
             //    .HasKey(a => a.VeteranApplicationUserId);
-             //   .HasKey(vq => vq.ID);
+            //   .HasKey(vq => vq.ID);
 
-            builder.Entity<LawyerAvailability>()
-                .HasOne(la => la.Lawyer)
-                .WithMany(law => law.Availability);
+            builder.Entity<Lawyer>()
+                .HasMany(l => l.LawyerSchedules)
+                .WithOne(ls => ls.Lawyer);
 
-            builder.Entity<LawyerAvailability>()
-                .HasKey(la => la.ID);
+            builder.Entity<Lawyer>()
+                .HasMany(l => l.LawyerLibraryJunctions)
+                .WithOne(llj => llj.Lawyer);
+
+            builder.Entity<Library>()
+                .HasMany(l => l.LawyerLibraryJunctions)
+                .WithOne(llj => llj.Library);
+
+            builder.Entity<LawyerLibraryJunction>()
+                .HasKey(llj => new { llj.LawyerId, llj.LibraryId });
 
              builder.Entity<VeteranChild>()
                 .HasOne(child => child.Veteran)
@@ -99,6 +112,19 @@ namespace WillClinic.Data
 
             builder.Entity<Admin>()
                 .HasKey(a => a.ApplicationUserId);
+
+            builder.Entity<VeteranLibraryJunction>()
+                .HasKey(vlj => new { vlj.VeteranId, vlj.LibraryId });
+
+            builder.Entity<Veteran>()
+                .HasMany(v => v.VeteranLibraryJunctions)
+                .WithOne(vlj => vlj.Veteran);
+
+            builder.Entity<Library>()
+                .HasMany(l => l.VeteranLibraryJunctions)
+                .WithOne(l => l.Library);
         }
+
+        public DbSet<WillClinic.Models.ApplicationUser> ApplicationUser { get; set; }
     }
 }

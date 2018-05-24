@@ -22,6 +22,9 @@ namespace WillClinic.Models
         public bool IsVerified { get; set; }
         public bool IsRejected { get; set; }
         public ICollection<LawyerAvailability> Availability { get; set; }
+        public ICollection<LawyerSchedule> LawyerSchedules { get; set; }
+        public ICollection<LawyerLibraryJunction> LawyerLibraryJunctions { get; set; }
+
         public ICollection<VeteranLawyerMatch> VetLawMatches { get; set; }
       
         // These coordinates are not the lawyer's exact location but are the coordinates returned to a google API request based on the zip code.

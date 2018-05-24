@@ -13,6 +13,7 @@ using WillClinic.Models;
 using WillClinic.Services;
 using WillClinic.Models.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WillClinic
 {
@@ -29,7 +30,7 @@ namespace WillClinic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -39,6 +40,15 @@ namespace WillClinic
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IMatchService, MatchService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<ILawyerVerificationService, LawyerVerificationService>();
+            services.AddScoped<ILawyerService, LawyerService>();
+            services.AddTransient<ILibraryService, LibraryService>();
+            services.AddScoped<IVeteranService, VeteranService>();
+
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new RequireHttpsAttribute());
+            });
 
             services.AddMvc();
         }

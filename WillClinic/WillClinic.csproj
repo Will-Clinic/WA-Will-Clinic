@@ -7,20 +7,22 @@
 
   <ItemGroup>
     <Content Remove="appsettings.Development.json" />
-    <Content Remove="appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Properties\PublishProfiles\WAWillClinic - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\WillClinic - Web Deploy.pubxml" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="Google.Apis" Version="1.32.2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="ScrapySharp" Version="2.6.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
   </ItemGroup>
 
@@ -33,6 +35,20 @@
 
   <ItemGroup>
     <None Include="wwwroot\VeteranUserAgreement.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Services\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

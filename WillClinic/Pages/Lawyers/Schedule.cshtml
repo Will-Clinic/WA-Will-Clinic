@@ -1,0 +1,65 @@
+﻿@page
+@model WillClinic.Pages.Lawyers.ScheduleModel
+@{
+    ViewData["Title"] = "Schedule";
+}
+
+<h2>@(Model.ScheduleId is null ? "Add" : "Update") Schedule</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="TimeBegin"></label>
+        <input asp-for="TimeBegin" class="form-control" />
+        <span asp-validation-for="TimeBegin" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TimeEnd"></label>
+        <input asp-for="TimeEnd" class="form-control" />
+        <span asp-validation-for="TimeEnd" class="text-danger"></span>
+    </div>
+    <label class="checkbox-inline"><input asp-for="IsRecurring" id="recurringCheckbox" />Recurring Weekly?</label>
+    <br />
+    <br />
+    <div class="form-group recurring-toggleable" id="singleDate">
+        <label asp-for="Date" class="control-label"></label>
+        <input asp-for="Date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-group recurring-toggleable" id="recurringDays">
+        <label class="checkbox-inline"><input asp-for="Sunday" />Sunday</label>
+        <label class="checkbox-inline"><input asp-for="Monday" />Monday</label>
+        <label class="checkbox-inline"><input asp-for="Tuesday" />Tuesday</label>
+        <label class="checkbox-inline"><input asp-for="Wednesday" />Wednesday</label>
+        <label class="checkbox-inline"><input asp-for="Thursday" />Thursday</label>
+        <label class="checkbox-inline"><input asp-for="Friday" />Friday</label>
+        <label class="checkbox-inline"><input asp-for="Saturday" />Saturday</label>
+    </div>
+    <br />
+
+    <div class="btn-group">
+        <a asp-page="/Lawyers/Index" class="btn btn-danger">Cancel</a>
+        <button asp-route-id="@Model.ScheduleId" type="submit" class="btn btn-success">@(Model.ScheduleId.HasValue ? "Update" : "Add")</button>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        var recurringCheckbox = $('#recurringCheckbox');
+
+        if (recurringCheckbox.is(':checked')) {
+            $('#singleDate').hide();
+        }
+        else {
+            $('#recurringDays').hide();
+        }
+
+        recurringCheckbox.change(function () {
+            $('.recurring-toggleable').toggle();
+        })
+    });
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

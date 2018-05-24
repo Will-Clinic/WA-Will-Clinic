@@ -1,0 +1,25 @@
+﻿@page
+@model WillClinic.Pages.Lawyers.MatchModel
+@{
+    ViewData["Title"] = "Match";
+}
+
+<h2>Match with Client?</h2>
+
+<h3>Client Meeting Options:</h3>
+@foreach (var junction in Model.VeteranLibraryJunctions)
+{
+    <dl>
+        <dt>Library Name</dt>
+        <dd>@junction.Library.Name</dd>
+        <dt>Date Entered Queue</dt>
+        <dd>@junction.TimeAdded</dd>
+    </dl>
+}
+
+<form method="post">
+    <div class="btn-group">
+        <a asp-page="Index" class="btn btn-danger">Cancel</a>
+        <button class="btn btn-success" type="submit" asp-route-id="@Model.Veteran.ApplicationUserId">Accept Match</button>
+    </div>
+</form>

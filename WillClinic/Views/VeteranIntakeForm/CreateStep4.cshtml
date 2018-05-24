@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Application";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_IntakeLayout.cshtml";
 }
 
 <div class="row">
@@ -17,89 +17,83 @@
                 SECTION 4: Last Will & Testament
             </h3>
             <hr />
-            <div class="form-group">
-                <label asp-for="HouseHoldSize" class="control-label">
-                    18) Household Size:
-                </label>
-                <input asp-for="HouseHoldSize" class="form-control" />
-                <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="MaritalStatus" class="control-label">
-                    19) Marital status: *
-                </label>
-                <h5>
-                    select the most appropriate
-                </h5>
-
-                <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
-                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="FullNameSpouse" class="control-label">
-                    20) Full legal name of your spouse
-                </label>
-                <h5>
-                    provide the full legal name of your spouse, if applicable
-                </h5>
-                <input asp-for="FullNameSpouse" class="form-control" />
-                <span asp-validation-for="FullNameSpouse" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HaveChildren" class="control-label">
-                    21) Do you have any children? *
-                </label>
-                <h5>
-                    include biological, adopted, or step-children
-                </h5>
-                <div class="radio">
-                    <label>
-                        <input asp-for="HaveChildren" type="radio" value="true" /> Yes
-                    </label>
-                    <label>
-                        <input asp-for="HaveChildren" type="radio" value="false" /> No
-                    </label>
+            <div class="form-inline">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="HouseHoldSize" class="control-label">Household Size:</label>
+                        <input asp-for="HouseHoldSize" class="form-control" />
+                        <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="MaritalStatus" class="control-label">Marital status (select the most appropriate): *</label>
+                        <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
+                        <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label asp-for="UnderAgeChildren" class="control-label">
-                    22) Do you have any minor children?
-                </label>
-                <h5>
-                    (under the age of 18 on October 12, 2013)
-                </h5>
-                <div class="radio">
-                    <label>
-                        <input asp-for="UnderAgeChildren" type="radio" value="true" /> Yes
-                    </label>
-                    <label>
-                        <input asp-for="UnderAgeChildren" type="radio" value="false" /> No
-                    </label>
+            <br />
+            <div class="form-inline">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="FullNameSpouse" class="control-label">Full legal name of your spouse</label>
+                        <h5>
+                            provide the full legal name of your spouse, if applicable
+                        </h5>
+                        <input asp-for="FullNameSpouse" class="form-control" />
+                        <span asp-validation-for="FullNameSpouse" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="HaveChildren" class="control-label">
+                            Do you have any children? *
+                        </label>
+                        <h5>
+                            include biological, adopted, or step-children
+                        </h5>
+                        <div class="radio">
+                            <label><input asp-for="HaveChildren" type="radio" value="true" />Yes</label>
+                            <label><input asp-for="HaveChildren" type="radio" value="false" />No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="UnderAgeChildren" class="control-label">Do you have any minor children?</label>
+                        <h5>(under the age of 18 on October 12, 2013)</h5>
+                        <div class="radio">
+                            <label><input asp-for="UnderAgeChildren" type="radio" value="true" />Yes</label>
+                            <label><input asp-for="UnderAgeChildren" type="radio" value="false" />No</label>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label asp-for="MinorChildrenDifferentSpouse" class="control-label">
-                    23) If you have minor children, AND the parent of your minor child is DIFFERENT from your current spouse,
-                    please list them below.
-                </label>
-                <input asp-for="MinorChildrenDifferentSpouse" class="form-control" />
-                <span asp-validation-for="MinorChildrenDifferentSpouse" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CurrentlyPregnant" class="control-label">
-                    24) Are you, your spouse, or your partner currently pregnant?
-                </label>
-                <div class="radio">
-                    <label>
-                        <input asp-for="CurrentlyPregnant" type="radio" value="true" /> Yes
-                    </label>
-                    <label>
-                        <input asp-for="CurrentlyPregnant" type="radio" value="false" /> No
-                    </label>
+            <br />
+            <div class="form-inline">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="MinorChildrenDifferentSpouse" class="control-label">
+                            If the parent of a minor child is different than your spouse, please list their full name:
+                        </label>
+                        <input asp-for="MinorChildrenDifferentSpouse" class="form-control" />
+                        <span asp-validation-for="MinorChildrenDifferentSpouse" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label asp-for="CurrentlyPregnant" class="control-label">
+                            Are you, your spouse, or your partner currently pregnant?
+                        </label>
+                        <div class="radio">
+                            <label><input asp-for="CurrentlyPregnant" type="radio" value="true" />Yes</label>
+                            <label><input asp-for="CurrentlyPregnant" type="radio" value="false" />No</label>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="form-group">
 
                 @*<h1>#1</h1>
@@ -126,8 +120,9 @@
             </label>*@
                 @*<input asp-for="Children[0].DOB" class="form-control" />*@
             </div>
+            <hr />
 
-            <h1>Beneficiary Information - Specific Bequests</h1>
+            <h2>Beneficiary Information - Specific Bequests</h2>
             <h4>
                 Specific bequest may be made with through a list attached to you will. This is one way that tangible personal
                 property or specific amount of money be given to the named individual(s). Specific bequests are distributed from
@@ -142,47 +137,40 @@
 
                 The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY.
             </h4>
-            <hr />
+
             <div class="form-group">
-                <label asp-for="SpecificBequest" class="control-label">
-                    25) Would you like to make any specific bequests? *
-                </label>
-                <h5>
-                    The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY. Including real property
-                    transfers will disqualify you from participation.
-                </h5>
-                <div class="radio">
-                    <label>
-                        <input asp-for="SpecificBequest" type="radio" value="true" /> Yes
-                    </label>
-                    <label>
-                        <input asp-for="SpecificBequest" type="radio" value="false" /> No
-                    </label>
-                </div>
+                    <label asp-for="SpecificBequest" class="control-label">Would you like to make any specific bequests? *</label>
+                    <h5>
+                        The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY. Including real property
+                        transfers will disqualify you from participation.
+                    </h5>
+                    <div class="radio">
+                        <label><input asp-for="SpecificBequest" type="radio" value="true" />Yes</label>
+                        <label><input asp-for="SpecificBequest" type="radio" value="false" />No</label>
+                    </div>
             </div>
+            <br />
             <div class="form-group">
-                <label asp-for="BequestInfromation" class="control-label">
-                    26) If you answered YES:
-                </label>
+                <label asp-for="BequestInfromation" class="control-label">If you answered YES:</label>
                 <h5>
                     Please indicate what specific bequests you would like to make below by indicating who is the recipient of the
                     bequest(s), and the property they will receive. Be specific. (Example: John Smith - my diamond wedding ring;
                     Jane Doe - $10,000 cash; John Doe - 1970 Dodge Challenger)
                 </h5>
-                <input asp-for="BequestInfromation" class="form-control" />
+                <textarea asp-for="BequestInfromation" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="BequestInfromation" class="text-danger"></span>
             </div>
 
-            <h1>Remainder of Your Estate</h1>
+            <hr />
+            <h2>Remainder of Your Estate</h2>
             <h4>
                 The remainder (or residuary) of your estate consists of any and all property remaining in your estate after paying
                 debts, expenses of administration, and any specific bequests. Because many people do not make specific
                 bequests, the remainder of your estate usually describes the vast majority of the property in your estate.
             </h4>
-            <hr />
             <div class="form-group">
                 <label asp-for="InheritEstate" class="control-label">
-                    27) Who would you like to inherit your estate when you die? Please check one: *
+                    Who would you like to inherit your estate when you die? Please check one: *
                 </label>
                 <h5>
                     select the most appropriate
@@ -192,7 +180,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="InheritEstateSpecific" class="control-label">
-                    28) If you selected a specific charity, person(s), or other:
+                    If you selected a specific charity, person(s), or other:
                 </label>
                 <h5>
                     If you would like a specific charity or person(s) to inherit your estate, please indicate their identity, relationship to
@@ -206,7 +194,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="RemainderBeneficiary" class="control-label">
-                    29) Contingent Remainder Beneficiary *
+                    Contingent Remainder Beneficiary *
                 </label>
                 <h5>
                     If any of the beneficiaries named above predecease you (die before you) or the charity that you have named is no
@@ -217,7 +205,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="RemainderBeneficiarySpecific" class="control-label">
-                    30) If you selected a specific charity or person(s) to be your Contingent Remainder Beneficiary
+                    If you selected a specific charity or person(s) to be your Contingent Remainder Beneficiary
                 </label>
                 <h5>
                     If you would like a specific charity or person(s) to inherit your estate, please indicate their identity, relationship to
@@ -236,7 +224,7 @@
             <hr />
             <div class="form-group">
                 <label asp-for="DisinheritSomeone" class="control-label">
-                    31) Would you like to disinherit someone, other than your spouse? *
+                    Would you like to disinherit someone, other than your spouse? *
                 </label>
                 <h5>
                     To 'disinherit' someone is to make a specific statement that a personal will not inherit from your estate.
@@ -253,7 +241,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DisinheretDescription" class="control-label">
-                    32) If you have chosen to disinherit someone, other than your spouse, please provide their full legal name
+                    If you have chosen to disinherit someone, other than your spouse, please provide their full legal name
                     and relationship to you.
                 </label>
                 <h5>
@@ -281,7 +269,7 @@
             <hr />
             <div class="form-group">
                 <label asp-for="PrimaryGuardian" class="control-label">
-                    33) If you'd like to appoint a guardian, please list their name, city, and state of residence. (Example: John Doe,
+                    If you'd like to appoint a guardian, please list their name, city, and state of residence. (Example: John Doe,
                     Spokane, Washington)
                 </label>
                 <h5>
@@ -293,7 +281,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="AlternateGuardian" class="control-label">
-                    34) If you'd like to appoint an alternate guardian, in the event the above guardian(s) are unavailable, you may
+                    If you'd like to appoint an alternate guardian, in the event the above guardian(s) are unavailable, you may
                     do so by listing their name, city, and state of residence below. (Example: John Doe, Spokane, Washington)
                 </label>
                 <input asp-for="AlternateGuardian" class="form-control" />
@@ -311,7 +299,7 @@
             </h4>
             <div class="form-group">
                 <label asp-for="PersonalRepresentative" class="control-label">
-                    35) Whom do you wish to serve as your personal representative? *
+                    Whom do you wish to serve as your personal representative? *
                 </label>
                 <h5>
                     List the person's full legal name. This is required.
@@ -321,7 +309,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="AlternateRepresentative" class="control-label">
-                    36) Whom do you wish to serve as an alternate if your first choice for personal representative is unable to
+                    Whom do you wish to serve as an alternate if your first choice for personal representative is unable to
                     serve?
                 </label>
                 <h5>
@@ -337,7 +325,7 @@
                 </div>
 
                 <div class="form-group text-center col-md-8 pull-left">
-                    <a asp-controller="VeteranIntakeForm" asp-action="" class="btn btn-default">Save & Exit</a>
+                    <a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>
                 </div>
 
                 <div class="form-group col-md-2">

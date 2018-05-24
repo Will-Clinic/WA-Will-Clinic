@@ -1,0 +1,22 @@
+﻿@page
+@model WillClinic.Pages.Veterans.LibrariesModel
+@{
+    ViewData["Title"] = "Match";
+}
+
+<h2>Libraries</h2>
+
+<form method="post">
+    @for (int i = 0; i < Model.SelectedLibraries.Count; i++)
+    {
+        <div class="form-group">
+            <label>Library @(i + 1)</label>
+            <select asp-for="SelectedLibraries[i]" asp-items="@Model.AllLibraries"></select>
+        </div>
+    }
+    <br />
+    <div class="btn-group">
+        <a asp-page="Index" class="btn btn-danger">Cancel</a>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+    </div>
+</form>

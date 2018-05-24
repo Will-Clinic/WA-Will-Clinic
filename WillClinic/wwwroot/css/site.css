@@ -12,10 +12,8 @@
 body {
     position: relative;
     margin: 0;
-
     padding-bottom: 12rem;
     min-height: 100%;
-
 }
 
 .icon-bar {
@@ -30,12 +28,14 @@ body {
 
 h2 {
     font-weight: bold;
-}
+} 
 
 /*Navbar*/
 .navbar-custom {
     background: rgb(44,62,80);
 }
+
+
 
 .navline-custom {
     height: 2px;
@@ -59,6 +59,10 @@ h2 {
     color: #ffffff;
 }
 
+.info-custom .lawyer {
+
+}
+
 /*Index Icons*/
 #lawyer-icon {
     font-size: 4em;
@@ -79,9 +83,9 @@ h2 {
 }
 
 .footer-custom {
-  position: absolute;
-  right: 0;
-  left: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
     padding: 0;
     background: #636e72;
     margin: 0;
@@ -94,8 +98,26 @@ h2 {
 #footer-copy {
     margin-top: 4%;
     color: floralwhite;
- }
+}
 
+/*Document stlyling*/
+.alpha-list {
+    list-style-type: upper-alpha;
+}
+
+.doc-indent {
+    text-indent: 4em;
+}
+
+.blank-list {
+    list-style-type: none;
+}
+
+@media print {
+    .page-break {
+        page-break-after: always;
+    }
+}
 
 /* Progress Bar */
 .progress-bar-striped {
@@ -106,7 +128,6 @@ h2 {
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
- 
 }
 
 iframe {
@@ -126,14 +147,14 @@ ul.container {
 }
 
 li.row {
-    list-style: none;
+    /*list-style: none;*/
     margin: 4px;
 }
 
 .bordercol {
     padding: 3px;
     border: 1px solid #0094ff;
-    border-radius: 4px 5px; 
+    border-radius: 4px 5px;
 }
 
 /*Cards*/
@@ -154,20 +175,20 @@ li.row {
     border-radius: 0.25rem
 }
 
-    .card > hr {
-        margin-right: 0;
-        margin-left: 0
-    }
+.card > hr {
+    margin-right: 0;
+    margin-left: 0
+}
 
-    .card > .list-group:first-child .list-group-item:first-child {
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem
-    }
+.card > .list-group:first-child .list-group-item:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem
+}
 
-    .card > .list-group:last-child .list-group-item:last-child {
-        border-bottom-right-radius: 0.25rem;
-        border-bottom-left-radius: 0.25rem
-    }
+.card > .list-group:last-child .list-group-item:last-child {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem
+}
 
 .card-body {
     -webkit-box-flex: 1;
@@ -692,8 +713,6 @@ h2 {
 }
 
 /*Footer*/
-.footy {
-}
 
 #footer {
     position: absolute;
@@ -751,7 +770,7 @@ ul.container {
 }
 
 li.row {
-    list-style: none;
+    /*list-style: none;*/
     margin: 4px;
 }
 
@@ -781,4 +800,28 @@ li.row {
     word-wrap: normal;
     direction: ltr;
     font-feature-settings: 'liga';
+}
+
+.navbar-custom.admin {
+    background-color: #5f1111;
+}
+
+.info-custom.admin {
+    background-color: #5f1111;
+}
+
+.navbar-custom.veteran {
+    background-color: #117171;
+}
+
+.info-custom.veteran {
+    background-color: #117171;
+}
+
+.navbar-custom.lawyer {
+    background-color: #222;
+}
+
+.info-custom.lawyer {
+    background-color: #222;
 }
