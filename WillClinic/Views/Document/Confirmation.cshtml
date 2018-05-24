@@ -24,7 +24,7 @@
         <h3 class="text-center">Article I</h3>
         <h3 class="text-center">DECLARATIONS</h3>
 
-        <p>
+        <p class="doc-indent">
             I am @Html.DisplayFor(model => model.MaritalStatus) @Html.DisplayFor(model => model.SpouseName)
             @if (Model.HasChildren)
             {
@@ -47,7 +47,7 @@
         <h3 class="text-center">Article II</h3>
         <h3 class="text-center">PERSONAL REPRESENTATIVE</h3>
 
-        <p>
+        <p class="doc-indent">
             I nominate as personal representative and as successor personal representatives of this Will those named below.  Each successor personal representative shall serve in the order designated if the prior designated personal representative fails to qualify or ceases to act:
         </p>
         <p>First: @Html.DisplayFor(model => model.PRPrimeFirstName) @Html.DisplayFor(model => model.PRPrimeLastName) </p>
@@ -88,8 +88,14 @@
         <br />
         <h3 class="text-center">Article IV</h3>
         <h3 class="text-center">RESIDUARY ESTATE</h3>
-        <p>A. Except as provided in Article IV, Section B, I give all my residuary estate, being all property, real and personal, wherever situated, in which I have any interest at the time of my death, and not otherwise disposed of, to @Html.DisplayFor(model => model.PrimeBenificiary). In the event the aforementioned persons do(es) not survive me by sixty (60) days, in the event of our simultaneous deaths, or in the event such organization is no longer in existence at the time of my death, I give devise and bequeath all the rest and residue to @Html.DisplayFor(model => model.AltBenificiary)</p>
-        <p>B. Except as otherwise provided herein, any distribution to my children shall be in equal shares with one share to each of my children who survive me, and one share to the surviving issue by right of representation of any child who does not survive me but leaves issue surviving me.</p>
+        <ol class="alpha-list">
+            <li>
+                <p>Except as provided in Article IV, Section B, I give all my residuary estate, being all property, real and personal, wherever situated, in which I have any interest at the time of my death, and not otherwise disposed of, to @Html.DisplayFor(model => model.PrimeBenificiary). In the event the aforementioned persons do(es) not survive me by sixty (60) days, in the event of our simultaneous deaths, or in the event such organization is no longer in existence at the time of my death, I give devise and bequeath all the rest and residue to @Html.DisplayFor(model => model.AltBenificiary)</p>
+            </li>
+            <li>
+                <p>Except as otherwise provided herein, any distribution to my children shall be in equal shares with one share to each of my children who survive me, and one share to the surviving issue by right of representation of any child who does not survive me but leaves issue surviving me.</p>
+            </li>
+        </ol>
     </div>
 </div>
 <br />
@@ -109,11 +115,20 @@
     <div class="col-md-10">
         <h3 class="text-center">Article V</h3>
         <h3 class="text-center">MISCELLANEOUS</h3>
-
-        <p>A. The term "issue" shall include adopted children of any person, who shall have the same status as natural born children.</p>
-        <p>B. For purposes of this Will, no person shall be deemed to have survived me if such person predeceases me or dies within sixty (60) days after my death.</p>
-        <p>C. The captions and titles are for convenience and reference only and they shall not define, limit, or construe the contents of any provision of this Will.</p>
-        <p>D. Except where the context otherwise indicates, words in the singular shall include the plural and words in the masculine gender shall include feminine and vice versa.</p>
+        <ol class="alpha-list">
+            <li>
+                <p>The term "issue" shall include adopted children of any person, who shall have the same status as natural born children.</p>
+            </li>
+            <li>
+                <p>For purposes of this Will, no person shall be deemed to have survived me if such person predeceases me or dies within sixty (60) days after my death.</p>
+            </li>
+            <li>
+                <p>The captions and titles are for convenience and reference only and they shall not define, limit, or construe the contents of any provision of this Will.</p>
+            </li>
+            <li>
+                <p>Except where the context otherwise indicates, words in the singular shall include the plural and words in the masculine gender shall include feminine and vice versa.</p>
+            </li>
+        </ol>
     </div>
 </div>
 <br />
@@ -141,7 +156,7 @@
     </div>
 </div>
 <br />
-<div class="container">
+<div class="container, page-break">
     <div class="col-md-1"></div>
     <p class="col-md-4">Will of @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
     <div class="col-md-2">
@@ -281,19 +296,19 @@
 <div class="container">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <p>
+        <p class="doc-indent">
             I, @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName), having the capacity to make health care decisions, willfully and voluntarily make known my desire that my dying shall not be artificially prolonged under the circumstances set forth below, and do hereby declare that:
         </p>
-        <p>
+        <p class="doc-indent">
             If at any time I should be diagnosed in writing to be in a terminal condition by the attending physician, or in a permanent unconscious condition by two physicians, and where the application of life-sustaining treatment would serve only to prolong the process of my dying, I direct that such treatment be withheld or withdrawn, and that I be permitted to die naturally.
         </p>
-        <p>
+        <p class="doc-indent">
             I understand by using this form that a terminal condition means an incurable and irreversible condition caused by injury, disease or illness that would, within reasonable medical judgment, cause death within a reasonable period of time in accordance with accepted medical standards, and where the application of life-sustaining treatment would serve only to prolong the process of dying. I further understand in using this form that a permanent unconscious condition means an incurable and irreversible condition in which I am medically assessed, within reasonable medical judgment, as having no reasonable probability of recovery from an irreversible coma or a persistent vegetative state.
         </p>
-        <p>
+        <p class="doc-indent">
             In the absence of my ability to give directions regarding the use of such life-sustaining treatment, it is my intention that this Directive shall be honored by my family and physician(s) as the final expression of my legal right to refuse medical or surgical treatment and I accept the consequences of such refusal.
         </p>
-        <p>
+        <p class="doc-indent">
             If another person is appointed to make these decisions for me, whether through a durable power of attorney or otherwise, I request that the person be guided by this Directive and any other clear expressions of my desires.
         </p>
         <p>
@@ -321,13 +336,13 @@
             </ul>
         </div>
         <div>
-            <p>
+            <p class="doc-indent">
                 I understand the full import of this Directive and I am emotionally and mentally capable to make the health care decisions contained in this Directive.
             </p>
-            <p>
+            <p class="doc-indent">
                 I understand that before I sign this Directive I can add to or delete from or otherwise change the wording of this Directive and that I may add to or delete from this Directive at any time, and that any changes shall be consistent with Washington state law or federal constitutional law to be legally valid.
             </p>
-            <p>
+            <p class="doc-indent">
                 It is my wish that every part of this Directive be fully implemented. If for any reason any part is held invalid, it is my wish that the remainder of my Directive be implemented.
             </p>
         </div>
@@ -350,13 +365,13 @@
     <div class="col-md-10">
         <h2 class="text-center">GENERAL POWER OF ATTORNEY</h2>
         <div>
-            <p>
+            <p class="doc-indent">
                 I,	@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName),	a	Washington,	resident	hereby	appoint
                 @Html.DisplayFor(model => model.SuccessorPrime) as my attorney-in-fact for me and in my name, place and stead to do and perform all acts concerning my property and any interest therein, real, personal, and mixed, tangible and intangible, wherever situated, and whether held by me outright, in joint tenancy, tenancy by the entireties, tenancy in common or in any other manner with any other party or parties, including my attorney-in-fact, upon such terms, conditions and considerations as my attorney-in-fact shall deem proper and advisable, as fully and effectually as I could do if personally present and acting, including, but not limited to, the following matters listed below.
             </p>
         </div>
         <div>
-            <ol>
+            <ol class="alpha-list">
                 <li>
                     Real Property Transactions
                     <ol>
@@ -489,6 +504,8 @@
             </p>
         </div>
     </div>
+    <br />
+    <br />
     <div class="container">
         <div class="col-md-7"></div>
         <div class="col-md-4">
@@ -514,9 +531,12 @@
             )
         </p>
     </div>
-    <div>
-        <p>I certify that I know or have satisfactory evidence that @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) signed this instrument and acknowledged it to be his/her free and voluntary act for the uses and purposes mentioned in the instrument.</p>
-        <p>Dated: @DateTime.UtcNow.AddHours(-7.0)</p>
+    <div class="container">
+        <div class="col-md-1"></div>
+        <div class="col-lg-10">
+            <p>I certify that I know or have satisfactory evidence that @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) signed this instrument and acknowledged it to be his/her free and voluntary act for the uses and purposes mentioned in the instrument.</p>
+            <p>Dated: @DateTime.UtcNow.AddHours(-7.0)</p>
+        </div>
     </div>
     <div class="container">
         <div class="col-md-7"></div>
@@ -530,12 +550,18 @@
     </div>
 </div>
 <div>
-    <h2 class="text-center">POWER OF ATTORNEY FOR HEALTH CARE</h2>
-    <p>
-        I, @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName), a resident of Washington state, appoint, @Html.DisplayFor(model => model.SuccessorPrime) as my attorney-in-fact for me and in my name, place and stead to do and perform the following acts related to health care decisions:
-    </p>
-    <div>
-        <ol>
+    <div class="container">
+        <h3 class="text-center">POWER OF ATTORNEY FOR HEALTH CARE</h3>
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <p class="doc-indent">
+                I, @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName), a resident of Washington state, appoint, @Html.DisplayFor(model => model.SuccessorPrime) as my attorney-in-fact for me and in my name, place and stead to do and perform the following acts related to health care decisions:
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-1"></div>
+        <ol class="alpha-list, col-md-10">
             <li>
                 Health Care Decisions.
                 <ol>
@@ -558,13 +584,13 @@
             </li>
             <li>
                 <p>HIPAA</p>
-                <p>
+                <p class="doc-indent">
                     Additionally, I grant my attorney-in-fact the authority to serve as my personal representative for all purposes of the Health Insurance Portability and Accountability Act of 1996 ("HIPAA") as amended from time to time in the exercise of any authority under this power of attorney.
                 </p>
-                <p>
+                <p class="doc-indent">
                     Pursuant to HIPAA, I specifically authorize my attorney-in-fact to request, receive and review any information regarding my physical or mental health, including without limitation, all HIPAA-protected health information, medical and hospital records; to execute on my behalf any authorizations, releases, or other documents that may be required in order to obtain this information and consent to the disclosure of this information. I further authorize my attorney-in-fact to execute on my behalf any documents necessary to implement the healthcare decisions that my HIPAA personal representative is authorized to make under this document.
                 </p>
-                <p>
+                <p class="doc-indent">
                     By execution of this power of attorney, I specifically empower and authorize any physician, hospital or healthcare provider to release any and all medical records to my HIPAA personal representative.
                 </p>
             </li>
@@ -593,31 +619,56 @@
                 </ol>
             </li>
         </ol>
-        <p>
+    </div>
+    <div class="container">
+        <div class="col-md-1"></div>
+        <p class="col-md-10">
             This instrument was executed by me on this @DateTime.UtcNow.AddHours(-7.0)
         </p>
     </div>
-    <div>
-        <p>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+    <div class="container">
+        <div class="col-md-7"></div>
+        <div class="col-md-4">
+            <p class="text-right">_________________________</p>
+        </div>
+        <div class="col-md-7"></div>
+        <div class="col-md-4">
+            <p class="text-right">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</p>
+        </div>
     </div>
-    <div>
-        <p>
-            STATE OF WASHINGTON )<br />
-            ) ss.<br />
-            COUNTY OF @Html.DisplayFor(model => model.County))
+    <div class="container">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <p>
+                STATE OF WASHINGTON<br />
+                <br />
+                COUNTY OF @Html.DisplayFor(model => model.County)
+            </p>
+        </div>
+        <p class="col-md-1">
+            ) <br />
+            ) ss. <br />
+            )
         </p>
     </div>
-    <div>
-        <p>
+    <div class="container">
+        <div class="col-md-1"></div>
+        <p class="col-md-10">
             I certify that I know or have satisfactory evidence that @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName) is the person who appeared before me, and said person acknowledged that he/she signed this instrument and acknowledged it to be his/her free and voluntary act, for the uses and purposes mentioned in the instrument.
         </p>
-        <p>Dated: @DateTime.UtcNow.AddHours(-7.0)</p>
     </div>
-    <div>
-        <p>
-            Notary Public in and for the State of<br />
-            Washington, Residing at	_____________<br />
-            My Commission Expires: ______________
-        </p>
+    <div class="container">
+        <div class="col-md-1"></div>
+        <p class="col-md-10">Dated: @DateTime.UtcNow.AddHours(-7.0)</p>
+    </div>
+    <div class="container">
+        <div class="col-md-7"></div>
+        <div class="col-md-4">
+            <p>
+                Notary Public in and for the State of<br />
+                Washington, Residing at	______________<br />
+                My Commission Expires: _______________
+            </p>
+        </div>
     </div>
 </div>

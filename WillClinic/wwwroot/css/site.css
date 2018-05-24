@@ -101,9 +101,18 @@ h2 {
 
 
 .doc-indent {
-    text-indent: 50px;
+    text-indent: 4em;
 }
 
+.page-break-test {
+    page-break-after: always;
+}
+
+@media print {
+    .page-break {
+        page-break-after: always;
+    }
+}
 
 /* Progress Bar */
 .progress-bar-striped {
