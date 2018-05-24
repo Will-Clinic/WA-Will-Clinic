@@ -44,6 +44,13 @@ namespace WillClinic.Controllers
             return View();
         }
 
+        public IActionResult FAQ()
+        {
+            ViewData["Message"] = "Your FAQ page.";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel {
