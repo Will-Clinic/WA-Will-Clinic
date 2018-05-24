@@ -35,7 +35,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <input asp-for="MonthlyIncome" class="form-control" placeholder="Monthly Income" />
+
+                        <input asp-for="MonthlyIncome" class="form-control" text="@Model.MonthlyIncome" />
                         <span asp-validation-for="MonthlyIncome" class="text-danger"></span>
                     </div>
                 </div>
@@ -47,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <input asp-for="BankAccountAssets" class="form-control" />
+                        <input asp-for="BankAccountAssets" class="form-control" contextmenu="@Model.BankAccountAssets" />
                         <span asp-validation-for="BankAccountAssets" class="text-danger"></span>
                     </div>
                 </div>
