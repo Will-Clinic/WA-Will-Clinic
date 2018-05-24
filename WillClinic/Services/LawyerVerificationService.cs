@@ -1,4 +1,4 @@
-﻿using ScrapySharp.Extensions;
+﻿ using ScrapySharp.Extensions;
 using ScrapySharp.Network;
 using System;
 using System.Collections.Generic;
@@ -45,7 +45,6 @@ namespace WillClinic.Services
             WebPage lawyer = await browser.NavigateToPageAsync(new Uri(url));
 
             //Mock browser has retreived page. Now retrieve information using classes/IDs in the HTML
-            string name = lawyer.Html.CssSelect(".name").First().InnerText;
             string type = lawyer.Html.CssSelect("#dnn_ctr2977_DNNWebControlContainer_ctl00_lblLicenseType").First().InnerText;
             string eligible = lawyer.Html.CssSelect("#dnn_ctr2977_DNNWebControlContainer_ctl00_lblEligibleToPractice").First().InnerText;
             string email = lawyer.Html.CssSelect("#dnn_ctr2977_DNNWebControlContainer_ctl00_lblEmail").First().InnerText;
@@ -53,7 +52,6 @@ namespace WillClinic.Services
             //Return information in new package
             return new BarInfo()
             {
-                Name = name,
                 Type = type,
                 Eligible = eligible,
                 Email = email
@@ -65,7 +63,6 @@ namespace WillClinic.Services
         /// </summary>
         public struct BarInfo
         {
-            public string Name;
             public string Type;
             public string Eligible;
             public string Email;
@@ -84,7 +81,6 @@ namespace WillClinic.Services
         {
             BarInfo lawyer = await FetchBarInfoAsync(BuildUrl(barNumber));
             return (lawyer.Eligible.ToLower().Trim() == "yes"
-                 && lawyer.Name.ToLower().Trim() == name.ToLower().Trim()
                  && lawyer.Type.ToLower().Trim() == "lawyer"
                  && lawyer.Email == email);
         }

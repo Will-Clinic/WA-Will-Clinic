@@ -314,15 +314,19 @@ namespace WillClinic.Controllers
         {
             ApplicationUser user = await _userManager.FindByEmailAsync(email);
 
-
             if (!string.IsNullOrWhiteSpace(code) &&
                 (await _userManager.ConfirmEmailAsync(user, code)).Succeeded)
             {
+                if (userType == ApplicationRoles.Lawyer)
+                {
+                    //return RedirectToPage(nameof());
+                }
                 user.EmailConfirmed = true;
                 await _userManager.UpdateAsync(user);
 
                 return RedirectToAction("bluegreenred");//TODO point to confirmation page
             }
+            return RedirectToPage("Login");
             //TODO Redirect to somewhere
         }
 
