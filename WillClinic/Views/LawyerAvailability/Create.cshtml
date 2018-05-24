@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
 <h3>Enter Availability</h3>
 <hr />
 <div class="row">
@@ -14,12 +12,7 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-
-                <!-- This line might not be needed-->
-                <p>Date:<input type="text" id="Dob" class="datefield" asp-for="TimeAvailable" /></p>
-
-                <input id="datetime" asp-for="TimeAvailable" type="datetime-local">
-
+                <label asp-for="TimeAvailable" class="control-label">Time Available</label>
                 <input asp-for="TimeAvailable" class="form-control" />
                 <span asp-validation-for="TimeAvailable" class="text-danger"></span>
             </div>
@@ -33,27 +26,3 @@
 <div>
     <a asp-controller="Lawyer" asp-action="Index">Back to Dashboard</a>
 </div>
-
-<!-- Testing example -->
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <input type='text' class="form-control" id='datetimepicker1' />
-        </div>
-        <!-- -->
-
-        <!-- Scripting tag needed utilze bootstrap -->
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#Dob").datepicker({
-                    changeMonth: true,
-                    changeYear: true
-                });
-
-                $('#basicExample').timepicker();
-                $('#datetimepicker1').datetimepicker();
-                $('#datetimepicker4').datetimepicker();
-
-            });
-        </script>
-        <!-- -->
