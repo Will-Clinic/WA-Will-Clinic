@@ -30,12 +30,14 @@ body {
 
 h2 {
     font-weight: bold;
-}
+} 
 
 /*Navbar*/
 .navbar-custom {
     background: rgb(44,62,80);
 }
+
+
 
 .navline-custom {
     height: 2px;
@@ -57,6 +59,10 @@ h2 {
 .info-custom {
     background: rgb(44,62,80);
     color: #ffffff;
+}
+
+.info-custom .lawyer {
+
 }
 
 /*Index Icons*/
@@ -781,4 +787,28 @@ li.row {
     word-wrap: normal;
     direction: ltr;
     font-feature-settings: 'liga';
+}
+
+.navbar-custom.admin {
+    background-color: #5f1111;
+}
+
+.info-custom.admin {
+    background-color: #5f1111;
+}
+
+.navbar-custom.veteran {
+    background-color: #117171;
+}
+
+.info-custom.veteran {
+    background-color: #117171;
+}
+
+.navbar-custom.lawyer {
+    background-color: #222;
+}
+
+.info-custom.lawyer {
+    background-color: #222;
 }
