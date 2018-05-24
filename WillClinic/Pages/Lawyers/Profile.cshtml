@@ -7,7 +7,7 @@
 <h2>Attorney Profile</h2>
 <strong>Bar#: @Model.Lawyer.BarNumber (@(Model.Lawyer.IsVerified ? "Verified" : "Unverified"))</strong>
 
-<h3>Your Availabilities:</h3>
+<h3>Chosen Meeting Places:</h3>
 @if (Model.Libraries.Count() > 0)
 {
     <table class="table">
@@ -33,7 +33,7 @@ else
     <h4>No libraries selected yet.</h4>
 }
 <a asp-page="Libraries" class="btn btn-info">Update Libraries</a>
-
+<h3>Time Availabilities:</h3>
 <table class="table">
     <thead>
         <tr>
@@ -62,10 +62,11 @@ else
                 <td>
                     <div class="btn-group-sm">
                         <a asp-page="Schedule" asp-route-id="@schedule.ID" class="btn btn-warning">Update</a>
-                        <a asp-page="Schedule" asp-page-handler="Delete" asp-route-id="@schedule.ID" class="btn btn-danger">Delete</a>
+                        <a asp-page="DeleteSchedule" asp-route-id="@schedule.ID" class="btn btn-danger">Delete</a>
                     </div>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<a asp-page="Schedule" class="btn btn-info">Add Schedule</a>

@@ -16,6 +16,7 @@ namespace WillClinic.Services
         Task<IEnumerable<LawyerSchedule>> GetSchedulesAsync(string lawyerId);
         Task<bool> AddScheduleAsync(LawyerSchedule lawyerSchedule);
         Task<bool> UpdateScheduleAsync(LawyerSchedule lawyerSchedule);
+        Task<bool> DeleteScheduleAsync(LawyerSchedule lawyerSchedule);
 
         Task<bool> VerifyBarStatus(int id);
     }

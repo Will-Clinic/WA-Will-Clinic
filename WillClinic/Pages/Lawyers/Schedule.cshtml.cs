@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,6 +12,7 @@ using WillClinic.Services;
 
 namespace WillClinic.Pages.Lawyers
 {
+    [Authorize(Roles = ApplicationRoles.Lawyer)]
     public class ScheduleModel : PageModel
     {
         private readonly ILibraryService _libraryService;
@@ -21,11 +23,11 @@ namespace WillClinic.Pages.Lawyers
         [BindProperty]
         [DataType(DataType.Time)]
         [Display(Name = "Beginning Time")]
-        public TimeSpan TimeBegin { get; set; }
+        public DateTime TimeBegin { get; set; }
         [BindProperty]
         [DataType(DataType.Time)]
         [Display(Name = "Ending Time")]
-        public TimeSpan TimeEnd { get; set; }
+        public DateTime TimeEnd { get; set; }
         [BindProperty]
         public bool IsRecurring { get; set; }
         [BindProperty]
@@ -61,8 +63,8 @@ namespace WillClinic.Pages.Lawyers
 
                 ScheduleId = id;
 
-                TimeBegin = schedule.TimeBegin.TimeOfDay;
-                TimeEnd = schedule.TimeEnd.TimeOfDay;
+                TimeBegin = schedule.TimeBegin;
+                TimeEnd = schedule.TimeEnd;
                 Date = schedule.TimeBegin.Date;
 
                 if (schedule.RecurringDays != RecurringDays.None)
@@ -107,8 +109,8 @@ namespace WillClinic.Pages.Lawyers
             
             if (IsRecurring)
             {
-                schedule.TimeBegin = DateTime.UtcNow.Add(TimeBegin);
-                schedule.TimeEnd = DateTime.UtcNow.Add(TimeEnd);
+                schedule.TimeBegin = new DateTime(TimeBegin.Ticks);
+                schedule.TimeEnd = new DateTime(TimeEnd.Ticks);
 
                 // Construct RecurringDays based on checkbox input
                 schedule.RecurringDays =
@@ -122,8 +124,8 @@ namespace WillClinic.Pages.Lawyers
             }
             else
             {
-                schedule.TimeBegin = Date.Add(TimeBegin);
-                schedule.TimeEnd = Date.Add(TimeEnd);
+                schedule.TimeBegin = Date.Add(TimeBegin.TimeOfDay);
+                schedule.TimeEnd = Date.Add(TimeEnd.TimeOfDay);
                 schedule.RecurringDays = RecurringDays.None;
             }
 

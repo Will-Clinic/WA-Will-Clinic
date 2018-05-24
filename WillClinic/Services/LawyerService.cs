@@ -37,7 +37,9 @@ namespace WillClinic.Services
                 return null;
             }
 
-            return await _context.Lawyers.FirstOrDefaultAsync(l => l.ApplicationUserId == user.Id);
+            return await _context.Lawyers.Include(l => l.LawyerSchedules)
+                                         .Include(l => l.LawyerLibraryJunctions)
+                                         .FirstOrDefaultAsync(l => l.ApplicationUserId == user.Id);
         }
 
         public async Task<IEnumerable<LawyerSchedule>> GetSchedulesAsync(string lawyerId) => 
@@ -101,6 +103,28 @@ namespace WillClinic.Services
         public async Task<bool> VerifyBarStatus(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteScheduleAsync(LawyerSchedule lawyerSchedule)
+        {
+            if (lawyerSchedule is null || !(await _context.LawyerSchedules.AnyAsync(ls => ls.ID == lawyerSchedule.ID)))
+            {
+                _logger.LogError("Tried to remove null or non-existant schedule from database");
+                return false;
+            }
+
+            _context.LawyerSchedules.Remove(lawyerSchedule);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                _logger.LogError("Unable to commit deletion of schedule from database");
+                return false;
+            }
         }
     }
 }
