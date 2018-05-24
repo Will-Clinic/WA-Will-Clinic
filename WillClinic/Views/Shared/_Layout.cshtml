@@ -1,5 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper "*, WillClinic"
+<!DOCTYPE html>
 <html>
+@inject SignInManager<ApplicationUser> signInManager
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,9 +44,10 @@
 </head>
 
 <body id="body">
-    <nav class="navbar-custom navbar">
+    @*User-theme custom tag helper applies a conditional class depending on user role*@
+    <nav class="navbar navbar-custom" user-theme=@signInManager.UserManager.GetUserId(User)>
         <div class="container">
-            <div class="info-custom row">
+            <div class="row info-custom" user-theme=@signInManager.UserManager.GetUserId(User)>
                 <div class="col-lg-12 text-center">
                     <h2>Veterans Will Clinic</h2>
                     <h5>
