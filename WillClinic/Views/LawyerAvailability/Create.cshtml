@@ -1,4 +1,5 @@
-﻿@model WillClinic.Models.LawyerAvailability
+﻿
+@model WillClinic.Models.LawyerAvailability
 
 @{
     ViewData["Title"] = "Create";
@@ -12,8 +13,8 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="TimeAvailable" class="control-label">Time Available</label>
-                <input asp-for="TimeAvailable" class="form-control" />
+                <label asp-for="TimeAvailable" id="date-picker" class="control-label">Time Available</label>
+                <input asp-for="TimeAvailable" id="datepicker" class="form-control" />
                 <span asp-validation-for="TimeAvailable" class="text-danger"></span>
             </div>
             <div class="form-group form-inline">
