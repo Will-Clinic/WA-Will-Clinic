@@ -55,7 +55,7 @@ namespace WillClinic.Controllers
 
             List<LawyerAvailability> availability = new List<LawyerAvailability>();
 
-            availability = _context.LawyerAvailability.Where(law => law.LawyerApplicationUserId == userID).ToList();
+            availability = _context.LawyerAvailability.Where(law => law.LawyerId == userID).ToList();
 
             return View(availability);
         }

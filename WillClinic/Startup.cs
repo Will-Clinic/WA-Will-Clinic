@@ -40,6 +40,9 @@ namespace WillClinic
             services.AddTransient<IMatchService, MatchService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<ILawyerVerificationService, LawyerVerificationService>();
+            services.AddScoped<ILawyerService, LawyerService>();
+            services.AddTransient<ILibraryService, LibraryService>();
+
 
             services.AddMvc();
         }
