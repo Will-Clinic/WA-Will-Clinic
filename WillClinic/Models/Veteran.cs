@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using WillClinic.Models.VeteranModels;
 
 namespace WillClinic.Models
 {
@@ -15,9 +14,9 @@ namespace WillClinic.Models
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
-        public PrimaryData PrimaryData { get; set; }
-        public VeteranNetWorth VeteranNetWorth { get; set; }
-        public PowerOfAttorney PowerOfAttorney { get; set; }
+        //public PrimaryData PrimaryData { get; set; }
+        //public VeteranNetWorth VeteranNetWorth { get; set; }
+        //public PowerOfAttorney PowerOfAttorney { get; set; }
 
         // Those ICollections exist for the purpose of Fluent API to enable the one-to-many relationship
         public VeteranLawyerMatch VetLawMatch { get; set; }

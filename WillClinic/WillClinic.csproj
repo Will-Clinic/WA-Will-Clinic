@@ -37,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Services\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 

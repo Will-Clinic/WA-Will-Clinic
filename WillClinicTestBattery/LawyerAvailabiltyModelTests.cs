@@ -9,30 +9,30 @@ namespace WillClinicTestBattery
     public class LawyerAvailabiltyModelTests
     {
         // Testing LawyerApplicationUserId
-        [Fact]
-        public void LawyerApplicationUserId_TestingGetter_ReturnString()
-        {
-            // Arrange
-            LawyerAvailability n = new LawyerAvailability();
+        //[Fact]
+        //public void LawyerApplicationUserId_TestingGetter_ReturnString()
+        //{
+        //    // Arrange
+        //    LawyerAvailability n = new LawyerAvailability();
 
-            // Act
-            n.LawyerApplicationUserId = "Veteran";
+        //    // Act
+        //    n.LawyerApplicationUserId = "Veteran";
 
-            // Assert
-            Assert.Equal("Veteran", n.LawyerApplicationUserId);
-        }
+        //    // Assert
+        //    Assert.Equal("Veteran", n.LawyerApplicationUserId);
+        //}
 
-        [Fact]
-        public void LawyerApplicationUserId_TestingSetter_ReturnString()
-        {
-            // Arrange
-            LawyerAvailability n = new LawyerAvailability() { LawyerApplicationUserId = "Lawyer" };
+        //[Fact]
+        //public void LawyerApplicationUserId_TestingSetter_ReturnString()
+        //{
+        //    // Arrange
+        //    LawyerAvailability n = new LawyerAvailability() { LawyerApplicationUserId = "Lawyer" };
 
-            // Act
-            n.LawyerApplicationUserId = "Veteran";
+        //    // Act
+        //    n.LawyerApplicationUserId = "Veteran";
 
-            // Assert
-            Assert.Equal("Veteran", n.LawyerApplicationUserId);
-        }
+        //    // Assert
+        //    Assert.Equal("Veteran", n.LawyerApplicationUserId);
+        //}
     }
 }
