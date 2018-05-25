@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Application Review";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_IntakeLayout.cshtml";
 }
 
 <div class="row">
@@ -12,303 +12,331 @@
         </div>
         <h4>Review Form and Click <b>Finish</b></h4>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.FullLegalName)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.FullLegalName)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Address)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Address)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.PhoneNumber)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.VeteranStatus)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.VeteranStatus)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.ProofOfService)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.ProofOfService)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.ResidentStatus)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.ResidentStatus)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.NetWorth)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.NetWorth)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.BankAccountAssets)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.BankAccountAssets)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.RealEstateAssets)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.RealEstateAssets)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.LifeInsuranceCashValue)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.LifeInsuranceCashValue)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.RetirementAccounts)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.RetirementAccounts)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.StockBonds)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.StockBonds)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Pension)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Pension)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.BusinessInterest)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.BusinessInterest)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.MoneyOwedToYou)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.MoneyOwedToYou)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.OtherAssetsOrMoney)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.OtherAssetsOrMoney)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.HouseHoldSize)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.HouseHoldSize)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.MonthlyIncome)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.MonthlyIncome)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.MaritalStatus)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.MaritalStatus)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.FullNameSpouse)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.FullNameSpouse)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.HaveChildren)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.HaveChildren)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.UnderAgeChildren)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.UnderAgeChildren)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.MinorChildrenDifferentSpouse)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.MinorChildrenDifferentSpouse)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.CurrentlyPregnant)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.CurrentlyPregnant)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.SpecificBequest)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.SpecificBequest)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.BequestInfromation)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.BequestInfromation)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.InheritEstate)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.InheritEstate)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.InheritEstateSpecific)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.InheritEstateSpecific)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.RemainderBeneficiary)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.RemainderBeneficiary)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.RemainderBeneficiarySpecific)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.RemainderBeneficiarySpecific)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DisinheritSomeone)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DisinheritSomeone)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DisinheritDescription)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DisinheritDescription)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.PrimaryGuardian)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.PrimaryGuardian)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.AlternateGuardian)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.AlternateGuardian)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.PersonalRepresentative)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.PersonalRepresentative)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.AlternateRepresentative)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.AlternateRepresentative)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.RequestPowerOfAttorney)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.RequestPowerOfAttorney)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.PrimaryAttorney)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.PrimaryAttorney)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.AlternateAttorney)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.AlternateAttorney)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.HealthCareDirective)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.HealthCareDirective)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.HydrationDirective)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.HydrationDirective)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.NutritionDirective)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.NutritionDirective)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.ArtificialVentilation)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.ArtificialVentilation)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DistressMedication)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DistressMedication)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.HealthPOA)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.HealthPOA)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.PrimaryHealthAttorney)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.PrimaryHealthAttorney)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.SecondaryHealthAttorney)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.SecondaryHealthAttorney)
-            </dd>
-        </dl>
-    </div>
-    <hr />
-    <div class="class-md-12">
-        <div class="form-group col-md-offset-1 col-md-1 pull-left">
-            <a asp-controller="VeteranIntakeForm" asp-action="CreateStep7" class="btn btn-danger">Back</a>
+        <div class="col-md-9">
+            <h4>Personal Information</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FullLegalName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FullLegalName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+            </dl>
+            <hr />
+            <h4>Veteran Status</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.VeteranStatus)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.VeteranStatus)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProofOfService)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProofOfService)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ResidentStatus)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ResidentStatus)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.NetWorth)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NetWorth)
+                </dd>
+            </dl>
+            <hr />
+            <h4>Finances</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.BankAccountAssets)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.BankAccountAssets)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RealEstateAssets)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RealEstateAssets)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LifeInsuranceCashValue)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LifeInsuranceCashValue)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RetirementAccounts)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RetirementAccounts)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.StockBonds)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.StockBonds)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Pension)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Pension)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.BusinessInterest)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.BusinessInterest)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MoneyOwedToYou)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MoneyOwedToYou)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.OtherAssetsOrMoney)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.OtherAssetsOrMoney)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.HouseHoldSize)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HouseHoldSize)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MonthlyIncome)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MonthlyIncome)
+                </dd>
+            </dl>
+            <hr />
+            <h4>Last Will and Testament</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaritalStatus)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MaritalStatus)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FullNameSpouse)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FullNameSpouse)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.HaveChildren)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HaveChildren)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UnderAgeChildren)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UnderAgeChildren)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MinorChildrenDifferentSpouse)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MinorChildrenDifferentSpouse)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CurrentlyPregnant)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CurrentlyPregnant)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SpecificBequest)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SpecificBequest)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.BequestInfromation)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.BequestInfromation)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.InheritEstate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.InheritEstate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.InheritEstateSpecific)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.InheritEstateSpecific)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RemainderBeneficiary)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RemainderBeneficiary)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RemainderBeneficiarySpecific)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RemainderBeneficiarySpecific)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DisinheritSomeone)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DisinheritSomeone)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DisinheritDescription)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DisinheritDescription)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrimaryGuardian)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrimaryGuardian)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.AlternateGuardian)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AlternateGuardian)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PersonalRepresentative)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PersonalRepresentative)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.AlternateRepresentative)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AlternateRepresentative)
+                </dd>
+            </dl>
+            <hr />
+            <h4>Power of Attorney</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.RequestPowerOfAttorney)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RequestPowerOfAttorney)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrimaryAttorney)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrimaryAttorney)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.AlternateAttorney)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AlternateAttorney)
+                </dd>
+            </dl>
+            <hr />
+            <h4>Health Care Directive</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.HealthCareDirective)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HealthCareDirective)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.HydrationDirective)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HydrationDirective)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.NutritionDirective)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NutritionDirective)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ArtificialVentilation)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ArtificialVentilation)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DistressMedication)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DistressMedication)
+                </dd>
+            </dl>
+            <hr />
+            <h4>Health Care Power of Attorney</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.HealthPOA)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HealthPOA)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrimaryHealthAttorney)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrimaryHealthAttorney)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SecondaryHealthAttorney)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SecondaryHealthAttorney)
+                </dd>
+            </dl>
         </div>
-
-        <div class="form-group text-center col-md-8 pull-left"></div>
-        <form asp-action="CreateStep8">
-            <div class="form-group col-md-2">
-                <input asp-for="IsCompleted" value="true" type="hidden" va/>
-                <input type="submit" value="Finish" class="btn btn-success" />
-            </div>
-        </form>
+        
     </div>
+
+</div>
+<hr />
+<div class="class-md-12">
+    <div class="form-group col-md-offset-1 col-md-1 pull-left">
+        <a asp-controller="VeteranIntakeForm" asp-action="CreateStep7" class="btn btn-danger">Back</a>
+    </div>
+    <div class="form-group text-center col-md-8 pull-left"></div>
+    <form asp-action="CreateStep8">
+        <div class="form-group col-md-2">
+            <input asp-for="IsCompleted" value="true" type="hidden" va/>
+            <input type="submit" value="Finish" class="btn btn-success" />
+        </div>
+    </form>
 </div>
