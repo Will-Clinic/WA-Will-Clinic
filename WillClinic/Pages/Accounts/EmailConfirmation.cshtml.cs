@@ -15,6 +15,7 @@ namespace WillClinic.Pages.Accounts
 {
     public class EmailConfirmationModel : PageModel
     {
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManger;
         private readonly ILawyerVerificationService _verificationService;
@@ -25,16 +26,21 @@ namespace WillClinic.Pages.Accounts
         internal int Zip { get; set; }
         internal string PracticeAreas { get; set; }
         internal int YearsOfExperience { get; set; }
-        internal bool OtherLanguages { get; set; } //TODO this is a placeholder
+        internal bool OtherLanguages = false; //TODO this is a placeholder. Add a feature or delete in next iteration.
         internal int BarNumber { get; set; }
         private ApplicationDbContext _context;
 
-        public EmailConfirmationModel (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, LawyerVerificationService verificationService, ApplicationDbContext context)
+        public EmailConfirmationModel (UserManager<ApplicationUser> userManager,
+                                       SignInManager<ApplicationUser> signInManager, 
+                                       LawyerVerificationService verificationService, 
+                                       ApplicationDbContext context,
+                                       RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManger = signInManager;
             _verificationService = verificationService;
             _context = context;
+            _roleManager = roleManager;
         }
 
         public void OnGet()
@@ -42,27 +48,33 @@ namespace WillClinic.Pages.Accounts
 
         }
 
-        public async Task OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (await _verificationService.IsValidLawyerAsync(BarNumber, Email))
             {
+                if (!await _roleManager.RoleExistsAsync("Lawyer"))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole("Lawyer"));
+                }
+
                 var user = await _userManager.FindByEmailAsync(Email);
-                        // Setting up claims for the Lawyer
-                        Claim name = new Claim(ClaimTypes.Name, user.FirstName + user.MiddleInitial + user.LastName, ClaimValueTypes.String);
-                        Claim email = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.String);
-                        List<Claim> claims = new List<Claim> { name, email };
-                        await _userManager.AddClaimsAsync(user, claims);
+
+                // Setting up claims for the Lawyer
+                Claim name = new Claim(ClaimTypes.Name, user.FirstName + user.MiddleInitial + user.LastName, ClaimValueTypes.String);
+                Claim email = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.String);
+                List<Claim> claims = new List<Claim> { name, email };
+                await _userManager.AddClaimsAsync(user, claims);
 
 
-                        // Adding Role to Lawyer account
-                        await _userManager.AddToRoleAsync(user, ApplicationRoles.Lawyer);
+                // Adding Role to Lawyer account
+                await _userManager.AddToRoleAsync(user, ApplicationRoles.Lawyer);
 
                 // Populate Lawyer Table with new account
                 Lawyer newLaw = new Lawyer { ApplicationUserId = user.Id,
                     BarNumber = BarNumber,
                     City = City,
                     Country = Country,
-                    //IsVerified = false, 
+                    IsVerified = true, 
                     IsRejected = false,
                     OtherLanguages = OtherLanguages, 
                     PracticeAreas = PracticeAreas,
@@ -70,12 +82,16 @@ namespace WillClinic.Pages.Accounts
                     YearsOfExperience = YearsOfExperience,
                     ZipCode = Zip
                         };
-                        await _context.Lawyers.AddAsync(newLaw);
-                        await _context.SaveChangesAsync();
-                    }
+
+                await _context.Lawyers.AddAsync(newLaw);
+                await _context.SaveChangesAsync();
+
+                return RedirectToPage("./EmailConfirmed");
+                }
             else
             {
-                //TODO display error as not being a valid lawyer
+                ViewData["error"] = "Your information did not match the Bar information";
+                return Page();
             }
         }
 
@@ -96,8 +112,30 @@ namespace WillClinic.Pages.Accounts
                 }
                 else
                 {
-                    //TODO add claims/role as a veteran
-                    return RedirectToPage("./AccountConfirmed");
+                    if (!await _roleManager.RoleExistsAsync("Veteran"))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole("Veteran"));
+                    }
+
+                    if (ModelState.IsValid)
+                    {
+
+                        // Setting up claims for the Veteran
+                        string fullname = $"{user.FirstName} {user.MiddleInitial} {user.LastName}";
+                        Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);
+                        Claim EMail = new Claim(ClaimTypes.Email, Email, ClaimValueTypes.String);
+                        List<Claim> claims = new List<Claim> { name, EMail };
+                        await _userManager.AddClaimsAsync(user, claims);
+
+                        // Adding Role to Veteran account
+                        await _userManager.AddToRoleAsync(user, ApplicationRoles.Veteran);
+
+                        // Populate Veteran Table with new account
+                        Veteran newVet = new Veteran { ApplicationUserId = user.Id };
+                        await _context.Veterans.AddAsync(newVet);
+                        await _context.SaveChangesAsync();
+                    }
+                    return RedirectToPage("./EmailConfirmed");
                 }
             }
             else

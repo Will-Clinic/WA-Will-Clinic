@@ -37,6 +37,7 @@ namespace WillClinic.Services
                 HtmlContent = htmlContent,
                 PlainTextContent = plainText
             };
+            message.AddTo(email);
 
             var client = new SendGridClient(_configuration["SendGridAPIKey"]);
 
