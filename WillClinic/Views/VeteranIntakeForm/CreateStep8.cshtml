@@ -16,50 +16,50 @@
             <h4>Personal Information</h4>
             <dl class="dl-horizontal">
                 <dt>
-                    @Html.DisplayNameFor(model => model.FullLegalName)
+                    Full Legal Name
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.FullLegalName)
+                    @(Model.FullLegalName ?? "")
                 </dd>
                 <dt>
-                    @Html.DisplayNameFor(model => model.Address)
+                    Address
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Address)
+                    @(Model.Address ?? "")
                 </dd>
                 <dt>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                    Phone Number
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.PhoneNumber)
+                    @(Model.PhoneNumber ?? "")
                 </dd>
             </dl>
             <hr />
             <h4>Veteran Status</h4>
             <dl class="dl-horizontal">
                 <dt>
-                    @Html.DisplayNameFor(model => model.VeteranStatus)
+                    Veteran Status
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.VeteranStatus.Value)
+                    @(Model.VeteranStatus.GetValueOrDefault())
                 </dd>
                 <dt>
-                    @Html.DisplayNameFor(model => model.ProofOfService)
+                    Proof of Service
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.ProofOfService.Value)
+                    @(Model.ProofOfService.GetValueOrDefault())
                 </dd>
                 <dt>
-                    @Html.DisplayNameFor(model => model.ResidentStatus)
+                    Resident Status
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.ResidentStatus.Value)
+                    @(Model.ResidentStatus.GetValueOrDefault())
                 </dd>
                 <dt>
-                    @Html.DisplayNameFor(model => model.NetWorth)
+                    Net Worth
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.NetWorth.Value)
+                    @(Model.NetWorth.GetValueOrDefault())
                 </dd>
             </dl>
             <hr />
