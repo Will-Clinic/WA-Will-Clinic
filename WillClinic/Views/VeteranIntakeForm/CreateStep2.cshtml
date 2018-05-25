@@ -10,110 +10,127 @@
         <div class="progress">
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 12%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+
+        <h3>SECTION 2: Eligibility</h3>
+        <h4>
+            <b>In order to be eligible for the WA Vets Will Clinic you must</b>
+            <br />
+            (1) be a Veteran of a branch of the United States Armed Forces
+            <br />
+            (2) have proof of military service
+            <br />
+            (3) be a resident of Washington State
+            <br />
+            (4) have a net worth of less than $500,000 ($1,000,000 if you are married).
+            <br />
+            <br />
+            <b>Spouses must: </b>
+            <br />
+            (1) be a resident of Washington State
+            <br />
+            (2) have a copy of a valid marriage certificate or Certificate of State Registered Domestic Partnership.
+        </h4>
+        <hr />
         <form asp-action="CreateStep2">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="VeteranStatus" class="control-label">
+                            Are you or your spouse a Veteran of the United States Armed Forces? *
+                        </label>
+                        <h5>
+                            (Army, Navy, Marine Corps, Air Force, Coast Guard, or Armed Forces Reserve)
+                        </h5>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(x => x.VeteranStatus, true) Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(x => x.VeteranStatus, false) No
+                            </label>
+                        </div>
+                        <span asp-validation-for="VeteranStatus" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ProofOfService" class="control-label">
+                            Do you have proof of military service? *
+                        </label>
+                        <h5>
+                            A DD214, Veterans Identification Card, or similar document showing Military service, is REQUIRED in order to
+                            participate in the WA Vets Will Clinic. You can obtain your DD214 for FREE at
+                            http://www.archives.gov/veterans/military-service-records/
+                        </h5>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(x => x.ProofOfService, true) Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(x => x.ProofOfService, false) No
+                            </label>
+                        </div>
 
-            <h3>SECTION 2: Eligibility</h3>
-            <h4>
-                <b>In order to be eligible for the WA Vets Will Clinic you must</b>
-                <br />
-                (1) be a Veteran of a branch of the United States Armed Forces
-                <br />
-                (2) have proof of military service
-                <br />
-                (3) be a resident of Washington State
-                <br />
-                (4) have a net worth of less than $500,000 ($1,000,000 if you are married).
-                <br />
-                <br />
-                <b>Spouses must: </b>
-                <br />
-                (1) be a resident of Washington State
-                <br />
-                (2) have a copy of a valid marriage certificate or Certificate of State Registered Domestic Partnership.
-            </h4>
-            <hr />
-            <div class="form-group">
-                <label asp-for="VeteranStatus" class="control-label">
-                    4) Are you or your spouse a Veteran of the United States Armed Forces? *
-                </label>
-                <h5>
-                    (Army, Navy, Marine Corps, Air Force, Coast Guard, or Armed Forces Reserve)
-                </h5>
-                <div class="radio">
-                    <label>
-                        @Html.RadioButtonFor(x => x.VeteranStatus, true) Yes
-                    </label>
+                        <span asp-validation-for="ProofOfService" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="radio">
-                    <label>
-                        @Html.RadioButtonFor(x => x.VeteranStatus, false) No
-                    </label>
-                </div>
-                <span asp-validation-for="VeteranStatus" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ProofOfService" class="control-label">
-                    5) Do you have proof of military service? *
-                </label>
-                <h5>
-                    A DD214, Veterans Identification Card, or similar document showing Military service, is REQUIRED in order to
-                    participate in the WA Vets Will Clinic. You can obtain your DD214 for FREE at
-                    http://www.archives.gov/veterans/military-service-records/
-                </h5>
-                <div class="radio">
-                    <label>
-                        @Html.RadioButtonFor(x => x.ProofOfService, true) Yes
-                    </label>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ResidentStatus" class="control-label">
+                            Are you a Washington state resident? *
+                        </label>
+                        <h5>
+                            You must be a Washington resident in order to participate in the WA Vets Will Clinic
+                        </h5>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(x => x.ResidentStatus, true) Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(x => x.ResidentStatus, false) No
+                            </label>
+                        </div>
+                        <span asp-validation-for="ResidentStatus" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="radio">
-                    <label>
-                        @Html.RadioButtonFor(x => x.ProofOfService, false) No
-                    </label>
+                <hr />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NetWorth" class="control-label">
+                            Is your net worth less than $500,000 ($1,000,000 per married couple)? *
+                        </label>
+                        <h5>
+                            You must have a net worth of less than $500,000 ($1,000,000 if you are married) in order to participate in the WA
+                            Vets Will Clinic. Your net worth consists of your cash, personal property, stock and bonds, real estate (equity
+                            only), savings, life insurance, inheritances, and retirement assets like a 40l(k), military retirement, or an IRA.
+                        </h5>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(x => x.NetWorth, true) Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(x => x.NetWorth, false) No
+                            </label>
+                        </div>
+                        <span asp-validation-for="NetWorth" class="text-danger"></span>
+                    </div>
                 </div>
+            </div>
 
-                <span asp-validation-for="ProofOfService" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ResidentStatus" class="control-label">
-                    6) Are you a Washington state resident? *
-                </label>
-                <h5>
-                    You must be a Washington resident in order to participate in the WA Vets Will Clinic
-                </h5>
-                <div class="radio">
-                    <label>
-                        @Html.RadioButtonFor(x => x.ResidentStatus, true) Yes
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        @Html.RadioButtonFor(x => x.ResidentStatus, false) No
-                    </label>
-                </div>
-                <span asp-validation-for="ResidentStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NetWorth" class="control-label">
-                    7) Is your net worth less than $500,000 ($1,000,000 per married couple)? *
-                </label>
-                <h5>
-                    You must have a net worth of less than $500,000 ($1,000,000 if you are married) in order to participate in the WA
-                    Vets Will Clinic. Your net worth consists of your cash, personal property, stock and bonds, real estate (equity
-                    only), savings, life insurance, inheritances, and retirement assets like a 40l(k), military retirement, or an IRA.
-                </h5>
-                <div class="radio">
-                    <label>
-                        @Html.RadioButtonFor(x => x.NetWorth, true) Yes
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        @Html.RadioButtonFor(x => x.NetWorth, false) No
-                    </label>
-                </div>
-                <span asp-validation-for="NetWorth" class="text-danger"></span>
-            </div>
+
+
             <div>
             </div>
             <hr />
