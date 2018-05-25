@@ -77,7 +77,7 @@ namespace WillClinic.Services
         /// <param name="barNumber"> bar number as a string</param>
         /// <param name="email">string that holds the provided email</param>
         /// <returns>true if lawyer is valid and information matches, false otherwise</returns>
-        public async Task<bool> IsValidLawyerAsync(string name, int barNumber, string email)
+        public async Task<bool> IsValidLawyerAsync(int barNumber, string email)
         {
             BarInfo lawyer = await FetchBarInfoAsync(BuildUrl(barNumber));
             return (lawyer.Eligible.ToLower().Trim() == "yes"
