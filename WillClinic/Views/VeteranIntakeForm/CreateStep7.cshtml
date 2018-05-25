@@ -10,60 +10,63 @@
         <div class="progress">
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 94%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+
+        <h3>SECTION 7: Health Care Power of Attorney</h3>
+        <h4>
+            A health care power of attorney gives a person of your choosing, your "attorney-in-fact," the power to manage your
+            health care. Typically, a health care directive is used in estate planning in part to ensure your health care
+            directive and your wishes concerning medical treatment are carried out. Your attorney-in-fact for health care
+            decisions has the power to admit or discharge you into a health care facility, consent to treatment, pay health
+            care expenses, and authorize disclosure of your medical records. Like a general power of attorney, it is important
+            to choose someone you trust that will carry out your wishes.
+        </h4>
+        <hr />
+
         <form asp-action="CreateStep7">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="HealthPOA" class="control-label">Would you like a health care power of attorney? *</label>
+                        <div class="radio">
+                            <label><input asp-for="HealthPOA" type="radio" value="true" />Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input asp-for="HealthPOA" type="radio" value="false" />No</label>
+                        </div>
 
-            <h3>
-                SECTION 7: Health Care Power of Attorney
-            </h3>
-            <h4>
-                A health care power of attorney gives a person of your choosing, your "attorney-in-fact," the power to manage your
-                health care. Typically, a health care directive is used in estate planning in part to ensure your health care
-                directive and your wishes concerning medical treatment are carried out. Your attorney-in-fact for health care
-                decisions has the power to admit or discharge you into a health care facility, consent to treatment, pay health
-                care expenses, and authorize disclosure of your medical records. Like a general power of attorney, it is important
-                to choose someone you trust that will carry out your wishes.
-            </h4>
+                        <span asp-validation-for="HealthPOA" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
             <hr />
-
-            <div class="form-group">
-                <label asp-for="HealthPOA" class="control-label">
-                    45) Would you like a health care power of attorney? *
-                </label>
-                <div class="radio">
-                    <label>
-                        <input asp-for="HealthPOA" type="radio" value="true" /> Yes
-                    </label>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="PrimaryHealthAttorney" class="control-label">
+                            Who would you like to serve as your attorney-in-fact for health care decisions?
+                        </label>
+                        <h5>
+                            List their full legal name
+                        </h5>
+                        <input asp-for="PrimaryHealthAttorney" class="form-control" />
+                        <span asp-validation-for="PrimaryHealthAttorney" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="radio">
-                    <label>
-                        <input asp-for="HealthPOA" type="radio" value="false" /> No
-                    </label>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="SecondaryHealthAttorney" class="control-label">
+                            If you would like to name a successor attorney-in-fact for health care decisions, in case your first choice
+                            is unable to serve, please list them below:
+                        </label>
+                        <h5>List their full legal name</h5>
+                        <input asp-for="SecondaryHealthAttorney" class="form-control" />
+                        <span asp-validation-for="SecondaryHealthAttorney" class="text-danger"></span>
+                    </div>
                 </div>
-
-                <span asp-validation-for="HealthPOA" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="PrimaryHealthAttorney" class="control-label">
-                    46) Who would you like to serve as your attorney-in-fact for health care decisions?
-                </label>
-                <h5>
-                    List their full legal name
-                </h5>
-                <input asp-for="PrimaryHealthAttorney" class="form-control" />
-                <span asp-validation-for="PrimaryHealthAttorney" class="text-danger"></span>
-            </div>
 
-            <div class="form-group">
-                <label asp-for="SecondaryHealthAttorney" class="control-label">
-                    47) If you would like to name a successor attorney-in-fact for health care decisions, in case your first choice
-                    is unable to serve, please list them below:
-                </label>
-                <h5>List their full legal name</h5>
-                <input asp-for="SecondaryHealthAttorney" class="form-control" />
-                <span asp-validation-for="SecondaryHealthAttorney" class="text-danger"></span>
-            </div>
             <hr />
             <div class="class-md-12">
                 <div class="form-group col-md-offset-1 col-md-1 pull-left">

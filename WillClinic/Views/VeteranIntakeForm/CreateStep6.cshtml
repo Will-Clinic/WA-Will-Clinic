@@ -10,95 +10,106 @@
         <div class="progress">
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 84%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+
+        <h3>SECTION 6: Health Care Directive</h3>
+        <h4>
+            A health care directive, sometimes called a physician's directive or living will, is a directive that states your
+            wishes for the withholding or withdrawal of life-sustaining treatment if you are in a terminal condition or
+            permanent unconscious condition. This document is used to spell out your wishes to your treating health care
+            professionals.
+        </h4>
+        <hr />
+
         <form asp-action="CreateStep6">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <h3>
-                SECTION 6: Health Care Directive
-            </h3>
-            <h4>
-                A health care directive, sometimes called a physician's directive or living will, is a directive that states your
-                wishes for the withholding or withdrawal of life-sustaining treatment if you are in a terminal condition or
-                permanent unconscious condition. This document is used to spell out your wishes to your treating health care
-                professionals.
-            </h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="HealthCareDirective" class="control-label">
+                            Do you want a health care directive? *
+                        </label>
+                        <div class="radio">
+                            <label><input asp-for="HealthCareDirective" type="radio" value="true" />Yes</label>
+                            <label><input asp-for="HealthCareDirective" type="radio" value="false" />No</label>
+                        </div>
+                        <span asp-validation-for="HealthCareDirective" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
             <hr />
+            <div class="row">
+                <h4>
+                    If you selected yes, please chose the treatment(s) you DO or DO NOT want as
+                    indicated below:
+                </h4>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="HydrationDirective" class="control-label">Hydration:</label>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="HydrationDirective" type="radio" value="true" /> I DO want to have artificially-provided hydration
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="HydrationDirective" type="radio" value="false" /> I DO NOT want to have artificially-provided hydration
+                            </label>
+                        </div>
+                        <span asp-validation-for="HydrationDirective" class="text-danger"></span>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label asp-for="ArtificialVentilation" class="control-label">Cardiopulmonary resuscitation / assisted ventilation:</label>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="ArtificialVentilation" type="radio" value="true" /> I DO want cardiopulmonary resuscitation and/or assisted ventilation
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="ArtificialVentilation" type="radio" value="false" /> I DO NOT want cardiopulmonary resuscitation and/or assisted ventilation
+                            </label>
+                        </div>
+                        <span asp-validation-for="ArtificialVentilation" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="HealthCareDirective" class="control-label">
-                    40) Do you want a health care directive? *
-                </label>
-                <div class="radio">
-                    <label>
-                        <input asp-for="HealthCareDirective" type="radio" value="true" /> Yes
-                    </label>
-                    <label>
-                        <input asp-for="HealthCareDirective" type="radio" value="false" /> No
-                    </label>
                 </div>
-                <span asp-validation-for="HealthCareDirective" class="text-danger"></span>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="NutritionDirective" class="control-label">Nutrition:</label>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="NutritionDirective" type="radio" value="true" /> I DO want to have artificially-provided nutrition
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="NutritionDirective" type="radio" value="false" /> I DO NOT want to have artificially-provided nutrition
+                            </label>
+                        </div>
+                        <span asp-validation-for="NutritionDirective" class="text-danger"></span>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label asp-for="DistressMedication" class="control-label">Pain / distress medication:</label>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="DistressMedication" type="radio" value="true" /> I DO want to receive appropriate medical treatment to alleviate or eliminate pain or distress
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="DistressMedication" type="radio" value="false" /> I DO NOT want to receive medical treatment to alleviate or eliminate pain or distress
+                            </label>
+                        </div>
+                        <span asp-validation-for="DistressMedication" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
+            
 
-            <h4>
-                If you selected yes, please chose the treatment(s) you DO or DO NOT want as
-                indicated below:
-            </h4>
-            <div class="form-group">
-                <label asp-for="HydrationDirective" class="control-label">41) Hydration:</label>
-                <div class="radio">
-                    <label>
-                        <input asp-for="HydrationDirective" type="radio" value="true" /> I DO want to have artificially-provided hydration
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input asp-for="HydrationDirective" type="radio" value="false" /> I DO NOT want to have artificially-provided hydration
-                    </label>
-                </div>
-                <span asp-validation-for="HydrationDirective" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NutritionDirective" class="control-label">42) Nutrition:</label>
-                <div class="radio">
-                    <label>
-                        <input asp-for="NutritionDirective" type="radio" value="true" /> I DO want to have artificially-provided nutrition
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input asp-for="NutritionDirective" type="radio" value="false" /> I DO NOT want to have artificially-provided nutrition
-                    </label>
-                </div>
-                <span asp-validation-for="NutritionDirective" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ArtificialVentilation" class="control-label">43) Cardiopulmonary resuscitation / assisted ventilation:</label>
-                <div class="radio">
-                    <label>
-                        <input asp-for="ArtificialVentilation" type="radio" value="true" /> I DO want cardiopulmonary resuscitation and/or assisted ventilation
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input asp-for="ArtificialVentilation" type="radio" value="false" /> I DO NOT want cardiopulmonary resuscitation and/or assisted ventilation
-                    </label>
-                </div>
-                <span asp-validation-for="ArtificialVentilation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DistressMedication" class="control-label">44) Pain / distress medication:</label>
-                <div class="radio">
-                    <label>
-                        <input asp-for="DistressMedication" type="radio" value="true" /> I DO want to receive appropriate medical treatment to alleviate or eliminate pain or distress
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input asp-for="DistressMedication" type="radio" value="false" /> I DO NOT want to receive medical treatment to alleviate or eliminate pain or distress
-                    </label>
-                </div>
-                <span asp-validation-for="DistressMedication" class="text-danger"></span>
-            </div>
             <hr />
             <div class="class-md-12">
                 <div class="form-group col-md-offset-1 col-md-1 pull-left">
