@@ -40,18 +40,18 @@ namespace WillClinic.Controllers
                 LastName = "Lymen",
                 County = "King",
                 MaritalStatus = "Is married to ",
-                SpouseName = "Emma Watson",
+                SpouseName = "Emma Lymen",
                 HasChildren = true,
-                Children = new List<string> { "Jack", "Kira"},
+                Children = new List<string> { " Jack ", " Kira "},
                 PRPrimeFirstName = "Duncan",
                 PRPrimeLastName = "Sabian",
                 PRAltFirstName = "Stephanie",
                 PRAltLastName = "Farrow",
-                PrimeBenificiary = "Kira",
-                AltBenificiary = "Jack",
+                PrimeBenificiary = " Kira ",
+                AltBenificiary = " Jack ",
                 DisposeList = new List<string> { "None"},
-                SuccessorPrime = "Kira",
-                SuccessorAlt = "Jack"
+                SuccessorPrime = " Kira ",
+                SuccessorAlt = " Jack "
             };
             return View(vm);
         }
