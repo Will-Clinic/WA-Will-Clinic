@@ -59,37 +59,22 @@ namespace WillClinic.Pages.Accounts
 
             _context.ApplicationUser.Add(NewUser);
             await _context.SaveChangesAsync();
-            
+
+            //Set up email verification
+            //Building verification email with link
             string code = await _userManager.GenerateEmailConfirmationTokenAsync(NewUser);
 
-            if (SelectedUserType == ApplicationRoles.Lawyer)
-            {
-                string verifyLink = Url.Page(nameof(LawyerConfirmationModel), "OnGet",
-                    new { email = NewUser.Email, code }, "https", HttpContext.Request.Host.Value);
-
-            }
-            else
-            {
-                //TODO verify non-lawyers
-                //string verifyLink = Url.Page(nameof(), "Account",
-                  //  new { email = NewUser.Email, code, userType = SelectedUserType }, "https", HttpContext.Request.Host.Value);
-
-            }
+            string verifyLink = Url.Page(nameof(EmailConfirmationModel), nameof(EmailConfirmationModel.OnLinkAsync),
+                    new { email = NewUser.Email, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
 
 
             // Compose the e-mail message to send to the user
-            var message = new SendGridMessage()
-            {
-                From = new EmailAddress("donotreply@wavetswillclinic.com/", "Washington Veteran Will Clinic"),
-                Subject = "Verify Your Veteran Will Clinic",
-                HtmlContent = $"<h3>Veteran Will Clinic</h3><h4>Please verify your account by clicking the link below:</h4><a href=\"{verifyLink}\">{verifyLink}</a>",
-                PlainTextContent = $"Please copy and paste the following link into your browser's address bar: {verifyLink}"
-            };
+            string subject = "Verify Your Veteran Will Clinic Account";
+            string htmlContent = $"<h3>Veteran Will Clinic</h3><h4>Please verify your account by clicking the link below:</h4><a href=\"{verifyLink}\">{verifyLink}</a>";
+            string plainTextContent = $"Please copy and paste the following link into your browser's address bar: {verifyLink}";
 
-            var client = new SendGridClient(_configuration["SendGridAPIKey"]);
-
-            //Sending the email
-            var response = await client.SendEmailAsync(message);
+            //Send the email
+            await _emailSender.SendEmailAsync(NewUser.Email, subject, htmlContent, plainTextContent);
 
             return RedirectToPage("./EmailVerificationSent");
         }
