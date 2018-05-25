@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" asp-controller="VeteranIntakeForm" asp-action="CreateStep1">Personal Information</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="VeteranIntakeForm" asp-action="CreateStep2">Veteran Status</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="VeteranIntakeForm" asp-action="CreateStep3">Finances</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="VeteranIntakeForm" asp-action="CreateStep4">Last Will and Testament</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="VeteranIntakeForm" asp-action="CreateStep5">Power Of Attorney</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="VeteranIntakeForm" asp-action="CreateStep6">Health Care Directive</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="VeteranIntakeForm" asp-action="CreateStep7">Health Care Power of Attorney</a>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    @RenderBody()
+</div>

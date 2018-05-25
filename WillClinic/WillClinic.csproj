@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Content Remove="appsettings.Development.json" />
-    <Content Remove="appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +22,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" PrivateAssets="All" />
-    <PackageReference Include="Moq" Version="4.8.2" />
+    <PackageReference Include="ScrapySharp" Version="2.6.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
   </ItemGroup>
 
@@ -40,6 +39,15 @@
 
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
