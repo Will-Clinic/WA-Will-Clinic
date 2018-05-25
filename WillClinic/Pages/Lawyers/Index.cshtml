@@ -14,7 +14,7 @@
 }
 @foreach (var client in Model.PotentialClients)
 {
-    <a asp-page="Match" asp-route-id="@client.ApplicationUserId"><i class="material-icons">face</i></a>
+    <a asp-page="Match" asp-route-id="@client.ApplicationUserId" class="btn btn-primary">Match with Veteran</a>
 }
 
 <h3>Chosen Meeting Places:</h3>
