@@ -20,7 +20,7 @@ namespace WillClinic.Pages.Accounts
     public class RegisterModel : PageModel
     {
         private readonly ApplicationDbContext _context;
-        private readonly EmailSender _emailSender;
+        private readonly IEmailSender _emailSender;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _configuration;
 
@@ -36,7 +36,14 @@ namespace WillClinic.Pages.Accounts
         public string SelectedUserType { get; set; }
         public SelectList UserTypes { get; set; }
 
-        public RegisterModel(ApplicationDbContext context, EmailSender emailSender, UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Compare(nameof(Password), ErrorMessage = "Passwords do not match")]
+        public string ConfirmPassword { get; set; }
+
+        public RegisterModel(ApplicationDbContext context, IEmailSender emailSender, UserManager<ApplicationUser> userManager, IConfiguration configuration)
         {
             _context = context;
             _emailSender = emailSender;
@@ -57,7 +64,7 @@ namespace WillClinic.Pages.Accounts
                 return Page();
             }
 
-            _context.ApplicationUser.Add(NewUser);
+            await _userManager.CreateAsync(NewUser, Password);
             await _context.SaveChangesAsync();
 
             //Set up email verification

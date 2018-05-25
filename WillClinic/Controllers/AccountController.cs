@@ -324,7 +324,7 @@ namespace WillClinic.Controllers
                 user.EmailConfirmed = true;
                 await _userManager.UpdateAsync(user);
 
-                return RedirectToAction("bluegreenred");//TODO point to confirmation page
+                return RedirectToAction("bluegreenred");
             }
             return RedirectToPage("Login");
             //TODO Redirect to somewhere
