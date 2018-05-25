@@ -69,7 +69,7 @@ namespace WillClinic.Models
             if (!IsInQueue() && !IsMatched())
             {
                 VeteranQueue vq = new VeteranQueue();
-                vq.TimeEnteredQueue = DateTime.Now;
+                vq.TimeEnteredQueue = DateTime.UtcNow;
                 vq.VeteranApplicationUserId = userid;
 
                 _context.VeteranQueue.Add(vq);

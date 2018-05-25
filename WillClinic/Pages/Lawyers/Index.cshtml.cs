@@ -16,6 +16,7 @@ namespace WillClinic.Pages.Lawyers
     {
         private readonly ILawyerService _lawyerService;
         private readonly ILibraryService _libraryService;
+        private readonly IVeteranService _veteranService;
 
         public Lawyer Lawyer { get; set; }
         //public ICollection<LawyerAvailability> Availabilities { get; set; }
@@ -23,10 +24,14 @@ namespace WillClinic.Pages.Lawyers
         public IEnumerable<Library> Libraries { get; set; }
         public TimeZoneInfo UserTimeZone { get; set; }
 
-        public IndexModel(ILawyerService lawyerService, ILibraryService libraryService)
+        public IEnumerable<Veteran> PotentialClients { get; set; }
+
+        public IndexModel(ILawyerService lawyerService, ILibraryService libraryService,
+            IVeteranService veteranService)
         {
             _lawyerService = lawyerService;
             _libraryService = libraryService;
+            _veteranService = veteranService;
         }
 
         public async Task OnGetAsync()
@@ -34,6 +39,7 @@ namespace WillClinic.Pages.Lawyers
             Lawyer = await _lawyerService.GetLawyerByPrincipalAsync(User);
             Libraries = await _libraryService.GetAllLibrariesForLawyerAsync(Lawyer.ApplicationUserId);
             Schedules = await _lawyerService.GetSchedulesAsync(Lawyer.ApplicationUserId);
+            PotentialClients = await _veteranService.GetPotentialClientsForLawyerAsync(Lawyer.ApplicationUserId);
 
             // TODO(taylorjoshuaw): Collect time zone from user rather than assuming Pacific time
             UserTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");

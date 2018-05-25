@@ -16,7 +16,7 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "Marital Status")]
         public MaritalStatus MaritalStatus { get; set; }
 
-        [StringLength(50), Required]
+        [StringLength(50)]
         [Display(Name = "Full Name Spouse")]
         public string FullNameSpouse { get; set; }
 
@@ -24,11 +24,11 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "Have Children")]
         public bool? HaveChildren { get; set; }
 
-        [Required]
+        
         [Display(Name = "Under Age Children")]
         public bool? UnderAgeChildren { get; set; }
 
-        [StringLength(50), Required]
+        [StringLength(50)]
         [Display(Name = "Minor Children Different Spouse")]
         public string MinorChildrenDifferentSpouse { get; set; }
 

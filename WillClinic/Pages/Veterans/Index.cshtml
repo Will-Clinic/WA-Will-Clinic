@@ -1,0 +1,36 @@
+﻿@page
+@model WillClinic.Pages.Veterans.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Veteran Profile</h2>
+
+<h3>Selected Libraries:</h3>
+@if (Model.Libraries.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Zip</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var library in Model.Libraries)
+            {
+                <tr>
+                    <td>@library.Name</td>
+                    <td>@library.City</td>
+                    <td>@library.ZipCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h4>You have not selected any libraries yet.</h4>
+}
+<a asp-page="Libraries" class="btn btn-info">Update Library Choices</a>

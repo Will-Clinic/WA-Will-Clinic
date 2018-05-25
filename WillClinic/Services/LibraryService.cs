@@ -31,5 +31,11 @@ namespace WillClinic.Services
                                                  .Include(llj => llj.Library)
                                                  .Select(llj => llj.Library)
                                                  .ToListAsync();
+
+        public async Task<IEnumerable<Library>> GetAllLibrariesForVeteranAsync(string veteranId) =>
+            await _context.VeteranLibraryJunctions.Where(llj => llj.VeteranId == veteranId)
+                                                 .Include(llj => llj.Library)
+                                                 .Select(llj => llj.Library)
+                                                 .ToListAsync();
     }
 }

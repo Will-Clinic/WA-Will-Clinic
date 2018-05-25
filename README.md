@@ -56,3 +56,6 @@ If users encounter any issues or bugs while using this site, they can be reporte
 
 ## [License](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 MIT Licensed
+
+## Resources
+https://css-tricks.com/almanac/properties/p/page-break/

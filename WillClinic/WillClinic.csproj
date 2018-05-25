@@ -16,6 +16,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="Google.Apis" Version="1.32.2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
@@ -38,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Services\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 

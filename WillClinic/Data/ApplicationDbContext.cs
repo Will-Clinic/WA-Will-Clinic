@@ -28,6 +28,7 @@ namespace WillClinic.Data
 
         public DbSet<LawyerSchedule> LawyerSchedules { get; set; }
         public DbSet<LawyerLibraryJunction> LawyerLibraryJunctions { get; set; }
+        public DbSet<VeteranLibraryJunction> VeteranLibraryJunctions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -111,6 +112,17 @@ namespace WillClinic.Data
 
             builder.Entity<Admin>()
                 .HasKey(a => a.ApplicationUserId);
+
+            builder.Entity<VeteranLibraryJunction>()
+                .HasKey(vlj => new { vlj.VeteranId, vlj.LibraryId });
+
+            builder.Entity<Veteran>()
+                .HasMany(v => v.VeteranLibraryJunctions)
+                .WithOne(vlj => vlj.Veteran);
+
+            builder.Entity<Library>()
+                .HasMany(l => l.VeteranLibraryJunctions)
+                .WithOne(l => l.Library);
         }
 
         public DbSet<WillClinic.Models.ApplicationUser> ApplicationUser { get; set; }

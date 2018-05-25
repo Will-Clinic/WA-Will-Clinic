@@ -105,11 +105,19 @@ h2 {
     list-style-type: upper-alpha;
 }
 
-
 .doc-indent {
-    text-indent: 50px;
+    text-indent: 4em;
 }
 
+.blank-list {
+    list-style-type: none;
+}
+
+@media print {
+    .page-break {
+        page-break-after: always;
+    }
+}
 
 /* Progress Bar */
 .progress-bar-striped {
@@ -705,8 +713,6 @@ h2 {
 }
 
 /*Footer*/
-.footy {
-}
 
 #footer {
     position: absolute;

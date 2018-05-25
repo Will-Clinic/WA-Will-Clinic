@@ -20,7 +20,7 @@ namespace WillClinic.Controllers
                 }
                 else if (User.IsInRole(ApplicationRoles.Veteran))
                 {
-                    return RedirectToAction(nameof(Index), "Veteran");
+                    return RedirectToPage("/Veterans/Index");
                 }
                 else if (User.IsInRole(ApplicationRoles.Admin))
                 {

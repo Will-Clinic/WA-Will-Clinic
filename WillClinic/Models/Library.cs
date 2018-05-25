@@ -25,5 +25,6 @@ namespace WillClinic.Models
         public string Phone { get; set; }
 
         public ICollection<LawyerLibraryJunction> LawyerLibraryJunctions { get; set; }
+        public ICollection<VeteranLibraryJunction> VeteranLibraryJunctions { get; set; }
     }
 }
