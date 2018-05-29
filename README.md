@@ -1,5 +1,6 @@
 # Washington Will Clinic
 **Authors:** Andres Ibarra, Jeff Martinez, Zachary Johnson, Ariel R. Pedraza, Luay Younus, Dustin Mundy
+**Iteration 2** Josh Taylor, Philip Werner, Kevin Farrow, Brent Williams, Tiger Hsu
 </br>
 **Version:** : 1.2.0
 
