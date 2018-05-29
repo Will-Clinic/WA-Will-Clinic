@@ -36,9 +36,14 @@ namespace WillClinic.Pages.Accounts
         public string SelectedUserType { get; set; }
         public SelectList UserTypes { get; set; }
 
+        [Required]
+        [StringLength(80, MinimumLength = 6)]
+        [BindProperty]
+        [Display(Name = nameof(Password))]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [Required]
         [DataType(DataType.Password)]
         [Compare(nameof(Password), ErrorMessage = "Passwords do not match")]
         public string ConfirmPassword { get; set; }
