@@ -3,7 +3,7 @@
 </br>
 **Version:** : 1.0.0
 
-[**App Deployed on Azure**](http://willclinic.azurewebsites.net)
+[**App Deployed on Azure**](https://washingtonwillclinic.azurewebsites.net/)
 
 ## Table of Contents
 
