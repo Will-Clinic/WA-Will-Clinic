@@ -39,6 +39,24 @@ namespace WillClinicTestBattery
 
             Assert.IsType<ViewResult>(result);
         }
+        
+
+        /* Assert the View >??
+        [Fact]
+        public void ErrorView()
+        {
+            HomeController home = new HomeController();
+
+            IActionResult view = home.Error();
+
+           Assert.Throws(view);
+        }*/
+
+
+
+
+
+
 
         [Fact]
         public void HomeContactResultView()
