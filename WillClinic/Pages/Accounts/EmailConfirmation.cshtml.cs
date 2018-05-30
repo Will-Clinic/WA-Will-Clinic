@@ -50,14 +50,14 @@ namespace WillClinic.Pages.Accounts
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (await _verificationService.IsValidLawyerAsync(BarNumber, Email))
+            var user = await _userManager.FindByEmailAsync(Email);
+            if (await _verificationService.IsValidLawyerAsync(BarNumber, Email) && user.EmailConfirmed)
             {
                 if (!await _roleManager.RoleExistsAsync("Lawyer"))
                 {
                     await _roleManager.CreateAsync(new IdentityRole("Lawyer"));
                 }
 
-                var user = await _userManager.FindByEmailAsync(Email);
 
                 // Setting up claims for the Lawyer
                 Claim name = new Claim(ClaimTypes.Name, user.FirstName + user.MiddleInitial + user.LastName, ClaimValueTypes.String);
@@ -88,33 +88,49 @@ namespace WillClinic.Pages.Accounts
 
                 return RedirectToPage("./EmailConfirmed");
                 }
+            else if (user.EmailConfirmed == false)
+            {
+                ViewData["error"] = "Your email has not been confirmed.";
+                return Page();
+            }
             else
             {
-                ViewData["error"] = "Your information did not match the Bar information";
+                ViewData["error"] = "The bar number provided does not match the information provided by the Washington State Bar Association, or your license type is not lawyer, or you are not currently eligible to practice. To correct any of these concerns, please contact the WSBA to update their records or create a new account with the matching email address.";
                 return Page();
             }
         }
 
+        /// <summary>
+        /// The link sent by email should directly connect to this method. It will switch confirmed email to true and redirect as appropriate
+        /// </summary>
+        /// <param name="id">Id of the user in the link</param>
+        /// <param name="code">Generated confirmation code for that user</param>
+        /// <param name="expectedRole">the role that user is attempting to aquire</param>
+        /// <returns>redirect to email confirmed for vets, bar number entry for lawyers</returns>
         [HttpPost]
-        public async Task<IActionResult> OnLinkAsync(string email, string code, string expectedRole)
+        public async Task<IActionResult> OnLinkAsync(string id, string code, string expectedRole)
         {
-            ApplicationUser user = await _userManager.FindByEmailAsync(email);
+            ApplicationUser user = await _userManager.FindByIdAsync(id);
 
             if (!string.IsNullOrWhiteSpace(code) &&
                 (await _userManager.ConfirmEmailAsync(user, code)).Succeeded)
             {
+                //If link is valid, set email confirmed to true for the account.
                 user.EmailConfirmed = true;
                 await _userManager.UpdateAsync(user);
+
+                //If the link is for a lawyer account, redirect to lawyer confirmation page
                 if (expectedRole == ApplicationRoles.Lawyer)
                 {
-                    Email = email;
+                    Email = user.Email;
                     return Page();
                 }
-                else
+                else if (expectedRole == ApplicationRoles.Veteran)
                 {
-                    if (!await _roleManager.RoleExistsAsync("Veteran"))
+                    //Create veteran role if it does not exist
+                    if (!await _roleManager.RoleExistsAsync(ApplicationRoles.Veteran))
                     {
-                        await _roleManager.CreateAsync(new IdentityRole("Veteran"));
+                        await _roleManager.CreateAsync(new IdentityRole(ApplicationRoles.Veteran));
                     }
 
                     if (ModelState.IsValid)
@@ -138,11 +154,10 @@ namespace WillClinic.Pages.Accounts
                     return RedirectToPage("./EmailConfirmed");
                 }
             }
-            else
-            {
-                ViewData["error"] = "Something went wrong with your confirmation";
-                return RedirectToPage(nameof(RegisterModel));
-            }
+            //Catch all default for when the link is invalid
+            ViewData["error"] = "Something went wrong with your confirmation, your link may have been damaged.";
+            return RedirectToPage(nameof(RegisterModel));
+            //TODO create page that will resend confirmation email with valid link
         }
     }
 }
