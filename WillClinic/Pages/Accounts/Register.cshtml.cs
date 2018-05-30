@@ -77,7 +77,7 @@ namespace WillClinic.Pages.Accounts
             string code = await _userManager.GenerateEmailConfirmationTokenAsync(NewUser);
 
             string verifyLink = Url.Page(nameof(EmailConfirmationModel), nameof(EmailConfirmationModel.OnLinkAsync),
-                    new { email = NewUser.Email, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
+                    new { email = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
 
 
             // Compose the e-mail message to send to the user
