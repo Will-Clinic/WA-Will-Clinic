@@ -29,6 +29,11 @@ namespace WillClinic.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Handles the detail view of a VeteranIntakeForm
+        /// </summary>
+        /// <param name="id">Veteran id</param>
+        /// <returns>View of VeteranIntakeForm</returns>
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
@@ -43,6 +48,12 @@ namespace WillClinic.Controllers
             return View(veteranIntakeForm);
         }
 
+        /// <summary>
+        /// Handles the changing of steps while a Veteran is going through
+        /// the intake form.
+        /// </summary>
+        /// <param name="step">A byte type of the next page the veteran is going to</param>
+        /// <returns>Redirects to the correct intake form page</returns>
         [HttpGet]
         public IActionResult GoToStep(byte step = 0)
         {
@@ -57,6 +68,13 @@ namespace WillClinic.Controllers
             return RedirectToAction(nameof(CreateStep0));
         }
 
+        // USER AGREEMENT
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 0
+        /// </summary>
+        /// <returns>IntakeFormViewModel0</returns>
         [HttpGet]
         public IActionResult CreateStep0()
         {
@@ -76,6 +94,11 @@ namespace WillClinic.Controllers
         }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        /// <summary>
+        /// Handles posting of the information input by the veteran
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel0</param>
+        /// <returns>View of create step 0</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep0(IntakeFormViewModel0 intakeFormViewModel)
@@ -95,7 +118,13 @@ namespace WillClinic.Controllers
             }
             return View(nameof(CreateStep0));
         }
-
+        // PERSONAL INFORMATION
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 1 
+        /// </summary>
+        /// <returns>IntakeFormViewModel1</returns>
         [HttpGet]
         public IActionResult CreateStep1()
         {
@@ -116,7 +145,11 @@ namespace WillClinic.Controllers
             return View(ifvm);
         }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        /// <summary>
+        /// Handles posting of the information input by the veteran
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel1</param>
+        /// <returns>View of create step 1</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep1([Bind("FullLegalName,Address,PhoneNumber")] IntakeFormViewModel1 intakeFormViewModel)
@@ -143,7 +176,13 @@ namespace WillClinic.Controllers
             return View(nameof(CreateStep1));
         }
 
-
+        // VETERAN STATUS
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 2 
+        /// </summary>
+        /// <returns>IntakeFormViewModel2</returns>
         [HttpGet]
         public IActionResult CreateStep2()
         {
@@ -165,6 +204,11 @@ namespace WillClinic.Controllers
             return View(ifvm);
         }
 
+        /// <summary>
+        /// Handles posting of the information input by the veteran
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel2</param>
+        /// <returns>View of create step 2</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep2(IntakeFormViewModel2 intakeFormViewModel)
@@ -192,6 +236,13 @@ namespace WillClinic.Controllers
             return View(nameof(CreateStep2));
         }
 
+        // FINANCES
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 3 
+        /// </summary>
+        /// <returns>IntakeFormViewModel3</returns>
         [HttpGet]
         public IActionResult CreateStep3()
         {        
@@ -219,6 +270,11 @@ namespace WillClinic.Controllers
             return View(ifvm);
         }
 
+        /// <summary>
+        /// Handles posting of the information input by the veteran
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel3</param>
+        /// <returns>View of create step 3</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep3([Bind("MonthlyIncome,BankAccountAssets,RealEstateAssets,LifeInsuranceCashValue,RetirementAccounts,StockBonds,Pension,BusinessInterest,MoneyOwedToYou,OtherAssetsOrMoney")]IntakeFormViewModel3 intakeFormViewModel)
@@ -252,6 +308,13 @@ namespace WillClinic.Controllers
             return View(nameof(CreateStep3));
         }
 
+        // LAST WILL AND TESTAMENT
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 4
+        /// </summary>
+        /// <returns>IntakeFormViewModel4</returns>
         [HttpGet]
         public IActionResult CreateStep4()
         {
@@ -288,6 +351,11 @@ namespace WillClinic.Controllers
             return View(ifvm);
         }
 
+        /// <summary>
+        /// Handles posting of the information input by the veteran
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel4</param>
+        /// <returns>View of create step 4</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep4(IntakeFormViewModel4 intakeFormViewModel)
@@ -331,6 +399,13 @@ namespace WillClinic.Controllers
             return View(nameof(CreateStep4));
         }
 
+        // POWER OF ATTORNEY
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 5 
+        /// </summary>
+        /// <returns>IntakeFormViewModel5</returns>
         [HttpGet]
         public IActionResult CreateStep5()
         {
@@ -351,6 +426,11 @@ namespace WillClinic.Controllers
             return View(ifvm);
         }
 
+        /// <summary>
+        /// Handles posting of the information input by the veteran
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel5</param>
+        /// <returns>View of create step 5</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep5(IntakeFormViewModel5 intakeFormViewModel)
@@ -377,6 +457,13 @@ namespace WillClinic.Controllers
             return View(nameof(CreateStep5));
         }
 
+        // HEALTHCARE DIRECTIVE
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 6 
+        /// </summary>
+        /// <returns>IntakeFormViewModel6</returns>
         [HttpGet]
         public IActionResult CreateStep6()
         {
@@ -399,6 +486,11 @@ namespace WillClinic.Controllers
             return View(ifvm);
         }
 
+        /// <summary>
+        /// Handles posting of the information input by the veteran
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel6</param>
+        /// <returns>View of create step 6</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep6(IntakeFormViewModel6 intakeFormViewModel)
@@ -427,6 +519,12 @@ namespace WillClinic.Controllers
             return View(nameof(CreateStep6));
         }
 
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 7 
+        /// </summary>
+        /// <returns>IntakeFormViewModel7</returns>
         [HttpGet]
         public IActionResult CreateStep7()
         {
@@ -447,6 +545,11 @@ namespace WillClinic.Controllers
             return View(ifvm);
         }
 
+        /// <summary>
+        /// Handles posting of the information input by the veteran
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel7</param>
+        /// <returns>View of create step 7</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep7(IntakeFormViewModel7 intakeFormViewModel)
@@ -472,7 +575,14 @@ namespace WillClinic.Controllers
             }
             return View(nameof(CreateStep7));
         }
-
+        
+        // SUMMARY
+        /// <summary>
+        /// Checks to see if the veteran has form data currently available, if
+        /// the veteran has data, it will repopulate that data, if not then just
+        /// a blank form is displayed for step 8 
+        /// </summary>
+        /// <returns>IntakeFormViewModel8</returns>
         [HttpGet]
         public IActionResult CreateStep8()
         {
@@ -484,6 +594,12 @@ namespace WillClinic.Controllers
             return View(formToReview);
         }
 
+        /// <summary>
+        /// Handles the completion of the form. Sets the IsCompleted property 
+        /// to true and saves the completed form.
+        /// </summary>
+        /// <param name="intakeFormViewModel">IntakeFormViewModel1</param>
+        /// <returns>View of create step 1</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep8(bool IsCompleted)
@@ -506,6 +622,12 @@ namespace WillClinic.Controllers
             return View(nameof(CreateStep8));
         }
 
+        /// <summary>
+        /// Takes the veteran back through the intake form process on a already completed
+        /// form to make changes. 
+        /// </summary>
+        /// <param name="id">int id of the VeteranIntakeForm</param>
+        /// <returns>RedirectToAction to Step 1</returns>
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -525,6 +647,13 @@ namespace WillClinic.Controllers
             return RedirectToAction("GoToStep", new { step = 1 });
         }
 
+        /// <summary>
+        /// Updates the exsisting VeteranIntakeForm with the new information
+        /// provided by the Veteran
+        /// </summary>
+        /// <param name="id">string id of the Veteran</param>
+        /// <param name="veteranIntakeForm">VeteranIntakeForm object</param>
+        /// <returns>View</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("ID,VeteranApplicationUserId,IsNotarized,TimeStamp,TermsAndConditions,FullLegalName,Address,PhoneNumber,VeteranStatus,ProofOfService,ResidentStatus,NetWorth,BankAccountAssets,RealEstateAssets,LifeInsuranceCashValue,RetirementAccounts,StockBonds,Pension,BusinessInterest,MoneyOwedToYou,OtherAssetsOrMoney,HouseHoldSize,MonthlyIncome,MaritalStatus,FullNameSpouse,HaveChildren,UnderAgeChildren,MinorChildrenDifferentSpouse,CurrentlyPregnant,SpecificBequest,BequestInfromation,InheritEstate,InheritEstateSpecific,RemainderBeneficiary,RemainderBeneficiarySpecific,DisinheritSomeone,DisinherentDescription,PrimaryGuardian,AlternateGuardian,PersonalRepresentative,AlternateRepresentative,RequestPowerOfAttorney,PrimaryAttorney,AlternateAttorney,HealthCareDirective,HydrationDirective,NutritionDirective,ArtificialVentilation,DistressMedication")] VeteranIntakeForm veteranIntakeForm)
@@ -551,6 +680,11 @@ namespace WillClinic.Controllers
             return View(veteranIntakeForm);
         }
 
+        /// <summary>
+        /// Deletes a specified Intake Form
+        /// </summary>
+        /// <param name="id">string id of Veteran</param>
+        /// <returns>View</returns>
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
@@ -566,6 +700,12 @@ namespace WillClinic.Controllers
             return View(veteranIntakeForm);
         }
 
+        // TODO: Needs to redirect to the new razor pages profile home 
+        /// <summary>
+        /// Completes the deletion of the form and updates the DB
+        /// </summary>
+        /// <param name="id">int id of the form</param>
+        /// <returns>RedirectToAction of the Veteran Index page</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
