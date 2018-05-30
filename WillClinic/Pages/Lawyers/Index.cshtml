@@ -5,7 +5,7 @@
 }
 
 <h2>Attorney Profile</h2>
-<strong>Bar#: @Model.Lawyer.BarNumber (@(Model.Lawyer.IsVerified ? "Verified" : "Unverified"))</strong>
+<strong>Bar#: @Model.Lawyer.BarNumber </strong>
 
 <h3>@Model.PotentialClients.Count() Potential Client(s):</h3>
 @if (Model.PotentialClients.Count() > 0)
