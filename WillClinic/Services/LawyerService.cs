@@ -90,7 +90,7 @@ namespace WillClinic.Services
             }
         }
 
-        public async Task<Lawyer> LockOutAsync(int id)
+        public async Task<bool> LockOutAsync(string id)
         {
             throw new NotImplementedException();
         }
