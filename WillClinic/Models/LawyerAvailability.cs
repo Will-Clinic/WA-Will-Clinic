@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
+    [Obsolete("Use the LawyerLibraryJunction and LawyerSchedule tables to establish a lawyer's availability rather than this table.")]
     public class LawyerAvailability
     {
         public int ID { get; set; }

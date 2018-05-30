@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
+    /// <summary>
+    /// Represents a matching between a veteran and a lawyer
+    /// </summary>
     public class VeteranLawyerMatch
     {
         public int ID { get; set; }

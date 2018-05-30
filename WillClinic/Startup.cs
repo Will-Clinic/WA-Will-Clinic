@@ -26,36 +26,54 @@ namespace WillClinic
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // ApplicationDbConnection corresponds to the SQL connection string to the
+            // production database via Azure Key Vault. Change which AddDbContext call is
+            // commented to switch between production and the local development database.
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration["ApplicationDbConnection"]));
+            /*
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
+            */
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
+            // Email sending service to send account verifications, matching notifications,
+            // and administrative communications to users.
             services.AddTransient<IEmailSender, EmailSender>();
+            // TODO(taylorjoshuaw): This is no longer being used for matching. This could be
+            //                      removed after performing some integration tests with the service removed.
             services.AddTransient<IMatchService, MatchService>();
+            // Used by the ConditionalClassHelper tag helper
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            // Used for lawyer bar status verification with the WSBA at login, annually, and when making matches
             services.AddTransient<ILawyerVerificationService, LawyerVerificationService>();
+
+            // The following three services are used by Razor Pages as an abstraction to performing queries and
+            // CRUD on their respective entity types, as well as abstracting away many-to-many relationships
+            // between tables.
             services.AddScoped<ILawyerService, LawyerService>();
             services.AddTransient<ILibraryService, LibraryService>();
             services.AddScoped<IVeteranService, VeteranService>();
 
+            // Enforce HTTPS across the site (do not allow unencrypted connections)
             services.Configure<MvcOptions>(options =>
             {
                 options.Filters.Add(new RequireHttpsAttribute());
             });
 
+            // Add in the MVC framework
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, RoleManager<IdentityRole> roleManager)
         {
+            // Set up debugging and error handling based on the environment that the host is running under
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
@@ -67,10 +85,13 @@ namespace WillClinic
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            // Allow for static files under wwwroot/
             app.UseStaticFiles();
 
+            // Enable authentication via Identity
             app.UseAuthentication();
 
+            // Establish default routing for MVC and enable support for Razor Pages
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

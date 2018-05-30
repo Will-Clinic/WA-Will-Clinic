@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
+    /// <summary>
+    /// Junction table for the many-to-many relationship between Lawyer and Library
+    /// table rows.
+    /// </summary>
     public class LawyerLibraryJunction
     { 
         public string LawyerId { get; set; }
