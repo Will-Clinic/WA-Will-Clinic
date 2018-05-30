@@ -1,10 +1,9 @@
 # Washington Will Clinic
 **Authors:** Andres Ibarra, Jeff Martinez, Zachary Johnson, Ariel R. Pedraza, Luay Younus, Dustin Mundy
+**Iteration 2:** Josh Taylor, Philip Werner, Kevin Farrow, Brent Williams, Tiger Hsu
 </br>
-**Iteration 2** Josh Taylor, Philip Werner, Kevin Farrow, Brent Williams, Tiger Hsu
-**Version:** : 2.0.0
-
-[**App Deployed on Azure**](https://washingtonwillclinic.azurewebsites.net/)
+**Version:** : 1.2.0
+[**App Deployed on Azure**](https://washingtonwillclinic.azurewebsites.net)
 
 ## Table of Contents
 
@@ -27,7 +26,7 @@ The purpose of the WA Vets Will Clinic is to provide free estate planning docume
 Upon registration, veteran user will be directed to their landing page. On this page, they can begin the application process. Once an application is completed, veteran user will be able to request a meeting with the next available attorney in their immediate area. Once matched with an attorney, the veteran user will be able to pick the meeting details, such as which available time slot they want to meet at, and the location of the meeting.
 
 ### Attorneys Process
-Upon registration, attorney user will be directed to their landing page. On this page, they will be able to flag themselves as looking for veterans to match with, as well as set up their availability for times and dates they are available for meeting. **To be considered for matching with a veteran in need, attorneys must be verified by an Admin using information provided on Attorney Registration.** Once a veteran has been matched with an attorney, the attorney will be notified of the time slot the veteran has chosen, as well as the location for the meeting.
+Upon registration, attorney user will be directed to their landing page. On this page, they will be able to flag themselves as looking for veterans to match with, as well as set up their availability for times and dates they are available for meeting. **To be considered for matching with a veteran in need, attorneys must be verified.** Once a veteran has been matched with an attorney, the attorney will be notified of the time slot the veteran has chosen, as well as the location for the meeting.
 
 ## [Architecture](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 ![Database Schema](https://i.imgur.com/1TC13OI.png "Microsoft SQL Database Schema")
@@ -54,6 +53,14 @@ Upon registration, attorney user will be directed to their landing page. On this
 If users encounter any issues or bugs while using this site, they can be reported through the issues tab found [here]()
 
 ## [Change Log](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
+### Iteration 2
+- Intake form updated for ease and readability
+- Basic matching by selected library complete (TODO range matching)
+- About and resources pages updated
+- Leagal documents built out into viable CSS
+- Coloc schema update to change with logged in user type
+- Attorney validation partial implimented. (TODO Intigrate email confirmation if Attorney has not registered an email)
+- Veteran validation offloaded to Attorney at meeting time.
 
 ## [License](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 MIT Licensed

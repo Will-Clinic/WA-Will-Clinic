@@ -19,20 +19,23 @@ namespace WillClinic.Controllers
             _context = context;
         }
 
-        // GET: /<controller>/
+        // TODO Create and index action that lists all previous documents
         public IActionResult Index()
         {
             return View();
         }
 
+        // TODO Create an Edit Action that allows Lawyers to make changes to the documents 
+
         /// <summary>
         /// Action to display the populated documents for confirmation.
         /// </summary>
         /// <param name="id">Veteran ID</param>
-        /// <returns>razor View</returns>
+        /// <returns>Returns a populated AllDocs View Model that will render into a legal document</returns>
         [HttpGet]
         public async Task<IActionResult> Confirmation(int? id)
         {
+            //This is a hard coded view model. Production will use linq quires to populate the model based on the Veteran ID
             AllDocsViewModel vm = new AllDocsViewModel()
             {
                 FirstName = "Josh",
