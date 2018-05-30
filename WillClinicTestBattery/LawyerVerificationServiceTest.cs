@@ -10,9 +10,9 @@ namespace WillClinicTestBattery
     public class LawyerVerificationServiceTest
     {
         private readonly ILawyerVerificationService _service;
-        public LawyerVerificationServiceTest (LawyerVerificationService service)
+        public LawyerVerificationServiceTest ()
         {
-            _service = service;
+            _service = new LawyerVerificationService();
         }
         [Fact]
         public async Task  CanIdentifyValidLawyerAsync()
