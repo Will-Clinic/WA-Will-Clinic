@@ -19,7 +19,7 @@ namespace WillClinic.Services
 
         public IEnumerable<Library> GetAllLibraries() => _context.Libraries;
         
-        public Task<Library> FindLibraryByNameAsync(string name)
+        public Task<IEnumerable<Library>> FindLibrariesByNameAsync(string name)
         {
             throw new NotImplementedException();
         }

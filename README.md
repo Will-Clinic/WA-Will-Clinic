@@ -1,8 +1,8 @@
 # Washington Will Clinic
-**Authors:** Andres Ibarra, Jeff Martinez, Zachary Johnson, Ariel R. Pedraza, Luay Younus, Dustin Mundy
-**Iteration 2:** Josh Taylor, Philip Werner, Kevin Farrow, Brent Williams, Tiger Hsu
-</br>
-**Version:** : 1.2.0
+**Iteration 1:** Andres Ibarra, Jeff Martinez, Zachary Johnson, Ariel R. Pedraza, Luay Younus, Dustin Mundy<br/>
+**Iteration 2:** Josh Taylor, Philip Werner, Kevin Farrow, Brent Williams, Tiger Hsu<br/>
+**Version:** 1.2.0
+
 [**App Deployed on Azure**](https://washingtonwillclinic.azurewebsites.net)
 
 ## Table of Contents
@@ -23,34 +23,62 @@ The purpose of the WA Vets Will Clinic is to provide free estate planning docume
 ## [Getting Started](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 
 ### Veterans Process
-Upon registration, veteran user will be directed to their landing page. On this page, they can begin the application process. Once an application is completed, veteran user will be able to request a meeting with the next available attorney in their immediate area. Once matched with an attorney, the veteran user will be able to pick the meeting details, such as which available time slot they want to meet at, and the location of the meeting.
+After registering for an account and logging in, veterans will be presented
+with their personal profile. This profile page provides a link to filling
+out the veteran's intake form containing all of the information necessary
+for an attorney to render services for that veteran. In addition, the profile
+gives the veteran a choice of up to three libraries at which the veteran has
+elected to meet with attorneys. The date and time that each library selection
+has been made is recorded into the database, and matches with attorneys will
+be prioritized based upon that date in a first-come-first-serve manner.
 
 ### Attorneys Process
-Upon registration, attorney user will be directed to their landing page. On this page, they will be able to flag themselves as looking for veterans to match with, as well as set up their availability for times and dates they are available for meeting. **To be considered for matching with a veteran in need, attorneys must be verified.** Once a veteran has been matched with an attorney, the attorney will be notified of the time slot the veteran has chosen, as well as the location for the meeting.
+After registering for an account and logging in, attorneys will be presented
+with their personal profile. This profile page gives the attorney options
+to define the libraries at which they can meet with veterans in the state
+of Washington. Additionally, the attorney can specify their meeting schedule
+in terms of weekly recurring times or specific dates and times. 
+
+After an attorney selects the times and locations that they are open to
+meeting with veterans, any veterans matching the attorney's chosen locations
+will appear on their profile. At this time, the attorney can choose to
+initiate the matching process. Alternative meeting locations are presented
+to the attorney in case one of the locations the veteran chose is more
+convenient to the attorney.
 
 ## [Architecture](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
-![Database Schema](https://i.imgur.com/1TC13OI.png "Microsoft SQL Database Schema")
+![Database Schema](/Resources/dbSchema.png)
 
 ## [FAQs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 1. How long does the application process for veterans normally take?
   + The application process for a veteran can vary, but the average time for completion is 45 minutes if all necessary documents are available. Veterans can save their progress at any point during the application process should they need to stop.
   
 2. How long does the application process for attorneys normally take?
-  + The application process for an attorney should take an average of 5 minutes. The verification process for attorneys so they'll be able to match with a veteran is dependent on when an admin will be able to get to their request.
-  
+  + The application process for an attorney should take an average of 5
+  minutes. A verification of the lawyer's bar status will take place based
+  on the current status of the Washington State Bar Association's records
+  which should only take a few seconds to complete.
+
 3. I'm not sure if I qualify for the Will Clinic, what can be counted as an asset?
   + For a description of what can be considered an asset, please review [**this**](https://www.sapling.com/12085934/examples-personal-assets) helpful article.
 4. I've completed my application, now what?
-  + Once your application is completed, you will still have to search for a lawyer. This button can be found on the user's landing page.
-  
+  + Ensure that libraries are chosen for meeting locations with attorneys.
+  Once libraries are chosen, you are placed into the pool of eligible 
+  veterans to receive services based on the date and time that you selected
+  your meeting locations. An attorney should be able to then match with you
+  on a first-come-first-serve basis within a few days.
+
 5. As a veteran, how many times can I use the Washington Will Clinic?
   + A veteran can only have one active application at a time, but if the veteran needs to update their will again at a later date and they still qualify for assistance, a veteran can always reuse the Washington Veterans Will Clinic's services.
 
 6. A lot of this information is sensitive, are my documents protected?
-  + Security is an important issue for all people involved. All accounts are secured, with user information hidden.
+  + Security is an important issue for all people involved. All accounts are secured with user information hidden. All data transmissions on the site
+  are encrypted. In addition, your information will be kept confidential and
+  private until both the veteran and attorney have agreed to be matched for
+  services.
   
 ## [Reporting Issues/Bugs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
-If users encounter any issues or bugs while using this site, they can be reported through the issues tab found [here]()
+If users encounter any issues or bugs while using this site, they can be reported through the issues tab found [here](https://github.com/Will-Clinic/WA-Will-Clinic/issues)
 
 ## [Change Log](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 ### Iteration 2
@@ -58,12 +86,14 @@ If users encounter any issues or bugs while using this site, they can be reporte
 - Basic matching by selected library complete (TODO range matching)
 - About and resources pages updated
 - Leagal documents built out into viable CSS
-- Coloc schema update to change with logged in user type
+- Color scheme update to change with logged-in user type
 - Attorney validation partial implimented. (TODO Intigrate email confirmation if Attorney has not registered an email)
 - Veteran validation offloaded to Attorney at meeting time.
 
 ## [License](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
-MIT Licensed
+The Washington Will Clinic's source code as found within this repository
+is licensed under the MIT License. License terms can be found within the
+[LICENSE](/LICENSE) document at the root of this repository.
 
 ## Resources
 https://css-tricks.com/almanac/properties/p/page-break/

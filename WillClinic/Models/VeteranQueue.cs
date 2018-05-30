@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace WillClinic.Models
 {
+    [Obsolete("Veteran queueing is now based on timestamps found on the VeteranLibraryJunction table")]
     public class VeteranQueue
     {
         public int ID { get; set; }
