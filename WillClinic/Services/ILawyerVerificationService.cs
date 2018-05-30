@@ -7,6 +7,6 @@ namespace WillClinic.Services
 {
     public interface ILawyerVerificationService
     {
-        Task<bool> IsValidLawyerAsync(string name, int number, string email);
+        Task<bool> IsValidLawyerAsync(int number, string email);
     }
 }
