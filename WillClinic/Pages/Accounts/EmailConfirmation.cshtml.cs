@@ -19,20 +19,20 @@ namespace WillClinic.Pages.Accounts
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManger;
         private readonly ILawyerVerificationService _verificationService;
-        internal string Email { get; set; }
-        internal string City { get; set; }
-        internal string State { get; set; }
-        internal string Country { get; set; }
-        internal int Zip { get; set; }
-        internal string PracticeAreas { get; set; }
-        internal int YearsOfExperience { get; set; }
-        internal bool OtherLanguages = false; //TODO this is a placeholder. Add a feature or delete in next iteration.
-        internal int BarNumber { get; set; }
+        public string Email { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+        public int Zip { get; set; }
+        public string PracticeAreas { get; set; }
+        public int YearsOfExperience { get; set; }
+        public bool OtherLanguages = false; //TODO this is a placeholder. Add a feature or delete in next iteration.
+        public int BarNumber { get; set; }
         private ApplicationDbContext _context;
 
         public EmailConfirmationModel (UserManager<ApplicationUser> userManager,
                                        SignInManager<ApplicationUser> signInManager, 
-                                       LawyerVerificationService verificationService, 
+                                       ILawyerVerificationService verificationService, 
                                        ApplicationDbContext context,
                                        RoleManager<IdentityRole> roleManager)
         {
@@ -43,11 +43,15 @@ namespace WillClinic.Pages.Accounts
             _roleManager = roleManager;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            return Page();
         }
 
+        /// <summary>
+        /// This action only occurs when a lawyer has posted their bar number.
+        /// </summary>
+        /// <returns>Add lawyer to the role if appropriate</returns>
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.FindByEmailAsync(Email);

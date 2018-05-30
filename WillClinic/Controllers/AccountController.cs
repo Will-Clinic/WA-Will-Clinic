@@ -83,7 +83,8 @@ namespace WillClinic.Controllers
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+            // Something failed, redisplay form
+            ViewData["error"] = "an error has occured, please try again";
             return View(model);
         }
 
@@ -290,44 +291,6 @@ namespace WillClinic.Controllers
 
             ViewData["ReturnUrl"] = returnUrl;
             return View(nameof(ExternalLogin), model);
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
-        {
-            if (userId == null || code == null)
-            {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-            {
-                throw new ApplicationException($"Unable to load user with ID '{userId}'.");
-            }
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Verify(string email, string code, string userType)
-        {
-            ApplicationUser user = await _userManager.FindByEmailAsync(email);
-
-            if (!string.IsNullOrWhiteSpace(code) &&
-                (await _userManager.ConfirmEmailAsync(user, code)).Succeeded)
-            {
-                if (userType == ApplicationRoles.Lawyer)
-                {
-                    //return RedirectToPage(nameof());
-                }
-                user.EmailConfirmed = true;
-                await _userManager.UpdateAsync(user);
-
-                return RedirectToAction("bluegreenred");
-            }
-            return RedirectToPage("Login");
-            //TODO Redirect to somewhere
         }
 
         [HttpGet]

@@ -13,20 +13,37 @@
 
 <div>
     <p>Please input your Bar Number. Note: if the email for your account and the email you have on file with the Washington State Bar Association do not match you will not be confirmed as an attorney.</p>
-    <form method="post" asp-page="EmailConfirmation" asp-action="OnPostAsyc">
-        <label asp-for="BarNumber">Bar Number</label>
-        <input asp-for="BarNumber" type="number"/>
-        <label asp-for="City">City</label>
-        <input asp-for="City" />
-        <label asp-for="State">State</label>
-        <input asp-for="State" />
-        <label asp-for="Country">Country</label>
-        <input asp-for="Country" />
-        <label asp-for="Zip">Zip Code</label>
-        <input asp-for="Zip" />
-        <label asp-for="PracticeAreas">Practice Areas</label>
-        <input asp-for="PracticeAreas" />
-        <label asp-for="YearsOfExperience">Years Of Experience</label>
-        <input asp-for="YearsOfExperience" />
+    <form method="post" asp-action="OnPostAsync">
+        <div>
+            <label asp-for="BarNumber">Bar Number</label>
+            <input asp-for="BarNumber" type="number" />
+        </div>
+        <div>
+            <label asp-for="City">City</label>
+            <input asp-for="City" />
+        </div>
+        <div>
+            <label asp-for="State">State</label>
+            <input asp-for="State" />
+        </div>
+        <div>
+            <label asp-for="Country">Country</label>
+            <input asp-for="Country" />
+        </div>
+        <div>
+            <label asp-for="Zip">Zip Code</label>
+            <input asp-for="Zip" />
+        </div>
+        <div>
+            <label asp-for="PracticeAreas">Practice Areas</label>
+            <input asp-for="PracticeAreas" />
+        </div>
+        <div>
+            <label asp-for="YearsOfExperience">Years Of Experience</label>
+            <input asp-for="YearsOfExperience" />
+        </div>
+        <div>
+            <button type="submit">Submit and Verify</button>
+        </div>
     </form>
 </div>
