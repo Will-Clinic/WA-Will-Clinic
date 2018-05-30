@@ -47,28 +47,38 @@ to the attorney in case one of the locations the veteran chose is more
 convenient to the attorney.
 
 ## [Architecture](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
-![Database Schema](https://i.imgur.com/1TC13OI.png "Microsoft SQL Database Schema")
+![Database Schema](/Resources/dbSchema.png)
 
 ## [FAQs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 1. How long does the application process for veterans normally take?
   + The application process for a veteran can vary, but the average time for completion is 45 minutes if all necessary documents are available. Veterans can save their progress at any point during the application process should they need to stop.
   
 2. How long does the application process for attorneys normally take?
-  + The application process for an attorney should take an average of 5 minutes. The verification process for attorneys so they'll be able to match with a veteran is dependent on when an admin will be able to get to their request.
-  
+  + The application process for an attorney should take an average of 5
+  minutes. A verification of the lawyer's bar status will take place based
+  on the current status of the Washington State Bar Association's records
+  which should only take a few seconds to complete.
+
 3. I'm not sure if I qualify for the Will Clinic, what can be counted as an asset?
   + For a description of what can be considered an asset, please review [**this**](https://www.sapling.com/12085934/examples-personal-assets) helpful article.
 4. I've completed my application, now what?
-  + Once your application is completed, you will still have to search for a lawyer. This button can be found on the user's landing page.
-  
+  + Ensure that libraries are chosen for meeting locations with attorneys.
+  Once libraries are chosen, you are placed into the pool of eligible 
+  veterans to receive services based on the date and time that you selected
+  your meeting locations. An attorney should be able to then match with you
+  on a first-come-first-serve basis within a few days.
+
 5. As a veteran, how many times can I use the Washington Will Clinic?
   + A veteran can only have one active application at a time, but if the veteran needs to update their will again at a later date and they still qualify for assistance, a veteran can always reuse the Washington Veterans Will Clinic's services.
 
 6. A lot of this information is sensitive, are my documents protected?
-  + Security is an important issue for all people involved. All accounts are secured, with user information hidden.
+  + Security is an important issue for all people involved. All accounts are secured with user information hidden. All data transmissions on the site
+  are encrypted. In addition, your information will be kept confidential and
+  private until both the veteran and attorney have agreed to be matched for
+  services.
   
 ## [Reporting Issues/Bugs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
-If users encounter any issues or bugs while using this site, they can be reported through the issues tab found [here]()
+If users encounter any issues or bugs while using this site, they can be reported through the issues tab found [here](https://github.com/Will-Clinic/WA-Will-Clinic/issues)
 
 ## [Change Log](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 ### Iteration 2
@@ -76,12 +86,14 @@ If users encounter any issues or bugs while using this site, they can be reporte
 - Basic matching by selected library complete (TODO range matching)
 - About and resources pages updated
 - Leagal documents built out into viable CSS
-- Coloc schema update to change with logged in user type
+- Color scheme update to change with logged-in user type
 - Attorney validation partial implimented. (TODO Intigrate email confirmation if Attorney has not registered an email)
 - Veteran validation offloaded to Attorney at meeting time.
 
 ## [License](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
-MIT Licensed
+The Washington Will Clinic's source code as found within this repository
+is licensed under the MIT License. License terms can be found within the
+[LICENSE](/LICENSE) document at the root of this repository.
 
 ## Resources
 https://css-tricks.com/almanac/properties/p/page-break/
