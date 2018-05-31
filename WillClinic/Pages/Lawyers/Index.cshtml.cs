@@ -34,6 +34,10 @@ namespace WillClinic.Pages.Lawyers
             _veteranService = veteranService;
         }
 
+        /// <summary>
+        /// Present the lawyer with their potential clients, library choices, schedules, and options to match
+        /// with potential clients, change their libraries, and to modify their schedule.
+        /// </summary>
         public async Task OnGetAsync()
         {
             Lawyer = await _lawyerService.GetLawyerByPrincipalAsync(User);

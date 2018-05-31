@@ -8,6 +8,7 @@ using WillClinic.Models;
 
 namespace WillClinic.Services
 {
+    // Refer to ILibraryService.cs for documentation
     public class LibraryService : ILibraryService
     {
         private readonly ApplicationDbContext _context;

@@ -24,6 +24,9 @@ namespace WillClinic.Pages.Veterans
             _libraryService = libraryService;
         }
 
+        /// <summary>
+        /// Displays the veteran's profile with options to select libraries or start their intake form
+        /// </summary>
         public async Task OnGetAsync()
         {
             Veteran veteran = await _veteranService.GetVeteranByPrincipalAsync(User);

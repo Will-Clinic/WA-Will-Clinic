@@ -12,6 +12,7 @@ using WillClinic.Models;
 
 namespace WillClinic.Services
 {
+    // Refer to ILawyerService.cs for documentation
     public class LawyerService : ILawyerService
     {
         private readonly ApplicationDbContext _context;
