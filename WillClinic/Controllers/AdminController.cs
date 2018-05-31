@@ -56,65 +56,6 @@ namespace WillClinic.Controllers
             return View(results);
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Register(string returnUrl = null)
-        {
-            ViewData["ReturnUrl"] = returnUrl;
-            return View();
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterAdminViewModel model, string returnUrl = null)
-        {
-            //CHeck if admin role exists
-            if(!await _roleManager.RoleExistsAsync("Admin"))
-            {
-                await _roleManager.CreateAsync(new IdentityRole("Admin"));
-            }
-           
-
-            ViewData["ReturnUrl"] = returnUrl;
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, MiddleInitial = model.MiddleInitial, LastName = model.LastName };
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User created a new account with password.");
-
-                    // Setting up claims for the Admin
-                    string fullname = $"{model.FirstName} {model.MiddleInitial}. {model.LastName}";
-                    Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);
-                    Claim email = new Claim(ClaimTypes.Email, model.Email, ClaimValueTypes.String);
-                    List<Claim> claims = new List<Claim> { name, email };
-                    await _userManager.AddClaimsAsync(user, claims);
-
-                    // Adding Role to Admin account
-                    await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
-
-                    // Populate Admin Table with new account
-                    Admin newAdmin = new Admin { ApplicationUserId = user.Id};
-                    await _context.Admins.AddAsync(newAdmin);
-                    await _context.SaveChangesAsync();
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
-                }
-                AddErrors(result);
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
         #region Helpers
 
         private void AddErrors(IdentityResult result)

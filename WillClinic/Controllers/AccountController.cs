@@ -83,7 +83,8 @@ namespace WillClinic.Controllers
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+            // Something failed, redisplay form
+            ViewData["error"] = "an error has occured, please try again";
             return View(model);
         }
 
@@ -294,23 +295,6 @@ namespace WillClinic.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
-        {
-            if (userId == null || code == null)
-            {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-            {
-                throw new ApplicationException($"Unable to load user with ID '{userId}'.");
-            }
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
         public IActionResult ForgotPassword()
         {
             return View();
@@ -335,7 +319,7 @@ namespace WillClinic.Controllers
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
                 await _emailSender.SendEmailAsync(model.Email, "Reset Password",
-                   $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+                   $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>", "");
                 return RedirectToAction(nameof(ForgotPasswordConfirmation));
             }
 

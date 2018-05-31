@@ -23,7 +23,7 @@ The purpose of the WA Vets Will Clinic is to provide free estate planning docume
 ## [Getting Started](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 
 ### Veterans Process
-After registering for an account and logging in, veterans will be presented
+After registering for an account, an email verification link will be sent to the veteran. Once the provided link has been clicked (or the address copied and pasted into the veteran's browser if the veteran does not have HTML email support) and the veteran has been successfully logged in, veterans will be presented
 with their personal profile. This profile page provides a link to filling
 out the veteran's intake form containing all of the information necessary
 for an attorney to render services for that veteran. In addition, the profile
@@ -33,7 +33,10 @@ has been made is recorded into the database, and matches with attorneys will
 be prioritized based upon that date in a first-come-first-serve manner.
 
 ### Attorneys Process
-After registering for an account and logging in, attorneys will be presented
+After registering for an account, an email verification link will be sent to the attorney. Once the provided link has been clicked (or the address copied and pasted into the attorney's browser if the attorney does not have HTML email support), another form will be presented in which the attorney will provide their bar number for verification with the Washington State Bar Association along with some additional information. The attorney's bar number will be checked against the WSBA to ensure the attorney is allowed to practice law and that they are who they say they are via a match against their provided email address.
+
+Once the attorney has verified their email and status as an attorney, the
+attorney will be able to log in. Upon logging in, attorneys will be presented
 with their personal profile. This profile page gives the attorney options
 to define the libraries at which they can meet with veterans in the state
 of Washington. Additionally, the attorney can specify their meeting schedule
@@ -48,6 +51,14 @@ convenient to the attorney.
 
 ## [Architecture](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 ![Database Schema](/Resources/dbSchema.png)
+
+## External Services
+
+The Washington Will Clinic makes use of the following services:
+
+- Azure for cryptographically secured storage of secrets (API keys, database connection strings, etc.), application hosting, database management, and account registration for SendGrid 
+- SendGrid for email verification, notifications, and administrative communications to users of the site
+- The Washington State Bar Association's website for verification of attorneys' bar status via web scraping (with permission from the WSBA)
 
 ## [FAQs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 1. How long does the application process for veterans normally take?
