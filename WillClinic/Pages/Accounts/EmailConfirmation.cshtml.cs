@@ -90,15 +90,25 @@ namespace WillClinic.Pages.Accounts
                 await _context.Lawyers.AddAsync(newLaw);
                 await _context.SaveChangesAsync();
 
+                //Everything went well, simply redirect to email confirmed page
                 return RedirectToPage("./EmailConfirmed");
                 }
             else if (user.EmailConfirmed == false)
             {
+                //cannot confirm a lawyer until email is confirmed
+                //lawyer confirmation checks email against the listed email with
+                //the WSBA. If they match, lawyer is valid. If email is unconfirmed,
+                //faking being a lawyer would be easy.
                 ViewData["error"] = "Your email has not been confirmed.";
                 return Page();
             }
             else
             {
+                //The WSBA information does not return a valid lawyer. At least one of the following is true:
+                //the email the WSBA has for that bar number is not the confirmed email for the account
+                //the WSBA info says that person is licensed but not as a lawyer
+                //the WSBA info say that person is not currently eligible to practice
+                //the WSBA has changed their public facing legal directory -- tests should be failing.s
                 ViewData["error"] = "The bar number provided does not match the information provided by the Washington State Bar Association, or your license type is not lawyer, or you are not currently eligible to practice. To correct any of these concerns, please contact the WSBA to update their records or create a new account with the matching email address.";
                 return Page();
             }
@@ -143,8 +153,8 @@ namespace WillClinic.Pages.Accounts
                         // Setting up claims for the Veteran
                         string fullname = $"{user.FirstName} {user.MiddleInitial} {user.LastName}";
                         Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);
-                        Claim EMail = new Claim(ClaimTypes.Email, Email, ClaimValueTypes.String);
-                        List<Claim> claims = new List<Claim> { name, EMail };
+                        Claim email = new Claim(ClaimTypes.Email, Email, ClaimValueTypes.String);
+                        List<Claim> claims = new List<Claim> { name, email };
                         await _userManager.AddClaimsAsync(user, claims);
 
                         // Adding Role to Veteran account
