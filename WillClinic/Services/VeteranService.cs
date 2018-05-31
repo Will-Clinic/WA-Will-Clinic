@@ -11,6 +11,7 @@ using WillClinic.Models;
 
 namespace WillClinic.Services
 {
+    // Refer to IVeteranService.cs for documentation
     public class VeteranService : IVeteranService
     {
         private readonly ApplicationDbContext _context;
@@ -30,6 +31,7 @@ namespace WillClinic.Services
 
         public async Task<IEnumerable<Veteran>> GetPotentialClientsForLawyerAsync(string lawyerId) =>
             await _context.VeteranLibraryJunctions.Include(vlj => vlj.Veteran)
+                                                  // OrderBy ensures that the returned veterans are sorted by the order in which they added their library selections
                                                   .OrderBy(vlj => vlj.TimeAdded)
                                                   .Join(_context.LawyerLibraryJunctions,
                                                       vlj => vlj.LibraryId,
@@ -45,6 +47,7 @@ namespace WillClinic.Services
         {
             ApplicationUser user = await _userManager.GetUserAsync(principal);
 
+            // Ensure that the provided claims principal actually corresponds to a Veteran entity in the database
             if (user is null)
             {
                 return null;
@@ -63,6 +66,7 @@ namespace WillClinic.Services
             IEnumerable<long> currentLibraryIds = _context.VeteranLibraryJunctions.Where(vlj => vlj.VeteranId == veteranId)
                                                                                   .Select(vlj => vlj.LibraryId);
 
+            // Add all libraries in the provided IEnumerable argument which are not currently related to the veteran
             foreach (long libraryId in libraryIds.Except(currentLibraryIds))
             {
                 await _context.VeteranLibraryJunctions.AddAsync(new VeteranLibraryJunction()
@@ -73,6 +77,7 @@ namespace WillClinic.Services
                 });
             }
 
+            // Remove all junction table rows for existing libraries related to the veteran but not included in the libraryIds argument
             foreach (long libraryId in currentLibraryIds.Except(libraryIds))
             {
                 _context.VeteranLibraryJunctions.Remove(
@@ -80,6 +85,7 @@ namespace WillClinic.Services
                         vlj => vlj.VeteranId == veteranId && vlj.LibraryId == libraryId));
             }
 
+            // Try to commit all changes to the database
             try
             {
                 await _context.SaveChangesAsync();
@@ -92,12 +98,10 @@ namespace WillClinic.Services
             }
         }
 
-        public async Task<IEnumerable<VeteranLibraryJunction>> GetVeteranLibraryJunctionsAsync(string veteranId)
-        {
-            return await _context.VeteranLibraryJunctions.Where(vlj => vlj.VeteranId == veteranId)
-                                                         .Include(vlj => vlj.Library)
-                                                         .Include(vlj => vlj.Veteran)
-                                                         .ToListAsync();
-        }
+        public async Task<IEnumerable<VeteranLibraryJunction>> GetVeteranLibraryJunctionsAsync(string veteranId) =>
+            await _context.VeteranLibraryJunctions.Where(vlj => vlj.VeteranId == veteranId)
+                                                  .Include(vlj => vlj.Library)
+                                                  .Include(vlj => vlj.Veteran)
+                                                  .ToListAsync();
     }
 }
