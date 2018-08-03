@@ -22,7 +22,7 @@ namespace WillClinic.Pages.Accounts
     {
         private readonly ApplicationDbContext _context;
         private readonly IEmailSender _emailSender;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _configuration;
         private readonly ILogger<RegisterModel> _logger;
 
@@ -71,14 +71,14 @@ namespace WillClinic.Pages.Accounts
             return Page();
         }
 
-        /// <summary>
-        /// Attempts to create a new user account and to send a verification email to the user containing a link
-        /// needed to confirm their email address as well as creating their lawyer or veteran profile based on the
-        /// selection provided in the form presented in the GET handler
-        /// </summary>
-        /// <returns>RedirectToPageResult for /Accounts/EmailVerificationSent upon success.
-        /// HTTP 500 if the user account could not be created in the database. HTTP 503 if the verification email
-        /// was not able to be sent</returns>
+        ///// <summary>
+        ///// Attempts to create a new user account and to send a verification email to the user containing a link
+        ///// needed to confirm their email address as well as creating their lawyer or veteran profile based on the
+        ///// selection provided in the form presented in the GET handler
+        ///// </summary>
+        ///// <returns>RedirectToPageResult for /Accounts/EmailVerificationSent upon success.
+        ///// HTTP 500 if the user account could not be created in the database. HTTP 503 if the verification email
+        ///// was not able to be sent</returns>
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -86,27 +86,35 @@ namespace WillClinic.Pages.Accounts
                 return Page();
             }
 
-            // NOTE(taylorjoshuaw): User creation should be refactored into a service!
-            await _userManager.CreateAsync(NewUser, Password);
+            NewUser.UserName = NewUser.Email;
 
+            var result = await _userManager.CreateAsync(NewUser, Password);
+            if (result.Succeeded)
+            {
+
+            }
+            // NOTE(taylorjoshuaw): User creation should be refactored into a service!
             // Attempt to commit user creation to the database
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch
-            {
-                // Log the error and return a 500 error to indicate an error commiting the new user to the database
-                _logger.LogError("Unable to create user upon POST of user creation form");
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
+            //try
+            //{
+            //    //await _context.SaveChangesAsync();
+            //}
+            //catch
+            //{
+            //    // Log the error and return a 500 error to indicate an error commiting the new user to the database
+            //    _logger.LogError("Unable to create user upon POST of user creation form");
+            //    return StatusCode(StatusCodes.Status500InternalServerError);
+            //}
 
             // Set up email verification
             // Building verification email with link
             string code = await _userManager.GenerateEmailConfirmationTokenAsync(NewUser);
 
-            string verifyLink = Url.Page(nameof(EmailConfirmationModel), nameof(EmailConfirmationModel.OnLinkAsync),
-                    new { email = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
+            //string verifyLink = Url.Page(nameof(EmailConfirmationModel), nameof(EmailConfirmationModel.OnLinkAsync),
+            //        new { email = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
+
+            string verifyLink = Url.Page("/Accounts/EmailConfirmed", "OnGet",
+        new { email = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
 
 
             // Compose the e-mail message to send to the user

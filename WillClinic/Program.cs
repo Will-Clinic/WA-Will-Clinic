@@ -38,36 +38,42 @@ namespace WillClinic
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                // Configure IConfiguration for DI throughout the app. Note that any keys contained in
-                // Azure Key Vault will be available using key/value pair access on IConfiguration objects.
-                .ConfigureAppConfiguration((context, config) =>
-                {
-                    // Bring in the appsettings.json and environment variables to IConfiguration for DI
-                    config.SetBasePath(Directory.GetCurrentDirectory())
-                        .AddJsonFile("appsettings.json", optional: false)
-                        .AddEnvironmentVariables();
+                WebHost.CreateDefaultBuilder(args)
+                    .UseStartup<Startup>()
+                    .Build();
 
-                    // Build the configuration to bring in key vault configuration
-                    var builtConfig = config.Build();
+        //public static IWebHost BuildWebHost(string[] args) =>
+        //    WebHost.CreateDefaultBuilder(args)
+        //        // Configure IConfiguration for DI throughout the app. Note that any keys contained in
+        //        // Azure Key Vault will be available using key/value pair access on IConfiguration objects.
+        //        .ConfigureAppConfiguration((context, config) =>
+        //        {
+        //            // Bring in the appsettings.json and environment variables to IConfiguration for DI
+        //            config.SetBasePath(Directory.GetCurrentDirectory())
+        //                .AddJsonFile("appsettings.json", optional: false)
+        //                .AddEnvironmentVariables();
 
-                    // Add access to Azure Key Vault to IConfiguration for DI within the application.
-                    // Note that the the VaultName, ClientId, and ClientSecret keys must exist under
-                    // the AzureKeyVault object within the appsettings.json file in order to configure
-                    // access to the key vault, and this will throw an exception if your computer is
-                    // not connected to the internet.
-                    config.AddAzureKeyVault(
-                        $"https://{builtConfig["AzureKeyVault:VaultName"]}.vault.azure.net/",
-                        builtConfig["AzureKeyVault:ClientId"],
-                        builtConfig["AzureKeyVault:ClientSecret"]);
-                })
-                .ConfigureLogging((context, logging) =>
-                {
-                    logging.AddConfiguration(context.Configuration.GetSection("Logging"));
-                    logging.AddConsole();
-                    logging.AddDebug();
-                })
-                .UseStartup<Startup>()
-                .Build();
+        //            // Build the configuration to bring in key vault configuration
+        //            var builtConfig = config.Build();
+
+        //            // Add access to Azure Key Vault to IConfiguration for DI within the application.
+        //            // Note that the the VaultName, ClientId, and ClientSecret keys must exist under
+        //            // the AzureKeyVault object within the appsettings.json file in order to configure
+        //            // access to the key vault, and this will throw an exception if your computer is
+        //            // not connected to the internet.
+        //            //config.AddAzureKeyVault(
+        //            //    $"https://{builtConfig["AzureKeyVault:VaultName"]}.vault.azure.net/",
+        //            //    builtConfig["AzureKeyVault:ClientId"],
+        //            //    builtConfig["AzureKeyVault:ClientSecret"]);
+        //        })
+
+        //        .ConfigureLogging((context, logging) =>
+        //        {
+        //            logging.AddConfiguration(context.Configuration.GetSection("Logging"));
+        //            logging.AddConsole();
+        //            logging.AddDebug();
+        //        })
+        //        .UseStartup<Startup>()
+        //        .Build();
     }
 }
