@@ -693,6 +693,40 @@ h2 {
         text-decoration: none !important;
     }
 
+.logout-container {
+    text-align: center;
+}
+
+#logout-btn {
+    padding: .5em 5em;
+}
+
+i.big-user-icon {
+    font-size: 40px;
+    float: left;
+}
+.user-menu {
+    background-color: #117171;
+    width: 250px;
+    padding: 1em;
+}
+
+#user-attr {
+    margin-left: 3em;
+}
+
+div.dropdown-divider {
+    color:#fff;
+}
+
+a.dropdown-item {
+    display:block;
+}
+
+li.open > a > * {
+    color:saddlebrown;
+}
+
 /*Navbar Title*/
 .info-custom {
     background: rgb(44,62,80);
@@ -821,3 +855,7 @@ li.row {
 .info-custom.lawyer {
     background-color: #222;
 }
+
+/** {
+    outline:1px solid red;
+}*/
