@@ -21,7 +21,10 @@ namespace WillClinic
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            // For production.
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -32,11 +35,18 @@ namespace WillClinic
             // production database via Azure Key Vault. Change which AddDbContext call is
             // commented to switch between production and the local development database.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["ApplicationDbConnection"]));
+                options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
             /*
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
             */
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -67,7 +77,8 @@ namespace WillClinic
             });
 
             // Add in the MVC framework
-            services.AddMvc();
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,6 +96,8 @@ namespace WillClinic
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseHttpsRedirection();
+            app.UseCookiePolicy();
             // Allow for static files under wwwroot/
             app.UseStaticFiles();
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using WillClinic.Models;
 
 namespace WillClinic.Data
@@ -15,6 +16,17 @@ namespace WillClinic.Data
         {
             
         }
+
+        //public class ApplicationContextDbFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+        //{
+        //    ApplicationDbContext IDesignTimeDbContextFactory<ApplicationDbContext>.CreateDbContext(string[] args)
+        //    {
+        //        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+        //        optionsBuilder.UseSqlServer<ApplicationDbContext>("Server = (localdb)\\mssqllocaldb; Database = WillClinicTest; Trusted_Connection = True; MultipleActiveResultSets = true");
+
+        //        return new ApplicationDbContext(optionsBuilder.Options);
+        //    }
+        //}
 
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Lawyer> Lawyers { get; set; }
@@ -52,7 +64,7 @@ namespace WillClinic.Data
 
             builder.Entity<VeteranLawyerMatch>()
                 // Potentially use these two properties as a composite key instead of requiring match to have it's own ID.
-            //    .HasKey(a => new { a.LawyerId, a.VeteranApplicationUserId });
+                //    .HasKey(a => new { a.LawyerId, a.VeteranApplicationUserId });
                 .HasKey(vlm => vlm.ID);
 
             builder.Entity<VeteranQueue>()
@@ -78,9 +90,9 @@ namespace WillClinic.Data
             builder.Entity<LawyerLibraryJunction>()
                 .HasKey(llj => new { llj.LawyerId, llj.LibraryId });
 
-             builder.Entity<VeteranChild>()
-                .HasOne(child => child.Veteran)
-                .WithMany(vet => vet.Children);
+            builder.Entity<VeteranChild>()
+               .HasOne(child => child.Veteran)
+               .WithMany(vet => vet.Children);
 
             builder.Entity<VeteranChild>()
                 .HasKey(a => a.ID);
@@ -125,6 +137,6 @@ namespace WillClinic.Data
                 .WithOne(l => l.Library);
         }
 
-        public DbSet<WillClinic.Models.ApplicationUser> ApplicationUser { get; set; }
+        //public DbSet<ApplicationUser> ApplicationUser { get; set; }
     }
 }
