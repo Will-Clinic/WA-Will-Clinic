@@ -21,7 +21,10 @@ namespace WillClinic
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            // For production.
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -32,7 +35,7 @@ namespace WillClinic
             // production database via Azure Key Vault. Change which AddDbContext call is
             // commented to switch between production and the local development database.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
             /*
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
