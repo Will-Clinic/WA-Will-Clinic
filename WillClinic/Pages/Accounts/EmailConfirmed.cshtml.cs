@@ -57,9 +57,9 @@ namespace WillClinic.Pages.Accounts
         /// <param name="expectedRole">the role that user is attempting to aquire</param>
         /// <returns>redirect to email confirmed for vets, bar number entry for lawyers</returns>
         [HttpPost]
-        public async Task<IActionResult> OnGet(string email, string code, string SelectedUserType)
+        public async Task<IActionResult> OnGet(string id, string code, string SelectedUserType)
         {
-            ApplicationUser user = await _userManager.FindByIdAsync(email);
+            ApplicationUser user = await _userManager.FindByIdAsync(id);
 
             if (!string.IsNullOrWhiteSpace(code) &&
                 (await _userManager.ConfirmEmailAsync(user, code)).Succeeded)
@@ -68,39 +68,42 @@ namespace WillClinic.Pages.Accounts
                 user.EmailConfirmed = true;
                 await _userManager.UpdateAsync(user);
 
-                //If the link is for a lawyer account, redirect to lawyer confirmation page
-                if (SelectedUserType == ApplicationRoles.Lawyer)
+                if (ModelState.IsValid)
                 {
-                    Email = user.Email;
-                    return RedirectToPage("/EmailConfirmation");
-                }
-                else if (SelectedUserType == ApplicationRoles.Veteran)
-                {
-                    //Create veteran role if it does not exist
-                    if (!await _roleManager.RoleExistsAsync(ApplicationRoles.Veteran))
+                    string fullname = $"{user.FirstName} {user.MiddleInitial} {user.LastName}";
+                    Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);
+                    Claim userEmail = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.String);
+                    List<Claim> claims = new List<Claim> { name, userEmail };
+                    await _userManager.AddClaimsAsync(user, claims);
+
+                    //If the link is for a lawyer account, redirect to lawyer confirmation page
+                    if (SelectedUserType == ApplicationRoles.Lawyer)
                     {
-                        await _roleManager.CreateAsync(new IdentityRole(ApplicationRoles.Veteran));
+                        Email = user.Email;
+                        return RedirectToPage("/EmailConfirmation");
                     }
 
-                    if (ModelState.IsValid)
+                    else if (SelectedUserType == ApplicationRoles.Veteran)
                     {
+                        //Create veteran role if it does not exist
+                        if (!await _roleManager.RoleExistsAsync(ApplicationRoles.Veteran))
+                        {
+                            await _roleManager.CreateAsync(new IdentityRole(ApplicationRoles.Veteran));
+                        }
 
-                        // Setting up claims for the Veteran
-                        string fullname = $"{user.FirstName} {user.MiddleInitial} {user.LastName}";
-                        Claim name = new Claim(ClaimTypes.Name, fullname, ClaimValueTypes.String);
-                        Claim userEmail = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.String);
-                        List<Claim> claims = new List<Claim> { name, userEmail };
-                        await _userManager.AddClaimsAsync(user, claims);
+                        if (ModelState.IsValid)
+                        {
 
-                        // Adding Role to Veteran account
-                        await _userManager.AddToRoleAsync(user, ApplicationRoles.Veteran);
+                            // Adding Role to Veteran account
+                            await _userManager.AddToRoleAsync(user, ApplicationRoles.Veteran);
 
-                        // Populate Veteran Table with new account
-                        Veteran newVet = new Veteran { ApplicationUserId = user.Id };
-                        await _context.Veterans.AddAsync(newVet);
-                        await _context.SaveChangesAsync();
+                            // Populate Veteran Table with new account
+                            Veteran newVet = new Veteran { ApplicationUserId = user.Id };
+                            await _context.Veterans.AddAsync(newVet);
+                            await _context.SaveChangesAsync();
+                        }
+                        return Page();
                     }
-                    return Page();
                 }
             }
             //Catch all default for when the link is invalid
@@ -108,5 +111,6 @@ namespace WillClinic.Pages.Accounts
             return RedirectToPage(nameof(RegisterModel));
             //TODO create page that will resend confirmation email with valid link
         }
+    }
 }
-}
+
