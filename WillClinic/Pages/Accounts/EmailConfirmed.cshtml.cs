@@ -57,9 +57,9 @@ namespace WillClinic.Pages.Accounts
         /// <param name="expectedRole">the role that user is attempting to aquire</param>
         /// <returns>redirect to email confirmed for vets, bar number entry for lawyers</returns>
         [HttpPost]
-        public async Task<IActionResult> OnGet(string email, string code, string SelectedUserType)
+        public async Task<IActionResult> OnGet(string id, string code, string SelectedUserType)
         {
-            ApplicationUser user = await _userManager.FindByIdAsync(email);
+            ApplicationUser user = await _userManager.FindByIdAsync(id);
 
             if (!string.IsNullOrWhiteSpace(code) &&
                 (await _userManager.ConfirmEmailAsync(user, code)).Succeeded)

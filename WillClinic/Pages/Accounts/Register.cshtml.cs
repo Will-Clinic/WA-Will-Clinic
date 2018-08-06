@@ -72,7 +72,7 @@ namespace WillClinic.Pages.Accounts
         }
 
         ///// <summary>
-        ///// Attempts to create a new user account and to send a verification email to the user containing a link
+        ///// Attempts to create a new user account and to send a verification email to the user which contains a link
         ///// needed to confirm their email address as well as creating their lawyer or veteran profile based on the
         ///// selection provided in the form presented in the GET handler
         ///// </summary>
@@ -86,51 +86,33 @@ namespace WillClinic.Pages.Accounts
                 return Page();
             }
 
+            //Assigns the NewUser's UserName as the Newuser's Email, as UserName is not user inputable 
             NewUser.UserName = NewUser.Email;
 
+            //Creates and saves the NewUser and their password to DB
             var result = await _userManager.CreateAsync(NewUser, Password);
             if (result.Succeeded)
             {
-
+                //Generates a EmailConfirmation Token that will be attached to the confirmation email using Identity and Sendgrid
+                string code = await _userManager.GenerateEmailConfirmationTokenAsync(NewUser);
+                //The link that will be in the confirmation email
+                string verifyLink = Url.Page("/Accounts/EmailConfirmed", "OnGet",
+                    new { id = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
+                //Parts of the confirmation email
+                string subject = "Verify Your Veteran Will Clinic Account";
+                string htmlContent = $"<h3>Veteran Will Clinic</h3><h4>Please verify your account by clicking the link below:</h4><a href=\"{verifyLink}\">{verifyLink}</a>";
+                string plainTextContent = $"Please copy and paste the following link into your browser's address bar: {verifyLink}";
+                //if email is sent, redirect the user to /Accounts/EmailVerificationSent Razor Page
+                if (await _emailSender.SendEmailAsync(NewUser.Email, subject, htmlContent, plainTextContent))
+                {
+                    return RedirectToPage("./EmailVerificationSent");
+                }
+                //If any error occurs send a status 503 to show error in Sendgrid not being able to send the email
+                return StatusCode(StatusCodes.Status503ServiceUnavailable);
             }
-            // NOTE(taylorjoshuaw): User creation should be refactored into a service!
-            // Attempt to commit user creation to the database
-            //try
-            //{
-            //    //await _context.SaveChangesAsync();
-            //}
-            //catch
-            //{
-            //    // Log the error and return a 500 error to indicate an error commiting the new user to the database
-            //    _logger.LogError("Unable to create user upon POST of user creation form");
-            //    return StatusCode(StatusCodes.Status500InternalServerError);
-            //}
-
-            // Set up email verification
-            // Building verification email with link
-            string code = await _userManager.GenerateEmailConfirmationTokenAsync(NewUser);
-
-            //string verifyLink = Url.Page(nameof(EmailConfirmationModel), nameof(EmailConfirmationModel.OnLinkAsync),
-            //        new { email = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
-
-            string verifyLink = Url.Page("/Accounts/EmailConfirmed", "OnGet",
-        new { email = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
-
-
-            // Compose the e-mail message to send to the user
-            string subject = "Verify Your Veteran Will Clinic Account";
-            string htmlContent = $"<h3>Veteran Will Clinic</h3><h4>Please verify your account by clicking the link below:</h4><a href=\"{verifyLink}\">{verifyLink}</a>";
-            string plainTextContent = $"Please copy and paste the following link into your browser's address bar: {verifyLink}";
-
-            // Attempt to send the verification email
-            if (await _emailSender.SendEmailAsync(NewUser.Email, subject, htmlContent, plainTextContent))
-            {
-                return RedirectToPage("./EmailVerificationSent");
-            }
-
-            // Something went wrong. The error has already been logged in SendEmailAsync, so just return a 503 to indicate
-            // an issue occurred with the email service
-            return StatusCode(StatusCodes.Status503ServiceUnavailable);
+            //If user is unable to be saved on DB using Identity, throw a status 500 error and log the error
+            _logger.LogError("Unable to create user upon POST of user creation form");
+            return StatusCode(StatusCodes.Status500InternalServerError);
         }
     }
 }
