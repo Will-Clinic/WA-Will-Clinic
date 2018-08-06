@@ -116,10 +116,10 @@ namespace WillClinic.Pages.Accounts
             string verifyLink = Url.Page("/Accounts/EmailConfirmed", "OnGet",
         new { email = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
 
-            string verifyButton = $"<a href='{verifyLink}'>Verify Account</a>";
+            string verifyButton = $"<a href='{verifyLink}' style='background-color: #117171; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;'>Verify Account</a>";
             // Compose the e-mail message to send to the user
             string subject = "Verify Your Veteran Will Clinic Account";
-            string htmlContent = $"<h3>Veteran Will Clinic</h3><h4>Please verify your account by clicking the link below:</h4><a href=\"{verifyLink}\">{verifyLink}</a>";
+            string htmlContent = $"<h3>Veteran Will Clinic</h3><h4>Please verify your account by clicking the button below:</h4><br/>{verifyButton}";
             string plainTextContent = $"Please copy and paste the following link into your browser's address bar: {verifyLink}";
 
             // Attempt to send the verification email
