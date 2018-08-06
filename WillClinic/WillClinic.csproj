@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-WillClinic-9BDB9ED0-6486-47F2-81C1-D7DCF1022FE3</UserSecretsId>
-  <RuntimeFrameworkVersion>2.1.1</RuntimeFrameworkVersion>
+  <RuntimeFrameworkVersion>2.1.2</RuntimeFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,8 +19,8 @@
   <ItemGroup>
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="Google.Apis" Version="1.32.2" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" PrivateAssets="All" />
     <PackageReference Include="ScrapySharp" Version="2.6.2" />
@@ -55,7 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.1" />
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.2" />
   </ItemGroup>
 
 </Project>
