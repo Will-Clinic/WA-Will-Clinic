@@ -38,6 +38,13 @@ namespace WillClinic
                 options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
             */
 
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -67,7 +74,8 @@ namespace WillClinic
             });
 
             // Add in the MVC framework
-            services.AddMvc();
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,6 +93,8 @@ namespace WillClinic
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseHttpsRedirection();
+            app.UseCookiePolicy();
             // Allow for static files under wwwroot/
             app.UseStaticFiles();
 

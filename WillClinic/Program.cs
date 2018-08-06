@@ -5,10 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WillClinic.Data;
+using WillClinic.Models;
 
 namespace WillClinic
 {
@@ -16,16 +19,22 @@ namespace WillClinic
     {
         public static void Main(string[] args)
         {
-            IWebHost host = BuildWebHost(args);
 
+            var host = CreateWebHostBuilder(args).Build();
             // Attempt to seed any tables which require seed data, such as the Library table
-            using (IServiceScope scope = host.Services.CreateScope())
+            using (var scope = host.Services.CreateScope())
             {
-                IServiceProvider services = scope.ServiceProvider;
+                var services = scope.ServiceProvider;
+                var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 
                 try
                 {
                     SeedLibraries.Initialize(services);
+                    //SeedData.Initialize(services);
+                    //StartupDbInitializer.SeedData(services, userManager);
+                    var context = services.GetRequiredService<ApplicationDbContext>();
+                    context.Database.Migrate();
+                    //SeedData.Initialize(services);
                 }
                 catch
                 {
@@ -37,10 +46,9 @@ namespace WillClinic
             host.Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                 WebHost.CreateDefaultBuilder(args)
-                    .UseStartup<Startup>()
-                    .Build();
+                    .UseStartup<Startup>();
 
         //public static IWebHost BuildWebHost(string[] args) =>
         //    WebHost.CreateDefaultBuilder(args)
