@@ -56,5 +56,8 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "Other Assets Or Money")]
         [DataType(DataType.Currency)]
         public int OtherAssetsOrMoney { get; set; }
+
+        [Display(Name = "Save & Exit")]
+        public string Exit { get; set; }
     }
 }

@@ -85,5 +85,8 @@ namespace WillClinic.Models.IntakeFormViewModels
         [StringLength(50)]
         [Display(Name = "Alternate Representative")]
         public string AlternateRepresentative { get; set; }
+
+        [Display(Name = "Save & Exit")]
+        public string Exit { get; set; }
     }
 }

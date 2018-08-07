@@ -33,6 +33,7 @@
                         <div class="radio">
                             <label><input asp-for="HaveChildren" type="radio" value="true" />Yes</label>
                             <label><input asp-for="HaveChildren" type="radio" value="false" />No</label>
+                            <span asp-validation-for="HaveChildren" class="text-danger"></span>
                         </div>
                     </div>
                     <hr />
@@ -134,6 +135,7 @@
                             <div class="radio">
                                 <label><input asp-for="SpecificBequest" type="radio" value="true" />Yes</label>
                                 <label><input asp-for="SpecificBequest" type="radio" value="false" />No</label>
+                                <span asp-validation-for="SpecificBequest" class="text-danger"></span>
                             </div>
                     </div>
                 </div>
@@ -186,7 +188,7 @@
                             & Society for the Prevention of Cruelty to Animals, 50%)
                         </h5>
                         <input asp-for="InheritEstateSpecific" class="form-control" />
-                        <span asp-validation-for="InheritEstateSpecific" class="text-danger"></span>
+                        @*<span asp-validation-for="InheritEstateSpecific" class="text-danger"></span>*@
                     </div>
                 </div>
             </div>
@@ -210,6 +212,7 @@
                         <label asp-for="RemainderBeneficiarySpecific" class="control-label">
                             If you selected a specific charity or person(s) to be your Contingent Remainder Beneficiary
                         </label>
+                        <span asp-validation-for="RemainderBeneficiarySpecific" class="text-danger"></span>
                         <h5>
                             If you would like a specific charity or person(s) to inherit your estate, please indicate their identity, relationship to
                             you (if any), and percent of your estate you would like them to receive. Be specific. If you select a charity, be sure
@@ -231,6 +234,7 @@
                         <label asp-for="DisinheritSomeone" class="control-label">
                             Would you like to disinherit someone, other than your spouse? *
                         </label>
+                        <span asp-validation-for="DisinheritSomeone" class="text-danger"></span>
                         <h5>
                             To 'disinherit' someone is to make a specific statement that a personal will not inherit from your estate.
                             Disinheriting your spouse is beyond the scope of the WA Vets Will Clinic, and will disqualify you from eligibility.
@@ -344,7 +348,7 @@
                 </div>
 
                 <div class="form-group text-center col-md-8 pull-left">
-                    <a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>
+                    <input type="submit" asp-for="Exit" value=@Html.DisplayNameFor(m => m.Exit) class="btn btn-default" />
                 </div>
 
                 <div class="form-group col-md-2">

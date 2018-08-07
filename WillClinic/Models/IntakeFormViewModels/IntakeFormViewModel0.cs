@@ -11,5 +11,6 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Required]
         [Display(Name = "Terms and Conditions")]
         public bool? TermsAndConditions { get; set; }
+
     }
 }

@@ -161,13 +161,21 @@ namespace WillClinic.Controllers
                     form.IsCompleted == null
                 );
 
-                currentForm.CurrentStep = 2;
+                //currentForm.CurrentStep = 2;
                 currentForm.TimeStamp = DateTime.Now;
 
                 currentForm.FullLegalName = intakeFormViewModel.FullLegalName;
                 currentForm.Address = intakeFormViewModel.Address;
                 currentForm.PhoneNumber = intakeFormViewModel.PhoneNumber;
 
+
+                if (intakeFormViewModel.Exit != null)
+                {
+                    _context.VeteranIntakeForms.Update(currentForm);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Veteran");
+                }
+                currentForm.CurrentStep = 2;
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
 
@@ -220,7 +228,7 @@ namespace WillClinic.Controllers
                     form.IsCompleted == null
                 );
 
-                currentForm.CurrentStep = 3;
+                //currentForm.CurrentStep = 3;
                 currentForm.TimeStamp = DateTime.Now;
 
                 currentForm.VeteranStatus = intakeFormViewModel.VeteranStatus;
@@ -228,9 +236,16 @@ namespace WillClinic.Controllers
                 currentForm.ResidentStatus = intakeFormViewModel.ResidentStatus;
                 currentForm.NetWorth = intakeFormViewModel.NetWorth;
 
+
+                if(intakeFormViewModel.Exit != null)
+                {
+                    _context.VeteranIntakeForms.Update(currentForm);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Veteran");
+                }
+                currentForm.CurrentStep = 3;
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
-
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
             }
             return View(nameof(CreateStep2));
@@ -359,7 +374,6 @@ namespace WillClinic.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep4(IntakeFormViewModel4 intakeFormViewModel)
-
         {
             if (ModelState.IsValid)
             {
@@ -368,7 +382,7 @@ namespace WillClinic.Controllers
                     form.IsCompleted == null
                 );
 
-                currentForm.CurrentStep = 5;
+                //currentForm.CurrentStep = 5;
                 currentForm.TimeStamp = DateTime.Now;
 
                 currentForm.HouseHoldSize = intakeFormViewModel.HouseHoldSize;
@@ -392,6 +406,14 @@ namespace WillClinic.Controllers
                 currentForm.AlternateRepresentative = intakeFormViewModel.AlternateRepresentative;
                 _context.VeteranIntakeForms.Update(currentForm);
 
+                if (intakeFormViewModel.Exit != null)
+                {
+                    _context.VeteranIntakeForms.Update(currentForm);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Veteran");
+                }
+                currentForm.CurrentStep = 5;
+                _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
@@ -442,13 +464,20 @@ namespace WillClinic.Controllers
                     form.IsCompleted == null
                 );
 
-                currentForm.CurrentStep = 6;
+                //currentForm.CurrentStep = 6;
                 currentForm.TimeStamp = DateTime.Now;
 
                 currentForm.RequestPowerOfAttorney = intakeFormViewModel.RequestPowerOfAttorney;
                 currentForm.PrimaryAttorney = intakeFormViewModel.PrimaryAttorney;
                 currentForm.AlternateAttorney = intakeFormViewModel.AlternateAttorney;
 
+                if (intakeFormViewModel.Exit != null)
+                {
+                    _context.VeteranIntakeForms.Update(currentForm);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Veteran");
+                }
+                currentForm.CurrentStep = 6;
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
 
@@ -502,7 +531,7 @@ namespace WillClinic.Controllers
                     form.IsCompleted == null
                 );
 
-                currentForm.CurrentStep = 7;
+                //currentForm.CurrentStep = 7;
                 currentForm.TimeStamp = DateTime.Now;
 
                 currentForm.HealthCareDirective = intakeFormViewModel.HealthCareDirective;
@@ -511,6 +540,13 @@ namespace WillClinic.Controllers
                 currentForm.ArtificialVentilation = intakeFormViewModel.ArtificialVentilation;
                 currentForm.DistressMedication = intakeFormViewModel.DistressMedication;
 
+                if (intakeFormViewModel.Exit != null)
+                {
+                    _context.VeteranIntakeForms.Update(currentForm);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Veteran");
+                }
+                currentForm.CurrentStep = 7;
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
 
@@ -561,16 +597,22 @@ namespace WillClinic.Controllers
                     form.IsCompleted == null
                 );
 
-                currentForm.CurrentStep = 8;
+                //currentForm.CurrentStep = 8;
                 currentForm.TimeStamp = DateTime.Now;
 
                 currentForm.HealthPOA = intakeFormViewModel.HealthPOA;
                 currentForm.PrimaryHealthAttorney = intakeFormViewModel.PrimaryHealthAttorney;
                 currentForm.SecondaryHealthAttorney = intakeFormViewModel.SecondaryHealthAttorney;
 
+                if (intakeFormViewModel.Exit != null)
+                {
+                    _context.VeteranIntakeForms.Update(currentForm);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Veteran");
+                }
+                currentForm.CurrentStep = 8;
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
-
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
             }
             return View(nameof(CreateStep7));

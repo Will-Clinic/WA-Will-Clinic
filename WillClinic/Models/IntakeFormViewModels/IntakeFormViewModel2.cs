@@ -23,5 +23,8 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Required]
         [Display(Name = "Net Worth")]
         public bool? NetWorth { get; set; }
+
+        [Display(Name = "Save & Exit")]
+        public string Exit { get; set; }
     }
 }

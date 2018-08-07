@@ -37,7 +37,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="VeteranStatus" class="control-label">
-                            Are you or your spouse a Veteran of the United States Armed Forces? *
+                            * Are you or your spouse a Veteran of the United States Armed Forces? 
                         </label>
                         <h5>
                             (Army, Navy, Marine Corps, Air Force, Coast Guard, or Armed Forces Reserve)
@@ -59,7 +59,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="ProofOfService" class="control-label">
-                            Do you have proof of military service? *
+                            * Do you have proof of military service? 
                         </label>
                         <h5>
                             A DD214, Veterans Identification Card, or similar document showing Military service, is REQUIRED in order to
@@ -85,7 +85,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="ResidentStatus" class="control-label">
-                            Are you a Washington state resident? *
+                            * Are you a Washington state resident? 
                         </label>
                         <h5>
                             You must be a Washington resident in order to participate in the WA Vets Will Clinic
@@ -107,7 +107,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="NetWorth" class="control-label">
-                            Is your net worth less than $500,000 ($1,000,000 per married couple)? *
+                           * Is your net worth less than $500,000 ($1,000,000 per married couple)?
                         </label>
                         <h5>
                             You must have a net worth of less than $500,000 ($1,000,000 if you are married) in order to participate in the WA
@@ -140,7 +140,8 @@
                 </div>
 
                 <div class="form-group text-center col-md-8 pull-left">
-                    <a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>
+                    @*<a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>*@
+                    <input type="submit" asp-for="Exit" value=@Html.DisplayNameFor(m => m.Exit) class="btn btn-default"/>
                 </div>
 
                 <div class="form-group col-md-2">

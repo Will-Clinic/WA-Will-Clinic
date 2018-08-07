@@ -17,16 +17,16 @@ namespace WillClinic.Data
             
         }
 
-        public class ApplicationContextDbFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
-        {
-            ApplicationDbContext IDesignTimeDbContextFactory<ApplicationDbContext>.CreateDbContext(string[] args)
-            {
-                var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-                optionsBuilder.UseSqlServer<ApplicationDbContext>("Server = (localdb)\\mssqllocaldb; Database = WillClinicTest; Trusted_Connection = True; MultipleActiveResultSets = true");
+        //public class ApplicationContextDbFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+        //{
+        //    ApplicationDbContext IDesignTimeDbContextFactory<ApplicationDbContext>.CreateDbContext(string[] args)
+        //    {
+        //        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+        //        optionsBuilder.UseSqlServer<ApplicationDbContext>("Server = (localdb)\\mssqllocaldb; Database = WillClinicTest; Trusted_Connection = True; MultipleActiveResultSets = true");
 
-                return new ApplicationDbContext(optionsBuilder.Options);
-            }
-        }
+        //        return new ApplicationDbContext(optionsBuilder.Options);
+        //    }
+        //}
 
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Lawyer> Lawyers { get; set; }
