@@ -29,49 +29,43 @@
 
                     dropdownClass = "veteran-menu";
                 }
-                <div class="dropdown-menu @dropdownClass" aria-labelledby="navbarDropdown">
-                    <div class="dropdown-item disabled">
-                        <i class="fas fa-user big-user-icon"></i>
-                        <div class="d-inline-block" id="user-attr">
-                            @{
-                                string fullName = $"{user.FirstName} {user.LastName}";
-                                <strong>@fullName</strong>
-                            }
-
-                            <p>@User.Identity.Name</p>
-                        </div>
-                        @if (isVeteran)
-                        {
-                            <div class="d-block">
-                                <i>Veteran</i>
-                            </div>
-                            <a class="dropdown-item" asp-controller="Veterans" asp-action="Index">My Profile</a>
-                            <a class="dropdown-item" asp-controller="Veteran" asp-action="Index">Application</a>
+            <div class="dropdown-menu @dropdownClass" aria-labelledby="navbarDropdown">
+                <div class="dropdown-item disabled">
+                    <i class="fas fa-user big-user-icon"></i>
+                    <div class="d-inline-block" id="user-attr">
+                        @{
+                            string fullName = $"{user.FirstName} {user.LastName}";
+                            <strong>@fullName</strong>
                         }
 
-                        @if (isLawyer)
-                        {
-                            <div class="d-block">
-                                <i>Lawyer</i>
-                            </div>
-                            <a class="dropdown-item" asp-controller="Lawyers" asp-action="Index">My Profile</a>
-                        }
-                    </div>
-                    @*@if (isVeteran)
-                    {
-
-                        <a class="dropdown-item" asp-controller="Veterans" asp-action="Index">My Profile</a>
-                        <a class="dropdown-item" asp-controller="Veteran" asp-action="Index">Application</a>
-                    }*@
-
-                    <hr />
-
-                    <div class="logout-container">
-                        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
-                            <button type="submit" class="btn btn-danger" id="logout-btn">Log out</button>
-                        </form>
+                        <p>@User.Identity.Name</p>
                     </div>
                 </div>
+                <div class="dropdown-item">
+                    @if (isVeteran)
+                    {
+                        <div class="d-block">
+                            <i>Veteran</i>
+                        </div>
+                        <a class="dropdown-item" asp-controller="Veterans" asp-action="Index">My Profile</a>
+                        <a class="dropdown-item" asp-controller="Veteran" asp-action="Index">Application</a>
+                    }
+
+                    @if (isLawyer)
+                    {
+                        <div class="d-block">
+                            <i>Lawyer</i>
+                        </div>
+                        <a class="dropdown-item" asp-controller="Lawyers" asp-action="Index">My Profile</a>
+                    }                
+                </div>
+                <hr />
+                <div class="dropdown-item logout-container">
+                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+                        <button type="submit" class="btn btn-danger" id="logout-btn">Log out</button>
+                    </form>
+                </div>
+            </div>
 
             }
         </li>

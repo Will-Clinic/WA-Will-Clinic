@@ -48,7 +48,7 @@ h2 {
     color: floralwhite !important;
 }
 
-    #navlist ul li a:hover {
+    #navlist ul li a:hover, #navlist ul li a:focus {
         color: saddlebrown !important;
         text-decoration: none !important;
     }

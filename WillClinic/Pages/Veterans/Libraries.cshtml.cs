@@ -77,7 +77,7 @@ namespace WillClinic.Pages.Veterans
             if (!ModelState.IsValid || !(await _veteranService.MergeLibraryListWithVeteranAsync(
                 veteran.ApplicationUserId, SelectedLibraries)))
             {
-                // The changes could not be made. Display the page to the user again with validation errors (if
+                // The changes could not be ma/de. Display the page to the user again with validation errors (if
                 // applicable) to give them another chance to commit their changes
                 return Page();
             }
