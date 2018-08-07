@@ -18,7 +18,7 @@
                 <i class="fas fa-user"></i>
                 <strong class="name-dropdown">Hi, @user.FirstName!</strong>
             </a>
-            @{ 
+            @{
                 string dropdownClass = "";
                 if (isLawyer)
                 {
@@ -29,56 +29,78 @@
 
                     dropdownClass = "veteran-menu";
                 }
-            <div class="dropdown-menu @dropdownClass" aria-labelledby="navbarDropdown">
-                <div class="dropdown-item disabled">
-                    <i class="fas fa-user big-user-icon"></i>
-                    <div class="d-inline-block" id="user-attr">
-                        @{
-                            string fullName = $"{user.FirstName} {user.LastName}";
-                            <strong>@fullName</strong>
+                <div class="dropdown-menu @dropdownClass" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-item disabled">
+                        <i class="fas fa-user big-user-icon"></i>
+                        <div class="d-inline-block disabled" id="user-attr">
+                            @{
+                                string fullName = $"{user.FirstName} {user.LastName}";
+                                <strong>@fullName</strong>
+                            }
+
+                            <p>@User.Identity.Name</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        @if (isVeteran)
+                        {
+                            <div class="d-block disabled">
+                                <i>Veteran</i>
+                            </div>
+                            <a class="dropdown-item" asp-controller="Veterans" asp-action="Index">My Profile</a>
+                            <a class="dropdown-item" asp-controller="Veteran" asp-action="Index">Application</a>
                         }
 
-                        <p>@User.Identity.Name</p>
+                        @if (isLawyer)
+                        {
+                            <div class="d-block">
+                                <i>Lawyer</i>
+                            </div>
+                            <a class="dropdown-item" asp-controller="Lawyers" asp-action="Index">My Profile</a>
+                        }
+                    </div>
+                    <hr />
+                    <div class="dropdown-item logout-container">
+                        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+                            <button type="submit" class="btn btn-danger" id="logout-btn">Log out</button>
+                        </form>
                     </div>
                 </div>
-                <div class="dropdown-item">
-                    @if (isVeteran)
-                    {
-                        <div class="d-block">
-                            <i>Veteran</i>
-                        </div>
-                        <a class="dropdown-item" asp-controller="Veterans" asp-action="Index">My Profile</a>
-                        <a class="dropdown-item" asp-controller="Veteran" asp-action="Index">Application</a>
-                    }
-
-                    @if (isLawyer)
-                    {
-                        <div class="d-block">
-                            <i>Lawyer</i>
-                        </div>
-                        <a class="dropdown-item" asp-controller="Lawyers" asp-action="Index">My Profile</a>
-                    }                
-                </div>
-                <hr />
-                <div class="dropdown-item logout-container">
-                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
-                        <button type="submit" class="btn btn-danger" id="logout-btn">Log out</button>
-                    </form>
-                </div>
-            </div>
-
             }
         </li>
-    }
-    else
-    {
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="Accounts" asp-action="Register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
-        </li>
-    }
+            <noscript>
+                @if (isVeteran)
+                {
+                    <li class="nav-item">
+                        <a class="dropdown-item" asp-controller="Veterans" asp-action="Index">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item" asp-controller="Veteran" asp-action="Index">Application</a>
+                    </li>
+                }
+
+                @if (isLawyer)
+                {
+                    <li class="nav-item">
+                        <a class="dropdown-item" asp-controller="Lawyers" asp-action="Index">My Profile</a>
+                    </li>
+                }
+                    <li class="nav-item">
+                        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+                            <button type="submit" class="btn btn-danger" id="logout-btn">Log out</button>
+                        </form>
+                    </li>
+            </noscript>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Accounts" asp-action="Register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                </li>
+            }
 </ul>
 
 <script>
