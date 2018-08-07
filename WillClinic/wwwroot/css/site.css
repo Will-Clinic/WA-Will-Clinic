@@ -730,7 +730,7 @@ a.dropdown-item {
     display:block;
 }
 
-li.open > a.dropdown >  {
+li.open > a.dropdown > * {
     color:saddlebrown;
 }
 

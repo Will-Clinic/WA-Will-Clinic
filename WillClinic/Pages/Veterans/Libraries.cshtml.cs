@@ -43,7 +43,10 @@ namespace WillClinic.Pages.Veterans
         public async Task OnGetAsync()
         {
             // Populate a SelectList for the library options on the form using the Library table
-            AllLibraries = new SelectList(_libraryService.GetAllLibraries(), "ID", "Name");
+            //AllLibraries = new SelectList(_libraryService.GetAllLibraries(), "ID", "Name");
+
+            AllLibraries = new SelectList(await _libraryService.GetAllLibrariesWithLawyers(), "ID", "Name");
+            
             // Get the current signed in Veteran entity
             Veteran veteran = await _veteranService.GetVeteranByPrincipalAsync(User);
 

@@ -38,5 +38,18 @@ namespace WillClinic.Services
                                                  .Include(llj => llj.Library)
                                                  .Select(llj => llj.Library)
                                                  .ToListAsync();
+
+        public async Task<IEnumerable<Library>> GetAllLibrariesWithLawyers()
+        {
+            var libIDs = await _context.LawyerLibraryJunctions.Select(l => l.LibraryId).Distinct().ToListAsync();
+            List<Library> libraries = new List<Library>();
+
+            foreach (var item in libIDs)
+            {
+                libraries.Add(await _context.Libraries.FirstOrDefaultAsync(l => l.ID == item));
+            }
+
+            return libraries;
+        }
     }
 }
