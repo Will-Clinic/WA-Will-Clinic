@@ -21,10 +21,6 @@ namespace WillClinic
     {
         public Startup(IConfiguration configuration)
         {
-            //var builder = new ConfigurationBuilder().AddEnvironmentVariables();
-            //builder.AddUserSecrets<Startup>()
-            //// For production.
-            //Configuration = builder.Build();
             Configuration = configuration;
         }
 
@@ -44,14 +40,6 @@ namespace WillClinic
             //services.AddDbContext<ApplicationDbContext>(options =>
             //    options.UseSqlServer($"Server=(localdb)\\{Configuration["DefaultConnection"]}"));
             
-
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
-
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
