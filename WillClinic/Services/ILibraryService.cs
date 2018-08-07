@@ -18,6 +18,8 @@ namespace WillClinic.Services
         /// </summary>
         /// <returns>An IEnumerable of all Library entities from the database</returns>
         IEnumerable<Library> GetAllLibraries();
+
+        Task<IEnumerable<Library>> GetAllLibrariesWithLawyers();
         /// <summary>
         /// Finds Library entities by their names
         /// </summary>
