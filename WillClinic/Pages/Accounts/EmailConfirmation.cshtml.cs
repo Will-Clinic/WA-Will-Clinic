@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -19,14 +20,24 @@ namespace WillClinic.Pages.Accounts
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManger;
         private readonly ILawyerVerificationService _verificationService;
+        [BindProperty, Required]
         public string Email { get; set; }
+
+        [BindProperty, Required]
         public string City { get; set; }
+        [BindProperty, Required]
         public string State { get; set; }
+        [BindProperty, Required]
         public string Country { get; set; }
+        [BindProperty, Required]
         public int Zip { get; set; }
+        [BindProperty, Required]
         public string PracticeAreas { get; set; }
+        [BindProperty, Required]
         public int YearsOfExperience { get; set; }
         public bool OtherLanguages = false; //TODO this is a placeholder. Add a feature or delete in next iteration.
+
+        [BindProperty, Required]
         public int BarNumber { get; set; }
         private ApplicationDbContext _context;
 
@@ -55,7 +66,11 @@ namespace WillClinic.Pages.Accounts
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.FindByEmailAsync(Email);
-            if (await _verificationService.IsValidLawyerAsync(BarNumber, Email) && user.EmailConfirmed)
+
+            //if (user.Email == Email)
+            //    user.EmailConfirmed = true;
+
+            if (/*await _verificationService.IsValidLawyerAsync(BarNumber, Email) &&*/ user.EmailConfirmed)
             {
                 if (!await _roleManager.RoleExistsAsync("Lawyer"))
                 {

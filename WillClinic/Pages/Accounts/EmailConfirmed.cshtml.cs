@@ -80,7 +80,7 @@ namespace WillClinic.Pages.Accounts
                     if (SelectedUserType == ApplicationRoles.Lawyer)
                     {
                         Email = user.Email;
-                        return RedirectToPage("/EmailConfirmation");
+                        return RedirectToPage("/Accounts/EmailConfirmation");
                     }
 
                     else if (SelectedUserType == ApplicationRoles.Veteran)
