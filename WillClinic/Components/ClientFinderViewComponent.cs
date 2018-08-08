@@ -19,7 +19,7 @@ namespace WillClinic.Components
 
         public IViewComponentResult Invoke()
         {
-            return View(_matchService.GetMatches()); // Default
+            return View(_matchService.GetMatchesAsync()); // Default
         }
     }
 }

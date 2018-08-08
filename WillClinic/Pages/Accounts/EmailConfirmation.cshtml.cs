@@ -100,7 +100,7 @@ namespace WillClinic.Pages.Accounts
                 await _context.SaveChangesAsync();
 
                 //Everything went well, simply redirect to email confirmed page
-                return RedirectToPage("./EmailConfirmed");
+                return RedirectToPage("/Accounts/EmailConfirmed");
             }
             else if (user.EmailConfirmed == false)
             {

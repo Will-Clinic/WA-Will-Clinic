@@ -6,7 +6,46 @@
 
 <h2>Attorney Profile</h2>
 <strong>Bar#: @Model.Lawyer.BarNumber </strong>
+@if(Model.Matches != null)
+{
+    <h3>Matched Clients:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Location</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Matches)
+            {
+                <tr>
+                    <td>@item.Veteran.ApplicationUser.LastName</td>
+                    <td>@item.Veteran.ApplicationUser.FirstName</td>
+                    @if(!String.IsNullOrEmpty(@item.LocationSelected))
+                    {
+                        <td>@item.LocationSelected</td>
+                    }
+                    else
+                    {
+                        <td>TBD</td>
+                    }
+                    @if(item.TimeSelected.ToString() == "1/1/0001 12:00:00 AM")
+                    {
 
+                       <td>TBD</td>
+                    }
+                    else
+                    {
+                        <td>@item.TimeSelected</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 <h3>@Model.PotentialClients.Count() Potential Client(s):</h3>
 @if (Model.PotentialClients.Count() > 0)
 {

@@ -41,9 +41,8 @@ namespace WillClinic.Services
 
         /// <summary>
         /// method that gets all of the libraries that lawyers have associated them with
-        /// The .join is preferred because it has a time complexity of O(N) vs. using a .where and .contains, which
-        /// has a time complexity of O(N^2).
-        /// The previous implementations have been commented out but not deleted to show what's conceptually being added.
+        /// The previous implementations have been commented out but not deleted to 
+        /// show what's conceptually being added.
         /// </summary>
         /// <returns>IEnumerable collection of Library objects</returns>
         public async Task<IEnumerable<Library>> GetAllLibrariesWithLawyers()
@@ -60,9 +59,8 @@ namespace WillClinic.Services
             // implementation 2:
             //List<Library> libraries = await _context.Libraries.Where(l => libIDs.Contains(l.ID)).ToListAsync();
 
-            List<Library> libraries = await _context.Libraries.Join(libIDs, lib => lib.ID, id => id, (lib, id) => lib).ToListAsync();
-
-            return libraries;
+            return await _context.Libraries.Join(libIDs, lib => lib.ID,
+                id => id, (lib, id) => lib).ToListAsync();
         }
     }
 }

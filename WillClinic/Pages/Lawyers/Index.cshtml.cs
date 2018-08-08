@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WillClinic.Models;
+using WillClinic.Models.Interfaces;
 using WillClinic.Services;
 
 namespace WillClinic.Pages.Lawyers
@@ -17,7 +18,7 @@ namespace WillClinic.Pages.Lawyers
         private readonly ILawyerService _lawyerService;
         private readonly ILibraryService _libraryService;
         private readonly IVeteranService _veteranService;
-
+        private readonly IMatchService _matchService;
         public Lawyer Lawyer { get; set; }
         //public ICollection<LawyerAvailability> Availabilities { get; set; }
         public IEnumerable<LawyerSchedule> Schedules { get; set; }
@@ -25,13 +26,15 @@ namespace WillClinic.Pages.Lawyers
         public TimeZoneInfo UserTimeZone { get; set; }
 
         public IEnumerable<Veteran> PotentialClients { get; set; }
+        public List<VeteranLawyerMatch> Matches { get; set; }
 
         public IndexModel(ILawyerService lawyerService, ILibraryService libraryService,
-            IVeteranService veteranService)
+            IVeteranService veteranService, IMatchService matchService)
         {
             _lawyerService = lawyerService;
             _libraryService = libraryService;
             _veteranService = veteranService;
+            _matchService = matchService;
         }
 
         /// <summary>
@@ -44,7 +47,7 @@ namespace WillClinic.Pages.Lawyers
             Libraries = await _libraryService.GetAllLibrariesForLawyerAsync(Lawyer.ApplicationUserId);
             Schedules = await _lawyerService.GetSchedulesAsync(Lawyer.ApplicationUserId);
             PotentialClients = await _veteranService.GetPotentialClientsForLawyerAsync(Lawyer.ApplicationUserId);
-
+            Matches = await _matchService.GetMatchesAsync();
             // TODO(taylorjoshuaw): Collect time zone from user rather than assuming Pacific time
             UserTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
         }

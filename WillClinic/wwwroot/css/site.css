@@ -730,8 +730,8 @@ a.dropdown-item {
     display:block;
 }
 
-li.open > a.dropdown > * {
-    color:saddlebrown;
+a.dropdown-item:hover  {
+    background-color:white;
 }
 
 /*Navbar Title*/
