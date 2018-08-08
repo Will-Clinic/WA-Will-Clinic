@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Azure.KeyVault;
+using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.AzureKeyVault;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WillClinic.Data;
@@ -29,12 +32,10 @@ namespace WillClinic
 
                 try
                 {
-                    SeedLibraries.Initialize(services);
-                    //SeedData.Initialize(services);
                     //StartupDbInitializer.SeedData(services, userManager);
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     context.Database.Migrate();
-                    //SeedData.Initialize(services);
+                    SeedLibraries.Initialize(services);
                 }
                 catch
                 {
@@ -48,6 +49,28 @@ namespace WillClinic
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                 WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((ctx, builder) =>
+                {
+                    //Bring in user secrets to grab out Azure Key Vault endpoint
+                    builder.AddUserSecrets<Startup>().Build();
+                    var config = builder.Build();
+
+                    if (!string.IsNullOrEmpty(config["AzureKeyVaultEndPoint"]))
+                    {
+                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                        var keyVaultClient = new KeyVaultClient(
+                            new KeyVaultClient.AuthenticationCallback(
+                                azureServiceTokenProvider.KeyVaultTokenCallback));
+                        builder.AddAzureKeyVault(
+                            config["AzureKeyVaultEndPoint"], keyVaultClient, new DefaultKeyVaultSecretManager());
+                    }
+                })
+                  .ConfigureLogging((context, logging) =>
+                  {
+                      logging.AddConfiguration(context.Configuration.GetSection("Logging"));
+                      logging.AddConsole();
+                      logging.AddDebug();
+                  })
                     .UseStartup<Startup>();
 
         //public static IWebHost BuildWebHost(string[] args) =>
@@ -77,10 +100,10 @@ namespace WillClinic
 
         //        .ConfigureLogging((context, logging) =>
         //        {
-        //            logging.AddConfiguration(context.Configuration.GetSection("Logging"));
-        //            logging.AddConsole();
-        //            logging.AddDebug();
-        //        })
+        //    logging.AddConfiguration(context.Configuration.GetSection("Logging"));
+        //    logging.AddConsole();
+        //    logging.AddDebug();
+        //})
         //        .UseStartup<Startup>()
         //        .Build();
     }
