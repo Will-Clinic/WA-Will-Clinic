@@ -251,15 +251,15 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="DisinheretDescription" class="control-label">
+                        <label asp-for="DisinheritDescription" class="control-label">
                             If you have chosen to disinherit someone, other than your spouse, please provide their full legal name
                             and relationship to you.
                         </label>
                         <h5>
                             Example: John Doe Smith - my son
                         </h5>
-                        <input asp-for="DisinheretDescription" class="form-control" />
-                        <span asp-validation-for="DisinheretDescription" class="text-danger"></span>
+                        <input asp-for="DisinheritDescription" class="form-control" />
+                        <span asp-validation-for="DisinheritDescription" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -348,6 +348,7 @@
                 </div>
 
                 <div class="form-group text-center col-md-8 pull-left">
+                    @*<a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>*@
                     <input type="submit" asp-for="Exit" value=@Html.DisplayNameFor(m => m.Exit) class="btn btn-default" />
                 </div>
 

@@ -68,7 +68,7 @@ namespace WillClinic.Models.IntakeFormViewModels
 
         [StringLength(75)]
         [Display(Name = "Disinheret Description")]
-        public string DisinheretDescription { get; set; }
+        public string DisinheritDescription { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Primary Guardian")]

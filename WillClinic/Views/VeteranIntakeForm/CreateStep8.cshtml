@@ -1,4 +1,4 @@
-﻿@model WillClinic.Models.VeteranIntakeForm
+﻿@model WillClinic.Models.IntakeFormViewModels.IntakeFormViewModelMaster
 
 @{
     ViewData["Title"] = "Application Review";
@@ -12,26 +12,40 @@
         </div>
         <h4>Review Form and Click <b>Finish</b></h4>
         <hr />
+        <form method="post">
         <div class="col-md-9">
             <h4>Personal Information</h4>
             <dl class="dl-horizontal">
                 <dt>
-                    Full Legal Name
+                    @Html.DisplayNameFor(model => model.FullLegalName)
+                    @*Full Legal Name*@
                 </dt>
                 <dd>
-                    @(Model.FullLegalName ?? "")
+                    <label asp-for="FullLegalName">@Model.FullLegalName</label>
+                    <input asp-for="FullLegalName" value="@Model.FullLegalName" type="hidden" />
+                </dd>
+                <dd>
+                    <span asp-validation-for="FullLegalName" class="text-danger"></span>
                 </dd>
                 <dt>
-                    Address
+                    @Html.DisplayNameFor(model => model.Address)
                 </dt>
                 <dd>
-                    @(Model.Address ?? "")
+                    <label asp-for="Address">@Model.Address</label>
+                    <input asp-for="Address" value="@Model.Address" type="hidden" />
+                </dd>
+                <dd>
+                    <span asp-validation-for="Address" class="text-danger"></span>
                 </dd>
                 <dt>
-                    Phone Number
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
                 </dt>
                 <dd>
-                    @(Model.PhoneNumber ?? "")
+                    <label asp-for="PhoneNumber">@Model.PhoneNumber</label>
+                    <input asp-for="PhoneNumber" value="@Model.PhoneNumber" type="hidden" />
+                </dd>
+                <dd>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </dd>
             </dl>
             <hr />
@@ -307,23 +321,26 @@
                     @Html.DisplayNameFor(model => model.HealthPOA)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.HealthPOA)
+                    @Model.HealthPOA
                 </dd>
                 <dt>
                     @Html.DisplayNameFor(model => model.PrimaryHealthAttorney)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.PrimaryHealthAttorney)
+                    @Model.PrimaryHealthAttorney
                 </dd>
                 <dt>
                     @Html.DisplayNameFor(model => model.SecondaryHealthAttorney)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.SecondaryHealthAttorney)
+                    @Model.SecondaryHealthAttorney
+                </dd>
+                <dd>
+                    <span asp-validation-for="SecondaryHealthAttorney" class="text-danger"></span>
                 </dd>
             </dl>
         </div>
-        
+      </form>  
     </div>
 
 </div>

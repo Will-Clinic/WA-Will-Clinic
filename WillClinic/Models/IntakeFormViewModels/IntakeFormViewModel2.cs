@@ -8,22 +8,23 @@ namespace WillClinic.Models.IntakeFormViewModels
 {
     public class IntakeFormViewModel2
     {
-        [Required]
+        //[Required]
         [Display(Name = "Veteran Status")]
         public bool? VeteranStatus { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Proof Of Service")]
         public bool? ProofOfService { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Resident Status")]
         public bool? ResidentStatus { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Net Worth")]
         public bool? NetWorth { get; set; }
 
+        
         [Display(Name = "Save & Exit")]
         public string Exit { get; set; }
     }
