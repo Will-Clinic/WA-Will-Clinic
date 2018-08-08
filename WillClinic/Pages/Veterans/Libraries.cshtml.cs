@@ -43,7 +43,10 @@ namespace WillClinic.Pages.Veterans
         public async Task OnGetAsync()
         {
             // Populate a SelectList for the library options on the form using the Library table
-            AllLibraries = new SelectList(_libraryService.GetAllLibraries(), "ID", "Name");
+            //AllLibraries = new SelectList(_libraryService.GetAllLibraries(), "ID", "Name");
+
+            AllLibraries = new SelectList(await _libraryService.GetAllLibrariesWithLawyers(), "ID", "Name");
+            
             // Get the current signed in Veteran entity
             Veteran veteran = await _veteranService.GetVeteranByPrincipalAsync(User);
 
@@ -74,7 +77,7 @@ namespace WillClinic.Pages.Veterans
             if (!ModelState.IsValid || !(await _veteranService.MergeLibraryListWithVeteranAsync(
                 veteran.ApplicationUserId, SelectedLibraries)))
             {
-                // The changes could not be made. Display the page to the user again with validation errors (if
+                // The changes could not be ma/de. Display the page to the user again with validation errors (if
                 // applicable) to give them another chance to commit their changes
                 return Page();
             }

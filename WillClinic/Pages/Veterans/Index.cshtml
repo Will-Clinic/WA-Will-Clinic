@@ -5,7 +5,44 @@
 }
 
 <h2>Veteran Profile</h2>
+@if (Model.Match != null)
+{
+    <h3>Lawyer Match:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lawyer</th>
+                <th>Location</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @{
+                    string fullName = $"{Model.Match.Lawyer.ApplicationUser.FirstName} {Model.Match.Lawyer.ApplicationUser.LastName}";
+                        <td>@fullName</td>
+                }
+                @if (!String.IsNullOrEmpty(@Model.Match.LocationSelected))
+                {
+                    <td>@Model.Match.LocationSelected</td>
+                }
+                else
+                {
+                    <td>TBD</td>
+                }
+                @if (Model.Match.TimeSelected.ToString() == "1/1/0001 12:00:00 AM")
+                {
 
+                    <td>TBD</td>
+                }
+                else
+                {
+                    <td>@Model.Match.TimeSelected</td>
+                }
+              </tr>
+        </tbody>
+    </table>
+}
 <a asp-controller="VeteranIntakeForm" asp-action="GoToStep" class="btn btn-lg btn-primary">Enter Will Information</a>
 
 <h3>Selected Libraries:</h3>

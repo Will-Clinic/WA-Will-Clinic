@@ -4,16 +4,20 @@
     ViewData["Title"] = "EmailConfirmation";
 }
 
-<h2>Email Confirmed</h2>
+@*<h2>Email Confirmed</h2>
 <div>
     <p>
         Thank you for confirming your email.
     </p>
-</div>
-
+</div>*@
+<h2>Lawyer Verification</h2>
 <div>
-    <p>Please input your Bar Number. Note: if the email for your account and the email you have on file with the Washington State Bar Association do not match you will not be confirmed as an attorney.</p>
-    <form method="post" asp-action="OnPostAsync">
+    <p>Please enter your credentials. Note: if the email for your account and the email you have on file with the Washington State Bar Association do not match you will not be confirmed as an attorney.</p>
+    <form method="post">
+        <div>
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" />
+        </div>
         <div>
             <label asp-for="BarNumber">Bar Number</label>
             <input asp-for="BarNumber" type="number" />
