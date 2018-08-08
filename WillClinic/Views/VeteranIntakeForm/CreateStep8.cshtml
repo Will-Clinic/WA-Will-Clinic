@@ -1,345 +1,439 @@
-﻿@model WillClinic.Models.VeteranIntakeForm
+﻿@model WillClinic.Models.IntakeFormViewModels.IntakeFormViewModelMaster
 
 @{
     ViewData["Title"] = "Application Review";
     Layout = "~/Views/Shared/_IntakeLayout.cshtml";
 }
 
-<div class="row">
-    <div>
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <h4>Review Form and Click <b>Finish</b></h4>
-        <hr />
-        <div class="col-md-9">
-            <h4>Personal Information</h4>
-            <dl class="dl-horizontal">
-                <dt>
-                    Full Legal Name
-                </dt>
-                <dd>
-                    @(Model.FullLegalName ?? "")
-                </dd>
-                <dt>
-                    Address
-                </dt>
-                <dd>
-                    @(Model.Address ?? "")
-                </dd>
-                <dt>
-                    Phone Number
-                </dt>
-                <dd>
-                    @(Model.PhoneNumber ?? "")
-                </dd>
-            </dl>
+<form asp-action="CreateStep8">
+    <div class="row">
+        <div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <h4>Review Form and Click <b>Finish</b></h4>
             <hr />
-            <h4>Veteran Status</h4>
-            <dl class="dl-horizontal">
-                <dt>
-                    Veteran Status
-                </dt>
-                <dd>
-                    @(Model.VeteranStatus.GetValueOrDefault())
-                </dd>
-                <dt>
-                    Proof of Service
-                </dt>
-                <dd>
-                    @(Model.ProofOfService.GetValueOrDefault())
-                </dd>
-                <dt>
-                    Resident Status
-                </dt>
-                <dd>
-                    @(Model.ResidentStatus.GetValueOrDefault())
-                </dd>
-                <dt>
-                    Net Worth
-                </dt>
-                <dd>
-                    @(Model.NetWorth.GetValueOrDefault())
-                </dd>
-            </dl>
-            <hr />
-            <h4>Finances</h4>
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.BankAccountAssets)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.BankAccountAssets)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.RealEstateAssets)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.RealEstateAssets)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.LifeInsuranceCashValue)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.LifeInsuranceCashValue)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.RetirementAccounts)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.RetirementAccounts)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.StockBonds)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.StockBonds)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Pension)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Pension)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.BusinessInterest)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.BusinessInterest)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.MoneyOwedToYou)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.MoneyOwedToYou)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.OtherAssetsOrMoney)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.OtherAssetsOrMoney)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.HouseHoldSize)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.HouseHoldSize)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.MonthlyIncome)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.MonthlyIncome)
-                </dd>
-            </dl>
-            <hr />
-            <h4>Last Will and Testament</h4>
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.MaritalStatus)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.MaritalStatus)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.FullNameSpouse)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.FullNameSpouse)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.HaveChildren)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.HaveChildren)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.UnderAgeChildren)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.UnderAgeChildren)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.MinorChildrenDifferentSpouse)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.MinorChildrenDifferentSpouse)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.CurrentlyPregnant)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.CurrentlyPregnant)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.SpecificBequest)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.SpecificBequest)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.BequestInfromation)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.BequestInfromation)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.InheritEstate)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.InheritEstate)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.InheritEstateSpecific)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.InheritEstateSpecific)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.RemainderBeneficiary)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.RemainderBeneficiary)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.RemainderBeneficiarySpecific)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.RemainderBeneficiarySpecific)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.DisinheritSomeone)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.DisinheritSomeone)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.DisinheritDescription)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.DisinheritDescription)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.PrimaryGuardian)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.PrimaryGuardian)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.AlternateGuardian)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.AlternateGuardian)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.PersonalRepresentative)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.PersonalRepresentative)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.AlternateRepresentative)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.AlternateRepresentative)
-                </dd>
-            </dl>
-            <hr />
-            <h4>Power of Attorney</h4>
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.RequestPowerOfAttorney)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.RequestPowerOfAttorney)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.PrimaryAttorney)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.PrimaryAttorney)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.AlternateAttorney)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.AlternateAttorney)
-                </dd>
-            </dl>
-            <hr />
-            <h4>Health Care Directive</h4>
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.HealthCareDirective)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.HealthCareDirective)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.HydrationDirective)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.HydrationDirective)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.NutritionDirective)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.NutritionDirective)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.ArtificialVentilation)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.ArtificialVentilation)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.DistressMedication)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.DistressMedication)
-                </dd>
-            </dl>
-            <hr />
-            <h4>Health Care Power of Attorney</h4>
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.HealthPOA)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.HealthPOA)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.PrimaryHealthAttorney)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.PrimaryHealthAttorney)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.SecondaryHealthAttorney)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.SecondaryHealthAttorney)
-                </dd>
-            </dl>
-        </div>
-        
-    </div>
+            <div class="col-md-9">
+                <h4>Personal Information</h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        Full Legal Name
+                    </dt>
+                    <dd>
+                        @(Model.FullLegalName ?? "")
+                        <input asp-for="FullLegalName"  value="@Model.FullLegalName" hidden/>
+                        <span asp-validation-for="FullLegalName" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        Address
+                    </dt>
+                    <dd>
+                        @(Model.Address ?? "")
+                        <input asp-for="Address" value="@Model.Address" hidden />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        Phone Number
+                    </dt>
+                    <dd>
+                        @(Model.PhoneNumber ?? "")
+                        <input asp-for="PhoneNumber" value="@Model.PhoneNumber" hidden />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </dd>
+                </dl>
+                <hr />
+                <h4>Veteran Status</h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        Veteran Status
+                    </dt>
+                    <dd>
+                        @(Model.VeteranStatus.GetValueOrDefault())
+                        <input asp-for="VeteranStatus" value="@Model.VeteranStatus" hidden />
+                        <span asp-validation-for="VeteranStatus" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        Proof of Service
+                    </dt>
+                    <dd>
+                        @(Model.ProofOfService.GetValueOrDefault())
+                        <input asp-for="ProofOfService" value="@Model.ProofOfService" hidden />
+                        <span asp-validation-for="ProofOfService" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        Resident Status
+                    </dt>
+                    <dd>
+                        @(Model.ResidentStatus.GetValueOrDefault())
+                        <input asp-for="ResidentStatus" value="@Model.ResidentStatus" hidden />
+                        <span asp-validation-for="ResidentStatus" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        Net Worth
+                    </dt>
+                    <dd>
+                        @(Model.NetWorth.GetValueOrDefault())
+                        <input asp-for="NetWorth" value="@Model.NetWorth" hidden />
+                        <span asp-validation-for="NetWorth" class="text-danger"></span>
+                    </dd>
+                </dl>
+                <hr />
+                <h4>Finances</h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BankAccountAssets)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BankAccountAssets)
+                        <input asp-for="BankAccountAssets" value="@Model.BankAccountAssets" hidden />
+                        <span asp-validation-for="BankAccountAssets" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RealEstateAssets)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RealEstateAssets)
+                        <input asp-for="RealEstateAssets" value="@Model.RealEstateAssets" hidden />
+                        <span asp-validation-for="RealEstateAssets" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LifeInsuranceCashValue)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.LifeInsuranceCashValue)
+                        <input asp-for="LifeInsuranceCashValue" value="@Model.LifeInsuranceCashValue" hidden />
+                        <span asp-validation-for="LifeInsuranceCashValue" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RetirementAccounts)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RetirementAccounts)
+                        <input asp-for="RetirementAccounts" value="@Model.RetirementAccounts" hidden />
+                        <span asp-validation-for="RetirementAccounts" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StockBonds)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.StockBonds)
+                        <input asp-for="StockBonds" value="@Model.StockBonds" hidden />
+                        <span asp-validation-for="StockBonds" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Pension)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Pension)
+                        <input asp-for="Pension" value="@Model.Pension" hidden />
+                        <span asp-validation-for="Pension" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BusinessInterest)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BusinessInterest)
+                        <input asp-for="BusinessInterest" value="@Model.BusinessInterest" hidden />
+                        <span asp-validation-for="BusinessInterest" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MoneyOwedToYou)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MoneyOwedToYou)
+                        <input asp-for="MoneyOwedToYou" value="@Model.MoneyOwedToYou" hidden />
+                        <span asp-validation-for="MoneyOwedToYou" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.OtherAssetsOrMoney)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.OtherAssetsOrMoney)
+                        <input asp-for="OtherAssetsOrMoney" value="@Model.OtherAssetsOrMoney" hidden />
+                        <span asp-validation-for="OtherAssetsOrMoney" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HouseHoldSize)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HouseHoldSize)
+                        <input asp-for="HouseHoldSize" value="@Model.HouseHoldSize" hidden />
+                        <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MonthlyIncome)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MonthlyIncome)
+                        <input asp-for="MonthlyIncome" value="@Model.MonthlyIncome" hidden />
+                        <span asp-validation-for="MonthlyIncome" class="text-danger"></span>
+                    </dd>
+                </dl>
+                <hr />
+                <h4>Last Will and Testament</h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaritalStatus)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MaritalStatus)
+                        <input asp-for="MaritalStatus" value="@Model.MaritalStatus" hidden />
+                        <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FullNameSpouse)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.FullNameSpouse)
+                        <input asp-for="FullNameSpouse" value="@Model.FullNameSpouse" hidden />
+                        <span asp-validation-for="FullNameSpouse" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HaveChildren)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HaveChildren)
+                        <input asp-for="HaveChildren" value="@Model.HaveChildren" hidden />
+                        <span asp-validation-for="HaveChildren" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UnderAgeChildren)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.UnderAgeChildren)
+                        <input asp-for="UnderAgeChildren" value="@Model.UnderAgeChildren" hidden />
+                        <span asp-validation-for="UnderAgeChildren" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MinorChildrenDifferentSpouse)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MinorChildrenDifferentSpouse)
+                        <input asp-for="MinorChildrenDifferentSpouse" value="@Model.MinorChildrenDifferentSpouse" hidden />
+                        <span asp-validation-for="MinorChildrenDifferentSpouse" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CurrentlyPregnant)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CurrentlyPregnant)
+                        <input asp-for="CurrentlyPregnant" value="@Model.CurrentlyPregnant" hidden />
+                        <span asp-validation-for="CurrentlyPregnant" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SpecificBequest)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SpecificBequest)
+                        <input asp-for="SpecificBequest" value="@Model.SpecificBequest" hidden />
+                        <span asp-validation-for="SpecificBequest" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BequestInfromation)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BequestInfromation)
+                        <input asp-for="BequestInfromation" value="@Model.BequestInfromation" hidden />
+                        <span asp-validation-for="BequestInfromation" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.InheritEstate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.InheritEstate)
+                        <input asp-for="InheritEstate" value="@Model.InheritEstate" hidden />
+                        <span asp-validation-for="InheritEstate" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.InheritEstateSpecific)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.InheritEstateSpecific)
+                        <input asp-for="InheritEstateSpecific" value="@Model.InheritEstateSpecific" hidden />
+                        <span asp-validation-for="InheritEstateSpecific" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RemainderBeneficiary)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RemainderBeneficiary)
+                        <input asp-for="RemainderBeneficiary" value="@Model.RemainderBeneficiary" hidden />
+                        <span asp-validation-for="RemainderBeneficiary" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RemainderBeneficiarySpecific)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RemainderBeneficiarySpecific)
+                        <input asp-for="RemainderBeneficiarySpecific" value="@Model.RemainderBeneficiarySpecific" hidden />
+                        <span asp-validation-for="RemainderBeneficiarySpecific" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DisinheritSomeone)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DisinheritSomeone)
+                        <input asp-for="DisinheritSomeone" value="@Model.DisinheritSomeone" hidden />
+                        <span asp-validation-for="DisinheritSomeone" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DisinheritDescription)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DisinheritDescription)
+                        <input asp-for="DisinheritDescription" value="@Model.DisinheritDescription" hidden />
+                        <span asp-validation-for="DisinheritDescription" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PrimaryGuardian)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PrimaryGuardian)
+                        <input asp-for="PrimaryGuardian" value="@Model.PrimaryGuardian" hidden />
+                        <span asp-validation-for="PrimaryGuardian" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AlternateGuardian)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.AlternateGuardian)
+                        <input asp-for="AlternateGuardian" value="@Model.AlternateGuardian" hidden />
+                        <span asp-validation-for="AlternateGuardian" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PersonalRepresentative)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PersonalRepresentative)
+                        <input asp-for="PersonalRepresentative" value="@Model.PersonalRepresentative" hidden />
+                        <span asp-validation-for="PersonalRepresentative" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AlternateRepresentative)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.AlternateRepresentative)
+                        <input asp-for="AlternateRepresentative" value="@Model.AlternateRepresentative" hidden />
+                        <span asp-validation-for="AlternateRepresentative" class="text-danger"></span>
+                    </dd>
+                </dl>
+                <hr />
+                <h4>Power of Attorney</h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RequestPowerOfAttorney)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RequestPowerOfAttorney)
+                        <input asp-for="RequestPowerOfAttorney" value="@Model.RequestPowerOfAttorney" hidden />
+                        <span asp-validation-for="RequestPowerOfAttorney" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PrimaryAttorney)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PrimaryAttorney)
+                        <input asp-for="PrimaryAttorney" value="@Model.PrimaryAttorney" hidden />
+                        <span asp-validation-for="PrimaryAttorney" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AlternateAttorney)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.AlternateAttorney)
+                        <input asp-for="AlternateAttorney" value="@Model.AlternateAttorney" hidden />
+                        <span asp-validation-for="AlternateAttorney" class="text-danger"></span>
+                    </dd>
+                </dl>
+                <hr />
+                <h4>Health Care Directive</h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HealthCareDirective)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HealthCareDirective)
+                        <input asp-for="HealthCareDirective" value="@Model.HealthCareDirective" hidden />
+                        <span asp-validation-for="HealthCareDirective" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HydrationDirective)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HydrationDirective)
+                        <input asp-for="HydrationDirective" value="@Model.HydrationDirective" hidden />
+                        <span asp-validation-for="HydrationDirective" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NutritionDirective)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NutritionDirective)
+                        <input asp-for="NutritionDirective" value="@Model.NutritionDirective" hidden />
+                        <span asp-validation-for="NutritionDirective" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ArtificialVentilation)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ArtificialVentilation)
+                        <input asp-for="ArtificialVentilation" value="@Model.ArtificialVentilation" hidden />
+                        <span asp-validation-for="ArtificialVentilation" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DistressMedication)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DistressMedication)
+                        <input asp-for="DistressMedication" value="@Model.DistressMedication" hidden />
+                        <span asp-validation-for="DistressMedication" class="text-danger"></span>
+                    </dd>
+                </dl>
+                <hr />
+                <h4>Health Care Power of Attorney</h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HealthPOA)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HealthPOA)
+                        <input asp-for="HealthPOA" value="@Model.HealthPOA" hidden />
+                        <span asp-validation-for="HealthPOA" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PrimaryHealthAttorney)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PrimaryHealthAttorney)
+                        <input asp-for="PrimaryHealthAttorney" value="@Model.PrimaryHealthAttorney" hidden />
+                        <span asp-validation-for="PrimaryHealthAttorney" class="text-danger"></span>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SecondaryHealthAttorney)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SecondaryHealthAttorney)
+                        <input asp-for="SecondaryHealthAttorney" value="@Model.SecondaryHealthAttorney" hidden />
+                        <span asp-validation-for="SecondaryHealthAttorney" class="text-danger"></span>
+                    </dd>
+                </dl>
+            </div>
 
-</div>
-<hr />
-<div class="class-md-12">
-    <div class="form-group col-md-offset-1 col-md-2 pull-left">
-        <a asp-controller="VeteranIntakeForm" asp-action="CreateStep7" class="btn btn-danger">Back</a>
+        </div>
+
     </div>
-    <div class="form-group text-center col-md-4"></div>
-    <div class="form-group col-md-offset-1 col-md-2">
-        <a asp-controller="Document" asp-action="Confirmation" class="btn btn-info">Create Document</a>
-    </div>
-    <form asp-action="CreateStep8">
+    <hr />
+    <div class="class-md-12">
+        <div class="form-group col-md-offset-1 col-md-2 pull-left">
+            <a asp-controller="VeteranIntakeForm" asp-action="CreateStep7" class="btn btn-danger">Back</a>
+        </div>
+        <div class="form-group text-center col-md-4"></div>
+        <div class="form-group col-md-offset-1 col-md-2">
+            <a asp-controller="Document" asp-action="Confirmation" class="btn btn-info">Create Document</a>
+        </div>
         <div class="form-group col-md-2">
             <input asp-for="IsCompleted" value="true" type="hidden" va />
             <input type="submit" value="Finish" class="btn btn-success" />
         </div>
-    </form>
-</div>
+    </div>
+</form>
