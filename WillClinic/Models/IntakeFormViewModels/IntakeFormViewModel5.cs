@@ -19,5 +19,8 @@ namespace WillClinic.Models.IntakeFormViewModels
         [StringLength(50)]
         [Display(Name = "Alternate Attorney")]
         public string AlternateAttorney { get; set; }
+
+        [Display(Name = "Save & Exit")]
+        public string Exit { get; set; }
     }
 }

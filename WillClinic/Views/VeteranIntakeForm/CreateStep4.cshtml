@@ -14,18 +14,16 @@
         <h3>SECTION 4: Last Will & Testament</h3>
         <hr />
         <form asp-action="CreateStep4">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="HouseHoldSize" class="control-label">Household Size:</label>
                         <input asp-for="HouseHoldSize" class="form-control" />
-                        <span asp-validation-for="HouseHoldSize" class="text-danger"></span>
                     </div>
                     <hr />
                     <div class="form-group">
                         <label asp-for="HaveChildren" class="control-label">
-                            Do you have any children? *
+                            * Do you have any children?
                         </label>
                         <h5>
                             include biological, adopted, or step-children
@@ -49,9 +47,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="MaritalStatus" class="control-label">Marital status (select the most appropriate): *</label>
+                        <label asp-for="MaritalStatus" class="control-label">* Marital status (select the most appropriate): </label>
                         <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
-                        <span asp-validation-for="MaritalStatus" class="text-danger"></span>
                     </div>
                     <hr />
                     <div class="form-group">
@@ -68,7 +65,6 @@
                     <div class="form-group">
                         <label asp-for="FullNameSpouse" class="control-label">Full legal name of your spouse, if applicable</label>
                         <input asp-for="FullNameSpouse" class="form-control" />
-                        <span asp-validation-for="FullNameSpouse" class="text-danger"></span>
                     </div>
                     <hr />
                     <div class="form-group">
@@ -76,7 +72,6 @@
                             If the parent of a minor child is different than your spouse, please list their full name:
                         </label>
                         <input asp-for="MinorChildrenDifferentSpouse" class="form-control" />
-                        <span asp-validation-for="MinorChildrenDifferentSpouse" class="text-danger"></span>
                     </div>
 
                 </div>
@@ -126,7 +121,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                            <label asp-for="SpecificBequest" class="control-label">Would you like to make any specific bequests? *</label>
+                            <label asp-for="SpecificBequest" class="control-label">* Would you like to make any specific bequests? </label>
                             <h5>
                                 The WA Vets Will Clinic DOES NOT handle specific bequests of REAL PROPERTY. Including real property
                                 transfers will disqualify you from participation.
@@ -146,7 +141,6 @@
                             Jane Doe - $10,000 cash; John Doe - 1970 Dodge Challenger)
                         </h5>
                         <textarea asp-for="BequestInfromation" class="form-control" rows="5"></textarea>
-                        <span asp-validation-for="BequestInfromation" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -164,13 +158,12 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="InheritEstate" class="control-label">
-                            Who would you like to inherit your estate when you die? Please check one: *
+                            *Who would you like to inherit your estate when you die? Please check one: 
                         </label>
                         <h5>
                             select the most appropriate
                         </h5>
                         <select asp-for="InheritEstate" class="form-control" asp-items="Html.GetEnumSelectList<InheritEstate>()"></select>
-                        <span asp-validation-for="InheritEstate" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -186,7 +179,6 @@
                             & Society for the Prevention of Cruelty to Animals, 50%)
                         </h5>
                         <input asp-for="InheritEstateSpecific" class="form-control" />
-                        <span asp-validation-for="InheritEstateSpecific" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -202,7 +194,6 @@
                             longer in existence, who would you like to inherit your estate when you die?
                         </h5>
                         <select asp-for="RemainderBeneficiary" class="form-control" asp-items="Html.GetEnumSelectList<RemainderBeneficiary>()"></select>
-                        <span asp-validation-for="RemainderBeneficiary" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -218,7 +209,6 @@
                             & Society for the Prevention of Cruelty to Animals, 50%)
                         </h5>
                         <input asp-for="RemainderBeneficiarySpecific" class="form-control" />
-                        <span asp-validation-for="RemainderBeneficiarySpecific" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -229,7 +219,7 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label asp-for="DisinheritSomeone" class="control-label">
-                            Would you like to disinherit someone, other than your spouse? *
+                            * Would you like to disinherit someone, other than your spouse? 
                         </label>
                         <h5>
                             To 'disinherit' someone is to make a specific statement that a personal will not inherit from your estate.
@@ -247,15 +237,14 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="DisinheretDescription" class="control-label">
+                        <label asp-for="DisinheritDescription" class="control-label">
                             If you have chosen to disinherit someone, other than your spouse, please provide their full legal name
                             and relationship to you.
                         </label>
                         <h5>
                             Example: John Doe Smith - my son
                         </h5>
-                        <input asp-for="DisinheretDescription" class="form-control" />
-                        <span asp-validation-for="DisinheretDescription" class="text-danger"></span>
+                        <input asp-for="DisinheritDescription" class="form-control" />
                     </div>
                 </div>
             </div>
@@ -287,7 +276,6 @@
                             (Example: John Doe, Spokane, Washington; Jane Doe, Spokane, Washington)
                         </h5>
                         <input asp-for="PrimaryGuardian" class="form-control" />
-                        <span asp-validation-for="PrimaryGuardian" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -297,7 +285,6 @@
                             do so by listing their name, city, and state of residence below. (Example: John Doe, Spokane, Washington)
                         </label>
                         <input asp-for="AlternateGuardian" class="form-control" />
-                        <span asp-validation-for="AlternateGuardian" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -314,13 +301,12 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label asp-for="PersonalRepresentative" class="control-label">
-                            Whom do you wish to serve as your personal representative? *
+                            * Whom do you wish to serve as your personal representative? 
                         </label>
                         <h5>
                             List the person's full legal name. This is required.
                         </h5>
                         <input asp-for="PersonalRepresentative" class="form-control" />
-                        <span asp-validation-for="PersonalRepresentative" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -333,7 +319,6 @@
                             List the person's full legal name.
                         </h5>
                         <input asp-for="AlternateRepresentative" class="form-control" />
-                        <span asp-validation-for="AlternateRepresentative" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -344,7 +329,8 @@
                 </div>
 
                 <div class="form-group text-center col-md-8 pull-left">
-                    <a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>
+                    @*<a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>*@
+                    <input type="submit" asp-for="Exit" value=@Html.DisplayNameFor(m => m.Exit) class="btn btn-default" />
                 </div>
 
                 <div class="form-group col-md-2">
