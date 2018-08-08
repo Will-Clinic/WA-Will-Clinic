@@ -27,7 +27,7 @@ namespace WillClinic.Services
             string barNumber = num.ToString();
             StringBuilder sb = new StringBuilder();
             while (sb.Length < sampleNumber.Length - barNumber.Length)
-                sb.Append('0');
+                sb.Insert(0,'0');
             sb.Append(barNumber);
             return baseUrl + sb.ToString();
         }

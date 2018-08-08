@@ -12,9 +12,9 @@ namespace WillClinic.Models.Interfaces
         bool HasCompletedForm();
         bool IsVerified();
         VeteranQueue GetQueueItem();
-        VeteranLawyerMatch GetMatch();
+        Task<VeteranLawyerMatch> GetMatchAsync();
         List<LawyerAvailability> GetLawyerAvailability(string lawyerId);
-        List<VeteranLawyerMatch> GetMatches();
+        Task<List<VeteranLawyerMatch>> GetMatchesAsync();
 
         void AddtoQueue(string userId);
         void FindVeteran();

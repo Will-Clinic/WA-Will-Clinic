@@ -27,16 +27,50 @@ namespace WillClinic.Services
 
         public async Task<Library> FindLibraryByIdAsync(long id) => await _context.Libraries.FindAsync(id);
 
+        /// <summary>
+        /// Grabs all the libraries that matches the lawyer's ID in LawyerLibraryJunction
+        /// </summary>
+        /// <param name="lawyerId">The ID of lawyer</param>
+        /// <returns>IEunmerable type of Library</returns>
         public async Task<IEnumerable<Library>> GetAllLibrariesForLawyerAsync(string lawyerId) =>
             await _context.LawyerLibraryJunctions.Where(llj => llj.LawyerId == lawyerId)
                                                  .Include(llj => llj.Library)
                                                  .Select(llj => llj.Library)
                                                  .ToListAsync();
 
+        /// <summary>
+        /// Grabs all the libraries that matches the Veteran's ID in VeteranLibraryJunction
+        /// </summary>
+        /// <param name="veteranId">The ID of lawyer</param>
+        /// <returns>IEnumerable type of Library</returns>
         public async Task<IEnumerable<Library>> GetAllLibrariesForVeteranAsync(string veteranId) =>
             await _context.VeteranLibraryJunctions.Where(llj => llj.VeteranId == veteranId)
                                                  .Include(llj => llj.Library)
                                                  .Select(llj => llj.Library)
                                                  .ToListAsync();
+
+        /// <summary>
+        /// method that gets all of the libraries that lawyers have associated them with
+        /// The previous implementations have been commented out but not deleted to 
+        /// show what's conceptually being added.
+        /// </summary>
+        /// <returns>IEnumerable collection of Library objects</returns>
+        public async Task<IEnumerable<Library>> GetAllLibrariesWithLawyers()
+        {
+            List<long> libIDs = await _context.LawyerLibraryJunctions.Select(l => l.LibraryId).Distinct().ToListAsync();
+
+            // implementation 1:
+            //List<Library> libraries = new List<Library>();
+            //foreach (var item in libIDs)
+            //{
+            //    libraries.Add(await _context.Libraries.FirstOrDefaultAsync(l => l.ID == item));
+            //}
+
+            // implementation 2:
+            //List<Library> libraries = await _context.Libraries.Where(l => libIDs.Contains(l.ID)).ToListAsync();
+
+            return await _context.Libraries.Join(libIDs, lib => lib.ID,
+                id => id, (lib, id) => lib).ToListAsync();
+        }
     }
 }

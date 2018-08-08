@@ -101,14 +101,14 @@ namespace WillClinic.Models
         /// Action for Lawyer.
         /// </summary>
         /// <returns></returns>
-        public List<VeteranLawyerMatch> GetMatches()
+        public async Task<List<VeteranLawyerMatch>> GetMatchesAsync()
         {
             string userid = _userManager.GetUserId(_httpContext.User);
-            List<VeteranLawyerMatch> list = _context.VeteranLawyerMatches
+            List<VeteranLawyerMatch> list = await _context.VeteranLawyerMatches
                 .Include(match => match.Veteran.IntakeForms)
                 .Include(match => match.Veteran.ApplicationUser)
                 .Where(x => x.LawyerApplicationUserId == userid)
-                .ToList();
+                .ToListAsync();
             foreach(VeteranLawyerMatch match in list)
             {
                 match.Veteran.IntakeForms = match.Veteran.IntakeForms
@@ -123,12 +123,15 @@ namespace WillClinic.Models
         /// Action for Veteran.
         /// </summary>
         /// <returns></returns>
-        public VeteranLawyerMatch GetMatch()
+        public async Task<VeteranLawyerMatch> GetMatchAsync()
         {
             string userid = _userManager.GetUserId(_httpContext.User);
-            VeteranLawyerMatch match = _context.VeteranLawyerMatches.First(x => x.VeteranApplicationUserId == userid);
-            match.Lawyer = _context.Lawyers.Find(match.LawyerApplicationUserId);
-            match.Lawyer.ApplicationUser = _context.Users.Find(match.Lawyer.ApplicationUserId);
+            VeteranLawyerMatch match = await _context.VeteranLawyerMatches.FirstOrDefaultAsync(x => x.VeteranApplicationUserId == userid);
+            if (match != null)
+            {
+                match.Lawyer = _context.Lawyers.Find(match.LawyerApplicationUserId);
+                match.Lawyer.ApplicationUser = _context.Users.Find(match.Lawyer.ApplicationUserId);
+            }
             return match;
         }
 
@@ -146,11 +149,11 @@ namespace WillClinic.Models
         /// Action for Veteran.
         /// </summary>
         /// <param name="timeId"></param>
-        public void AcceptTimeSlot(int timeId)
+        public async void AcceptTimeSlot(int timeId)
         {
             LawyerAvailability timeSlot = _context.LawyerAvailability.Find(timeId);
             // Add timeslot to match obj
-            VeteranLawyerMatch match = GetMatch();
+            VeteranLawyerMatch match = await GetMatchAsync();
             match.TimeSelected = timeSlot.TimeAvailable;
             match.IsDateTimeApproved = true;
             // Remove timeslot from availability obj

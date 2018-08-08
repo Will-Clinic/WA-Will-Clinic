@@ -21,7 +21,10 @@ namespace WillClinic
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            // For production.
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
