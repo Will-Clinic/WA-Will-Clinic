@@ -103,8 +103,8 @@ namespace WillClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep0(IntakeFormViewModel0 intakeFormViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 VeteranIntakeForm veteranIntakeForm = new VeteranIntakeForm();
                 veteranIntakeForm.CurrentStep = 1;
                 veteranIntakeForm.TimeStamp = DateTime.Now;
@@ -115,7 +115,7 @@ namespace WillClinic.Controllers
                 await _context.AddAsync(veteranIntakeForm);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(GoToStep), new { step = veteranIntakeForm.CurrentStep });
-            }
+            //}
             return View(nameof(CreateStep0));
         }
         // PERSONAL INFORMATION
@@ -126,7 +126,7 @@ namespace WillClinic.Controllers
         /// </summary>
         /// <returns>IntakeFormViewModel1</returns>
         [HttpGet]
-        public IActionResult CreateStep1()
+        public async Task<IActionResult> CreateStep1()
         {
             IntakeFormViewModel1 ifvm = new IntakeFormViewModel1();
             VeteranIntakeForm veteranIntakeForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
@@ -138,7 +138,11 @@ namespace WillClinic.Controllers
                 ifvm.FullLegalName = veteranIntakeForm.FullLegalName;
                 ifvm.Address = veteranIntakeForm.Address;
                 ifvm.PhoneNumber = veteranIntakeForm.PhoneNumber;
-                
+
+                veteranIntakeForm.CurrentStep = 1;
+                _context.Update(veteranIntakeForm);
+                await _context.SaveChangesAsync();
+
                 return View(ifvm);
             }
 
@@ -154,8 +158,8 @@ namespace WillClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep1([Bind("FullLegalName,Address,PhoneNumber,Exit")] IntakeFormViewModel1 intakeFormViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
                     form.IsCompleted == null
@@ -179,8 +183,8 @@ namespace WillClinic.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
-            }
-            return View(nameof(CreateStep1));
+            //}
+            //return View(nameof(CreateStep1));
         }
 
         // VETERAN STATUS
@@ -191,7 +195,7 @@ namespace WillClinic.Controllers
         /// </summary>
         /// <returns>IntakeFormViewModel2</returns>
         [HttpGet]
-        public IActionResult CreateStep2()
+        public async Task<IActionResult> CreateStep2()
         {
             IntakeFormViewModel2 ifvm = new IntakeFormViewModel2();
             VeteranIntakeForm veteranIntakeForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
@@ -204,7 +208,11 @@ namespace WillClinic.Controllers
                 ifvm.ResidentStatus = veteranIntakeForm.ResidentStatus;
                 ifvm.VeteranStatus = veteranIntakeForm.VeteranStatus;
                 ifvm.NetWorth = veteranIntakeForm.NetWorth;
-                
+
+                veteranIntakeForm.CurrentStep = 2;
+                _context.Update(veteranIntakeForm);
+                await _context.SaveChangesAsync();
+
                 return View(ifvm);
             }
 
@@ -221,8 +229,8 @@ namespace WillClinic.Controllers
         public async Task<IActionResult> CreateStep2(
             [Bind("VeteranStatus,ProofOfService,ResidentStatus,NetWorth,Exit")] IntakeFormViewModel2 intakeFormViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
                     form.IsCompleted == null
@@ -247,8 +255,8 @@ namespace WillClinic.Controllers
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
-            }
-            return View(nameof(CreateStep2));
+           // }
+           // return View(nameof(CreateStep2));
         }
 
         // FINANCES
@@ -259,7 +267,7 @@ namespace WillClinic.Controllers
         /// </summary>
         /// <returns>IntakeFormViewModel3</returns>
         [HttpGet]
-        public IActionResult CreateStep3()
+        public async Task<IActionResult> CreateStep3()
         {        
             IntakeFormViewModel3 ifvm = new IntakeFormViewModel3();
             VeteranIntakeForm veteranIntakeForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
@@ -279,6 +287,10 @@ namespace WillClinic.Controllers
                 ifvm.MoneyOwedToYou = veteranIntakeForm.MoneyOwedToYou;
                 ifvm.OtherAssetsOrMoney = veteranIntakeForm.OtherAssetsOrMoney;
 
+                veteranIntakeForm.CurrentStep = 3;
+                _context.Update(veteranIntakeForm);
+                await _context.SaveChangesAsync();
+
                 return View(ifvm);
             }
 
@@ -296,8 +308,8 @@ namespace WillClinic.Controllers
             "RetirementAccounts,StockBonds,Pension,BusinessInterest,MoneyOwedToYou,OtherAssetsOrMoney,Exit")
             ]IntakeFormViewModel3 intakeFormViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
                     form.IsCompleted == null
@@ -328,8 +340,8 @@ namespace WillClinic.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
-            }
-            return View(nameof(CreateStep3));
+            //}
+            //return View(nameof(CreateStep3));
         }
 
         // LAST WILL AND TESTAMENT
@@ -340,7 +352,7 @@ namespace WillClinic.Controllers
         /// </summary>
         /// <returns>IntakeFormViewModel4</returns>
         [HttpGet]
-        public IActionResult CreateStep4()
+        public async Task<IActionResult> CreateStep4()
         {
             IntakeFormViewModel4 ifvm = new IntakeFormViewModel4();
             VeteranIntakeForm veteranIntakeForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
@@ -369,6 +381,10 @@ namespace WillClinic.Controllers
                 ifvm.PersonalRepresentative = veteranIntakeForm.PersonalRepresentative;
                 ifvm.AlternateRepresentative = veteranIntakeForm.AlternateRepresentative;
 
+                veteranIntakeForm.CurrentStep = 4;
+                _context.Update(veteranIntakeForm);
+                await _context.SaveChangesAsync();
+
                 return View(ifvm);
             }
 
@@ -387,8 +403,8 @@ namespace WillClinic.Controllers
             "InheritEstate,InheritEstateSpecific,RemainderBeneficiary,RemainderBeneficiarySpecific,DisinheritSomeone,DisinheritDescription,PrimaryGuardian,AlternateGuardian," +
             "PersonalRepresentative,AlternateRepresentative,Exit")]IntakeFormViewModel4 intakeFormViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
                     form.IsCompleted == null
@@ -430,8 +446,8 @@ namespace WillClinic.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
-            }
-            return View(nameof(CreateStep4));
+            //}
+            //return View(nameof(CreateStep4));
         }
 
         // POWER OF ATTORNEY
@@ -442,7 +458,7 @@ namespace WillClinic.Controllers
         /// </summary>
         /// <returns>IntakeFormViewModel5</returns>
         [HttpGet]
-        public IActionResult CreateStep5()
+        public async Task<IActionResult> CreateStep5()
         {
             IntakeFormViewModel5 ifvm = new IntakeFormViewModel5();
             VeteranIntakeForm veteranIntakeForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
@@ -454,6 +470,10 @@ namespace WillClinic.Controllers
                 ifvm.RequestPowerOfAttorney = veteranIntakeForm.RequestPowerOfAttorney;
                 ifvm.PrimaryAttorney = veteranIntakeForm.PrimaryAttorney;
                 ifvm.AlternateAttorney = veteranIntakeForm.AlternateAttorney;
+
+                veteranIntakeForm.CurrentStep = 5;
+                _context.Update(veteranIntakeForm);
+                await _context.SaveChangesAsync();
 
                 return View(ifvm);
             }
@@ -470,8 +490,8 @@ namespace WillClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep5([Bind("RequestPowerOfAttorney,PrimaryAttorney,AlternateAttorney,Exit")]IntakeFormViewModel5 intakeFormViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
                     form.IsCompleted == null
@@ -496,8 +516,8 @@ namespace WillClinic.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
-            }
-            return View(nameof(CreateStep5));
+            //}
+            //return View(nameof(CreateStep5));
         }
 
         // HEALTHCARE DIRECTIVE
@@ -508,7 +528,7 @@ namespace WillClinic.Controllers
         /// </summary>
         /// <returns>IntakeFormViewModel6</returns>
         [HttpGet]
-        public IActionResult CreateStep6()
+        public async Task<IActionResult> CreateStep6()
         {
             IntakeFormViewModel6 ifvm = new IntakeFormViewModel6();
             VeteranIntakeForm veteranIntakeForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
@@ -522,6 +542,10 @@ namespace WillClinic.Controllers
                 ifvm.NutritionDirective = veteranIntakeForm.NutritionDirective;
                 ifvm.ArtificialVentilation = veteranIntakeForm.ArtificialVentilation;
                 ifvm.DistressMedication = veteranIntakeForm.DistressMedication;
+
+                veteranIntakeForm.CurrentStep = 6;
+                _context.Update(veteranIntakeForm);
+                await _context.SaveChangesAsync();
 
                 return View(ifvm);
             }
@@ -539,8 +563,8 @@ namespace WillClinic.Controllers
         public async Task<IActionResult> CreateStep6([Bind("HealthCareDirective,HydrationDirective,NutritionDirective,ArtificialVentilation,DistressMedication,Exit")]
         IntakeFormViewModel6 intakeFormViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
                     form.IsCompleted == null
@@ -566,8 +590,8 @@ namespace WillClinic.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
-            }
-            return View(nameof(CreateStep6));
+            //}
+            //return View(nameof(CreateStep6));
         }
 
         /// <summary>
@@ -577,7 +601,7 @@ namespace WillClinic.Controllers
         /// </summary>
         /// <returns>IntakeFormViewModel7</returns>
         [HttpGet]
-        public IActionResult CreateStep7()
+        public async Task<IActionResult> CreateStep7()
         {
             IntakeFormViewModel7 ifvm = new IntakeFormViewModel7();
             VeteranIntakeForm veteranIntakeForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
@@ -589,6 +613,10 @@ namespace WillClinic.Controllers
                 ifvm.HealthPOA = veteranIntakeForm.HealthPOA;
                 ifvm.PrimaryHealthAttorney = veteranIntakeForm.PrimaryHealthAttorney;
                 ifvm.SecondaryHealthAttorney = veteranIntakeForm.SecondaryHealthAttorney;
+
+                veteranIntakeForm.CurrentStep = 7;
+                _context.Update(veteranIntakeForm);
+                await _context.SaveChangesAsync();
 
                 return View(ifvm);
             }
@@ -605,8 +633,8 @@ namespace WillClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStep7([Bind("HealthPOA,PrimaryHealthAttorney,SecondaryHealthAttorney,Exit")]IntakeFormViewModel7 intakeFormViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
                     form.IsCompleted == null
@@ -629,8 +657,8 @@ namespace WillClinic.Controllers
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
-            }
-            return View(nameof(CreateStep7));
+            //}
+            //return View(nameof(CreateStep7));
         }
         
         // SUMMARY
@@ -740,14 +768,18 @@ namespace WillClinic.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             if (id == 0)
+            {
                 return RedirectToAction("Index", "Veteran");
+             }
             
             var veteranIntakeForm = await _context.VeteranIntakeForms.SingleOrDefaultAsync(m => m.ID == id);
 
             if (veteranIntakeForm == null)
+            {
                 return RedirectToAction("Index", "Veteran");
+            }
 
-            veteranIntakeForm.IsCompleted = null;
+            //veteranIntakeForm.IsCompleted = null;
 
             _context.VeteranIntakeForms.Update(veteranIntakeForm);
             await _context.SaveChangesAsync();
@@ -764,15 +796,25 @@ namespace WillClinic.Controllers
         /// <returns>View</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ID,VeteranApplicationUserId,IsNotarized,TimeStamp,TermsAndConditions,FullLegalName,Address,PhoneNumber,VeteranStatus,ProofOfService,ResidentStatus,NetWorth,BankAccountAssets,RealEstateAssets,LifeInsuranceCashValue,RetirementAccounts,StockBonds,Pension,BusinessInterest,MoneyOwedToYou,OtherAssetsOrMoney,HouseHoldSize,MonthlyIncome,MaritalStatus,FullNameSpouse,HaveChildren,UnderAgeChildren,MinorChildrenDifferentSpouse,CurrentlyPregnant,SpecificBequest,BequestInfromation,InheritEstate,InheritEstateSpecific,RemainderBeneficiary,RemainderBeneficiarySpecific,DisinheritSomeone,DisinherentDescription,PrimaryGuardian,AlternateGuardian,PersonalRepresentative,AlternateRepresentative,RequestPowerOfAttorney,PrimaryAttorney,AlternateAttorney,HealthCareDirective,HydrationDirective,NutritionDirective,ArtificialVentilation,DistressMedication")] VeteranIntakeForm veteranIntakeForm)
+        public async Task<IActionResult> Edit(string id, [Bind("ID,VeteranApplicationUserId,IsNotarized,TimeStamp,TermsAndConditions," +
+            "FullLegalName,Address,PhoneNumber,VeteranStatus,ProofOfService,ResidentStatus,NetWorth,BankAccountAssets,RealEstateAssets," +
+            "LifeInsuranceCashValue,RetirementAccounts,StockBonds,Pension,BusinessInterest,MoneyOwedToYou,OtherAssetsOrMoney,HouseHoldSize," +
+            "MonthlyIncome,MaritalStatus,FullNameSpouse,HaveChildren,UnderAgeChildren,MinorChildrenDifferentSpouse,CurrentlyPregnant," +
+            "SpecificBequest,BequestInfromation,InheritEstate,InheritEstateSpecific,RemainderBeneficiary,RemainderBeneficiarySpecific," +
+            "DisinheritSomeone,DisinherentDescription,PrimaryGuardian,AlternateGuardian,PersonalRepresentative,AlternateRepresentative," +
+            "RequestPowerOfAttorney,PrimaryAttorney,AlternateAttorney,HealthCareDirective,HydrationDirective,NutritionDirective," +
+            "ArtificialVentilation,DistressMedication")] VeteranIntakeForm veteranIntakeForm)
         {
             if (id != veteranIntakeForm.VeteranApplicationUserId)
+            {
                 return NotFound();
-
+            }
+            
             if (ModelState.IsValid)
             {
                 try
                 {
+                    //veteranIntakeForm.IsCompleted = true;
                     _context.Update(veteranIntakeForm);
                     await _context.SaveChangesAsync();
                 }
