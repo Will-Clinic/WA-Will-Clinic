@@ -866,3 +866,12 @@ li.row {
 /** {
     outline:1px solid red;
 }*/
+/*
+.hide-selector {
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+    select::-ms-expand{
+        display:none;
+                      }*/

@@ -396,7 +396,7 @@
                     <dt>
                         @Html.DisplayNameFor(model => model.HealthPOA)
                     </dt>
-                    <dd>
+                    <dd class="hide-selector">
                         @Html.DisplayFor(model => model.HealthPOA)
                         <input asp-for="HealthPOA" value="@Model.HealthPOA" hidden />
                         <span asp-validation-for="HealthPOA" class="text-danger"></span>

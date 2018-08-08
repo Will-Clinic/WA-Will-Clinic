@@ -738,24 +738,24 @@ namespace WillClinic.Controllers
         /// <returns>View of create step 1</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateStep8(bool IsCompleted)
+        public async Task<IActionResult> CreateStep8(IntakeFormViewModelMaster ifvmm)
         {
-            if (ModelState.IsValid && IsCompleted == true)
+            if (ModelState.IsValid)
             {
                 VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
                     form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
                     form.IsCompleted == null
                 );
 
+                currentForm.IsCompleted = ifvmm.IsCompleted;
                 currentForm.TimeStamp = DateTime.Now;
-                currentForm.IsCompleted = IsCompleted;
 
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index", "Veteran");
             }
-            return View(nameof(CreateStep8));
+            return View(ifvmm);
         }
 
         /// <summary>
