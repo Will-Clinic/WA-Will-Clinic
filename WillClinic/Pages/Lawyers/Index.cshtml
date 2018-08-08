@@ -21,8 +21,6 @@
         <tbody>
             @foreach (var item in Model.Matches)
             {
-                @*string fullName = $"{item.Veteran.ApplicationUser.FirstName}  {item.Veteran.ApplicationUser.LastName}";
-                <p>@fullName</p>*@
                 <tr>
                     <td>@item.Veteran.ApplicationUser.LastName</td>
                     <td>@item.Veteran.ApplicationUser.FirstName</td>
