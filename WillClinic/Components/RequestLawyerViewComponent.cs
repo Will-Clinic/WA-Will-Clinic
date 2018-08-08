@@ -21,11 +21,11 @@ namespace WillClinic.Components
             _userManager = userManager;
         }
 
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             if (_matchService.IsMatched())
             {
-                VeteranLawyerMatch match = _matchService.GetMatch();
+                VeteranLawyerMatch match = await _matchService.GetMatchAsync();
                 if (!match.IsDateTimeApproved)
                 {
                     match.Lawyer.Availability = _matchService.GetLawyerAvailability(match.LawyerApplicationUserId);
