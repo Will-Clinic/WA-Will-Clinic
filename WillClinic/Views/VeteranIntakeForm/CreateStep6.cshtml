@@ -21,18 +21,16 @@
         <hr />
 
         <form asp-action="CreateStep6">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="HealthCareDirective" class="control-label">
-                            Do you want a health care directive? *
+                            * Do you want a health care directive? 
                         </label>
                         <div class="radio">
                             <label><input asp-for="HealthCareDirective" type="radio" value="true" />Yes</label>
                             <label><input asp-for="HealthCareDirective" type="radio" value="false" />No</label>
                         </div>
-                        <span asp-validation-for="HealthCareDirective" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -72,7 +70,6 @@
                                 <input asp-for="ArtificialVentilation" type="radio" value="false" /> I DO NOT want cardiopulmonary resuscitation and/or assisted ventilation
                             </label>
                         </div>
-                        <span asp-validation-for="ArtificialVentilation" class="text-danger"></span>
                     </div>
 
                 </div>
@@ -89,7 +86,6 @@
                                 <input asp-for="NutritionDirective" type="radio" value="false" /> I DO NOT want to have artificially-provided nutrition
                             </label>
                         </div>
-                        <span asp-validation-for="NutritionDirective" class="text-danger"></span>
                     </div>
                     <hr />
                     <div class="form-group">
@@ -104,7 +100,6 @@
                                 <input asp-for="DistressMedication" type="radio" value="false" /> I DO NOT want to receive medical treatment to alleviate or eliminate pain or distress
                             </label>
                         </div>
-                        <span asp-validation-for="DistressMedication" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -117,7 +112,7 @@
                 </div>
 
                 <div class="form-group text-center col-md-8 pull-left">
-                    <a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>
+                    <input type="submit" asp-for="Exit" value=@Html.DisplayNameFor(m => m.Exit) class="btn btn-default" />
                 </div>
 
                 <div class="form-group col-md-2">
