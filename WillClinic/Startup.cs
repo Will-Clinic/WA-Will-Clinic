@@ -34,6 +34,7 @@ namespace WillClinic
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["ProductionConnection"]));
 
+
             //Connection string for localDb also stored within Azure KeyVaults and
             //ensures that everyoe has the same setup
             //services.AddDbContext<ApplicationDbContext>(options =>

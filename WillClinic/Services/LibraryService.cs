@@ -27,12 +27,22 @@ namespace WillClinic.Services
 
         public async Task<Library> FindLibraryByIdAsync(long id) => await _context.Libraries.FindAsync(id);
 
+        /// <summary>
+        /// Grabs all the libraries that matches the lawyer's ID in LawyerLibraryJunction
+        /// </summary>
+        /// <param name="lawyerId">The ID of lawyer</param>
+        /// <returns>IEunmerable type of Library</returns>
         public async Task<IEnumerable<Library>> GetAllLibrariesForLawyerAsync(string lawyerId) =>
             await _context.LawyerLibraryJunctions.Where(llj => llj.LawyerId == lawyerId)
                                                  .Include(llj => llj.Library)
                                                  .Select(llj => llj.Library)
                                                  .ToListAsync();
 
+        /// <summary>
+        /// Grabs all the libraries that matches the Veteran's ID in VeteranLibraryJunction
+        /// </summary>
+        /// <param name="veteranId">The ID of lawyer</param>
+        /// <returns>IEnumerable type of Library</returns>
         public async Task<IEnumerable<Library>> GetAllLibrariesForVeteranAsync(string veteranId) =>
             await _context.VeteranLibraryJunctions.Where(llj => llj.VeteranId == veteranId)
                                                  .Include(llj => llj.Library)

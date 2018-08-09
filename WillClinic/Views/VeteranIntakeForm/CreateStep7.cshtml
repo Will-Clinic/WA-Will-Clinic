@@ -23,19 +23,16 @@
         <hr />
 
         <form asp-action="CreateStep7">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label asp-for="HealthPOA" class="control-label">Would you like a health care power of attorney? *</label>
+                        <label asp-for="HealthPOA" class="control-label">* Would you like a health care power of attorney? </label>
                         <div class="radio">
                             <label><input asp-for="HealthPOA" type="radio" value="true" />Yes</label>
                         </div>
                         <div class="radio">
                             <label><input asp-for="HealthPOA" type="radio" value="false" />No</label>
                         </div>
-
-                        <span asp-validation-for="HealthPOA" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -50,7 +47,6 @@
                             List their full legal name
                         </h5>
                         <input asp-for="PrimaryHealthAttorney" class="form-control" />
-                        <span asp-validation-for="PrimaryHealthAttorney" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -61,7 +57,6 @@
                         </label>
                         <h5>List their full legal name</h5>
                         <input asp-for="SecondaryHealthAttorney" class="form-control" />
-                        <span asp-validation-for="SecondaryHealthAttorney" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -74,11 +69,11 @@
                 </div>
 
                 <div class="form-group text-center col-md-8 pull-left">
-                    <a asp-controller="VeteranIntakeForm" asp-action="SaveAndExit" class="btn btn-default">Save & Exit</a>
+                    <input type="submit" asp-for="Exit" value=@Html.DisplayNameFor(m => m.Exit) class="btn btn-default" />
                 </div>
 
                 <div class="form-group col-md-2">
-                    <input type="submit" value="Next" class="btn btn-success" />
+                    <input type="submit" value="Summary" class="btn btn-success" />
                 </div>
             </div>
         </form>
