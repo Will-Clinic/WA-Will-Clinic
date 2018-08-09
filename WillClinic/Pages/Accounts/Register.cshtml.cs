@@ -89,18 +89,6 @@ namespace WillClinic.Pages.Accounts
             //Assigns the NewUser's UserName as the Newuser's Email, as UserName is not user inputable 
             NewUser.UserName = NewUser.Email;
 
-            // checks to see if newly registered user is a lawyer
-            //string emailPath;
-            //if (SelectedUserType == "Lawyer")
-            //{
-            //    emailPath = "/Accounts/EmailConfirmation";
-
-            //}
-            //else
-            //{
-            //    emailPath = "/Accounts/EmailConfirmed";
-            //}
-
             //Creates and saves the NewUser and their password to DB
             var result = await _userManager.CreateAsync(NewUser, Password);
             if (result.Succeeded)
@@ -109,7 +97,7 @@ namespace WillClinic.Pages.Accounts
                 string code = await _userManager.GenerateEmailConfirmationTokenAsync(NewUser);
 
                 //The link that will be in the confirmation email
-                string verifyLink = Url.Page("/Accounts/EmailConfirmed", "OnGet",
+                string verifyLink = Url.Page("/Accounts/EmailConfirmation", "OnGet",
                     new { id = NewUser.Id, code, SelectedUserType }, "https", HttpContext.Request.Host.Value);
 
                 // the button that will hold the verify link so that the user only sees a button to click
