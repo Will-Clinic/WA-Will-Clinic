@@ -303,7 +303,6 @@
     </dl>
     
     <form asp-action="Delete">
-        @*<input type="hidden" asp-for="VeteranApplicationUserId" />*@
         <input type="submit" asp-route-id="@Model.ID" 
                value="Delete" class="btn btn-default" /> |
         <a asp-action="Index" asp-controller="Veteran">Back to List</a>

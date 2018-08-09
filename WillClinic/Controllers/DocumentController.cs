@@ -43,23 +43,22 @@ namespace WillClinic.Controllers
             var user = await _userManager.GetUserAsync(User);
             var veteranIntakeForm = await _context.VeteranIntakeForms.SingleOrDefaultAsync(m => m.VeteranApplicationUserId == user.Id);
 
-            //This is a hard coded view model. Production will use linq quires to populate the model based on the Veteran ID
+            // Production will use linq quires to populate the model based on the Veteran ID
             AllDocsViewModel vm = new AllDocsViewModel()
             {
+
+                // Transfer one object to another for dynamically diplay the information on the Will Document
+                // Following properties are assigned for a test purpose. These should not be a final.
+                // Need to be checked and re-evaluated.
+
                 FirstName = veteranIntakeForm.FullLegalName.ToUpper(),
                 //MiddleName = user.MiddleInitial.ToUpper(),
                 //LastName = user.LastName.ToUpper(),
-                
-                // Not being asked
                 County = "King",
-
                 MaritalStatus = veteranIntakeForm.MaritalStatus.ToString(),
                 SpouseName = veteranIntakeForm.FullNameSpouse,
                 HasChildren = veteranIntakeForm.HaveChildren.Value,
-
-                // Not being asked
                 Children = new List<string> { " Jack ", " Kira "},
-
                 PRPrimeFirstName = veteranIntakeForm.PrimaryGuardian,
                 PRPrimeLastName = "",
                 PRAltFirstName = veteranIntakeForm.AlternateGuardian,
