@@ -17,6 +17,7 @@
                 <tr>
                     <td><a asp-action="GoToStep" asp-controller="VeteranIntakeForm" asp-route-step="@Model.FirstOrDefault(x => !x.IsNotarized.HasValue).CurrentStep">Continue Form</a></td>
                     <td><a asp-action="Delete" asp-controller="VeteranIntakeForm" asp-route-id="@Model.FirstOrDefault(x => !x.IsNotarized.HasValue).ID">Delete</a></td>
+                    <td>Last Edit: @Model.FirstOrDefault(x => !x.IsNotarized.HasValue).TimeStamp</td>
                 </tr>
             }
 

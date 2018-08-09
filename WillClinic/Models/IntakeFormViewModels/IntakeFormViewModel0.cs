@@ -8,8 +8,9 @@ namespace WillClinic.Models.IntakeFormViewModels
 {
     public class IntakeFormViewModel0
     {
-        [Required]
+        //[Required]
         [Display(Name = "Terms and Conditions")]
         public bool? TermsAndConditions { get; set; }
+
     }
 }

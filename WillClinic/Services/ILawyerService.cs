@@ -110,7 +110,7 @@ namespace WillClinic.Services
         /// <param name="lawyerId">The primary key for the Lawyer entity for the new match</param>
         /// <param name="veteranId">The primary key for the Veteran entity for the new match</param>
         /// <returns>True on success; otherwise, false</returns>
-        Task<bool> MatchWithVeteranAsync(string lawyerId, string veteranId);
+        Task<bool> MatchWithVeteranAsync(string lawyerId, string veteranId, string libraryName);
 
         /// <summary>
         /// Verifies the specified Lawyer entity's bar status, returning true or false if the lawyer

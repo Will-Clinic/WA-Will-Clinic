@@ -5,18 +5,26 @@
 }
 
 <h2>Libraries</h2>
-
-<form method="post">
-    @for (int i = 0; i < Model.SelectedLibraries.Count; i++)
-    {
-        <div class="form-group">
-            <label>Library @(i + 1)</label>
-            <select asp-for="SelectedLibraries[i]" asp-items="@Model.AllLibraries"></select>
+@if (Model.AllLibraries.LongCount() == 0)
+{
+    <h3>Sorry, but currently there are no libraries available. Please check again later.</h3>
+    <br/>
+    <a asp-page="Index" class="btn btn-success">Return to Home Page</a>
+}
+else
+{
+    <form method="post">
+        @for (int i = 0; i < Model.SelectedLibraries.Count; i++)
+        {
+            <div class="form-group">
+                <label>Library @(i + 1)</label>
+                <select asp-for="SelectedLibraries[i]" asp-items="@Model.AllLibraries"></select>
+            </div>
+        }
+        <br />
+        <div class="btn-group">
+            <a asp-page="Index" class="btn btn-danger">Cancel</a>
+            <button type="submit" class="btn btn-success">Save Changes</button>
         </div>
-    }
-    <br />
-    <div class="btn-group">
-        <a asp-page="Index" class="btn btn-danger">Cancel</a>
-        <button type="submit" class="btn btn-success">Save Changes</button>
-    </div>
-</form>
+    </form>
+}

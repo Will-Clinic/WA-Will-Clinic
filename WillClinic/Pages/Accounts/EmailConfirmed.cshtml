@@ -1,11 +1,10 @@
 ﻿@page
 @model WillClinic.Pages.Accounts.EmailConfirmedModel
-
 @{
-    ViewData["Title"] = "Email Confirmed";
+    ViewData["Title"] = "EmailConfirmed";
 }
 
 <h2>Thank you!</h2>
 
 <h3>Your email address has been confirmed</h3>
-<p>Please login to continue</p>
+<p>Please <a asp-controller="Account" asp-action="Login">Login</a> to continue</p>

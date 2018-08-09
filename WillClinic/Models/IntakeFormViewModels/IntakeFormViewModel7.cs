@@ -17,5 +17,8 @@ namespace WillClinic.Models.IntakeFormViewModels
 
         [Display(Name = "Secondary Health Attorney")]
         public string SecondaryHealthAttorney { get; set; }
+
+        [Display(Name = "Save & Exit")]
+        public string Exit { get; set; }
     }
 }

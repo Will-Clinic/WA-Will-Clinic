@@ -19,6 +19,10 @@ namespace WillClinic.Pages.Lawyers
         private readonly ILogger<MatchModel> _logger;
 
         public Veteran Veteran { get; set; }
+
+        [BindProperty]
+        public string LibraryName { get; set; }
+
         public IEnumerable<VeteranLibraryJunction> VeteranLibraryJunctions { get; set; }
 
         public MatchModel(IVeteranService veteranService, ILawyerService lawyerService, ILogger<MatchModel> logger)
@@ -64,10 +68,10 @@ namespace WillClinic.Pages.Lawyers
         {
             Lawyer lawyer = await _lawyerService.GetLawyerByPrincipalAsync(User);
 
-            if (await _lawyerService.MatchWithVeteranAsync(lawyer.ApplicationUserId, id))
+            if (await _lawyerService.MatchWithVeteranAsync(lawyer.ApplicationUserId, id, LibraryName))
             {
                 // TODO(taylorjoshuaw): The next steps of matching would take place at this
-                //                      point. This could be e-mail, a built-in agreement
+                //                      point. This could be e- mail, a built-in agreement
                 //                      system to coordinate location / time, etc.
                 return RedirectToPage("Index");
             }

@@ -34,11 +34,15 @@ namespace WillClinic
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["ProductionConnection"]));
 
+
             //Connection string for localDb also stored within Azure KeyVaults and
             //ensures that everyoe has the same setup
             //services.AddDbContext<ApplicationDbContext>(options =>
             //    options.UseSqlServer($"Server=(localdb)\\{Configuration["DefaultConnection"]}"));
-            
+
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();

@@ -27,5 +27,8 @@ namespace WillClinic.Models.IntakeFormViewModels
         
         [Display(Name = "Distress Medication")]
         public bool? DistressMedication { get; set; }
+
+        [Display(Name = "Save & Exit")]
+        public string Exit { get; set; }
     }
 }

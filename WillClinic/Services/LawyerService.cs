@@ -213,7 +213,7 @@ namespace WillClinic.Services
             }
         }
 
-        public async Task<bool> MatchWithVeteranAsync(string lawyerId, string veteranId)
+        public async Task<bool> MatchWithVeteranAsync(string lawyerId, string veteranId, string libraryName)
         {
             if (await _context.VeteranLawyerMatches.AnyAsync(vlm => vlm.VeteranApplicationUserId == veteranId))
             {
@@ -232,6 +232,7 @@ namespace WillClinic.Services
             {
                 LawyerApplicationUserId = lawyerId,
                 VeteranApplicationUserId = veteranId,
+                LocationSelected = libraryName
             });
 
             try
