@@ -6,7 +6,7 @@
 
 <h2>Attorney Profile</h2>
 <strong>Bar#: @Model.Lawyer.BarNumber </strong>
-@if(Model.Matches != null)
+@if(Model.Matches.Count() > 0)
 {
     <h3>Matched Clients:</h3>
     <table class="table">
@@ -46,10 +46,15 @@
         </tbody>
     </table>
 }
-<h3>@Model.PotentialClients.Count() Potential Client(s):</h3>
+
 @if (Model.PotentialClients.Count() > 0)
 {
+<h3>@Model.PotentialClients.Count() Potential Client(s):</h3>
     <h4>Choose a client icon below to start matching:</h4>
+}
+else
+{
+    <h3>You currently have no potential clients.</h3>
 }
 @foreach (var client in Model.PotentialClients)
 {

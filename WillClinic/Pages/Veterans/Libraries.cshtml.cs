@@ -55,9 +55,10 @@ namespace WillClinic.Pages.Veterans
             SelectedLibraries = veteran.VeteranLibraryJunctions.Select(vlj => vlj.LibraryId)
                                                                .Take(3)
                                                                .ToList();
-
+            long libCount = AllLibraries.LongCount();
             // Make sure there are at least three elements in the list to prevent any issues with indexing
-            while (SelectedLibraries.Count < 3)
+            
+            while (SelectedLibraries.Count < 3 && AllLibraries.LongCount() > 0)
             {
                 SelectedLibraries.Add(long.Parse(AllLibraries.First().Value));
             }
