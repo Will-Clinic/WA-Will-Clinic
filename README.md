@@ -1,9 +1,10 @@
 # Washington Will Clinic
 **Iteration 1:** Andres Ibarra, Jeff Martinez, Zachary Johnson, Ariel R. Pedraza, Luay Younus, Dustin Mundy<br/>
 **Iteration 2:** Josh Taylor, Philip Werner, Kevin Farrow, Brent Williams, Tiger Hsu<br/>
-**Version:** 1.2.0
+**Iteration 3:** Andrew Baik, Earl Jay Caoile, Mario Nishio, Eric Singleton<br/>
+**Version:** 1.3.0
 
-[**App Deployed on Azure**](https://washingtonwillclinic.azurewebsites.net)
+[**App Deployed on Azure**](https://willclinicapp3.azurewebsites.net/)
 
 ## Table of Contents
 
@@ -87,19 +88,26 @@ The Washington Will Clinic makes use of the following services:
   are encrypted. In addition, your information will be kept confidential and
   private until both the veteran and attorney have agreed to be matched for
   services.
+
+7. As a developer, can I learn more about the application including the functionality and general code-base?
+  + [Yes you can](https://github.com/Will-Clinic/WA-Will-Clinic/wiki). During iteration 3, documentation has been included within the repository's wiki pages. There you will find explanations such as interface break downs and tutorials on implementations like Azure Key Vaults. 
   
 ## [Reporting Issues/Bugs](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 If users encounter any issues or bugs while using this site, they can be reported through the issues tab found [here](https://github.com/Will-Clinic/WA-Will-Clinic/issues)
 
 ## [Change Log](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
-### Iteration 2
-- Intake form updated for ease and readability
-- Basic matching by selected library complete (TODO range matching)
-- About and resources pages updated
-- Leagal documents built out into viable CSS
-- Color scheme update to change with logged-in user type
-- Attorney validation partial implimented. (TODO Intigrate email confirmation if Attorney has not registered an email)
-- Veteran validation offloaded to Attorney at meeting time.
+### Iteration 3
+Hot Fixes:
+
+* Fixed the email validation link to appropriately route and pass in parameters to validate a veteran registration
+
+Major Updates:
+
+* Updated from 2.0 to 2.1.2 to prepare for deprecation
+* Re-implemented Azure Key Vaults and included documentation with application breakdown and tutorial
+* Filtered libraries without an associated lawyer so veterans cannot select a library without a lawyer
+* Refactored Intake form to save upon early exiting, and it will validate the if all of the required inputs to ensure that nothing is missing
+* Cleaned up profile CSS and added link functionality to access specific pages quickly
 
 ## [License](https://github.com/Will-Clinic/WA-Will-Clinic/new/master?readme=1#table-of-contents)
 The Washington Will Clinic's source code as found within this repository
