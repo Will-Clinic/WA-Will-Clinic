@@ -21,10 +21,7 @@ namespace WillClinic
     {
         public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
-            builder.AddUserSecrets<Startup>();
-            // For production.
-            Configuration = builder.Build();
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -35,20 +32,14 @@ namespace WillClinic
             // production database via Azure Key Vault. Change which AddDbContext call is
             // commented to switch between production and the local development database.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));    
-           // options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            /*
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
-            */
+                options.UseSqlServer(Configuration["ProductionConnection"]));
 
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
 
+            //Connection string for localDb also stored within Azure KeyVaults and
+            //ensures that everyoe has the same setup
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer($"Server=(localdb)\\{Configuration["DefaultConnection"]}"));
+            
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -97,13 +88,11 @@ namespace WillClinic
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
             // Allow for static files under wwwroot/
             app.UseStaticFiles();
-
-            // Enable authentication via Identity
-            app.UseAuthentication();
 
             // Establish default routing for MVC and enable support for Razor Pages
             app.UseMvc(routes =>
