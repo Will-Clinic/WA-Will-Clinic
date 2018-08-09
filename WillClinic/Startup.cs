@@ -32,12 +32,13 @@ namespace WillClinic
             // production database via Azure Key Vault. Change which AddDbContext call is
             // commented to switch between production and the local development database.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["ApplicationDbConnection"]));
-            /*
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["DevelopmentDbConnection"]));
-            */
+                options.UseSqlServer(Configuration["ProductionConnection"]));
 
+            //Connection string for localDb also stored within Azure KeyVaults and
+            //ensures that everyoe has the same setup
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer($"Server=(localdb)\\{Configuration["DefaultConnection"]}"));
+            
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -67,7 +68,8 @@ namespace WillClinic
             });
 
             // Add in the MVC framework
-            services.AddMvc();
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,11 +87,11 @@ namespace WillClinic
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseAuthentication();
+            app.UseHttpsRedirection();
+            app.UseCookiePolicy();
             // Allow for static files under wwwroot/
             app.UseStaticFiles();
-
-            // Enable authentication via Identity
-            app.UseAuthentication();
 
             // Establish default routing for MVC and enable support for Razor Pages
             app.UseMvc(routes =>

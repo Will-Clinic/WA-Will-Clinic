@@ -33,7 +33,7 @@ namespace WillClinic.Services
             await _context.VeteranLibraryJunctions.Include(vlj => vlj.Veteran)
                                                   // OrderBy ensures that the returned veterans are sorted by the order in which they added their library selections
                                                   .OrderBy(vlj => vlj.TimeAdded)
-                                                  .Join(_context.LawyerLibraryJunctions,
+                                                  .Join(_context.LawyerLibraryJunctions.Where(llj => llj.LawyerId == lawyerId),
                                                       vlj => vlj.LibraryId,
                                                       llj => llj.LibraryId,
                                                       (vlj, llj) => vlj.Veteran)
