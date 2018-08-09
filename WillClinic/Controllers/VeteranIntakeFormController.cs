@@ -35,15 +35,19 @@ namespace WillClinic.Controllers
         /// <param name="id">Veteran id</param>
         /// <returns>View of VeteranIntakeForm</returns>
         [HttpGet]
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
+            if (id == 0)
+            {
                 return NotFound();
+            }
 
             var veteranIntakeForm = await _context.VeteranIntakeForms
-                .SingleOrDefaultAsync(m => m.VeteranApplicationUserId == id);
+                .SingleOrDefaultAsync(m => m.ID == id);
             if (veteranIntakeForm == null)
+            {
                 return NotFound();
+            }
 
             return View(veteranIntakeForm);
         }
