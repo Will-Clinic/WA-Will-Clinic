@@ -32,7 +32,7 @@ namespace WillClinic
             // production database via Azure Key Vault. Change which AddDbContext call is
             // commented to switch between production and the local development database.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["ProductConnection"]));
+                options.UseSqlServer(Configuration["ProductionConnection"]));
 
             //Connection string for localDb also stored within Azure KeyVaults and
             //ensures that everyoe has the same setup
