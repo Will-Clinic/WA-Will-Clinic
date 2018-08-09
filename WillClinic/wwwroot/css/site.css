@@ -872,6 +872,7 @@ dd.hide-selector > select {
     border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background-color:white;
 }
     select::-ms-expand{
         display:none;
