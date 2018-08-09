@@ -31,14 +31,17 @@ namespace WillClinic
             // ApplicationDbConnection corresponds to the SQL connection string to the
             // production database via Azure Key Vault. Change which AddDbContext call is
             // commented to switch between production and the local development database.
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["ProductionConnection"]));
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(Configuration["ProductConnection"]));
 
             //Connection string for localDb also stored within Azure KeyVaults and
             //ensures that everyoe has the same setup
             //services.AddDbContext<ApplicationDbContext>(options =>
             //    options.UseSqlServer($"Server=(localdb)\\{Configuration["DefaultConnection"]}"));
-            
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
