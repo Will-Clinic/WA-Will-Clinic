@@ -14,7 +14,7 @@ using WillClinic.Models.IntakeFormViewModels;
 namespace WillClinic.Controllers
 {
     public class VeteranIntakeFormController : Controller
-    {
+    { 
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -160,29 +160,29 @@ namespace WillClinic.Controllers
         {
             //if (ModelState.IsValid)
             //{
-                VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
-                    form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
-                    form.IsCompleted == null
-                );
+            VeteranIntakeForm currentForm = _context.VeteranIntakeForms.FirstOrDefault(form =>
+                form.VeteranApplicationUserId == _userManager.GetUserId(User) &&
+                form.IsCompleted == null
+            );
 
-               // currentForm.CurrentStep = 2;
-                currentForm.TimeStamp = DateTime.Now;
+            // currentForm.CurrentStep = 2;
+            currentForm.TimeStamp = DateTime.Now;
 
-                currentForm.FullLegalName = intakeFormViewModel.FullLegalName;
-                currentForm.Address = intakeFormViewModel.Address;
-                currentForm.PhoneNumber = intakeFormViewModel.PhoneNumber;
+            currentForm.FullLegalName = intakeFormViewModel.FullLegalName;
+            currentForm.Address = intakeFormViewModel.Address;
+            currentForm.PhoneNumber = intakeFormViewModel.PhoneNumber;
 
-                if (intakeFormViewModel.Exit != null)
-                {
-                    _context.VeteranIntakeForms.Update(currentForm);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", "Veteran");
-                }
-                currentForm.CurrentStep = 2;
+            if (intakeFormViewModel.Exit != null)
+            {
                 _context.VeteranIntakeForms.Update(currentForm);
                 await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Veteran");
+            }
+            currentForm.CurrentStep = 2;
+            _context.VeteranIntakeForms.Update(currentForm);
+            await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
+            return RedirectToAction(nameof(GoToStep), new { step = currentForm.CurrentStep });
             //}
             //return View(nameof(CreateStep1));
         }
@@ -677,7 +677,7 @@ namespace WillClinic.Controllers
 
             IntakeFormViewModelMaster ifvmm = new IntakeFormViewModelMaster
             {
-                TermsAndConditions = userForm.TermsAndConditions,
+                //TermsAndConditions = userForm.TermsAndConditions,
                 FullLegalName = userForm.FullLegalName,
                 Address = userForm.Address,
                 PhoneNumber = userForm.PhoneNumber,

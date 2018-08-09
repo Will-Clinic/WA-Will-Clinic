@@ -9,18 +9,18 @@ namespace WillClinic.Models.IntakeFormViewModels
     public class IntakeFormViewModelMaster
     {
         public int ID { get; set; }
-        public string VeteranApplicationUserId { get; set; }
-        public Veteran Veteran { get; set; }
-        public byte CurrentStep { get; set; }
-        public DateTime TimeStamp { get; set; }
+        //public string VeteranApplicationUserId { get; set; }
+        //public Veteran Veteran { get; set; }
+        //public byte CurrentStep { get; set; }
+        //public DateTime TimeStamp { get; set; }
         public bool? IsCompleted { get; set; }
-        public bool? IsNotarized { get; set; }
-        public byte? SavedStep { get; set; }
+        //public bool? IsNotarized { get; set; }
+        //public byte? SavedStep { get; set; }
 
-        // VM0
-        [Required]
-        [Display(Name = "Terms and Conditions")]
-        public bool? TermsAndConditions { get; set; }
+        //// VM0
+        //[Required]
+        //[Display(Name = "Terms and Conditions")]
+        //public bool? TermsAndConditions { get; set; }
 
 
         // VM1
@@ -68,41 +68,41 @@ namespace WillClinic.Models.IntakeFormViewModels
         [DataType(DataType.Currency)]
         public int BankAccountAssets { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Real Estate Assets")]
         [DataType(DataType.Currency)]
         public int RealEstateAssets { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Life Insurance Cash Value")]
         [DataType(DataType.Currency)]
         public int LifeInsuranceCashValue { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Retirement Accounts")]
         [DataType(DataType.Currency)]
         public int RetirementAccounts { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Stock Bonds")]
         [DataType(DataType.Currency)]
         public int StockBonds { get; set; }
 
-        [Required]
+        //[Required]
         [DataType(DataType.Currency)]
         public int Pension { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Business Interest")]
         [DataType(DataType.Currency)]
         public int BusinessInterest { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Money Owed To You")]
         [DataType(DataType.Currency)]
         public int MoneyOwedToYou { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Other Assets Or Money")]
         [DataType(DataType.Currency)]
         public int OtherAssetsOrMoney { get; set; }
@@ -120,7 +120,7 @@ namespace WillClinic.Models.IntakeFormViewModels
         [StringLength(50)]
         [Display(Name = "Full Name Spouse")]
         public string FullNameSpouse { get; set; }
-
+            
         [Required]
         [Display(Name = "Have Children")]
         public bool? HaveChildren { get; set; }
@@ -132,7 +132,6 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "Minor Children Different Spouse")]
         public string MinorChildrenDifferentSpouse { get; set; }
 
-        [Required]
         [Display(Name = "Currently Pregnant")]
         public bool? CurrentlyPregnant { get; set; }
 
@@ -144,6 +143,7 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "Bequest Information")]
         public string BequestInfromation { get; set; }
 
+        [Required]
         [Display(Name = "Inherit Estate")]
         public InheritEstate InheritEstate { get; set; }
 
@@ -151,6 +151,7 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "Inherit Estate Specific")]
         public string InheritEstateSpecific { get; set; }
 
+        [Required]
         [Display(Name = "Remainer Beneficiary")]
         public RemainderBeneficiary RemainderBeneficiary { get; set; }
 
@@ -174,6 +175,7 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "Alternate Guardian")]
         public string AlternateGuardian { get; set; }
 
+        [Required]
         [StringLength(50)]
         [Display(Name = "Personal Representative")]
         public string PersonalRepresentative { get; set; }
@@ -223,7 +225,7 @@ namespace WillClinic.Models.IntakeFormViewModels
         [Display(Name = "Primary Health Attorney")]
         public string PrimaryHealthAttorney { get; set; }
         
-        [Required]
+        //[Required]
         [Display(Name = "Secondary Health Attorney")]
         public string SecondaryHealthAttorney { get; set; }
 
