@@ -4,7 +4,7 @@
 **Iteration 3:** Andrew Baik, Earl Jay Caoile, Mario Nishio, Eric Singleton<br/>
 **Version:** 1.3.0
 
-[**App Deployed on Azure**](https://willclinicapp3.azurewebsites.net/)
+[**App Deployed on Azure**](https://www.vetswillclinic.org/)
 
 ## Table of Contents
 
